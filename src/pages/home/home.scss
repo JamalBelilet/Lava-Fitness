@@ -1,6 +1,14 @@
 page-home {
-  max-width: 100vw !important;
+  .no-padding {
+    padding: 0;
+    margin: 0;
 
+    button {
+      padding: 0!important;
+      margin: 0!important;
+    }
+  }
+  max-width: 100vw !important;
   #notification-button {
     position: relative;
     width: 42px;
@@ -14,7 +22,6 @@ page-home {
     margin: .5em;
     color: white !important;
   }
-
   #notifications-badge {
     background-color: transparent;
     font-size: 0.6em;
@@ -23,16 +30,13 @@ page-home {
     top: calc(50% + 0.1em);
     right: .1em;
     font-weight: 200;
-    color:  white !important;
+    color: white !important;
     fill: white
-
   }
-
-  #notifications-badge.badge.badge-ios, .badge.badge-md {
-    color:  #f8cb4f !important;
-
+  #notifications-badge.badge.badge-ios,
+  .badge.badge-md {
+    color: #f8cb4f !important;
   }
-
   .user-container {
     .user-name {
       font-size: 1.5em;
@@ -45,41 +49,36 @@ page-home {
       padding: 0;
       margin: 0;
       text-align: center;
-      color: rgba(255,255,255,.7) !important;
+      color: rgba(255, 255, 255, .7) !important;
     }
   }
-
   .today-container {
     .floors,
     .steps,
-    .today {
+    .today,
+    .percentage-circle {
       font-size: 0.9em;
       padding: 0;
       margin: 0;
       text-align: center;
     }
     .floors,
-    .steps {
+    .steps,
+    .percentage-circle {
       font-size: 0.8em;
-      color: rgba(255,255,255,.7) !important;
-
-
+      color: rgba(255, 255, 255, .7) !important;
       ion-row {
         font-size: 2em;
-
         ion-icon {
-            margin: 0 .2em;
+          margin: 0 .2em;
         }
         color: white !important;
-
-      p {
-        padding: .5em;
-      }
-
+        p {
+          padding: .5em;
+        }
       }
     }
   }
-
   .workout {
     background: #03a5c4;
     color: white !important;
@@ -88,57 +87,61 @@ page-home {
     margin: 0.3em;
     border-radius: 5px;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
-    color: rgba(255,255,255,.7) !important;
+    color: rgba(255, 255, 255, .7) !important;
     font-weight: 300;
-
     text-align: left;
-
     .workout-title {
       font-size: 1.1em;
       color: white !important;
-    }
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
 
+
+    }
     .workout-container {
       display: flex;
       justify-content: space-between;
       width: 100%;
-
+      margin: .2em 0;
     }
     .workout-average {
       color: white !important;
       margin-top: 2em;
     }
-
     p {
       padding: 0;
-      margin: 0;
+      margin: .125em 0;
       text-align: left;
-
-
     }
   }
-
   .booking {
     background: white;
-    color: #666 !important;
-    font-size: 75%;
-    padding: 1em;
+    color: #999 !important;
+    font-size: 65%;
+    padding: .125em 2.5em;
     margin: 0.3em;
     border-radius: 5px;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
     font-weight: 300;
-
     text-align: left;
-
     .workout-title {
       font-weight: 400;
       font-size: 1.1em;
       color: #444 !important;
+
+      &::before {
+        content: '•';
+        display: block;
+        margin-left: -1.4em;
+        padding: 0 .5em;
+        font-size: 2em;
+        color: yellow;
+      }
     }
     &.add-button {
       max-width: 6em;
       height: initial;
-
       button {
         font-size: 2.8em;
         padding: .1em;
@@ -149,23 +152,18 @@ page-home {
         ion-icon {
           font-weight: 200;
           height: 100%;
-          color: #666!important;
+          color: #666 !important;
         }
       }
-
-
-
     }
   }
-
   .section-title {
     margin: 2em 0 1em 0;
   }
-
   .lava-header {
     height: 40vh;
     background: #03a5c4;
-    color: rgba(255,255,255,.9) !important;
+    color: rgba(255, 255, 255, .9) !important;
     border-radius: 0 0 45% 45%;
     width: 150vw;
     padding: 0 30vw;
@@ -173,5 +171,110 @@ page-home {
   }
   .lava-content {
     padding: .5em;
+  }
+
+
+  // .percentage-circle {
+  //   background: red;
+  //   z-index: 99999;
+  // }
+
+
+  /**
+  percentage circle
+  */
+  $configs: (
+    chart-two: ( svgSize: 100px, percentage: 2, strokeWidth: 5px, backgroundColor: #ffffff, foregroundColor: #f4d350, labelColor: #c6e8d7, labelFontSize: 2.5rem, duration: 3s, animationDelay: 1s));
+  /* ------- DO NOT EDIT BELOW --------- */
+  $pi: 3.14;
+  $labelData: '';
+  @for $i from 0 to 101 {
+    $labelData: $labelData + $i + '\a';
+  }
+  @each $chart,
+  $param in $configs {
+    $c: (map-get($param, svgSize) - map-get($param, strokeWidth)) * $pi;
+    $cOffSet: (map-get($param, percentage)*33/100)*$c;
+    .#{$chart} {
+      width: map-get($param, svgSize);
+      height: map-get($param, svgSize);
+      margin: 0;
+      position: relative;
+      &.animate {
+        svg .circle-foreground {
+          animation: offset map-get($param, duration) ease-in-out forwards;
+          animation-delay: map-get($param, animationDelay);
+        }
+        figcaption:after {
+          animation: #{$chart}-label map-get($param, duration) steps(map-get($param, percentage)) forwards;
+          animation-delay: map-get($param, animationDelay);
+        }
+      }
+      svg {
+        width: 100%;
+        height: 100%;
+        .circle-background {
+          r: (map-get($param, svgSize) - map-get($param, strokeWidth))/2;
+          cx: 50%;
+          cy: 50%;
+          fill: none;
+          stroke: map-get($param, backgroundColor);
+          stroke-width: map-get($param, strokeWidth);
+        }
+        .circle-foreground {
+          @extend .circle-background;
+          stroke: map-get($param, foregroundColor);
+          stroke-dasharray: $cOffSet $c;
+          stroke-dashoffset: $cOffSet;
+          stroke-linecap: round;
+          transform-origin: 50% 50%;
+          transform: rotate(-90deg);
+        }
+      }
+      figcaption {
+        display: inline-block;
+        width: 100%;
+        height: map-get($param, labelFontSize);
+        overflow: hidden;
+        text-align: center;
+        color: map-get($param, labelColor);
+        position: absolute;
+        top: calc(50% - #{map-get($param, labelFontSize)/2});
+        left: 0;
+        font-size: 0;
+        &:after {
+          display: inline-block;
+          content: $labelData;
+          white-space: pre;
+          font-size: map-get($param, labelFontSize);
+          line-height: map-get($param, labelFontSize);
+        }
+      }
+    }
+    @keyframes #{$chart}-label {
+      100% {
+        transform: translateY(map-get($param, labelFontSize) * (-(map-get($param, percentage))));
+      }
+    }
+  }
+  @keyframes offset {
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  /* codepen styling only */
+  @import url(https://fonts.googleapis.com/css?family=Abel);
+  body {
+    background: #272b31;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  figure {
+    margin: 1rem !important;
+  }
+  figcaption {
+    font-family: 'Abel', sans-serif;
   }
 }

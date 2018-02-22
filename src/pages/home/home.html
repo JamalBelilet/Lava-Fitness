@@ -6,7 +6,7 @@
 
 <ion-content>
   <div class="lava-header">
-    <ion-row justify-content-end>
+    <ion-row justify-content-end class="no-padding">
       <button id="notification-button" ion-button clear>
         <ion-icon name="notifications-outline">
           <ion-badge id="notifications-badge" clear>2</ion-badge>
@@ -33,6 +33,20 @@
               {{user.today.floors}}
             </ion-row>
           </ion-col>
+
+          <ion-col class="percentage-circle">
+            <figure class="chart-two animate">
+              <svg role="img" xmlns="http://www.w3.org/2000/svg">
+                <title>[title here]</title>
+                <desc>[long description here]</desc>
+                <circle class="circle-background"/>
+                <circle class="circle-foreground"/>
+              </svg>
+              <figcaption>50% of all males like donuts.</figcaption>
+            </figure>
+            <p>Goal: 3 days</p>
+          </ion-col>
+
           <ion-col class="steps">
             steps
             <ion-row justify-content-center>

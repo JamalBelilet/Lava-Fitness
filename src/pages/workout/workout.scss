@@ -4,7 +4,7 @@ page-workout {
     z-index: -2!important;
   }
   .scroll-content {
-    margin-top: 30vh!important;
+    margin-top: 35vh!important;
     z-index: 999;
   }
 
@@ -38,20 +38,25 @@ page-workout {
     }
   }
 
+  .scroll-content {
+    padding-top: 0!important;
+
+  }
   .exercices {
     // margin-top: -5em;
+
     z-index: 99999999999!important;
     img {
-      width: 4em;
+      width: 3em;
       height: auto
     }
 
     .item-wrapper {
       background: white;
       margin: .8em auto;
-      border-radius: 1em;
-      // box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
-      border: .5px solid black;
+      border-radius: .5em;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
+      // border: .5px solid black;
     }
 
     .item.item-block {
@@ -70,7 +75,7 @@ page-workout {
     top: 0px;
     right: 1px;
     overflow: visible !important;
-    font-size: 1.5em;
+    font-size: 1.2em;
     background: transparent;
     border-radius: 100%;
     padding: 0;
@@ -118,8 +123,8 @@ page-workout {
   }
 
   font-size: 75%;
-  padding: 0.8em;
-  margin: 0.3em;
+  padding: 0.5em;
+  margin: 0.2em;
   border-radius: 5px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
   font-weight: 300;
@@ -129,6 +134,7 @@ page-workout {
   .workout-title {
     font-size: 2.1em;
     color: white  !important;
+
   }
 
   .workout-container {
@@ -148,10 +154,25 @@ page-workout {
     padding: 0;
     margin: 0;
     text-align: left;
+
   }
 
   .workout-exercice {
     font-size: 1.6em;
+  }
+
+  .workout-time {
+    padding-left: .5em;
+  }
+
+
+  .states {
+    width: 65%;
+    margin: 0 auto;
+    font-size: 1.5em;
+    ion-icon {
+      padding: .3em;
+    }
   }
 
 

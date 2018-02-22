@@ -131,19 +131,16 @@ page-star {
       display: flex;
       justify-content: space-between;
       width: 100%;
-
+      margin: .2em 0;
     }
     .workout-average {
       color: white !important;
       margin-top: 2em;
     }
-
     p {
       padding: 0;
-      margin: 0;
+      margin: .125em 0;
       text-align: left;
-
-
     }
   }
 
@@ -151,8 +148,8 @@ page-star {
   .booking {
     background: white;
     color: #666 !important;
-    font-size: 75%;
-    padding: 1em;
+    font-size: 65%;
+    padding: .125em 2.5em;
     margin: 0.3em;
     border-radius: 5px;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
@@ -166,6 +163,18 @@ page-star {
       font-weight: 400;
       font-size: 1.1em;
       color: #444 !important;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      &::before {
+        content: '•';
+        display: block;
+        margin-left: -1.4em;
+        padding: 0 .5em;
+        font-size: 2em;
+        color: yellow;
+      }
     }
     &.add-button {
       max-width: 6em;

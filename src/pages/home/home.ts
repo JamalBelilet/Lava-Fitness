@@ -24,10 +24,10 @@ export class HomePage {
         average: "1/wk",
         state: "Sarted",
         exercices: [
-          {name:'Walk', meta: '10 mins Mis-Speed'},
-          {name:'Walk', meta: '10 mins Mis-Speed'},
-          {name:'Walk', meta: '10 mins Mis-Speed'},
-          {name:'Walk', meta: '10 mins Mis-Speed'},
+          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-radio-button-off'},
+          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-checkmark-circle'},
+          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-checkmark-circle'},
+          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-checkmark-circle'},
         ]
       },
       {

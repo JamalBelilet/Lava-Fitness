@@ -27,7 +27,17 @@
   <ion-row no-padding class="workout-container">
     <ion-col>
       <p class="workout-exercice">{{workout?.exercice}}</p>
-      <p class="workout-time">{{workout?.time}}</p>
+      <ion-row>
+          <ion-row padding style="padding-left: 0">
+              <ion-icon name="time-outline"></ion-icon>
+              <p class="workout-time">{{workout?.time}}</p>
+            </ion-row>
+
+            <ion-row padding>
+                <ion-icon name="ios-code-working"></ion-icon>
+                <p class="workout-time">{{workout?.time}}</p>
+              </ion-row>
+      </ion-row>
     </ion-col>
 
 
@@ -38,6 +48,10 @@
       <p class="workout-state">{{workout?.state}}</p>
     </ion-col>
   </ion-row> -->
+
+  <ion-row class="states">
+    <ion-icon *ngFor="let exercice of workout?.exercices" [name]="exercice.state"></ion-icon>
+  </ion-row>
 
 </ion-header>
 
@@ -70,29 +84,29 @@
               <ion-col col-3>
                 <button ion-button clear>-</button>
               </ion-col>
-              <ion-col  col-5>
+              <ion-col col-5>
                 <p>125</p>
               </ion-col>
-              <ion-col  col-3>
+              <ion-col col-3>
                 <button ion-button clear>+</button>
               </ion-col>
             </ion-row>
           </ion-col>
           <ion-col>
-            <p  class="option-title">Colories burned?</p>
+            <p class="option-title">Colories burned?</p>
             <ion-row justify-content-center>
-                <ion-col col-3>
-                    <button ion-button clear>-</button>
-                  </ion-col>
-                  <ion-col  col-5>
-                    <p>125</p>
-                  </ion-col>
-                  <ion-col  col-3>
-                    <button ion-button clear>+</button>
-                  </ion-col>
+              <ion-col col-3>
+                <button ion-button clear>-</button>
+              </ion-col>
+              <ion-col col-5>
+                <p>125</p>
+              </ion-col>
+              <ion-col col-3>
+                <button ion-button clear>+</button>
+              </ion-col>
             </ion-row>
           </ion-col>
-          <button ion-button clear>
+          <button ion-button clear (click)="exercice.state = 'ios-checkmark-circle'">
             <ion-icon name="checkmark-circle-outline"></ion-icon>
           </button>
         </ion-row>
