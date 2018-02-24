@@ -84,24 +84,26 @@
           </ion-row>
         </ion-slide>
       </ion-slides> -->
-      <ion-slides slidesPerView="2.6" id="Start-a-Workout">
+      <ion-slides slidesPerView="2.6" id="Start-a-Workout" spaceBetween="10">
         <ion-slide class="workout" *ngFor="let workout of  user.workouts" [navPush]="workoutPage" [navParams]="workout">
-          <p class="workout-title">{{workout.title}}</p>
+          <div>
+              <p class="workout-title">{{workout.title}}</p>
 
-          <ion-row no-padding class="workout-container">
-            <ion-col no-padding col-auto>
-              <p class="workout-exercice">{{workout.exercice}}</p>
-            </ion-col>
-            <ion-col no-padding col-auto>
-              <p class="workout-time">{{workout.time}}</p>
-            </ion-col>
-          </ion-row>
-          <ion-row no-padding>
-            <ion-col no-padding>
-              <p class="workout-average">{{workout.average}}</p>
-              <p class="workout-state">{{workout.state}}</p>
-            </ion-col>
-          </ion-row>
+              <ion-row no-padding class="workout-container">
+                <ion-col no-padding col-auto>
+                  <p class="workout-exercice">{{workout.exercice}}</p>
+                </ion-col>
+                <ion-col no-padding col-auto>
+                  <p class="workout-time">{{workout.time}}</p>
+                </ion-col>
+              </ion-row>
+              <ion-row no-padding>
+                <ion-col no-padding>
+                  <p class="workout-average">{{workout.average}}</p>
+                  <p class="workout-state">{{workout.state}}</p>
+                </ion-col>
+              </ion-row>
+          </div>
         </ion-slide>
       </ion-slides>
     </ion-row>

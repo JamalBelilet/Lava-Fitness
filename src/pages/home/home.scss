@@ -256,6 +256,16 @@ page-home {
       }
     }
   }
+
+  #Start-a-Workout {
+    width: 100%;
+
+    margin: 0 auto;
+
+    div {
+      padding: 0 .3em;
+    }
+  }
   .workout {
     background: linear-gradient(135deg, #0ca3ad, #03c3d8);
     color: white !important;
@@ -271,6 +281,15 @@ page-home {
     // margin-top: 1em;
     margin-left: 1em;
 
+    margin: 0;
+
+    &:last-of-type {
+      margin-right: 1em;
+    }
+    // &:first-of-type {
+    //   margin-left: 1em!important;
+    //   background: red;
+    // }
     .workout-title {
       font-size: 1.1em;
       color: white !important;
