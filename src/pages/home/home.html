@@ -34,7 +34,7 @@
             </ion-row>
           </ion-col>
 
-          <ion-col class="percentage-circle">
+          <!-- <ion-col class="percentage-circle">
             <figure class="chart-two animate">
               <svg role="img" xmlns="http://www.w3.org/2000/svg">
                 <title>[title here]</title>
@@ -45,6 +45,47 @@
               <figcaption>50% of all males like donuts.</figcaption>
             </figure>
             <p>Goal: 3 days</p>
+          </ion-col> -->
+
+          <ion-col style="display: flex; justify-content: center; align-items: center; position: relative">
+              <!-- <circle-progress style="width: 2em;"
+                [subtitle]="'days'"
+                [subtitleColor]="'#ffffff'"
+                [unitsColor]="'#ffffff'"
+                [titleColor]="'#ffffff'"
+                [titleFontSize]="30"
+                [showUnits]="false"
+                [percent]="2"
+                [maxPercent]="100"
+                [radius]="40"
+                [outerStrokeWidth]="6"
+                [outerStrokeColor]="'#f8cb4f'"
+                [backgroundStroke]="'#ffffff'"
+                [backgroundStrokeWidth]="6"
+                [backgroundPadding]="-3"
+                [animation]="true"
+                [animationDuration]="300"
+                [showInnerStroke]="false">
+              </circle-progress> -->
+              <round-progress
+                [current]="2"
+                [max]="3"
+                [color]="'#f8cb4f'"
+                [background]="'#eaeaea'"
+                [radius]="40"
+                [stroke]="5"
+                [semicircle]="false"
+                [rounded]="true"
+                [clockwise]="true"
+                [responsive]="false"
+                [duration]="800"
+                [animation]="'easeInOutQuart'"
+                [animationDelay]="0">
+              </round-progress>
+
+              <p style="position: absolute; top: 0px; left: 0; font-size: 2em; width: 100%; text-align: center">2<span style="display: block; font-size: 40%">days</span></p>
+              <!-- <p>days</p> -->
+
           </ion-col>
 
           <ion-col class="steps">
@@ -54,6 +95,10 @@
               {{user.today.steps}}
             </ion-row>
           </ion-col>
+        </ion-row>
+
+        <ion-row style="padding: 0; margin: 0; justify-content: center" >
+          <p style="padding: 0; margin: 0; text-align: center; font-size: 55%;">goal: 3 days</p>
         </ion-row>
       </ion-col>
     </ion-row>

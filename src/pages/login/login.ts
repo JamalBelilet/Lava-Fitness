@@ -116,10 +116,11 @@ export class LoginPage {
     });
     loading.present();
     this.auth.login(this.signinForm.value).subscribe(
+
       res => {
         loading.dismiss();
         this.loginstate = "verify";
-        this.auth.config.AccessToken = (res as any).data.AccessToken;
+        // this.auth.config.AccessToken = (res as any).data.AccessToken;
         this.verifyForm.controls.MobileNumber.setValue(
           this.signinForm.value.MobileNumber
         );
@@ -153,7 +154,7 @@ export class LoginPage {
     this.auth.verify(this.verifyForm.value).subscribe(
       res => {
         loading.dismiss();
-        this.auth.config.AccessToken = (res as any).data.AccessToken;
+        // this.auth.config.AccessToken = (res as any).data.AccessToken;
         this.navCtrl.setRoot(TabsPage);
       },
       error => {
@@ -186,7 +187,7 @@ export class LoginPage {
       res => {
         loading.dismiss();
         this.loginstate = "verify";
-        this.auth.config.AccessToken = (res as any).data.AccessToken;
+        // this.auth.config.AccessToken = (res as any).data.AccessToken;
         return;
         // let alert = this.alertCtrl.create({
         //   title: "Enter verification code",

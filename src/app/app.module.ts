@@ -26,6 +26,8 @@ import { LavaProvider } from '../providers/lava/lava';
 import { ClassShedulePage } from "../pages/class-shedule/class-shedule";
 import { BookPage } from "../pages/book/book";
 
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import {RoundProgressModule} from 'angular-svg-round-progressbar';
 @NgModule({
   declarations: [
     MyApp,
@@ -51,8 +53,20 @@ import { BookPage } from "../pages/book/book";
       tabbarPlacement: "bottom",
       pageTransition: "ios"
     }),
-    HttpClientModule
+    HttpClientModule,
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300
+    }),
+    RoundProgressModule
+
   ],
+
 
   bootstrap: [IonicApp],
   entryComponents: [
@@ -75,7 +89,7 @@ import { BookPage } from "../pages/book/book";
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthenticationProvider,
     ProfileProvider,
-    LavaProvider
+    LavaProvider,
   ]
 })
 export class AppModule {}

@@ -43,7 +43,7 @@ export class LavaProvider {
       });
     }
     return this.http.get(
-      `${this.authProvider.config.baseUrl}/web/exercise/index`
+      `${this.authProvider.config.baseUrl}/web/exercise/index?AccessToken=${this.authProvider.config.AccessToken}`, {headers: this.authProvider.config.headers}
     );
   }
 
@@ -66,7 +66,7 @@ export class LavaProvider {
       });
     }
     return this.http.get(
-      `${this.authProvider.config.baseUrl}/web/exercise/view`
+      `${this.authProvider.config.baseUrl}/web/exercise/view?AccessToken=${this.authProvider.config.AccessToken}`, {headers: this.authProvider.config.headers}
     );
   }
 
@@ -96,7 +96,8 @@ export class LavaProvider {
     );
   }
 
-  reserveSession(updatedUser) {
+  reserveExercise(updatedUser) {
+
     if (this.authProvider.config.debug) {
       return of({
         status: 1,
@@ -121,74 +122,6 @@ export class LavaProvider {
     );
   }
 
-  getTrainers() {
-    if (this.authProvider.config.debug) {
-      return of({
-        status: 1,
-        data: [
-          {
-            ID: 22,
-            FullName: "عالیة فاطمة",
-            FullNameEN: "Alia Fatima"
-          },
-          {
-            ID: 40,
-            FullName: "نعمت الصباغ",
-            FullNameEN: "Neimat Alsabbagh"
-          }
-        ]
-      });
-    }
-    return this.http.get(
-      `${this.authProvider.config.baseUrl}/web/traner/index`
-    );
-  }
-
-  getClasses() {
-    if (this.authProvider.config.debug) {
-      return of({
-        status: 1,
-        data: [
-          {
-            ID: 1,
-            TitleAR: "بودي بامب",
-            TitleEN: "Zumba"
-          },
-          {
-            ID: 2,
-            TitleAR: "بودي بامب",
-            TitleEN: "Body Pump Workout"
-          }
-        ]
-      });
-    }
-    return this.http.get(`${this.authProvider.config.baseUrl}/web/class/index`);
-  }
-
-  getMassagers() {
-    if (this.authProvider.config.debug) {
-      return of({
-        status: 1,
-        data: [
-          {
-            ID: 83,
-            FullName: "\u0641\u0627\u0637\u0645\u0629\u0635\u0644\u0627\u062d",
-            FullNameEN: "Fatima Salah"
-          },
-          {
-            ID: 84,
-            FullName:
-              "\u0645\u0627\u064a\u0627\u0644\u0633\u0627\u0646\u062a\u0631\u0627",
-            FullNameEN: "May Alcantra"
-          }
-        ]
-      });
-    }
-    return this.http.get(
-      `${this.authProvider.config.baseUrl}/web/messager/index`
-    );
-  }
-
   getAllMassageReservations() {
     if (this.authProvider.config.debug) {
       return of({
@@ -207,7 +140,7 @@ export class LavaProvider {
       });
     }
     return this.http.get(
-      `${this.authProvider.config.baseUrl}/web/messager/index`
+      `${this.authProvider.config.baseUrl}/web/messager/index?AccessToken=${this.authProvider.config.AccessToken}`, {headers: this.authProvider.config.headers}
     );
   }
 
@@ -233,7 +166,7 @@ export class LavaProvider {
       });
     }
     return this.http.get(
-      `${this.authProvider.config.baseUrl}/web/messager/view`
+      `${this.authProvider.config.baseUrl}/web/messager/view?AccessToken=${this.authProvider.config.AccessToken}`, {headers: this.authProvider.config.headers}
     );
   }
 

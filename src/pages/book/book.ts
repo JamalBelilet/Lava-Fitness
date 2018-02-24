@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { LavaProvider } from '../../providers/lava/lava';
 import { Observable } from 'rxjs/Observable';
+import { ProfileProvider } from '../../providers/profile/profile';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 /**
  * Generated class for the BookPage page.
@@ -21,9 +23,17 @@ export class BookPage {
   sessions$: Observable<Object>;
   classes$: Observable<Object>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private lavaProvider: LavaProvider) {
+  reserveForm: FormGroup;
+
+  constructor(
+    public formBuilder: FormBuilder,
+    public navCtrl: NavController, public navParams: NavParams, private assetsProvider: ProfileProvider, private lavaProvider: LavaProvider) {
     this._book = navParams.get('book');
 
+    this.reserveForm = formBuilder.group({
+      ToReserve: ["Choose a " + this._book, Validators.required],
+      DateTime: [new Date().toISOString(), Validators.required]
+    });
   }
 
 
@@ -31,8 +41,8 @@ export class BookPage {
     console.log('ionViewDidLoad BookPage');
 
     console.log(this._book);
-    this.classes$ = this.lavaProvider.getClasses();
-    this.sessions$ = this.lavaProvider.getMassageReservations();
+    this.classes$ = this.assetsProvider.getClasses();
+    this.sessions$ = this.assetsProvider.getServices();
   }
 
 
@@ -41,6 +51,13 @@ export class BookPage {
   }
 
   book(){
+    if(this._book == 'class') {
+      this.lavaProvider.reserveExercise(this.reserveForm.value)
+    }
+    else if(this._book == 'session') {
+      this.lavaProvider.reserveMassageSession(this.reserveForm.value)
+    }
+
     this.done = true;
     setTimeout(()=> {
       this.navCtrl.pop();

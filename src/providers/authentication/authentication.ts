@@ -16,16 +16,16 @@ import { of } from "rxjs/observable/of";
 export class AuthenticationProvider {
   // baseUrl: "http://lava.sa/api",
   public config = {
-    baseUrl: "http://lava.sa/api",
+    baseUrl: "/api",
 
     AuthorizationKey: "as@dL8]Rn3$2S!anR",
     headers: new HttpHeaders({
       "Content-Type": "application/json",
       AuthorizationKey: "as@dL8]Rn3$2S!anR"
     }),
-    AccessToken: "",
+    AccessToken: "e48095c6c90209b7a57e194693c1f1ce",
     status: "",
-    debug: true
+    debug: false
   };
 
   constructor(public http: HttpClient, private alertCtrl: AlertController) {
@@ -33,7 +33,8 @@ export class AuthenticationProvider {
   }
 
   login(loginForm) {
-    if (this.config.debug) {
+    if (true) {
+
       return of({
         status: 1,
         data: {
@@ -92,7 +93,7 @@ export class AuthenticationProvider {
   }
 
   verify(user) {
-    if (this.config.debug) {
+    if (true) {
       return of({
         status: 1,
         data: {
@@ -120,7 +121,7 @@ export class AuthenticationProvider {
       )
       .pipe(
         switchMap(response => {
-          this.config.AccessToken = (response as any).data.AccessToken;
+          // this.config.AccessToken = (response as any).data.AccessToken;
           return of(response);
         })
       );

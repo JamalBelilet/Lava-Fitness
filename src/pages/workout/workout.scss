@@ -1,4 +1,5 @@
 page-workout {
+  font-size: .7em!important;
 
   .fixed-content {
     z-index: -2!important;
@@ -6,10 +7,12 @@ page-workout {
   .scroll-content {
     margin-top: 35vh!important;
     z-index: 999;
+
   }
 
   .toolbar.toolbar-md,
   .toolbar.toolbar-ios {
+
     color: white !important;
 
     background: transparent;
@@ -46,26 +49,37 @@ page-workout {
     // margin-top: -5em;
 
     z-index: 99999999999!important;
+
+    ion-thumbnail {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     img {
-      width: 3em;
+      width: 2.5em;
       height: auto
     }
 
     .item-wrapper {
-      background: white;
+
+
+
       margin: .8em auto;
       border-radius: .5em;
       box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
       // border: .5px solid black;
     }
 
-    .item.item-block {
+    .item.item-block, div.input-wrapper {
       border-radius: 1em;
-
-      // box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
-      // border: .5px solid black;
-
-
+      padding: auto 0;
+      margin: 0;
+      p {
+        padding: 0;
+        margin: 0;
+        font-size: 75%;
+      }
     }
   }
 
@@ -116,6 +130,8 @@ page-workout {
     padding: 0 30vw;
     margin-left: -25vw;
     box-shadow: 0 !important;
+
+
 
     &:after {
       background-image: none !important;

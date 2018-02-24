@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { AuthenticationProvider } from "../authentication/authentication";
 import { of } from "rxjs/observable/of";
 
+
 @Injectable()
 export class ProfileProvider {
   private profile = {
@@ -57,8 +58,7 @@ export class ProfileProvider {
       });
     }
     return this.http.get(
-      `${this.authProvider.config.baseUrl}/web/user/profile`,
-      this.headers
+      `${this.authProvider.config.baseUrl}/web/user/profile?AccessToken=${this.authProvider.config.AccessToken}`, {headers: this.authProvider.config.headers}
     );
   }
 
@@ -77,8 +77,7 @@ export class ProfileProvider {
       });
     }
     return this.http.get(
-      `${this.authProvider.config.baseUrl}/web/city/index`,
-      this.headers
+      `${this.authProvider.config.baseUrl}/web/city/index?AccessToken=${this.authProvider.config.AccessToken}`, {headers: this.authProvider.config.headers}
     );
   }
 
@@ -103,8 +102,7 @@ export class ProfileProvider {
       });
     }
     return this.http.get(
-      `${this.authProvider.config.baseUrl}/web/region/index`,
-      this.headers
+      `${this.authProvider.config.baseUrl}/web/region/index?AccessToken=${this.authProvider.config.AccessToken}`, {headers: this.authProvider.config.headers}
     );
   }
 
@@ -135,8 +133,7 @@ export class ProfileProvider {
       });
     }
     return this.http.get(
-      `${this.authProvider.config.baseUrl}/web/branche/index`,
-      this.headers
+      `${this.authProvider.config.baseUrl}/web/branche/index?AccessToken=${this.authProvider.config.AccessToken}`, {headers: this.authProvider.config.headers}
     );
   }
 
@@ -159,8 +156,7 @@ export class ProfileProvider {
       });
     }
     return this.http.get(
-      `${this.authProvider.config.baseUrl}/web/job-title/index`,
-      this.headers
+      `${this.authProvider.config.baseUrl}/web/job-title/index?AccessToken=${this.authProvider.config.AccessToken}`, {headers: this.authProvider.config.headers}
     );
   }
 
@@ -183,8 +179,7 @@ export class ProfileProvider {
       });
     }
     return this.http.get(
-      `${this.authProvider.config.baseUrl}/web/nationality/index`,
-      this.headers
+      `${this.authProvider.config.baseUrl}/web/nationality/index?AccessToken=${this.authProvider.config.AccessToken}`, {headers: this.authProvider.config.headers}
     );
   }
 
@@ -207,8 +202,7 @@ export class ProfileProvider {
       });
     }
     return this.http.get(
-      `${this.authProvider.config.baseUrl}/web/service/index`,
-      this.headers
+      `${this.authProvider.config.baseUrl}/web/service/index?AccessToken=${this.authProvider.config.AccessToken}`, {headers: this.authProvider.config.headers}
     );
   }
 
@@ -233,8 +227,7 @@ export class ProfileProvider {
       });
     }
     return this.http.get(
-      `${this.authProvider.config.baseUrl}/web/membership/index`,
-      this.headers
+      `${this.authProvider.config.baseUrl}/web/membership/index?AccessToken=${this.authProvider.config.AccessToken}`, {headers: this.authProvider.config.headers}
     );
   }
 
@@ -269,6 +262,75 @@ export class ProfileProvider {
         BirthDate: updatedUser.BirthDate
       }),
       options
+    );
+  }
+
+
+  getTrainers() {
+    if (this.authProvider.config.debug) {
+      return of({
+        status: 1,
+        data: [
+          {
+            ID: 22,
+            FullName: "عالیة فاطمة",
+            FullNameEN: "Alia Fatima"
+          },
+          {
+            ID: 40,
+            FullName: "نعمت الصباغ",
+            FullNameEN: "Neimat Alsabbagh"
+          }
+        ]
+      });
+    }
+    return this.http.get(
+      `${this.authProvider.config.baseUrl}/web/traner/index?AccessToken=${this.authProvider.config.AccessToken}`, {headers: this.authProvider.config.headers}
+    );
+  }
+
+  getClasses() {
+    if (this.authProvider.config.debug) {
+      return of({
+        status: 1,
+        data: [
+          {
+            ID: 1,
+            TitleAR: "بودي بامب",
+            TitleEN: "Zumba"
+          },
+          {
+            ID: 2,
+            TitleAR: "بودي بامب",
+            TitleEN: "Body Pump Workout"
+          }
+        ]
+      });
+    }
+    return this.http.get(`${this.authProvider.config.baseUrl}/web/class/index?AccessToken=${this.authProvider.config.AccessToken}`, {headers: this.authProvider.config.headers});
+  }
+
+  getMassagers() {
+    if (this.authProvider.config.debug) {
+      return of({
+        status: 1,
+        data: [
+          {
+            ID: 83,
+            FullName: "\u0641\u0627\u0637\u0645\u0629\u0635\u0644\u0627\u062d",
+            FullNameEN: "Fatima Salah"
+          },
+          {
+            ID: 84,
+            FullName:
+              "\u0645\u0627\u064a\u0627\u0644\u0633\u0627\u0646\u062a\u0631\u0627",
+            FullNameEN: "May Alcantra"
+          }
+        ]
+      });
+    }
+    return this.http.get(
+      `${this.authProvider.config.baseUrl}/web/messager/index?AccessToken=${this.authProvider.config.AccessToken}`, {headers: this.authProvider.config.headers}
     );
   }
 }
