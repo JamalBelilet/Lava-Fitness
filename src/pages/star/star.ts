@@ -4,6 +4,7 @@ import { ClassShedulePage } from "../class-shedule/class-shedule";
 import { BookPage } from "../book/book";
 import { LavaProvider } from "../../providers/lava/lava";
 import { Observable } from "rxjs/Observable";
+import { ProfileProvider } from "../../providers/profile/profile";
 
 /**
  * Generated class for the StarPage page.
@@ -38,13 +39,15 @@ export class StarPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private modalCtrl: ModalController,
-    private lavaProvider: LavaProvider
+    private lavaProvider: LavaProvider,
+    private profileProvider: ProfileProvider
   ) {}
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad StarPage");
 
-    this.bookings$ = this.lavaProvider.getExerciseReservations();
+    this.bookings$ = this.profileProvider.getServices();
+    // this.bookings$ = this.lavaProvider.getExerciseReservations();
   }
 
   bookClass() {

@@ -17,7 +17,7 @@
 
   <ion-row class="schedules">
     <ion-col>
-      <ion-card  [navPush]="classShedule" [navParams]="'Fitness'">
+      <ion-card [navPush]="classShedule" [navParams]="'Fitness'">
         <button ion-button clear>
           <img src="assets/imgs/_expand@2x.png">
         </button>
@@ -53,37 +53,11 @@
       </ion-card>
     </ion-col>
   </ion-row> -->
-  <ion-row>
+  <ion-row class="services-for-booking-row">
 
-    <ion-slides slidesPerView="2.6" id="Start-a-Workout">
-      <ion-slide class="workout booking" *ngFor="let booking of (bookings$ | async)?.data ">
-        <p class="workout-title">{{booking.ExerciseTitle}}</p>
-
-
-        <ion-row no-padding>
-          <ion-col no-padding>
-            <p class="workout-state">{{booking.Duration}}</p>
-          </ion-col>
-        </ion-row>
-
-        <ion-row no-padding class="workout-container">
-          <ion-col no-padding col-auto>
-            <p class="workout-exercice">{{booking.Date}}</p>
-          </ion-col>
-          <!-- <ion-col no-padding col-auto>
-            <p class="workout-time">{{booking.time}}</p>
-          </ion-col> -->
-        </ion-row>
-
-      </ion-slide>
-
-      <!-- <ion-slide class="workout booking add-button">
-        <button clear ion-button>
-          <ion-icon name="add"></ion-icon>
-        </button>
-      </ion-slide> -->
-
-    </ion-slides>
+    <ion-col col-auto  *ngFor="let booking of (bookings$ | async)?.data ">
+      <p class="services-for-booking">{{booking.NameEN}}</p>
+    </ion-col>
   </ion-row>
 
   <ion-col class="sessions">
@@ -96,7 +70,7 @@
         <p>Zamba, Yoga, Dancing, Cycle, ...etc</p>
       </ion-item>
     </ion-card>
-    <ion-card  (click)="bookSession()">
+    <ion-card (click)="bookSession()">
       <ion-item>
         <ion-thumbnail item-left>
           <img src="assets/imgs/relax.png">

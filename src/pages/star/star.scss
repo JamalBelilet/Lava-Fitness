@@ -302,7 +302,6 @@ page-star {
       background: linear-gradient(to right, #0ca3ad, #03c3d8) !important;
       margin: 1.5em auto;
       width: 85%;
-
     }
 
     ion-item {
@@ -337,5 +336,17 @@ page-star {
         height: 5em;
       }
     }
+  }
+
+  .services-for-booking-row {
+    ion-col {
+      margin: .2em;
+    }
+  }
+  .services-for-booking {
+    padding: 0.5em 0.5em;
+    border-radius: .1em;
+    margin: 0;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
   }
 }
