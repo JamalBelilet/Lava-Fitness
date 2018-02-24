@@ -111,8 +111,9 @@
           </ion-row>
         </ion-item-options>
       </ion-item-sliding>
+
     </div>
-    <ion-item-divider>Done</ion-item-divider>
+    <ion-item-divider *ngIf=" (workout?.exercices)?.length">Done</ion-item-divider>
 
     <div *ngFor="let exercice of workout?.exercices">
         <ion-item-sliding #slidingItem *ngIf="exercice.state != 'ios-checkmark-circle'" exercice.state='ios-checkmark-circle'>

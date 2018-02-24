@@ -1,5 +1,5 @@
-import { Component } from "@angular/core";
-import { NavController, ModalController } from "ionic-angular";
+import { Component, ViewChild } from "@angular/core";
+import { NavController, ModalController, Tabs } from "ionic-angular";
 import { WorkoutPage } from "../workout/workout";
 import { LavaProvider } from "../../providers/lava/lava";
 import { Observable } from "rxjs/Observable";
@@ -11,6 +11,9 @@ import { BookPage } from "../book/book";
   templateUrl: "home.html"
 })
 export class HomePage {
+
+  // @ViewChild("paymentTabs") paymentTabs: Tabs;
+
   upcommingExercises: Observable<Object>;
   profile$: Observable<Object>;
   ExerciseReservations$: Observable<Object>;
@@ -100,8 +103,13 @@ export class HomePage {
   }
 
   bookClass() {
-    let BookingModal = this.modalCtrl.create(BookPage, {book: 'class'});
+    // let BookingModal = this.modalCtrl.create(BookPage, {book: 'class'});
 
-    BookingModal.present();
+    // BookingModal.present();
+
+    this.navCtrl.parent.select(0);
   }
+
+  // this.paymentTabs.select(1);
+
 }
