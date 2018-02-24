@@ -1,19 +1,17 @@
-<!-- <ion-header>
-  <ion-navbar>
+<ion-header>
+  <!-- <ion-navbar>
     <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header> -->
+  </ion-navbar> -->
 
-<ion-content>
   <div class="lava-header">
-    <ion-row justify-content-end class="no-padding">
-      <button id="notification-button" ion-button clear>
-        <ion-icon name="notifications-outline">
-          <ion-badge id="notifications-badge" clear>2</ion-badge>
-        </ion-icon>
-      </button>
+    <!-- <ion-row justify-content-end class="no-padding">
+        <button id="notification-button" ion-button clear>
+          <ion-icon name="notifications-outline">
+            <ion-badge id="notifications-badge" clear>2</ion-badge>
+          </ion-icon>
+        </button>
 
-    </ion-row>
+      </ion-row> -->
 
     <ion-row class="user-container">
       <ion-col>
@@ -27,82 +25,40 @@
         <p class="today">TODAY</p>
         <ion-row>
           <ion-col class="floors">
-            floors
-            <ion-row justify-content-center>
-              <ion-icon name="podium"></ion-icon>
-              {{user.today.floors}}
-            </ion-row>
+            <img src="assets/imgs/_stairs@2x.png">
+            <p>floors</p>
+            <p class="act-number">{{user.today.floors}}</p>
           </ion-col>
+          <ion-col class="progress-container">
+            <round-progress [current]="2" [max]="3" [color]="'#f8cb4f'" [background]="'#ffffff'" [radius]="60" [stroke]="8" [semicircle]="false"
+              [rounded]="true" [clockwise]="true" [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="0">
+            </round-progress>
 
-          <!-- <ion-col class="percentage-circle">
-            <figure class="chart-two animate">
-              <svg role="img" xmlns="http://www.w3.org/2000/svg">
-                <title>[title here]</title>
-                <desc>[long description here]</desc>
-                <circle class="circle-background"/>
-                <circle class="circle-foreground"/>
-              </svg>
-              <figcaption>50% of all males like donuts.</figcaption>
-            </figure>
-            <p>Goal: 3 days</p>
-          </ion-col> -->
-
-          <ion-col style="display: flex; justify-content: center; align-items: center; position: relative">
-              <!-- <circle-progress style="width: 2em;"
-                [subtitle]="'days'"
-                [subtitleColor]="'#ffffff'"
-                [unitsColor]="'#ffffff'"
-                [titleColor]="'#ffffff'"
-                [titleFontSize]="30"
-                [showUnits]="false"
-                [percent]="2"
-                [maxPercent]="100"
-                [radius]="40"
-                [outerStrokeWidth]="6"
-                [outerStrokeColor]="'#f8cb4f'"
-                [backgroundStroke]="'#ffffff'"
-                [backgroundStrokeWidth]="6"
-                [backgroundPadding]="-3"
-                [animation]="true"
-                [animationDuration]="300"
-                [showInnerStroke]="false">
-              </circle-progress> -->
-              <round-progress
-                [current]="2"
-                [max]="3"
-                [color]="'#f8cb4f'"
-                [background]="'#eaeaea'"
-                [radius]="40"
-                [stroke]="5"
-                [semicircle]="false"
-                [rounded]="true"
-                [clockwise]="true"
-                [responsive]="false"
-                [duration]="800"
-                [animation]="'easeInOutQuart'"
-                [animationDelay]="0">
-              </round-progress>
-
-              <p style="position: absolute; top: 0px; left: 0; font-size: 2em; width: 100%; text-align: center">2<span style="display: block; font-size: 40%">days</span></p>
-              <!-- <p>days</p> -->
+            <p class="progress-days">
+              2
+              <span>days</span>
+            </p>
+            <!-- <p>days</p> -->
 
           </ion-col>
 
           <ion-col class="steps">
-            steps
-            <ion-row justify-content-center>
-              <ion-icon name="happy"></ion-icon>
-              {{user.today.steps}}
-            </ion-row>
+            <img src="assets/imgs/_steps@2x.png">
+            <p>steps</p>
+            <p class="act-number">{{user.today.steps}}</p>
           </ion-col>
         </ion-row>
 
-        <ion-row style="padding: 0; margin: 0; justify-content: center" >
-          <p style="padding: 0; margin: 0; text-align: center; font-size: 55%;">goal: 3 days</p>
+        <ion-row style="padding: 0; margin: 0; justify-content: center">
+          <p style="padding: 1em; margin: 0; text-align: center; font-size: 1em;">goal: 3 days</p>
         </ion-row>
       </ion-col>
     </ion-row>
   </div>
+
+</ion-header>
+
+<ion-content>
 
   <div class="lava-content">
     <ion-row>
@@ -128,7 +84,7 @@
           </ion-row>
         </ion-slide>
       </ion-slides> -->
-      <ion-slides slidesPerView="2.2" id="Start-a-Workout">
+      <ion-slides slidesPerView="2.6" id="Start-a-Workout">
         <ion-slide class="workout" *ngFor="let workout of  user.workouts" [navPush]="workoutPage" [navParams]="workout">
           <p class="workout-title">{{workout.title}}</p>
 
@@ -154,30 +110,31 @@
     <ion-row>
       <p class="section-title">Upcoming Bookings:</p>
 
-      <ion-slides slidesPerView="2.9" id="Start-a-Workout">
-        <ion-slide class="workout booking" *ngFor="let booking of user.bookings ">
-          <p class="workout-title">{{booking.title}}</p>
+      <ion-slides slidesPerView="3.5" id="Start-a-Workout">
+        <ion-slide class="workout booking" *ngFor="let booking of [(upcommingExercises | async)?.data[0], (upcommingExercises | async)?.data[1]] ">
+
+          <p class="workout-title">{{booking?.ExerciseTitle}}</p>
 
 
           <ion-row no-padding>
             <ion-col no-padding>
-              <p class="workout-state">{{booking.duration}}</p>
+              <p class="workout-state">{{booking?.Duration}}</p>
             </ion-col>
           </ion-row>
 
           <ion-row no-padding class="workout-container">
             <ion-col no-padding col-auto>
-              <p class="workout-exercice">{{booking.day}}</p>
+              <p class="workout-exercice">{{booking?.Date}}</p>
             </ion-col>
-            <ion-col no-padding col-auto>
+            <!-- <ion-col no-padding col-auto>
               <p class="workout-time">{{booking.time}}</p>
-            </ion-col>
+            </ion-col> -->
           </ion-row>
 
         </ion-slide>
 
         <ion-slide class="workout booking add-button">
-          <button clear ion-button>
+          <button clear ion-button (click)="bookClass()">
             <ion-icon name="add"></ion-icon>
           </button>
         </ion-slide>

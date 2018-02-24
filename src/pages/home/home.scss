@@ -1,15 +1,134 @@
 page-home {
   font-size: 85%;
+  padding: 0.5em;
+  margin: 0.2em;
+  border-radius: 5px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
+  font-weight: 300;
+
+  text-align: center;
+
+  .fixed-content {
+    z-index: -2 !important;
+  }
+  .scroll-content {
+    margin-top: calc(40vh + 2.5em) !important;
+    z-index: 999;
+  }
+
+  .toolbar.toolbar-md,
+  .toolbar.toolbar-ios {
+    color: white !important;
+
+    background: transparent;
+    .toolbar-title.toolbar-title-md,
+    .toolbar-title.toolbar-title-ios {
+      color: rgba(255, 255, 255, 0.85) !important;
+      font-weight: 400;
+    }
+
+    ion-icon.back-button-icon.icon {
+      color: white !important;
+    }
+
+    .toolbar-background.toolbar-background-md,
+    .toolbar-background.toolbar-background-ios {
+      background: transparent;
+      color: white !important;
+
+      .back-button.bar-button {
+        color: white !important;
+
+        &.bar-button-md.back-button-md.bar-button-default.bar-button-default-md.show-back-button,
+        &.bar-button-ios.back-button-ios.bar-button-default.bar-button-default-ios.show-back-button {
+          color: white !important;
+        }
+      }
+    }
+  }
+
+  .scroll-content {
+    padding-top: 0 !important;
+  }
+  .exercices {
+    // margin-top: -5em;
+
+    z-index: 99999999999 !important;
+
+    ion-thumbnail {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    img {
+      width: 2.5em;
+      height: auto;
+    }
+
+    .item-wrapper {
+      margin: 0.8em auto;
+      border-radius: 0.5em;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
+      // border: .5px solid black;
+    }
+
+    .item.item-block,
+    div.input-wrapper {
+      border-radius: 1em;
+      padding: auto 0;
+      margin: 0;
+      p {
+        padding: 0;
+        margin: 0;
+        font-size: 75%;
+      }
+    }
+  }
+
+  .header.header-md,
+  .header.header-ios {
+    background: linear-gradient(135deg, #0193a0, #21c1ca);
+    color: white !important;
+
+    height: calc(40vh + 1em);
+
+    color: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 0 0 45% 45%;
+    width: 150vw;
+    padding: 0 28vw;
+    margin-left: -25vw;
+    box-shadow: 0 !important;
+
+    &:after {
+      background-image: none !important;
+    }
+  }
+
   .no-padding {
     padding: 0;
     margin: 0;
 
     button {
-      padding: 0!important;
-      margin: 0!important;
+      padding: 0 !important;
+      margin: 0 !important;
     }
   }
   max-width: 100vw !important;
+
+  ion-content {
+    padding: 0 .5em;
+    font-size: 75%;
+
+    text-align: left;
+
+    h2 {
+      font-size: 1.6em;
+      color: #666;
+      padding: 0 1em;
+    }
+  }
+
   #notification-button {
     position: relative;
     width: 42px;
@@ -20,7 +139,7 @@ page-home {
     background: transparent;
     border-radius: 100%;
     padding: 0;
-    margin: .5em;
+    margin: 0.5em;
     color: white !important;
   }
   #notifications-badge {
@@ -29,18 +148,51 @@ page-home {
     padding: 0px;
     position: absolute;
     top: calc(50% + 0.1em);
-    right: .1em;
+    right: 0.1em;
     font-weight: 200;
     color: white !important;
-    fill: white
+    fill: white;
   }
   #notifications-badge.badge.badge-ios,
   .badge.badge-md {
     color: #f8cb4f !important;
   }
+
+  .progress-container {
+    position: relative;
+    // background: red;
+    padding: 0;
+    margin: 0;
+  }
+
+  .progress-days {
+    position: absolute;
+    // top: calc(-60/30 -3em);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: nowrap column;
+    // background: rgba(185, 185, 241,.5);
+    left: 0;
+    top: 0 !important;
+    font-size: 3em;
+    font-weight: 600;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    span {
+      display: block;
+      font-size: 40%;
+      font-weight: 300;
+    }
+  }
+
   .user-container {
     .user-name {
       font-size: 1.5em;
+      font-weight: 600;
       padding: 0;
       margin: 0;
       text-align: center;
@@ -50,10 +202,24 @@ page-home {
       padding: 0;
       margin: 0;
       text-align: center;
-      color: rgba(255, 255, 255, .7) !important;
+      color: rgba(255, 255, 255, 0.7) !important;
     }
   }
   .today-container {
+    ion-row {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    ion-col {
+      display: flex;
+      flex-flow: nowrap column;
+      justify-content: center;
+      align-items: center;
+    }
+
     .floors,
     .steps,
     .today,
@@ -63,48 +229,60 @@ page-home {
       margin: 0;
       text-align: center;
     }
+    .today {
+      padding: 1em;
+    }
     .floors,
     .steps,
     .percentage-circle {
       font-size: 0.8em;
-      color: rgba(255, 255, 255, .7) !important;
-      ion-row {
-        font-size: 2em;
-        ion-icon {
-          margin: 0 .2em;
-        }
-        color: white !important;
-        p {
-          padding: .5em;
+      color: rgba(255, 255, 255, 0.7) !important;
+      font-size: 0.8;
+      img {
+        width: auto;
+        height: 3em;
+      }
+      p {
+        color: rgba(255, 255, 255, 0.7) !important;
+        // padding: 0.5em;
+        padding: 0.1em;
+        margin: 0;
+
+        &.act-number {
+          color: rgba(255, 255, 255, 1) !important;
+          font-size: 2.2em;
+          font-weight: 600;
         }
       }
     }
   }
   .workout {
-    background: #03a5c4;
+    background: linear-gradient(to right, #0ca3ad, #03c3d8);
     color: white !important;
     font-size: 75%;
     padding: 0.8em;
     margin: 0.3em;
     border-radius: 5px;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
-    color: rgba(255, 255, 255, .7) !important;
+    color: rgba(255, 255, 255, 0.7) !important;
     font-weight: 300;
     text-align: left;
+
+    // margin-top: 1em;
+    margin-left: 1em;
+
     .workout-title {
       font-size: 1.1em;
       color: white !important;
       display: flex;
       justify-content: flex-start;
       align-items: center;
-
-
     }
     .workout-container {
       display: flex;
       justify-content: space-between;
       width: 100%;
-      margin: .2em 0;
+      margin: 0.2em 0;
     }
     .workout-average {
       color: white !important;
@@ -112,40 +290,60 @@ page-home {
     }
     p {
       padding: 0;
-      margin: .125em 0;
+      margin: 0.125em 0;
       text-align: left;
     }
   }
   .booking {
     background: white;
-    color: #999 !important;
-    font-size: 65%;
-    padding: .125em 2.5em;
+    color: #555 !important;
+    padding: 0.125em 2.6em;
     margin: 0.3em;
     border-radius: 5px;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
     font-weight: 300;
+
     text-align: left;
+
+    margin-top: 1em;
+    margin-left: 2em;
+
     .workout-title {
-      font-weight: 400;
+      font-weight: 700;
       font-size: 1.1em;
-      color: #444 !important;
+      color: #999 !important;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
 
       &::before {
-        content: '•';
+        content: "•";
         display: block;
         margin-left: -1.4em;
-        padding: 0 .5em;
+        padding: 0 0.5em;
         font-size: 2em;
         color: yellow;
       }
     }
+
+    p {
+      font-size: 0.9em;
+      padding-left: 0.2em;
+      padding-right: 0.2em;
+      padding-bottom: 0.1em;
+    }
+
     &.add-button {
-      max-width: 6em;
+      max-width: 8em;
       height: initial;
+      padding: 0;
+      width: 100%;
+      border: 1px solid #999;
+      box-shadow: none;
+
       button {
         font-size: 2.8em;
-        padding: .1em;
+        padding: 0.1em;
         margin: 0;
         font-weight: 200;
         width: 100%;
@@ -159,41 +357,50 @@ page-home {
     }
   }
   .section-title {
-    margin: 2em 0 1em 0;
+    @extend h2;
+    margin: 1em 0 .5em 0;
   }
   .lava-header {
-    height: 40vh;
-    background: #03a5c4;
-    color: rgba(255, 255, 255, .9) !important;
-    border-radius: 0 0 45% 45%;
-    width: 150vw;
-    padding: 0 30vw;
-    margin-left: -25vw;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-flow: nowrap column;
+    justify-content: center;
+    font-size: 75%;
   }
-  .lava-content {
-    padding: .5em;
-  }
-
+  // .lava-content {
+  //   padding: .5em;
+  // }
 
   // .percentage-circle {
   //   background: red;
   //   z-index: 99999;
   // }
 
-
   /**
   percentage circle
   */
   $configs: (
-    chart-two: ( svgSize: 85px, percentage: 2, strokeWidth: 5px, backgroundColor: #ffffff, foregroundColor: #f4d350, labelColor: #c6e8d7, labelFontSize: 2.5rem, duration: 2s, animationDelay: .5s));
+    chart-two:
+      (
+        svgSize: 85px,
+        percentage: 2,
+        strokeWidth: 5px,
+        backgroundColor: #ffffff,
+        foregroundColor: #f4d350,
+        labelColor: #c6e8d7,
+        labelFontSize: 2.5rem,
+        duration: 2s,
+        animationDelay: 0.5s
+      )
+  );
   /* ------- DO NOT EDIT BELOW --------- */
   $pi: 3.14;
-  $labelData: '';
+  $labelData: "";
   @for $i from 0 to 101 {
-    $labelData: $labelData + $i + '\a';
+    $labelData: $labelData + $i + "\a";
   }
-  @each $chart,
-  $param in $configs {
+  @each $chart, $param in $configs {
     $c: (map-get($param, svgSize) - map-get($param, strokeWidth)) * $pi;
     $cOffSet: (map-get($param, percentage)*33/100)*$c;
     .#{$chart} {
@@ -207,7 +414,9 @@ page-home {
           animation-delay: map-get($param, animationDelay);
         }
         figcaption:after {
-          animation: #{$chart}-label map-get($param, duration) steps(map-get($param, percentage)) forwards;
+          animation: #{$chart}-label map-get($param, duration) steps(
+              map-get($param, percentage)
+            ) forwards;
           animation-delay: map-get($param, animationDelay);
         }
       }
@@ -254,7 +463,9 @@ page-home {
     }
     @keyframes #{$chart}-label {
       100% {
-        transform: translateY(map-get($param, labelFontSize) * (-(map-get($param, percentage))));
+        transform: translateY(
+          map-get($param, labelFontSize) * (-(map-get($param, percentage)))
+        );
       }
     }
   }
@@ -276,137 +487,123 @@ page-home {
     margin: 1rem !important;
   }
   figcaption {
-    font-family: 'Abel', sans-serif;
+    font-family: "Abel", sans-serif;
   }
-
 
   .flex-wrapper {
-  display: flex;
-  flex-flow: row nowrap;
-}
-
-.single-chart {
-  width: 33%;
-  justify-content: space-around ;
-}
-
-.circular-chart {
-  display: block;
-  margin: 10px auto;
-  max-width: 80%;
-  max-height: 250px;
-}
-
-.circle-bg {
-  fill: none;
-  stroke: #eee;
-  stroke-width: 3.8;
-}
-
-.circle {
-  fill: none;
-  stroke-width: 2.8;
-  stroke-linecap: round;
-  animation: progress 1s ease-out forwards;
-}
-
-@keyframes progress {
-  0% {
-    stroke-dasharray: 0 100;
+    display: flex;
+    flex-flow: row nowrap;
   }
-}
 
-.circular-chart.orange .circle {
-  stroke: #ff9f00;
-}
-
-.circular-chart.green .circle {
-  stroke: #4CC790;
-}
-
-.circular-chart.blue .circle {
-  stroke: #3c9ee5;
-}
-
-.percentage {
-  fill: #666;
-  font-family: sans-serif;
-  font-size: 0.5em;
-  text-anchor: middle;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-.flex-wrapper {
-  display: flex;
-  flex-flow: row nowrap;
-}
-
-.single-chart {
-  width: 10em;
-  justify-content: space-around ;
-}
-
-.circular-chart {
-  display: block;
-  margin: 10px auto;
-  max-width: 10em;
-  background: red;
-  max-height: 10em;
-
-}
-
-.circle-bg {
-  fill: none;
-  stroke: #eee;
-  stroke-width: 3.8;
-  max-width: 10em;
-  max-height: 10em;
-  min-width: 10em;
-  min-height: 10em;
-}
-
-.circle {
-  fill: none;
-  stroke-width: 2.8;
-  stroke-linecap: round;
-  animation: progress 1s ease-out forwards;
-  min-width: 10em;
-  min-height: 10em;
-
-}
-
-@keyframes progress {
-  0% {
-    stroke-dasharray: 0 100;
+  .single-chart {
+    width: 33%;
+    justify-content: space-around;
   }
-}
 
-.circular-chart.orange .circle {
-  stroke: #ff9f00;
-}
+  .circular-chart {
+    display: block;
+    margin: 10px auto;
+    max-width: 80%;
+    max-height: 250px;
+  }
 
-.circular-chart.green .circle {
-  stroke: #4CC790;
-}
+  .circle-bg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 3.8;
+  }
 
-.circular-chart.blue .circle {
-  stroke: #3c9ee5;
-}
+  .circle {
+    fill: none;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    animation: progress 1s ease-out forwards;
+  }
 
-.percentage {
-  fill: #666;
-  font-family: sans-serif;
-  font-size: 0.5em;
-  text-anchor: middle;
-}
+  @keyframes progress {
+    0% {
+      stroke-dasharray: 0 100;
+    }
+  }
+
+  .circular-chart.orange .circle {
+    stroke: #ff9f00;
+  }
+
+  .circular-chart.green .circle {
+    stroke: #4cc790;
+  }
+
+  .circular-chart.blue .circle {
+    stroke: #3c9ee5;
+  }
+
+  .percentage {
+    fill: #666;
+    font-family: sans-serif;
+    font-size: 0.5em;
+    text-anchor: middle;
+  }
+
+  .flex-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  .single-chart {
+    width: 10em;
+    justify-content: space-around;
+  }
+
+  .circular-chart {
+    display: block;
+    margin: 10px auto;
+    max-width: 10em;
+    background: red;
+    max-height: 10em;
+  }
+
+  .circle-bg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 3.8;
+    max-width: 10em;
+    max-height: 10em;
+    min-width: 10em;
+    min-height: 10em;
+  }
+
+  .circle {
+    fill: none;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    animation: progress 1s ease-out forwards;
+    min-width: 10em;
+    min-height: 10em;
+  }
+
+  @keyframes progress {
+    0% {
+      stroke-dasharray: 0 100;
+    }
+  }
+
+  .circular-chart.orange .circle {
+    stroke: #ff9f00;
+  }
+
+  .circular-chart.green .circle {
+    stroke: #4cc790;
+  }
+
+  .circular-chart.blue .circle {
+    stroke: #3c9ee5;
+  }
+
+  .percentage {
+    fill: #666;
+    font-family: sans-serif;
+    font-size: 0.5em;
+    text-anchor: middle;
+  }
 }

@@ -23,7 +23,7 @@ export class LavaProvider {
     });
   }
 
-  getExerciseSchedules() {
+  getExerciseSchedules(date: Date) {
     if (this.authProvider.config.debug) {
       return of({
         status: 1,
@@ -43,7 +43,7 @@ export class LavaProvider {
       });
     }
     return this.http.get(
-      `${this.authProvider.config.baseUrl}/web/exercise/index?AccessToken=${this.authProvider.config.AccessToken}`, {headers: this.authProvider.config.headers}
+      `${this.authProvider.config.baseUrl}/web/exercise/index?AccessToken=${this.authProvider.config.AccessToken}&BranchID=1&Year=2018&Month=02&Day=11`, {headers: this.authProvider.config.headers}
     );
   }
 

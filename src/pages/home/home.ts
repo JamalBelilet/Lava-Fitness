@@ -1,15 +1,17 @@
 import { Component } from "@angular/core";
-import { NavController } from "ionic-angular";
+import { NavController, ModalController } from "ionic-angular";
 import { WorkoutPage } from "../workout/workout";
 import { LavaProvider } from "../../providers/lava/lava";
 import { Observable } from "rxjs/Observable";
 import { ProfileProvider } from "../../providers/profile/profile";
+import { BookPage } from "../book/book";
 
 @Component({
   selector: "page-home",
   templateUrl: "home.html"
 })
 export class HomePage {
+  upcommingExercises: Observable<Object>;
   profile$: Observable<Object>;
   ExerciseReservations$: Observable<Object>;
   workoutPage = WorkoutPage;
@@ -89,10 +91,17 @@ export class HomePage {
     ]
   };
 
-  constructor(public navCtrl: NavController, private lavaProvider: LavaProvider, private profileProvider: ProfileProvider) {}
+  constructor(public modalCtrl: ModalController, public navCtrl: NavController, private lavaProvider: LavaProvider, private profileProvider: ProfileProvider) {}
 
   ionViewDidLoad(){
    this.ExerciseReservations$ = this.lavaProvider.getExerciseReservations();
    this.profile$ = this.profileProvider.getProfile();
+   this.upcommingExercises = this.lavaProvider.getExerciseReservations()
+  }
+
+  bookClass() {
+    let BookingModal = this.modalCtrl.create(BookPage, {book: 'class'});
+
+    BookingModal.present();
   }
 }

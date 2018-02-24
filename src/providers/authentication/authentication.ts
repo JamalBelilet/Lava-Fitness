@@ -43,21 +43,21 @@ export class AuthenticationProvider {
         }
       });
     }
-    const headers = new HttpHeaders({
-      "Content-Type": "application/x-www-form-urlencoded",
-      AuthorizationKey: "as@dL8]Rn3$2S!anR"
-    });
-    const params = new HttpParams();
-    const options = {
-      headers,
-      params,
-      withCredentials: true
-    };
-    return this.http.post(
-      `${this.config.baseUrl}/web/user/login`,
-      `MobileNumber=${loginForm.MobileNumber}`,
-      options
-    );
+    // const headers = new HttpHeaders({
+    //   "Content-Type": "application/x-www-form-urlencoded",
+    //   AuthorizationKey: "as@dL8]Rn3$2S!anR"
+    // });
+    // const params = new HttpParams();
+    // const options = {
+    //   headers,
+    //   params,
+    //   withCredentials: true
+    // };
+    // return this.http.post(
+    //   `${this.config.baseUrl}/web/user/login`,
+    //   `MobileNumber=${loginForm.MobileNumber}`,
+    //   options
+    // );
   }
 
 
@@ -103,29 +103,29 @@ export class AuthenticationProvider {
         }
       });
     }
-    const headers = this.config.headers;
-    const params = new HttpParams();
-    const options = {
-      headers,
-      params,
-      withCredentials: true
-    };
-    return this.http
-      .post(
-        `${this.config.baseUrl}/web/user/verify-token`,
-        JSON.stringify({
-          AuthorizationKey: this.config.AuthorizationKey,
-          MobileNumber: user.MobileNumber,
-          VerificationCode: user.VerificationCode,
-          AccessToken: user.AccessToken
-        }),
-        options
-      )
-      .pipe(
-        switchMap(response => {
-          // this.config.AccessToken = (response as any).data.AccessToken;
-          return of(response);
-        })
-      );
+    // const headers = this.config.headers;
+    // const params = new HttpParams();
+    // const options = {
+    //   headers,
+    //   params,
+    //   withCredentials: true
+    // };
+    // return this.http
+    //   .post(
+    //     `${this.config.baseUrl}/web/user/verify-token`,
+    //     JSON.stringify({
+    //       AuthorizationKey: this.config.AuthorizationKey,
+    //       MobileNumber: user.MobileNumber,
+    //       VerificationCode: user.VerificationCode,
+    //       AccessToken: user.AccessToken
+    //     }),
+    //     options
+    //   )
+    //   .pipe(
+    //     switchMap(response => {
+    //       // this.config.AccessToken = (response as any).data.AccessToken;
+    //       return of(response);
+    //     })
+    //   );
   }
 }
