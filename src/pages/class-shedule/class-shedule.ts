@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { BookPage } from '../book/book';
 
 /**
  * Generated class for the ClassShedulePage page.
@@ -15,11 +16,25 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ClassShedulePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    private modalCtrl: ModalController,
+    public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ClassShedulePage');
+  }
+
+
+  bookClass() {
+    let BookingModal = this.modalCtrl.create(BookPage, {book: 'class'});
+
+    BookingModal.present();
+  }
+
+  bookSession() {
+    let BookingModal = this.modalCtrl.create(BookPage, {book: 'session'});
+    BookingModal.present();
   }
 
 }

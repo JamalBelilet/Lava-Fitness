@@ -56,23 +56,23 @@
   <ion-row>
 
     <ion-slides slidesPerView="2.7" id="Start-a-Workout">
-      <ion-slide class="workout booking" *ngFor="let booking of bookings$ ">
-        <p class="workout-title">{{booking.title}}</p>
+      <ion-slide class="workout booking" *ngFor="let booking of (bookings$ | async)?.data ">
+        <p class="workout-title">{{booking.ExerciseTitle}}</p>
 
 
         <ion-row no-padding>
           <ion-col no-padding>
-            <p class="workout-state">{{booking.duration}}</p>
+            <p class="workout-state">{{booking.Duration}}</p>
           </ion-col>
         </ion-row>
 
         <ion-row no-padding class="workout-container">
           <ion-col no-padding col-auto>
-            <p class="workout-exercice">{{booking.day}}</p>
+            <p class="workout-exercice">{{booking.Date}}</p>
           </ion-col>
-          <ion-col no-padding col-auto>
+          <!-- <ion-col no-padding col-auto>
             <p class="workout-time">{{booking.time}}</p>
-          </ion-col>
+          </ion-col> -->
         </ion-row>
 
       </ion-slide>

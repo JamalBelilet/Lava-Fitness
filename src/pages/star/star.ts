@@ -2,6 +2,8 @@ import { Component } from "@angular/core";
 import { NavController, NavParams, ModalController } from "ionic-angular";
 import { ClassShedulePage } from "../class-shedule/class-shedule";
 import { BookPage } from "../book/book";
+import { LavaProvider } from "../../providers/lava/lava";
+import { Observable } from "rxjs/Observable";
 
 /**
  * Generated class for the StarPage page.
@@ -15,30 +17,34 @@ import { BookPage } from "../book/book";
   templateUrl: "star.html"
 })
 export class StarPage {
-  bookings$ = [
-    {
-      title: "Yoga",
-      duration: "30 min",
-      day: "today",
-      time: "6:15 pm"
-    },
-    {
-      title: "Yoga",
-      duration: "30 min",
-      day: "today",
-      time: "6:15 pm"
-    }
-  ];
+  bookings$: Observable<Object>;
+  // bookings$ = [
+  //   {
+  //     title: "Yoga",
+  //     duration: "30 min",
+  //     day: "today",
+  //     time: "6:15 pm"
+  //   },
+  //   {
+  //     title: "Yoga",
+  //     duration: "30 min",
+  //     day: "today",
+  //     time: "6:15 pm"
+  //   }
+  // ];
 
   classShedule = ClassShedulePage;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private lavaProvider: LavaProvider
   ) {}
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad StarPage");
+
+    this.bookings$ = this.lavaProvider.getExerciseReservations();
   }
 
   bookClass() {

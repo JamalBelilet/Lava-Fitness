@@ -32,7 +32,7 @@
   <ion-content >
 
     <ion-col class="sessions">
-      <ion-card>
+      <ion-card (click)="bookClass()">
         <ion-item>
           <ion-thumbnail item-left>
             <img src="assets/imgs/cycle-light.png">
@@ -41,7 +41,7 @@
           <p>Zamba, Yoga, Dancing, Cycle, ...etc</p>
         </ion-item>
       </ion-card>
-      <ion-card>
+      <ion-card (click)="bookSession()">
         <ion-item>
           <ion-thumbnail item-left>
             <img src="assets/imgs/relax-light.png">
