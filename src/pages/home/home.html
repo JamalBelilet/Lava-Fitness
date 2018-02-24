@@ -87,22 +87,22 @@
       <ion-slides slidesPerView="2.6" id="Start-a-Workout" spaceBetween="10">
         <ion-slide class="workout" *ngFor="let workout of  user.workouts" [navPush]="workoutPage" [navParams]="workout">
           <div>
-              <p class="workout-title">{{workout.title}}</p>
+            <p class="workout-title">{{workout.title}}</p>
 
-              <ion-row no-padding class="workout-container">
-                <ion-col no-padding col-auto>
-                  <p class="workout-exercice">{{workout.exercice}}</p>
-                </ion-col>
-                <ion-col no-padding col-auto>
-                  <p class="workout-time">{{workout.time}}</p>
-                </ion-col>
-              </ion-row>
-              <ion-row no-padding>
-                <ion-col no-padding>
-                  <p class="workout-average">{{workout.average}}</p>
-                  <p class="workout-state">{{workout.state}}</p>
-                </ion-col>
-              </ion-row>
+            <ion-row no-padding class="workout-container">
+              <ion-col no-padding col-auto>
+                <p class="workout-exercice">{{workout.exercice}}</p>
+              </ion-col>
+              <ion-col no-padding col-auto>
+                <p class="workout-time">{{workout.time}}</p>
+              </ion-col>
+            </ion-row>
+            <ion-row no-padding>
+              <ion-col no-padding>
+                <p class="workout-average">{{workout.average}}</p>
+                <p class="workout-state">{{workout.state}}</p>
+              </ion-col>
+            </ion-row>
           </div>
         </ion-slide>
       </ion-slides>
@@ -113,6 +113,11 @@
       <p class="section-title">Upcoming Bookings:</p>
 
       <ion-slides slidesPerView="3.5" id="Start-a-Workout">
+        <ion-slide class="workout booking add-button">
+          <button clear ion-button (click)="bookClass()">
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-slide>
         <ion-slide class="workout booking" *ngFor="let booking of [(upcommingExercises | async)?.data[0], (upcommingExercises | async)?.data[1]] ">
 
           <p class="workout-title">{{booking?.ExerciseTitle}}</p>
@@ -135,11 +140,7 @@
 
         </ion-slide>
 
-        <ion-slide class="workout booking add-button">
-          <button clear ion-button (click)="bookClass()">
-            <ion-icon name="add"></ion-icon>
-          </button>
-        </ion-slide>
+
 
       </ion-slides>
     </ion-row>

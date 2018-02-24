@@ -58,12 +58,14 @@
 
 <ion-content padding>
   <ion-list class="exercices" no-lines>
-    <div *ngFor="let exercice of workout?.exercices">
-      <ion-item-sliding #slidingItem *ngIf="exercice.state == 'ios-checkmark-circle'" exercice.state='ios-checkmark-circle'>
+    <ng-container *ngFor="let exercice of workout?.exercices; let i = index">
+      <ion-item-sliding #slidingItem *ngIf="exercice.state != 'ios-checkmark-circle'" exercice.state='ios-checkmark-circle'>
         <ion-item #item (click)="open($event, slidingItem, item)">
 
           <ion-thumbnail item-left>
             <img src="assets/imgs/exerciceType.png">
+            <p class="counter">{{i - 2}}</p>
+
           </ion-thumbnail>
 
           <p>{{exercice.name}}</p>
@@ -75,52 +77,54 @@
             </button>
           </ion-buttons>
         </ion-item>
-        <ion-item-options style="width: 75%" side="left" class="slide-options">
+        <ion-item-options style="width: 85%" side="left" class="slide-options">
           <ion-row justify-content-center>
             <ion-col>
               <p class="option-title">How many minutes?</p>
               <ion-row justify-content-center>
                 <ion-col col-3>
-                  <button ion-button clear>-</button>
+                  <button (click)="exercice.minutes = exercice.minutes - 1" ion-button clear>-</button>
                 </ion-col>
                 <ion-col col-5>
-                  <p>125</p>
+                  <p>{{exercice.minutes}}</p>
                 </ion-col>
                 <ion-col col-3>
-                  <button ion-button clear>+</button>
+                  <button (click)="exercice.minutes = exercice.minutes + 1" ion-button clear>+</button>
                 </ion-col>
               </ion-row>
             </ion-col>
             <ion-col>
-              <p class="option-title">Colories burned?</p>
+              <p class="option-title">Calories burned?</p>
               <ion-row justify-content-center>
-                <ion-col col-3>
+                <ion-col (click)="exercice.calories = exercice.calories - 1" col-3>
                   <button ion-button clear>-</button>
                 </ion-col>
                 <ion-col col-5>
-                  <p>125</p>
+                  <p>{{exercice.calories}}</p>
                 </ion-col>
-                <ion-col col-3>
+                <ion-col (click)="exercice.calories = exercice.calories + 1" col-3>
                   <button ion-button clear>+</button>
                 </ion-col>
               </ion-row>
             </ion-col>
-            <button ion-button clear (click)="exercice.state = 'ios-checkmark-circle'">
-              <ion-icon name="checkmark-circle-outline"></ion-icon>
+            <button class="main" ion-button clear (click)="exercice.state = 'ios-checkmark-circle'">
+              <ion-icon name="checkmark-outline"></ion-icon>
             </button>
           </ion-row>
         </ion-item-options>
       </ion-item-sliding>
 
-    </div>
-    <ion-item-divider *ngIf=" (workout?.exercices)?.length">Done</ion-item-divider>
+    </ng-container>
+    <ion-item-divider>Done</ion-item-divider>
 
-    <div *ngFor="let exercice of workout?.exercices">
-        <ion-item-sliding #slidingItem *ngIf="exercice.state != 'ios-checkmark-circle'" exercice.state='ios-checkmark-circle'>
+
+    <ng-container *ngFor="let exercice of workout?.exercices; let i = index">
+        <ion-item-sliding #slidingItem *ngIf="exercice.state == 'ios-checkmark-circle'" exercice.state='ios-checkmark-circle'>
           <ion-item #item (click)="open($event, slidingItem, item)">
 
             <ion-thumbnail item-left>
               <img src="assets/imgs/exerciceType.png">
+              <p class="counter">{{i + 1}}</p>
             </ion-thumbnail>
 
             <p>{{exercice.name}}</p>
@@ -136,7 +140,7 @@
             <ion-row justify-content-center>
               <ion-col>
                 <p class="option-title">How many minutes?</p>
-                <ion-row justify-content-center>
+                <ion-row class="option-actions" justify-content-center>
                   <ion-col col-3>
                     <button ion-button clear>-</button>
                   </ion-col>
@@ -150,7 +154,8 @@
               </ion-col>
               <ion-col>
                 <p class="option-title">Colories burned?</p>
-                <ion-row justify-content-center>
+                <ion-row class="option-actions" justify-content-center>
+
                   <ion-col col-3>
                     <button ion-button clear>-</button>
                   </ion-col>
@@ -162,13 +167,13 @@
                   </ion-col>
                 </ion-row>
               </ion-col>
-              <button ion-button clear (click)="exercice.state = 'ios-checkmark-circle'">
-                <ion-icon name="checkmark-circle-outline"></ion-icon>
+              <button class="main" disabled ion-button (click)="exercice.state = 'ios-checkmark-circle'">
+                <ion-icon name="checkmark-outline"></ion-icon>
               </button>
             </ion-row>
           </ion-item-options>
         </ion-item-sliding>
-      </div>
+      </ng-container>
 
   </ion-list>
   <button ion-button class="finish-workout" (click)="finishWorkout()">Finish Workout</button>

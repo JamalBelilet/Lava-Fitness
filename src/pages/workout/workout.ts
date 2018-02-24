@@ -30,7 +30,7 @@ export class WorkoutPage {
     itemSlide.setElementClass("active-sliding", true);
     itemSlide.setElementClass("active-slide", true);
     itemSlide.setElementClass("active-options-left", true);
-    item.setElementStyle("transform", "translate3d(75%, 0px, 0px)");
+    item.setElementStyle("transform", "translate3d(85%, 0px, 0px)");
   }
 
   public close(item: ItemSliding) {
