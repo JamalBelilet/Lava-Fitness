@@ -1,4 +1,21 @@
 page-star {
+  font-size: 85%;
+  padding: 0.5em;
+  margin: 0.2em;
+  border-radius: 5px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
+  font-weight: 300;
+
+  text-align: center;
+
+  .fixed-content {
+    z-index: -2 !important;
+  }
+  .scroll-content {
+    margin-top: calc(25vh + 6em) !important;
+    z-index: 999;
+  }
+
   .toolbar.toolbar-md,
   .toolbar.toolbar-ios {
     color: white !important;
@@ -6,7 +23,8 @@ page-star {
     background: transparent;
     .toolbar-title.toolbar-title-md,
     .toolbar-title.toolbar-title-ios {
-      color: white !important;
+      color: rgba(255, 255, 255, 0.85) !important;
+      font-weight: 400;
     }
 
     ion-icon.back-button-icon.icon {
@@ -29,31 +47,80 @@ page-star {
     }
   }
 
-  ion-navbar {
-    background: linear-gradient(to right, #0ca3ad, #03c3d8) !important;
-    padding-bottom: 13em !important;
+  .scroll-content {
+    padding-top: 0 !important;
+  }
+  .exercices {
+    // margin-top: -5em;
 
-    border-radius: 0 0 40% 40%;
+    z-index: 99999999999 !important;
 
-    color: white;
+    ion-thumbnail {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-    .toolbar-background.toolbar-background-ios,
-    .toolbar-background.toolbar-background-ios {
-      background: linear-gradient(to right, #0ca3ad, #03c3d8) !important;
-      padding-bottom: 5em !important;
+    img {
+      width: 2.5em;
+      height: auto;
+    }
+
+    .item-wrapper {
+      margin: 0.8em auto;
+      border-radius: 0.5em;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
+      // border: .5px solid black;
+    }
+
+    .item.item-block,
+    div.input-wrapper {
+      border-radius: 1em;
+      padding: auto 0;
+      margin: 0;
+      p {
+        padding: 0;
+        margin: 0;
+        font-size: 75%;
+      }
     }
   }
 
+  .header.header-md,
+  .header.header-ios {
+    background: linear-gradient(135deg, #0193a0, #21c1ca);
+    color: white !important;
+
+    height: 25vh;
+    color: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 0 0 45% 45%;
+    width: 150vw;
+    padding: 0 28vw;
+    margin-left: -25vw;
+    box-shadow: 0 !important;
+
+    &:after {
+      background-image: none !important;
+    }
+  }
 
   ion-content {
     padding-top: 1em;
     margin-top: 1em;
+
+    text-align: left;
+
+    h2 {
+      font-size: 1.6em;
+      color: #666;
+      padding: 0 1em;
+    }
   }
 
   .schedules {
     padding: 0;
     margin: 0;
-    margin-top: -5em;
+    margin-top: calc(25vh - 6em);
 
     ion-row {
       padding: 0;
@@ -68,29 +135,52 @@ page-star {
       text-align: center;
 
       padding: 0;
-      margin: 0;
+      margin: 0 0.5em;
+
+      background: url(../assets/imgs/lavaScheduale.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: ceter;
+      border-radius: 0.5em;
 
       ion-card {
-        padding: 1.5em 0;
-        padding-top: 0;
-      }
+        padding: 1em 0.1em;
 
-      button {
-        margin: 0 auto;
         width: 100%;
-        font-size: 1.5em;
-        background: transparent;
-        padding: 0 !important;
-        margin: 0 !important;
+        height: 100%;
+        min-height: 6em;
+        margin: 0;
+        background: rgba(255, 255, 255, 0.8);
 
-        ion-icon {
-          padding: 0;
-          margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        flex-flow: column nowrap;
+        align-items: center;
+
+        border-radius: 0.4em;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.35);
+
+        button {
+          padding: 0 !important;
+          margin: 0 !important;
+
+          background: rgba(227, 169, 23, 0.3) !important;
+          width: 1.8em;
+          height: 1.8em;
+          border-radius: 50%;
+
+          img {
+            width: 0.8em;
+            height: 0.8em;
+            // padding: .8em;
+          }
         }
-      }
 
-      h6 {
-        font-size: 0.8em;
+        h6 {
+          font-size: 0.8em;
+          color: #555 !important;
+          font-weight: 500;
+        }
       }
     }
   }
@@ -117,7 +207,7 @@ page-star {
     margin: 0.3em;
     border-radius: 5px;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
-    color: rgba(255,255,255,.7) !important;
+    color: rgba(255, 255, 255, 0.7) !important;
     font-weight: 300;
 
     text-align: left;
@@ -131,7 +221,7 @@ page-star {
       display: flex;
       justify-content: space-between;
       width: 100%;
-      margin: .2em 0;
+      margin: 0.2em 0;
     }
     .workout-average {
       color: white !important;
@@ -139,17 +229,15 @@ page-star {
     }
     p {
       padding: 0;
-      margin: .125em 0;
+      margin: 0.125em 0;
       text-align: left;
     }
   }
 
-
   .booking {
     background: white;
-    color: #666 !important;
-    font-size: 65%;
-    padding: .125em 2.5em;
+    color: #555 !important;
+    padding: 0.125em 2.6em;
     margin: 0.3em;
     border-radius: 5px;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
@@ -158,31 +246,40 @@ page-star {
     text-align: left;
 
     margin-top: 1em;
+    margin-left: 2em;
 
     .workout-title {
-      font-weight: 400;
+      font-weight: 700;
       font-size: 1.1em;
-      color: #444 !important;
+      color: #999 !important;
       display: flex;
       justify-content: flex-start;
       align-items: center;
 
       &::before {
-        content: '•';
+        content: "•";
         display: block;
         margin-left: -1.4em;
-        padding: 0 .5em;
+        padding: 0 0.5em;
         font-size: 2em;
         color: yellow;
       }
     }
+
+    p {
+      font-size: 0.9em;
+      padding-left: 0.2em;
+      padding-right: 0.2em;
+      padding-bottom: 0.1em;
+    }
+
     &.add-button {
       max-width: 6em;
       height: initial;
 
       button {
         font-size: 2.8em;
-        padding: .1em;
+        padding: 0.1em;
         margin: 0;
         font-weight: 200;
         width: 100%;
@@ -190,28 +287,54 @@ page-star {
         ion-icon {
           font-weight: 200;
           height: 100%;
-          color: #666!important;
+          color: #666 !important;
         }
       }
-
-
-
     }
   }
 
   .sessions {
-
     ion-card {
-      margin-top: 2em;
+      border-radius: 0.4em;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.35);
+      padding: 0;
+      margin: 0;
+      background: linear-gradient(to right, #0ca3ad, #03c3d8) !important;
+      margin: 1.5em auto;
+      width: 85%;
+
     }
 
     ion-item {
-      background: linear-gradient(to right, #0ca3ad, #03c3d8) !important;
+      padding: 0;
+      margin: 0;
+      font-size: 0.8em;
+      text-align: left;
+      border-radius: 0.2em;
+      background: transparent;
       h2 {
+        margin: 0;
+        padding: 0;
         color: rgba(255, 255, 255, 0.9);
+        font-size: 1.4em;
       }
       p {
+        margin: 0;
+        padding: 0;
         color: rgba(255, 255, 255, 0.6);
+        font-size: 1em;
+      }
+
+      ion-thumbnail {
+        padding: 0 !important;
+        margin: 0 !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      img {
+        width: 5em;
+        height: 5em;
       }
     }
   }

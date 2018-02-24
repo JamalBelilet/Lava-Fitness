@@ -48,6 +48,7 @@ export class LavaProvider {
   }
 
   getExerciseReservations() {
+
     if (this.authProvider.config.debug) {
       return of({
         status: 1,

@@ -6,6 +6,7 @@ import { of } from "rxjs/observable/of";
 
 @Injectable()
 export class ProfileProvider {
+
   private profile = {
     status: 1,
     data: {

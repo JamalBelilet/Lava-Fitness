@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Workout</ion-title>
+    <ion-title>Schedule</ion-title>
 
 
 
@@ -17,9 +17,9 @@
 
   <ion-row class="schedules">
     <ion-col>
-      <ion-card [navPush]="classShedule" [navParams]="'Fitness'">
+      <ion-card  [navPush]="classShedule" [navParams]="'Fitness'">
         <button ion-button clear>
-          <ion-icon name="ios-expand"></ion-icon>
+          <img src="assets/imgs/_expand@2x.png">
         </button>
         <h6>Fitness Class Schedule</h6>
       </ion-card>
@@ -27,7 +27,7 @@
     <ion-col>
       <ion-card [navPush]="classShedule" [navParams]="'Swiming'">
         <button ion-button clear>
-          <ion-icon name="ios-expand"></ion-icon>
+          <img src="assets/imgs/_expand@2x.png">
         </button>
         <h6>Swiming Class Schedule</h6>
       </ion-card>
@@ -43,7 +43,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <h2>Sessions: </h2>
   <!-- <ion-row class="sessions">
     <ion-col col-auto *ngFor="let session of ['Message','Weight Loss', 'Measurement', 'Spa', 'Physical Therapy', 'Nutrisins', 'Follow up', 'Obsesity Therapy']">
@@ -55,7 +55,7 @@
   </ion-row> -->
   <ion-row>
 
-    <ion-slides slidesPerView="2.9" id="Start-a-Workout">
+    <ion-slides slidesPerView="2.7" id="Start-a-Workout">
       <ion-slide class="workout booking" *ngFor="let booking of bookings$ ">
         <p class="workout-title">{{booking.title}}</p>
 

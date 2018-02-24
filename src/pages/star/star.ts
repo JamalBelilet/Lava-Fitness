@@ -43,6 +43,7 @@ export class StarPage {
 
   bookClass() {
     let BookingModal = this.modalCtrl.create(BookPage, {book: 'class'});
+
     BookingModal.present();
   }
 

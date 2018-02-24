@@ -15,37 +15,55 @@
 // automatically applied to the <body> element in the app.
 
 @font-face {
-  font-family: 'AvenirLTStd';
-  src: url('../assets/fonts/AvenirLTStd-Black.otf'), url('../assets/fonts/AvenirLTStd-Book.otf'), url('../assets/fonts/AvenirLTStd-Heavy.otf'), url('../assets/fonts/AvenirLTStd-Medium.otf');
+  font-family: "AvenirLTStd";
+  src: url("../assets/fonts/AvenirLTStd-Black.otf"),
+    url("../assets/fonts/AvenirLTStd-Book.otf"),
+    url("../assets/fonts/AvenirLTStd-Heavy.otf"),
+    url("../assets/fonts/AvenirLTStd-Medium.otf");
 }
 
+* {
+  font-family: "AvenirLTStd", "Roboto", Arial, Helvetica, sans-serif !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
+}
 
-body, h1, h2, h3, h4, h5, h6, p, .badge, ::placeholder {
-  font-family: 'AvenirLTStd', 'Roboto', Arial, Helvetica, sans-serif !important;
-  font-family:  Helvetica, sans-serif !important;
+ion-icon {
+  font-family: Ionicons;
+
+  &::before,
+  &::after {
+    font-family: Ionicons;
+  }
 }
 
 button {
-  color: #037e97!important;
+  color: #037e97 !important;
 }
 .alert-radio-label {
-  color: #555!important;
+  color: #555 !important;
   font-weight: 400;
 }
 
 .slide-in-right {
   -webkit-transform: translateX(100%);
-    transform: translateX(100%); }
+  transform: translateX(100%);
+}
 
-.slide-in-right.ng-enter, .slide-in-right > .ng-enter {
+.slide-in-right.ng-enter,
+.slide-in-right > .ng-enter {
   -webkit-transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms;
-  transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms; }
+  transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms;
+}
 
-.slide-in-right.ng-enter-active, .slide-in-right > .ng-enter-active {
+.slide-in-right.ng-enter-active,
+.slide-in-right > .ng-enter-active {
   -webkit-transform: translateX(0);
-    transform: translateX(0); }
+  transform: translateX(0);
+}
 
-.slide-in-right.ng-leave, .slide-in-right > .ng-leave {
+.slide-in-right.ng-leave,
+.slide-in-right > .ng-leave {
   -webkit-transition: all ease-in-out 250ms;
-  transition: all ease-in-out 250ms; }
-
+  transition: all ease-in-out 250ms;
+}

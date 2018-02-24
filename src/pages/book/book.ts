@@ -53,6 +53,7 @@ export class BookPage {
   book(){
     if(this._book == 'class') {
       this.lavaProvider.reserveExercise(this.reserveForm.value)
+
     }
     else if(this._book == 'session') {
       this.lavaProvider.reserveMassageSession(this.reserveForm.value)

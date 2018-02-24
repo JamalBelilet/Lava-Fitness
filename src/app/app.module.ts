@@ -51,7 +51,8 @@ import {RoundProgressModule} from 'angular-svg-round-progressbar';
       modalEnter: "modal-slide-in",
       modalLeave: "modal-slide-out",
       tabbarPlacement: "bottom",
-      pageTransition: "ios"
+      pageTransition: "ios",
+      animate: false
     }),
     HttpClientModule,
     NgCircleProgressModule.forRoot({
@@ -61,7 +62,7 @@ import {RoundProgressModule} from 'angular-svg-round-progressbar';
       innerStrokeWidth: 8,
       outerStrokeColor: "#78C000",
       innerStrokeColor: "#C7E596",
-      animationDuration: 300
+      animationDuration: 300,
     }),
     RoundProgressModule
 

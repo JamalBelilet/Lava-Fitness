@@ -192,6 +192,7 @@ page-workout {
   }
 
 
+
   .finish-workout {
 
     position: fixed;
@@ -207,6 +208,10 @@ page-workout {
 
     z-index: 999999!important ;
 
+
+    &.button-md {
+      bottom: 55px;
+    }
   }
 
   // .item-wrapper active-sliding active-slide active-options-left

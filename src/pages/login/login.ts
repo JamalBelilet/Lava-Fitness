@@ -117,6 +117,7 @@ export class LoginPage {
     loading.present();
     this.auth.login(this.signinForm.value).subscribe(
 
+
       res => {
         loading.dismiss();
         this.loginstate = "verify";

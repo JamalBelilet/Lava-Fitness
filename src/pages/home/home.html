@@ -17,7 +17,7 @@
 
     <ion-row class="user-container">
       <ion-col>
-        <p class="user-name">{{user.name}}</p>
+        <p class="user-name">{{(profile$ | async)?.data.FullName}}</p>
         <p class="user-active">{{user.active}}</p>
       </ion-col>
     </ion-row>
@@ -108,6 +108,26 @@
     <ion-row>
       <p class="section-title">Start a Workout:</p>
 
+      <!-- <ion-slides slidesPerView="2.2" id="Start-a-Workout">
+        <ion-slide class="workout" *ngFor="let exercise of  (ExerciseReservations$ | async)?.data" [navPush]="workoutPage" [navParams]="exercise">
+          <p class="workout-title">{{exercise.ExerciseTitle}}</p>
+
+          <ion-row no-padding class="workout-container">
+            <ion-col no-padding col-auto>
+              <p class="workout-exercice">{{exercise.CoachName}}</p>
+            </ion-col>
+            <ion-col no-padding col-auto>
+              <p class="workout-time">{{exercise.Duration}}</p>
+            </ion-col>
+          </ion-row>
+          <ion-row no-padding>
+            <ion-col no-padding>
+              <p class="workout-average">1/wk</p>
+              <p class="workout-state">LAST DONE {{exercise.Date}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-slide>
+      </ion-slides> -->
       <ion-slides slidesPerView="2.2" id="Start-a-Workout">
         <ion-slide class="workout" *ngFor="let workout of  user.workouts" [navPush]="workoutPage" [navParams]="workout">
           <p class="workout-title">{{workout.title}}</p>

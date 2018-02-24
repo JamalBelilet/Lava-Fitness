@@ -1,12 +1,17 @@
 import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
 import { WorkoutPage } from "../workout/workout";
+import { LavaProvider } from "../../providers/lava/lava";
+import { Observable } from "rxjs/Observable";
+import { ProfileProvider } from "../../providers/profile/profile";
 
 @Component({
   selector: "page-home",
   templateUrl: "home.html"
 })
 export class HomePage {
+  profile$: Observable<Object>;
+  ExerciseReservations$: Observable<Object>;
   workoutPage = WorkoutPage;
   user = {
     name: "Sara Alhumaid",
@@ -24,10 +29,18 @@ export class HomePage {
         average: "1/wk",
         state: "Sarted",
         exercices: [
+          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-checkmark-circle'},
+
+          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-checkmark-circle'},
+          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-checkmark-circle'},
           {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-radio-button-off'},
-          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-checkmark-circle'},
-          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-checkmark-circle'},
-          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-checkmark-circle'},
+          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-radio-button-off'},
+          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-radio-button-off'},
+          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-radio-button-off'},
+          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-radio-button-off'},
+          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-radio-button-off'},
+          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-radio-button-off'},
+          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-radio-button-off'},
         ]
       },
       {
@@ -76,5 +89,10 @@ export class HomePage {
     ]
   };
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController, private lavaProvider: LavaProvider, private profileProvider: ProfileProvider) {}
+
+  ionViewDidLoad(){
+   this.ExerciseReservations$ = this.lavaProvider.getExerciseReservations();
+   this.profile$ = this.profileProvider.getProfile();
+  }
 }
