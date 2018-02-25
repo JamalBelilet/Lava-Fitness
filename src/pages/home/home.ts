@@ -100,6 +100,9 @@ export class HomePage {
    this.ExerciseReservations$ = this.lavaProvider.getExerciseReservations();
    this.profile$ = this.profileProvider.getProfile();
    this.upcommingExercises = this.lavaProvider.getExerciseReservations()
+
+
+   this.workouts = this.profileProvider.
   }
 
   bookClass() {

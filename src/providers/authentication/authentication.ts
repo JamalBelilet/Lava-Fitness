@@ -23,7 +23,7 @@ export class AuthenticationProvider {
       "Content-Type": "application/json",
       AuthorizationKey: "as@dL8]Rn3$2S!anR"
     }),
-    AccessToken: "e48095c6c90209b7a57e194693c1f1ce",
+    AccessToken: "d00e55e82e9eaf77af3150baa8759136",
     status: "",
     debug: false
   };
