@@ -23,6 +23,7 @@ export class LavaProvider {
     });
   }
 
+
   getExerciseSchedules(date: Date) {
     if (this.authProvider.config.debug) {
       return of({

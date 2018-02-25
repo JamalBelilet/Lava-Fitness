@@ -28,6 +28,9 @@ import { BookPage } from "../pages/book/book";
 
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
+import { ObjectToArrayPipe } from "../pipes/object-to-array/object-to-array";
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -41,7 +44,8 @@ import {RoundProgressModule} from 'angular-svg-round-progressbar';
     WorkoutPage,
     FinishWorkoutPage,
     ClassShedulePage,
-    BookPage
+    BookPage,
+    ObjectToArrayPipe
   ],
   imports: [
     BrowserModule,

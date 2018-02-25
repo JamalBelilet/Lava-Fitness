@@ -68,11 +68,17 @@ button {
   transition: all ease-in-out 250ms;
 }
 
-.title.title-md {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  text-align: center;
+.toolbar.toolbar-md {
+  .title.title-md {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+  }
+
+  .back-button-md {
+    z-index: 1;
+  }
 }

@@ -39,7 +39,7 @@ export class AuthenticationProvider {
       return of({
         status: 1,
         data: {
-          AccessToken: "44e7ba83035a6fd4a6c98f8d5039b403"
+          AccessToken: "d00e55e82e9eaf77af3150baa8759136"
         }
       });
     }
@@ -66,7 +66,7 @@ export class AuthenticationProvider {
       return of({
         status: 1,
         data: {
-          AccessToken: "accb45021c8be4550dd1e826aad399e0"
+          AccessToken: "d00e55e82e9eaf77af3150baa8759136"
         }
       });
     }
@@ -99,7 +99,7 @@ export class AuthenticationProvider {
       return of({
         status: 1,
         data: {
-          AccessToken: "accb45021c8be4550dd1e826aad399e0"
+          AccessToken: "d00e55e82e9eaf77af3150baa8759136"
         }
       });
     }

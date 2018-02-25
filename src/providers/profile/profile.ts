@@ -63,6 +63,7 @@ export class ProfileProvider {
     );
   }
 
+
   getCities() {
     console.log("getCities" + this.authProvider.config.debug);
     if (this.authProvider.config.debug) {
@@ -233,6 +234,7 @@ export class ProfileProvider {
   }
 
   getMemberPrograms() {
+
     if (this.authProvider.config.debug) {
       return of({
         status: 1,

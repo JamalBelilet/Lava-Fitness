@@ -14,7 +14,7 @@
   </ion-navbar>
 
   <ion-row justify-content-between>
-    <p class="workout-title">{{workout?.title}}</p>
+    <p class="workout-title">{{workout?.ProgramName}}</p>
 
     <button id="notification-button" ion-button clear>
       <ion-icon name="text">
@@ -26,16 +26,16 @@
 
   <ion-row no-padding class="workout-container">
     <ion-col>
-      <p class="workout-exercice">{{workout?.exercice}}</p>
+      <!-- <p class="workout-exercice">{{workout?.exercice}}</p> -->
       <ion-row>
         <ion-row padding style="padding-left: 0">
           <ion-icon name="time-outline"></ion-icon>
-          <p class="workout-time">{{workout?.time}}</p>
+          <p class="workout-time">{{workout?.NumberOfDays}}</p>
         </ion-row>
 
         <ion-row padding>
           <ion-icon name="ios-code-working"></ion-icon>
-          <p class="workout-time">{{workout?.time}}</p>
+          <p class="workout-time">{{workout?.CreationDate}}</p>
         </ion-row>
       </ion-row>
     </ion-col>
@@ -50,7 +50,7 @@
   </ion-row> -->
 
   <ion-row class="states">
-    <ion-icon *ngFor="let exercice of workout?.exercices" [name]="exercice.state"></ion-icon>
+    <ion-icon *ngFor="let exercice of workout?.ProgrameDetail" [name]="'ios-checkmark-circle'"></ion-icon>
   </ion-row>
 
 </ion-header>
@@ -58,18 +58,18 @@
 
 <ion-content padding>
   <ion-list class="exercices" no-lines>
-    <ng-container *ngFor="let exercice of workout?.exercices; let i = index">
-      <ion-item-sliding #slidingItem *ngIf="exercice.state != 'ios-checkmark-circle'" exercice.state='ios-checkmark-circle'>
+    <ng-container *ngFor="let exercice of workout?.ProgrameDetail; let i = index">
+      <ion-item-sliding #slidingItem exercice.state='ios-checkmark-circle'>
         <ion-item #item (click)="open($event, slidingItem, item)">
 
           <ion-thumbnail item-left>
             <img src="assets/imgs/exerciceType.png">
-            <p class="counter">{{i - 2}}</p>
+            <p class="counter">{{i + 1}}</p>
 
           </ion-thumbnail>
 
-          <p>{{exercice.name}}</p>
-          <p>{{exercice.meta}}</p>
+          <p>{{exercice.Equipment.NameEN}}</p>
+          <p>{{exercice.Equipment.NameAR}}</p>
 
           <ion-buttons item-right>
             <button ion-button clear>
@@ -86,7 +86,7 @@
                   <button (click)="exercice.minutes = exercice.minutes - 1" ion-button clear>-</button>
                 </ion-col>
                 <ion-col col-5>
-                  <p>{{exercice.minutes}}</p>
+                  <p>{{exercice.Duration}}</p>
                 </ion-col>
                 <ion-col col-3>
                   <button (click)="exercice.minutes = exercice.minutes + 1" ion-button clear>+</button>
@@ -100,7 +100,7 @@
                   <button ion-button clear>-</button>
                 </ion-col>
                 <ion-col col-5>
-                  <p>{{exercice.calories}}</p>
+                  <p>{{exercice.Speed}}</p>
                 </ion-col>
                 <ion-col (click)="exercice.calories = exercice.calories + 1" col-3>
                   <button ion-button clear>+</button>
@@ -115,10 +115,10 @@
       </ion-item-sliding>
 
     </ng-container>
-    <ion-item-divider>Done</ion-item-divider>
+    <!-- <ion-item-divider>Done</ion-item-divider> -->
 
 
-    <ng-container *ngFor="let exercice of workout?.exercices; let i = index">
+    <!-- <ng-container *ngFor="let exercice of workout; let i = index">
         <ion-item-sliding #slidingItem *ngIf="exercice.state == 'ios-checkmark-circle'" exercice.state='ios-checkmark-circle'>
           <ion-item #item (click)="open($event, slidingItem, item)">
 
@@ -173,7 +173,7 @@
             </ion-row>
           </ion-item-options>
         </ion-item-sliding>
-      </ng-container>
+      </ng-container> -->
 
   </ion-list>
   <button ion-button class="finish-workout" (click)="finishWorkout()">Finish Workout</button>

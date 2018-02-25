@@ -6,12 +6,14 @@ import { Observable } from "rxjs/Observable";
 import { ProfileProvider } from "../../providers/profile/profile";
 import { BookPage } from "../book/book";
 
+import { map } from "rxjs/operators/map";
+
 @Component({
   selector: "page-home",
   templateUrl: "home.html"
 })
 export class HomePage {
-
+  workouts$: Observable<Object>;
   // @ViewChild("paymentTabs") paymentTabs: Tabs;
 
   upcommingExercises: Observable<Object>;
@@ -34,18 +36,84 @@ export class HomePage {
         average: "1/wk",
         state: "Sarted",
         exercices: [
-          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-checkmark-circle', minutes: 25, calories: 126},
+          {
+            name: "Walk",
+            meta: "10 mins Mis-Speed",
+            state: "ios-checkmark-circle",
+            minutes: 25,
+            calories: 126
+          },
 
-          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-checkmark-circle', minutes: 3, calories: 50},
-          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-checkmark-circle', minutes: 6, calories: 65},
-          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-radio-button-off', minutes: 6, calories: 75},
-          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-radio-button-off', minutes: 6, calories: 95},
-          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-radio-button-off', minutes: 2, calories: 40},
-          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-radio-button-off', minutes: 50, calories: 126},
-          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-radio-button-off', minutes: 20, calories: 126},
-          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-radio-button-off', minutes: 10, calories: 126},
-          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-radio-button-off', minutes: 5, calories: 126},
-          {name:'Walk', meta: '10 mins Mis-Speed', state: 'ios-radio-button-off', minutes: 25, calories: 126},
+          {
+            name: "Walk",
+            meta: "10 mins Mis-Speed",
+            state: "ios-checkmark-circle",
+            minutes: 3,
+            calories: 50
+          },
+          {
+            name: "Walk",
+            meta: "10 mins Mis-Speed",
+            state: "ios-checkmark-circle",
+            minutes: 6,
+            calories: 65
+          },
+          {
+            name: "Walk",
+            meta: "10 mins Mis-Speed",
+            state: "ios-radio-button-off",
+            minutes: 6,
+            calories: 75
+          },
+          {
+            name: "Walk",
+            meta: "10 mins Mis-Speed",
+            state: "ios-radio-button-off",
+            minutes: 6,
+            calories: 95
+          },
+          {
+            name: "Walk",
+            meta: "10 mins Mis-Speed",
+            state: "ios-radio-button-off",
+            minutes: 2,
+            calories: 40
+          },
+          {
+            name: "Walk",
+            meta: "10 mins Mis-Speed",
+            state: "ios-radio-button-off",
+            minutes: 50,
+            calories: 126
+          },
+          {
+            name: "Walk",
+            meta: "10 mins Mis-Speed",
+            state: "ios-radio-button-off",
+            minutes: 20,
+            calories: 126
+          },
+          {
+            name: "Walk",
+            meta: "10 mins Mis-Speed",
+            state: "ios-radio-button-off",
+            minutes: 10,
+            calories: 126
+          },
+          {
+            name: "Walk",
+            meta: "10 mins Mis-Speed",
+            state: "ios-radio-button-off",
+            minutes: 5,
+            calories: 126
+          },
+          {
+            name: "Walk",
+            meta: "10 mins Mis-Speed",
+            state: "ios-radio-button-off",
+            minutes: 25,
+            calories: 126
+          }
         ]
       },
       {
@@ -76,33 +144,69 @@ export class HomePage {
         average: "1/wk",
         state: "Sarted"
       }
-
     ],
     bookings: [
       {
-        title: 'Yoga',
-        duration: '30 min',
-        day: 'today',
-        time: '6:15 pm'
+        title: "Yoga",
+        duration: "30 min",
+        day: "today",
+        time: "6:15 pm"
       },
       {
-        title: 'Yoga',
-        duration: '30 min',
-        day: 'today',
-        time: '6:15 pm'
+        title: "Yoga",
+        duration: "30 min",
+        day: "today",
+        time: "6:15 pm"
       }
     ]
   };
 
-  constructor(public modalCtrl: ModalController, public navCtrl: NavController, private lavaProvider: LavaProvider, private profileProvider: ProfileProvider) {}
+  constructor(
+    public modalCtrl: ModalController,
+    public navCtrl: NavController,
+    private lavaProvider: LavaProvider,
+    private profileProvider: ProfileProvider
+  ) {}
 
-  ionViewDidLoad(){
-   this.ExerciseReservations$ = this.lavaProvider.getExerciseReservations();
-   this.profile$ = this.profileProvider.getProfile();
-   this.upcommingExercises = this.lavaProvider.getExerciseReservations()
+  ionViewDidLoad() {
+    this.ExerciseReservations$ = this.lavaProvider.getExerciseReservations();
+    this.profile$ = this.profileProvider.getProfile();
+    this.upcommingExercises = this.lavaProvider.getExerciseReservations();
 
+    this.workouts$ = this.profileProvider.getMemberPrograms()
 
-   this.workouts = this.profileProvider.
+      .pipe(
+      map(value => {
+        let array = (value as any).data;
+
+        function* values(obj) {
+          for (let prop of Object.keys(obj)) yield obj[prop];
+        }
+
+        let arr = Array.from(values(array));
+        let arr_f = arr.map(val => {
+          val.ProgrameDetail = Array.from(values(val.ProgrameDetail))
+          return val;
+        })
+
+        console.log(arr_f);
+        return arr_f;
+      })
+    );
+
+    // map(this.workouts$ => {
+    //   let array = (value as any).data;
+
+    //   function* values(obj) {
+    //     for (let prop of Object.keys(obj))
+    //       yield obj[prop]
+    //   }
+
+    //   let arr = Array.from(values(array));
+
+    //   console.log(arr);
+
+    // });
   }
 
   bookClass() {
@@ -114,5 +218,4 @@ export class HomePage {
   }
 
   // this.paymentTabs.select(1);
-
 }
