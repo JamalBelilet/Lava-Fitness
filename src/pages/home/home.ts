@@ -238,20 +238,20 @@ export class HomePage {
         })
       );
 
-    this.health
-      .isAvailable()
-      .then((available: boolean) => {
-        console.log(available);
-        this.health
-          .requestAuthorization([
-            {
-              read: ["steps"], //read only permission
-            }
-          ])
-          .then(res => this.getSteps())
-          .catch(e => this.presentAlert(JSON.stringify(e)));
-      })
-      .catch(e => this.presentAlert(JSON.stringify(e)));
+    // this.health
+    //   .isAvailable()
+    //   .then((available: boolean) => {
+    //     console.log(available);
+    //     this.health
+    //       .requestAuthorization([
+    //         {
+    //           read: ["steps"], //read only permission
+    //         }
+    //       ])
+    //       .then(res => this.getSteps())
+    //       .catch(e => this.presentAlert(JSON.stringify(e)));
+    //   })
+    //   .catch(e => this.presentAlert(JSON.stringify(e)));
 
     // map(this.workouts$ => {
     //   let array = (value as any).data;
@@ -266,6 +266,11 @@ export class HomePage {
     //   console.log(arr);
 
     // });
+
+    let BookingModal = this.modalCtrl.create(BookPage, {book: 'class'});
+
+    BookingModal.present();
+
   }
 
   bookClass() {

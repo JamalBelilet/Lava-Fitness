@@ -22,11 +22,31 @@
     url("../assets/fonts/AvenirLTStd-Medium.otf");
 }
 
-* {
-  font-family: "AvenirLTStd", "Roboto", Arial, Helvetica, sans-serif !important;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
+@font-face {
+  font-family: "29ltbukrabold";
+  src: url("../assets/fonts/29ltbukra/29ltbukrabold.ttf");
 }
+
+@font-face {
+  font-family: "29ltbukrabolditalic";
+  src: url("../assets/fonts/29ltbukra/29ltbukrabolditalic.ttf");
+}
+
+@font-face {
+  font-family: "29ltbukralight";
+  src: url("../assets/fonts/29ltbukra/29ltbukralight.ttf");
+}
+
+@font-face {
+  font-family: "29ltbukraregular";
+  src: url("../assets/fonts/29ltbukra/29ltbukraregular.ttf");
+}
+
+// * {
+//   font-family: "AvenirLTStd", "Roboto", Arial, Helvetica, sans-serif !important;
+//   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+//     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
+// }
 
 ion-icon {
   font-family: Ionicons;
