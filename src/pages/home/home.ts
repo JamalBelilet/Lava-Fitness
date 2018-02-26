@@ -8,6 +8,8 @@ import { BookPage } from "../book/book";
 
 import { map } from "rxjs/operators/map";
 
+import { Health } from "@ionic-native/health";
+
 @Component({
   selector: "page-home",
   templateUrl: "home.html"
@@ -165,7 +167,8 @@ export class HomePage {
     public modalCtrl: ModalController,
     public navCtrl: NavController,
     private lavaProvider: LavaProvider,
-    private profileProvider: ProfileProvider
+    private profileProvider: ProfileProvider,
+    private health: Health
   ) {}
 
   ionViewDidLoad() {
@@ -173,26 +176,45 @@ export class HomePage {
     this.profile$ = this.profileProvider.getProfile();
     this.upcommingExercises = this.lavaProvider.getExerciseReservations();
 
-    this.workouts$ = this.profileProvider.getMemberPrograms()
+    this.workouts$ = this.profileProvider
+      .getMemberPrograms()
 
       .pipe(
-      map(value => {
-        let array = (value as any).data;
+        map(value => {
+          let array = (value as any).data;
 
-        function* values(obj) {
-          for (let prop of Object.keys(obj)) yield obj[prop];
-        }
+          function* values(obj) {
+            for (let prop of Object.keys(obj)) yield obj[prop];
+          }
 
-        let arr = Array.from(values(array));
-        let arr_f = arr.map(val => {
-          val.ProgrameDetail = Array.from(values(val.ProgrameDetail))
-          return val;
+          let arr = Array.from(values(array));
+          let arr_f = arr.map(val => {
+            val.ProgrameDetail = Array.from(values(val.ProgrameDetail));
+            return val;
+          });
+
+          console.log(arr_f);
+          return arr_f;
         })
+      );
 
-        console.log(arr_f);
-        return arr_f;
+    this.health
+      .isAvailable()
+      .then((available: boolean) => {
+        console.log(available);
+        this.health
+          .requestAuthorization([
+            "distance",
+            "nutrition", //read and write permissions
+            {
+              read: ["steps"], //read only permission
+              write: ["height", "weight"] //write only permission
+            }
+          ])
+          .then(res => console.log(res))
+          .catch(e => console.log(e));
       })
-    );
+      .catch(e => console.log(e));
 
     // map(this.workouts$ => {
     //   let array = (value as any).data;

@@ -257,7 +257,7 @@ page-home {
     }
   }
 
-  #Start-a-Workout, #upcomming-bookings {
+  #Start-a-Workout {
     width: 100%;
 
     margin: 0 auto;
@@ -318,17 +318,16 @@ page-home {
   .booking {
     background: white;
     color: #555 !important;
-    // padding: 0.125em 2.6em;
+    padding: 0.125em 2.6em;
+    margin: 0.3em;
     border-radius: 5px;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
     font-weight: 300;
 
     text-align: left;
 
-    margin-top: .5em;
-    // margin-left: 2em;
-
-    height: 95%;
+    margin-top: 1em;
+    margin-left: 2em;
 
     .workout-title {
       font-weight: 700;
@@ -356,12 +355,8 @@ page-home {
     }
 
     &.add-button {
-      max-width: 8em;
+      max-width: 6em;
       height: initial;
-      padding: 0;
-      width: 100%;
-      border: 1px solid #999;
-      box-shadow: none;
 
       button {
         font-size: 2.8em;

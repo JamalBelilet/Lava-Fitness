@@ -28,9 +28,8 @@ import { BookPage } from "../pages/book/book";
 
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
-import { ObjectToArrayPipe } from "../pipes/object-to-array/object-to-array";
 
-
+import { Health } from '@ionic-native/health';
 @NgModule({
   declarations: [
     MyApp,
@@ -45,7 +44,6 @@ import { ObjectToArrayPipe } from "../pipes/object-to-array/object-to-array";
     FinishWorkoutPage,
     ClassShedulePage,
     BookPage,
-    ObjectToArrayPipe
   ],
   imports: [
     BrowserModule,
@@ -95,6 +93,8 @@ import { ObjectToArrayPipe } from "../pipes/object-to-array/object-to-array";
     AuthenticationProvider,
     ProfileProvider,
     LavaProvider,
+    Health
+
   ]
 })
 export class AppModule {}
