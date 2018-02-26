@@ -30,6 +30,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
 
 import { Health } from '@ionic-native/health';
+import { LavaHealthProvider } from '../providers/lava-health/lava-health';
 @NgModule({
   declarations: [
     MyApp,
@@ -93,7 +94,8 @@ import { Health } from '@ionic-native/health';
     AuthenticationProvider,
     ProfileProvider,
     LavaProvider,
-    Health
+    Health,
+    LavaHealthProvider
 
   ]
 })

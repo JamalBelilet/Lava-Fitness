@@ -102,6 +102,6 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
-    <engine name="android" spec="7.0.0" />
     <plugin name="cordova-plugin-health" spec="^1.0.4" />
+    <engine name="android" spec="7.0.0" />
 </widget>
