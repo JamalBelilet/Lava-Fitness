@@ -60,7 +60,7 @@ page-login {
   }
 
   .login-img-container {
-    height: 30vh;
+    height: 25vh;
     justify-content: center;
     align-items: center;
     img {
@@ -74,10 +74,14 @@ page-login {
     text-transform: capitalize;
     font-weight: 300;
     font-size: 2em;
-    color: #555;
+    color: #000!important;
 
     &.button-md {
       font-size: 1.5em;
+    }
+
+    &:disabled {
+      color: #000!important;
     }
   }
 
@@ -164,9 +168,10 @@ page-login {
 
   .slide-img {
     background: transparent;
-
-    height: 35vh;
-    padding-right: 10%;
+    position: absolute;
+    top: 5vh;
+    right: 5vh;
+    // height: 30vh;
 
     img {
       width: auto;
@@ -181,15 +186,26 @@ page-login {
       border: 1px solid white !important;
       background: transparent !important;
       color: white !important;
+      padding-top: 1.5em;
+      padding-bottom: 1.5em;
     }
   }
   ion-slides {
-    background: transparent;
-    height: 45vh;
+    height: 80vh;
+    margin: 0;
+    padding: 0!important;
+    margin-bottom: 4vh;
     ion-slide {
       .slide-texts {
         // grid-row: 2/3;
         color: white;
+        h2 {
+          padding-top: 40vh;
+        }
+
+        p {
+          font-size: .7em;
+        }
       }
       .swiper-pagination {
         // grid-row: 3/4;

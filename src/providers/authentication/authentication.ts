@@ -77,13 +77,18 @@ export class AuthenticationProvider {
       params,
       withCredentials: true
     };
+    if(user.MobileNumber.toString().substr(0, 3) != 966) {
+      if (user.MobileNumber.toString().substr(0, 1) == 0) {
+        user.MobileNumber = "966" + user.MobileNumber.toString().substr(1,);
+      }
+    }
     return this.http.post(
       `${this.config.baseUrl}/web/user/register`,
       JSON.stringify({
         AuthorizationKey: this.config.AuthorizationKey,
         FullName: user.FullName,
         MobileNumber: user.MobileNumber,
-        CityID: user.CityID,
+        CityID: 1,
         RegionID: user.RegionID,
         Email: user.Email,
         NationalityID: user.NationalityID,
