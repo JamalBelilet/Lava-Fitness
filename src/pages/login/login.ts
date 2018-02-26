@@ -192,6 +192,13 @@ export class LoginPage {
     this.auth.register(this.signupForm.value).subscribe(
       res => {
         loading.dismiss();
+
+        // this.loginstate = "verify";
+        // this.auth.config.AccessToken = (res as any).data.AccessToken;
+        // this.verifyForm.controls.MobileNumber.setValue(
+        //   this.signupForm.value.MobileNumber
+        // );
+
         this.navCtrl.setRoot(TabsPage);
         // this.auth.config.AccessToken = (res as any).data.AccessToken;
         return;
