@@ -1,13 +1,19 @@
+.ion-page.show-page {
+  background: rgba(0, 0, 0, .5)!important;
+}
 page-book {
 
+  font-family: "29ltbukrabold";
+
+
   .ion-page.show-page {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, .9)!important;
   }
 
   .guide-modal {
     $modal-inset-min-width: 50%;
     display: flex;
-    height: 75vh;
+    height: 65vh;
     margin-top: 12.5vh;
     width: 80%;
     margin-left: 10%;
@@ -15,12 +21,18 @@ page-book {
     border-radius: 5px;
     padding: 0.5em;
 
+    &.content-ios {
+      height: 55vh;
+    }
+
     h2,
     h3 {
       // background: red;
-      margin: .5em auto;
+      margin: 1.5em auto;
       text-align: center !important;
-      color: #444;
+      color: #555;
+
+      font-family: "29ltbukrabold";
     }
 
     p {
@@ -46,7 +58,7 @@ page-book {
       margin: 0 auto;
       background: transparent;
       img {
-        width: 3em;
+        width: 2.8em;
         background: transparent;
       }
 
@@ -136,8 +148,8 @@ page-book {
     flex-flow: nowrap column;
     height: 100%;
     img {
-      width: 8em;
-      height: 8em;
+      width: 5em;
+      height: 5em;
     }
   }
 

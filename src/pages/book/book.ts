@@ -19,7 +19,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 })
 export class BookPage {
   _book: any;
-  done = false;
+  done = true;
   sessions$: Observable<Object>;
   classes$: Observable<Object>;
 
