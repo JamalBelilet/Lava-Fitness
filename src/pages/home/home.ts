@@ -269,7 +269,7 @@ export class HomePage {
 
     let BookingModal = this.modalCtrl.create(BookPage, {book: 'class'});
 
-    BookingModal.present();
+    // BookingModal.present();
 
   }
 

@@ -3,155 +3,69 @@
     <ion-title>Home</ion-title>
   </ion-navbar> -->
 
-  <div class="lava-header">
-    <!-- <ion-row justify-content-end class="no-padding">
-        <button id="notification-button" ion-button clear>
-          <ion-icon name="notifications-outline">
-            <ion-badge id="notifications-badge" clear>2</ion-badge>
-          </ion-icon>
-        </button>
+  <p class="user-name">{{(profile$ | async)?.data.FullName}}</p>
+  <p class="user-active">{{user.active}}</p>
 
-      </ion-row> -->
+  <p class="user-today">TODAY</p>
 
-    <ion-row class="user-container">
-      <ion-col>
-        <p class="user-name">{{(profile$ | async)?.data.FullName}}</p>
-        <p class="user-active">{{user.active}}</p>
-      </ion-col>
-    </ion-row>
+  <img class="user-floors-img" src="assets/imgs/_stairs@2x.png">
+  <p class="user-floors-text">floors</p>
+  <p class="user-floors-number">{{user.today.floors}}</p>
 
-    <ion-row class="today-container">
-      <ion-col>
-        <p class="today">TODAY</p>
-        <ion-row>
-          <ion-col class="floors">
-            <img src="assets/imgs/_stairs@2x.png">
-            <p>floors</p>
-            <p class="act-number">{{user.today.floors}}</p>
-          </ion-col>
-          <ion-col class="progress-container">
-            <round-progress [current]="2" [max]="3" [color]="'#f8cb4f'" [background]="'#ffffff'" [radius]="60" [stroke]="8" [semicircle]="false"
-              [rounded]="true" [clockwise]="true" [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="0">
-            </round-progress>
-
-            <p class="progress-days">
-              2
-              <span>days</span>
-            </p>
-            <!-- <p>days</p> -->
-
-          </ion-col>
-
-          <ion-col class="steps">
-            <img src="assets/imgs/_steps@2x.png">
-            <p>steps</p>
-            <p class="act-number">{{mySteps || 1253}}</p>
-
-          </ion-col>
-        </ion-row>
-
-        <ion-row style="padding: 0; margin: 0; justify-content: center">
-          <p style="padding: 1em; margin: 0; text-align: center; font-size: 1em;">goal: 3 days</p>
-        </ion-row>
-      </ion-col>
-    </ion-row>
+  <div class="user-circle">
+    <round-progress class="user-circle-progress" [current]="2" [max]="3" [color]="'#f8cb4f'" [background]="'#ffffff'" [radius]="65.5"
+      [stroke]="8" [semicircle]="false" [rounded]="true" [clockwise]="true" [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'"
+      [animationDelay]="0">
+    </round-progress>
+    <p class="user-circle-number">2</p>
+    <p class="user-circle-days">days</p>
   </div>
+
+  <img class="user-steps-img" src="assets/imgs/_steps@2x.png">
+  <p class="user-steps-text">steps</p>
+  <p class="user-steps-number">{{mySteps || 1253}}</p>
+
+  <p class="user-goal">goal: 3 days</p>
+
 
 </ion-header>
 
 <ion-content>
 
-  <div class="lava-content">
-    <ion-row>
-      <p class="section-title">Start a Workout:</p>
+  <p class="workout-section-title">Start a Workout:</p>
+  <ion-slides class="workout-section-slides" slidesPerView="2.57">
+    <ion-slide class="workout-section-slides-slide" *ngFor="let workout of  workouts$ | async" [navPush]="workoutPage" [navParams]="workout">
+      <p class="workout-title">{{workout.ProgramName}}</p>
 
-      <ion-slides slidesPerView="2.6" id="Start-a-Workout" spaceBetween="10">
-        <ion-slide class="workout" *ngFor="let workout of  workouts$ | async" [navPush]="workoutPage" [navParams]="workout">
-            <div>
-                <p class="workout-title">{{workout.ProgramName}}</p>
+      <ion-row no-padding class="workout-row">
+        <ion-col no-padding col-auto>
+          <p class="workout-exercice">tone muscles</p>
+        </ion-col>
+        <ion-col no-padding col-auto>
+          <p class="workout-time">{{workout.NumberOfDays}}</p>
+        </ion-col>
+      </ion-row>
 
-                <ion-row no-padding class="workout-container">
-                  <!-- <ion-col no-padding col-auto>
-                    <p class="workout-exercice">{{workout.exercice}}</p>
-                  </ion-col> -->
-                  <ion-col no-padding col-auto>
-                    <p class="workout-time">{{workout.NumberOfDays}}</p>
-                  </ion-col>
-                </ion-row>
-                <ion-row no-padding>
-                  <!-- <ion-col no-padding>
-                    <p class="workout-average">{{workout.average}}</p>
-                  </ion-col> -->
-                  <p class="workout-state">{{workout.CreationDate}}</p>
-                </ion-row>
-              </div>
+      <p class="workout-wk">1/wk</p>
+      <p class="workout-state">{{workout.CreationDate}}</p>
 
-        </ion-slide>
-      </ion-slides>
-      <!-- <ion-slides slidesPerView="2.6" id="Start-a-Workout" spaceBetween="10">
-        <ion-slide class="workout" *ngFor="let workout of  user.workouts" [navPush]="workoutPage" [navParams]="workout">
-          <div>
-            <p class="workout-title">{{workout.title}}</p>
-
-            <ion-row no-padding class="workout-container">
-              <ion-col no-padding col-auto>
-                <p class="workout-exercice">{{workout.exercice}}</p>
-              </ion-col>
-              <ion-col no-padding col-auto>
-                <p class="workout-time">{{workout.time}}</p>
-              </ion-col>
-            </ion-row>
-            <ion-row no-padding>
-              <ion-col no-padding>
-                <p class="workout-average">{{workout.average}}</p>
-                <p class="workout-state">{{workout.state}}</p>
-              </ion-col>
-            </ion-row>
-          </div>
-        </ion-slide>
-      </ion-slides> -->
-    </ion-row>
+    </ion-slide>
+  </ion-slides>
 
 
-    <ion-row>
-      <p class="section-title">Upcoming Bookings:</p>
-
-      <ion-slides slidesPerView="3" spaceBetween="0">
-        <ion-slide class="workout booking add-button">
-          <button clear ion-button (click)="bookClass()">
-            <ion-icon name="add"></ion-icon>
-          </button>
-        </ion-slide>
-        <ion-slide class="workout booking" id="upcomming-bookings" *ngFor="let booking of (upcommingExercises | async)?.data">
-            <div>
-
-                <p class="workout-title">{{booking?.ExerciseTitle}}</p>
-
-
-                <ion-row no-padding>
-                  <ion-col no-padding>
-                    <p class="workout-state">{{booking?.Duration}}</p>
-                  </ion-col>
-                </ion-row>
-
-                <ion-row no-padding class="workout-container">
-                  <ion-col no-padding col-auto>
-                    <p class="workout-exercice">{{booking?.Date}}</p>
-                  </ion-col>
-                  <!-- <ion-col no-padding col-auto>
-                    <p class="workout-time">{{booking.time}}</p>
-                  </ion-col> -->
-                </ion-row>
-            </div>
-
-
-        </ion-slide>
-
-
-
-      </ion-slides>
-    </ion-row>
-  </div>
+  <p class="bookings-section-title">Upcoming Bookings:</p>
+  <ion-slides class="bookings-section-slides"  slidesPerView="3.5">
+    <ion-slide class="bookings-section-slides-slide">
+      <button clear ion-button (click)="bookClass()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-slide>
+    <ion-slide class="bookings-section-slides-slide" *ngFor="let booking of (upcommingExercises | async)?.data">
+      <p class="bookings-title">{{booking?.ExerciseTitle}}</p>
+      <p class="bookings-wk">{{booking?.Duration}}</p>
+      <p class="bookings-state">{{booking?.Date}}</p>
+    </ion-slide>
+  </ion-slides>
 
 
 

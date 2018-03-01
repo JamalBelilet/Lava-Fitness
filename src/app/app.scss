@@ -22,6 +22,32 @@
     url("../assets/fonts/AvenirLTStd-Medium.otf");
 }
 
+
+@font-face {
+  font-family: "AvenirLTStd-Black";
+  src: url("../assets/fonts/AvenirLTStd-Black.otf");
+}
+
+@font-face {
+  font-family: "AvenirLTStd-Book";
+  src: url("../assets/fonts/AvenirLTStd-Book.otf");
+}
+
+@font-face {
+  font-family: "AvenirLTStd-Heavy";
+  src: url("../assets/fonts/AvenirLTStd-Heavy.otf");
+}
+
+@font-face {
+  font-family: "AvenirLTStd-Medium";
+  src: url("../assets/fonts/AvenirLTStd-Medium.otf");
+}
+
+
+
+
+
+
 @font-face {
   font-family: "29ltbukrabold";
   src: url("../assets/fonts/29ltbukra/29ltbukrabold.ttf");
@@ -104,6 +130,38 @@ button {
 }
 
 .tabs {
-  filter: blur(5px);
+  // filter: blur(5px);
 
 }
+
+
+.toolbar.toolbar-md,
+  .toolbar.toolbar-ios {
+    color: white !important;
+    background: transparent;
+
+    .toolbar-title.toolbar-title-md,
+    .toolbar-title.toolbar-title-ios {
+      color: rgba(255, 255, 255, 0.85) !important;
+      font-weight: 400;
+    }
+
+    ion-icon.back-button-icon.icon {
+      color: white !important;
+    }
+
+    .toolbar-background.toolbar-background-md,
+    .toolbar-background.toolbar-background-ios {
+      background: transparent;
+      color: white !important;
+
+      .back-button.bar-button {
+        color: white !important;
+
+        &.bar-button-md.back-button-md.bar-button-default.bar-button-default-md.show-back-button,
+        &.bar-button-ios.back-button-ios.bar-button-default.bar-button-default-ios.show-back-button {
+          color: white !important;
+        }
+      }
+    }
+  }
