@@ -1,4 +1,5 @@
 import { Component, ViewChild } from "@angular/core";
+
 import {
   NavController,
   ModalController,
@@ -16,6 +17,8 @@ import { fromPromise } from "rxjs/observable/fromPromise";
 
 import { Health } from "@ionic-native/health";
 import { LavaHealthProvider } from "../../providers/lava-health/lava-health";
+
+import t from "moment";
 
 @Component({
   selector: "page-home",
@@ -267,10 +270,9 @@ export class HomePage {
 
     // });
 
-    let BookingModal = this.modalCtrl.create(BookPage, {book: 'class'});
+    let BookingModal = this.modalCtrl.create(BookPage, { book: "class" });
 
     // BookingModal.present();
-
   }
 
   bookClass() {
@@ -284,8 +286,7 @@ export class HomePage {
   // this.paymentTabs.select(1);
 
   getSteps() {
-    this.LavaHealth
-      .getSteps()
+    this.LavaHealth.getSteps()
       .then(data => {
         this.presentAlert(data);
         this.mySteps = data;

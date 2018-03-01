@@ -31,6 +31,7 @@ import {RoundProgressModule} from 'angular-svg-round-progressbar';
 
 import { Health } from '@ionic-native/health';
 import { LavaHealthProvider } from '../providers/lava-health/lava-health';
+import { MomentPipe } from "../pipes/moment/moment";
 @NgModule({
   declarations: [
     MyApp,
@@ -45,6 +46,7 @@ import { LavaHealthProvider } from '../providers/lava-health/lava-health';
     FinishWorkoutPage,
     ClassShedulePage,
     BookPage,
+    MomentPipe
   ],
   imports: [
     BrowserModule,

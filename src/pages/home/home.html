@@ -38,23 +38,23 @@
       <p class="workout-title">{{workout.ProgramName}}</p>
 
       <ion-row no-padding class="workout-row">
-        <ion-col no-padding col-auto>
+        <ion-col no-padding col-6>
           <p class="workout-exercice">tone muscles</p>
         </ion-col>
-        <ion-col no-padding col-auto>
+        <ion-col no-padding col-6>
           <p class="workout-time">{{workout.NumberOfDays}}</p>
         </ion-col>
       </ion-row>
 
       <p class="workout-wk">1/wk</p>
-      <p class="workout-state">{{workout.CreationDate}}</p>
+      <p class="workout-state">{{workout.CreationDate | moment}}</p>
 
     </ion-slide>
   </ion-slides>
 
 
   <p class="bookings-section-title">Upcoming Bookings:</p>
-  <ion-slides class="bookings-section-slides"  slidesPerView="3.5">
+  <ion-slides class="bookings-section-slides" slidesPerView="3.5">
     <ion-slide class="bookings-section-slides-slide">
       <button clear ion-button (click)="bookClass()">
         <ion-icon name="add"></ion-icon>
@@ -63,7 +63,17 @@
     <ion-slide class="bookings-section-slides-slide" *ngFor="let booking of (upcommingExercises | async)?.data">
       <p class="bookings-title">{{booking?.ExerciseTitle}}</p>
       <p class="bookings-wk">{{booking?.Duration}}</p>
-      <p class="bookings-state">{{booking?.Date}}</p>
+      <ion-row no-padding class="bookings-row">
+        <ion-col no-padding col-auto>
+          <p>{{booking?.Date | moment}}</p>
+        </ion-col>
+        <!-- <ion-col no-padding col-auto>
+          <p>{{booking?.Date | moment : 'day'}}</p>
+        </ion-col> -->
+        <!-- <ion-col no-padding col-auto>
+          <p>{{booking?.Date | moment : 'time'}}</p>
+        </ion-col> -->
+      </ion-row>
     </ion-slide>
   </ion-slides>
 
