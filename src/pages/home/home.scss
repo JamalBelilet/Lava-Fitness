@@ -225,7 +225,6 @@ page-home {
           top: 3.81vh;
 
           ion-col {
-
             &:first-of-type {
               border-right: 1px solid black;
 
@@ -279,30 +278,40 @@ page-home {
 
         margin-left: 4.09vw !important;
 
-
         &:first-of-type {
-          width: 8.19vh!important;
+          width: 8.19vh !important;
           background: transparent;
           box-shadow: none;
           border: 1px solid black;
           margin-left: 3.32vw !important;
           ion-icon {
-            font-size: 4.58vh!important;
+            font-size: 4.58vh !important;
             color: black;
           }
         }
 
-
         .bookings-title {
-          @extend .workout-title ;
+          @extend .workout-title;
           position: absolute;
 
           top: 1.72vh;
+          left: 5.37vw;
+
+          &::before {
+            position: absolute;
+            content: "•";
+            display: block;
+            left: -3.5vw;
+
+            font-size: 4vw;
+            color: yellow;
+          }
         }
         .bookings-wk {
-          @extend .workout-wk ;
+          @extend .workout-wk;
 
           top: 3.45vh;
+          left: 5.37vw;
         }
         .bookings-row {
           position: absolute;
@@ -311,11 +320,9 @@ page-home {
           font-weight: 500;
           width: 100%;
           // background: red;
-          left: 2.04vw;
+          left: 5.37vw;
           top: 5.46vh;
         }
-
-
       }
     }
   }
