@@ -8,48 +8,31 @@
 
   <ion-navbar>
     <ion-title>Workout</ion-title>
-
-
-
   </ion-navbar>
 
-  <ion-row justify-content-between>
-    <p class="workout-title">{{workout?.ProgramName}}</p>
+  <p class="workout-title">{{workout?.ProgramName}}</p>
 
-    <button id="notification-button" ion-button clear>
-      <ion-icon name="text">
-        <ion-badge id="notifications-badge" clear>2</ion-badge>
-      </ion-icon>
-    </button>
+  <button class="workout-notification-button" ion-button clear>
 
+    <img class="workout-notifications-button-img" src="assets/icon/_message.png">
+    <ion-badge class="workout-notifications-button-badge" clear>2</ion-badge>
+  </button>
+
+  <p class="workout-exercice">Tone muscles</p>
+
+  <ion-row class="workout-meta">
+    <ion-row>
+      <ion-icon name="time-outline"></ion-icon>
+      <p class="workout-time">{{workout?.NumberOfDays}}</p>
+    </ion-row>
+
+    <ion-row>
+      <ion-icon name="ios-code-working"></ion-icon>
+      <p class="workout-time">{{workout?.CreationDate | moment}}</p>
+    </ion-row>
   </ion-row>
 
-  <ion-row no-padding class="workout-container">
-    <ion-col>
-      <!-- <p class="workout-exercice">{{workout?.exercice}}</p> -->
-      <ion-row>
-        <ion-row padding style="padding-left: 0">
-          <ion-icon name="time-outline"></ion-icon>
-          <p class="workout-time">{{workout?.NumberOfDays}}</p>
-        </ion-row>
-
-        <ion-row padding>
-          <ion-icon name="ios-code-working"></ion-icon>
-          <p class="workout-time">{{workout?.CreationDate}}</p>
-        </ion-row>
-      </ion-row>
-    </ion-col>
-
-
-  </ion-row>
-  <!-- <ion-row no-padding>
-    <ion-col no-padding>
-      <p class="workout-average">{{workout?.average}}</p>
-      <p class="workout-state">{{workout?.state}}</p>
-    </ion-col>
-  </ion-row> -->
-
-  <ion-row class="states">
+  <ion-row class="workout-states">
     <ion-icon *ngFor="let exercice of workout?.ProgrameDetail" [name]="'ios-checkmark-circle'"></ion-icon>
   </ion-row>
 
@@ -176,7 +159,6 @@
       </ng-container> -->
 
   </ion-list>
-  <button ion-button class="finish-workout" (click)="finishWorkout()">Finish Workout</button>
-
+  <button ion-button class="workout-finish" (click)="finishWorkout()">Finish Workout</button>
 
 </ion-content>

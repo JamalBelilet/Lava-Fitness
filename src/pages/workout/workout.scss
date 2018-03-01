@@ -1,434 +1,478 @@
 page-workout {
-  font-size: 0.7em !important;
-
   .fixed-content {
     z-index: -2 !important;
   }
 
-  font-size: 85%;
-  padding: 0.5em;
-  margin: 0.2em;
-  border-radius: 5px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
-  font-weight: 300;
+  .header.header-md,
+  .header.header-ios {
+    font-family: "AvenirLTStd-light", Arial, Helvetica, sans-serif;
+    height: calc(39.68vh);
 
-  text-align: center;
+    background: linear-gradient(135deg, #0193a0, #21c1ca);
+    width: 100%;
+    box-shadow: 0 !important;
 
-  .fixed-content {
-    z-index: -2 !important;
+    position: relative;
+
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    &:after {
+      background-image: none !important;
+    }
+
+    .workout-title {
+      font-family: "29ltbukraregular", "AvenirLTStd-Medium", Arial, Helvetica,
+        sans-serif;
+
+      position: absolute;
+
+      font-size: 4.47vw;
+      font-weight: normal;
+      color: #ffffff;
+      top: 9.77vh;
+      left: 10.32vw;
+    }
+    .workout-exercice {
+      position: absolute;
+
+      font-size: 3.83vw;
+      font-weight: normal;
+      color: #ffffff;
+      top: 13.58vh;
+      left: 10.32vw;
+    }
+    .workout-notification-button {
+      position: absolute;
+
+      font-size: 3.19vw;
+      font-weight: 500;
+
+      width: 4.72vw;
+      height: 2.01vh;
+
+      top: 10.73vh;
+      right: 7.41vw;
+
+      .workout-notifications-button-img {
+        position: absolute;
+
+        height: 100%;
+        width: auto;
+        top: 0;
+        left: 0;
+      }
+      .workout-notifications-button-badge {
+        position: absolute;
+
+        width: 4.5px;
+
+        font-size: 3.19vw;
+        font-weight: 500;
+        color: #ffffff;
+
+        background: transparent;
+
+        right: -2.8vw;
+        top: 0;
+      }
+    }
+    .workout-meta {
+      position: absolute;
+
+      font-size: 3.19vw;
+      font-weight: 500;
+      color: #ffffff;
+      top: 17.32vh;
+      left: 10.73vw;
+      right: 10.73vw;
+
+      ion-row:last-of-type {
+        margin-left: 6.77vw;
+      }
+      p {
+        margin-left: 1.53vw;
+      }
+    }
+    .workout-states {
+      position: absolute;
+
+      font-size: 3.19vw;
+      font-weight: 500;
+      color: #ffffff;
+
+      top: 21.99vh;
+
+      width: 45.26;
+      left: 27.73vw;
+      right: 27.73vw;
+
+      ion-icon {
+        font-size: 4.21vw;
+        margin-right: 2.55vw;
+      }
+    }
   }
+
+  .workout-finish {
+    position: fixed;
+    bottom: 7.9vh !important;
+
+    width: 37.21vw;
+    left: 31.395vw;
+
+    height: 6.39vh;
+    font-size: 4.55vw;
+    font-weight: 500;
+    color: #ffffff!important;
+    margin: 0;
+
+    border-radius: 4vw 4vw 0 0;
+    background: linear-gradient(135deg, #0ca3ad, #03c3d8);
+
+    z-index: 999999 !important;
+  }
+
   .scroll-content {
     margin-top: calc(30vh + 2.5em) !important;
     z-index: 999;
   }
 
-  .toolbar.toolbar-md,
-  .toolbar.toolbar-ios {
-    color: white !important;
+  // .exercices {
+  //   // margin-top: -5em;
 
-    background: transparent;
-    .toolbar-title.toolbar-title-md,
-    .toolbar-title.toolbar-title-ios {
-      color: rgba(255, 255, 255, 0.85) !important;
-      font-weight: 400;
-    }
+  //   z-index: 99999999999 !important;
 
-    ion-icon.back-button-icon.icon {
-      color: white !important;
-    }
+  //   ion-thumbnail {
+  //     display: flex;
+  //     justify-content: flex-start;
+  //     align-items: center;
 
-    .toolbar-background.toolbar-background-md,
-    .toolbar-background.toolbar-background-ios {
-      background: transparent;
-      color: white !important;
+  //     position: relative;
+  //   }
 
-      .back-button.bar-button {
-        color: white !important;
+  //   .counter {
+  //     position: absolute;
+  //     left: 0;
+  //     top: 10%;
+  //     font-size: 2.5em!important;
+  //     font-weight: 400;
+  //     width: 100%;
+  //     text-align: center;
+  //     color: #bbb;
+  //   }
 
-        &.bar-button-md.back-button-md.bar-button-default.bar-button-default-md.show-back-button,
-        &.bar-button-ios.back-button-ios.bar-button-default.bar-button-default-ios.show-back-button {
-          color: white !important;
-        }
-      }
-    }
-  }
+  //   img {
+  //     width: 2.5em;
+  //     height: auto;
+  //   }
 
-  .scroll-content {
-    padding-top: 0 !important;
-  }
-  .exercices {
-    // margin-top: -5em;
+  //   .item-wrapper {
+  //     margin: 0.8em auto;
+  //     border-radius: 0.5em;
+  //     box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
+  //     // border: .5px solid black;
+  //   }
 
-    z-index: 99999999999 !important;
+  //   .item.item-block,
+  //   div.input-wrapper {
+  //     border-radius: 1em;
+  //     padding: auto 0;
+  //     margin: 0;
+  //     p {
+  //       padding: 0;
+  //       margin: 0;
+  //       font-size: 75%;
+  //     }
+  //   }
+  // }
 
-    ion-thumbnail {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
+  // .no-padding {
+  //   padding: 0;
+  //   margin: 0;
 
-      position: relative;
-    }
+  //   button {
+  //     padding: 0 !important;
+  //     margin: 0 !important;
+  //   }
+  // }
+  // max-width: 100vw !important;
 
-    .counter {
-      position: absolute;
-      left: 0;
-      top: 10%;
-      font-size: 2.5em!important;
-      font-weight: 400;
-      width: 100%;
-      text-align: center;
-      color: #bbb;
-    }
+  // ion-content {
+  //   padding: 0 0.5em;
+  //   font-size: 85%;
 
-    img {
-      width: 2.5em;
-      height: auto;
-    }
+  //   text-align: left;
 
-    .item-wrapper {
-      margin: 0.8em auto;
-      border-radius: 0.5em;
-      box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
-      // border: .5px solid black;
-    }
+  //   h2 {
+  //     font-size: 1.6em;
+  //     color: #666;
+  //     padding: 0 1em;
+  //   }
+  // }
 
-    .item.item-block,
-    div.input-wrapper {
-      border-radius: 1em;
-      padding: auto 0;
-      margin: 0;
-      p {
-        padding: 0;
-        margin: 0;
-        font-size: 75%;
-      }
-    }
-  }
+  // .scroll-content {
+  //   padding-top: 0 !important;
+  // }
+  // .exercices {
+  //   // margin-top: -5em;
 
-  .header.header-md,
-  .header.header-ios {
-    background: linear-gradient(135deg, #0193a0, #21c1ca);
-    color: white !important;
+  //   z-index: 99999999999 !important;
 
-    height: calc(40vh + 1em);
+  //   ion-thumbnail {
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+  //     z-index: 3;
+  //   }
 
-    color: rgba(255, 255, 255, 0.9) !important;
-    border-radius: 0 0 45% 45%;
-    width: 150vw;
-    padding: 0 28vw;
-    margin-left: -25vw;
-    box-shadow: 0 !important;
-    font-size: 80%;
+  //   img {
+  //     width: 2.5em;
+  //     height: auto;
+  //     z-index: 3;
+  //   }
+  //   counter-reset: ion-item-sliding;
 
-    &:after {
-      background-image: none !important;
-    }
-  }
+  //   ion-item-sliding {
+  //     margin: 0.8em auto;
+  //     border-radius: 0.5em;
+  //     box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
+  //     // border: .5px solid black;
 
-  .no-padding {
-    padding: 0;
-    margin: 0;
+  //     .item.item-block {
+  //       // z-index: 5;
+  //       background: transparent;
+  //     }
 
-    button {
-      padding: 0 !important;
-      margin: 0 !important;
-    }
-  }
-  max-width: 100vw !important;
+  //     &:before {
+  //       content: counter(ion-item-sliding);
+  //       counter-increment: ion-item-sliding;
 
-  ion-content {
-    padding: 0 0.5em;
-    font-size: 85%;
+  //       text-align: center;
+  //       position: absolute;
+  //       left: 0px;
+  //       top: 4px;
 
-    text-align: left;
+  //       color: #aaa;
+  //       left: 120%;
 
-    h2 {
-      font-size: 1.6em;
-      color: #666;
-      padding: 0 1em;
-    }
-  }
+  //       font-size: 4.5em;
+  //       font-weight: 400;
+  //     }
+  //   }
 
-  .scroll-content {
-    padding-top: 0 !important;
-  }
-  .exercices {
-    // margin-top: -5em;
+  //   .item.item-block,
+  //   div.input-wrapper {
+  //     border-radius: 1em;
+  //     padding: auto 0;
+  //     margin: 0;
+  //     p {
+  //       padding: 0;
+  //       margin: 0;
+  //       font-size: 75%;
+  //     }
+  //   }
+  // }
 
-    z-index: 99999999999 !important;
+  // #notification-button {
+  //   position: relative;
+  //   width: 42px;
+  //   top: 0px;
+  //   right: 1px;
+  //   overflow: visible !important;
+  //   font-size: 1.2em;
+  //   background: transparent;
+  //   border-radius: 100%;
+  //   padding: 0;
+  //   margin: 0;
+  //   color: rgba(255, 255, 255, 0.7) !important;
+  // }
 
-    ion-thumbnail {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 3;
-    }
+  // #notifications-badge {
+  //   background-color: transparent !important;
+  //   font-size: 0.8em;
+  //   padding: 0px;
+  //   position: absolute;
+  //   top: calc(50% - 0.4em);
+  //   right: 0px;
+  //   font-weight: 200;
+  //   color: rgba(255, 255, 255, 0.8) !important;
+  // }
 
-    img {
-      width: 2.5em;
-      height: auto;
-      z-index: 3;
-    }
-    counter-reset: ion-item-sliding;
+  // #notifications-badge.badge.badge-ios,
+  // .badge.badge-md {
+  //   color: #f8cb4f;
+  // }
 
-    ion-item-sliding {
-      margin: 0.8em auto;
-      border-radius: 0.5em;
-      box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
-      // border: .5px solid black;
+  // .workout-title {
+  //   font-size: 2.1em;
+  //   color: white !important;
+  //   margin-bottom: 0 !important;
+  // }
 
-      .item.item-block {
-        // z-index: 5;
-        background: transparent;
-      }
+  // .workout-container {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   width: 100%;
+  //   color: rgba(255, 255, 255, 0.7) !important;
+  //   font-weight: 300;
 
-      &:before {
-        content: counter(ion-item-sliding);
-        counter-increment: ion-item-sliding;
+  //   ion-row {
+  //     padding: 0 !important;
+  //     margin: 0.2em !important;
+  //   }
+  // }
+  // .workout-average {
+  //   color: white !important;
+  //   margin-top: 2em;
+  // }
 
-        text-align: center;
-        position: absolute;
-        left: 0px;
-        top: 4px;
+  // p {
+  //   padding: 0;
+  //   margin: 0;
+  //   text-align: left;
+  // }
 
-        color: #aaa;
-        left: 120%;
+  // .workout-exercice {
+  //   font-size: 1.6em;
+  // }
 
-        font-size: 4.5em;
-        font-weight: 400;
-      }
-    }
+  // .workout-time {
+  //   padding-left: 0.5em;
+  // }
 
-    .item.item-block,
-    div.input-wrapper {
-      border-radius: 1em;
-      padding: auto 0;
-      margin: 0;
-      p {
-        padding: 0;
-        margin: 0;
-        font-size: 75%;
-      }
-    }
-  }
+  // .states {
+  //   width: 65%;
+  //   margin: 0 auto;
+  //   font-size: 1.5em;
+  //   ion-icon {
+  //     padding: 0.3em;
+  //   }
+  // }
 
-  #notification-button {
-    position: relative;
-    width: 42px;
-    top: 0px;
-    right: 1px;
-    overflow: visible !important;
-    font-size: 1.2em;
-    background: transparent;
-    border-radius: 100%;
-    padding: 0;
-    margin: 0;
-    color: rgba(255, 255, 255, 0.7) !important;
-  }
+  // // .item-wrapper active-sliding active-slide active-options-left
 
-  #notifications-badge {
-    background-color: transparent !important;
-    font-size: 0.8em;
-    padding: 0px;
-    position: absolute;
-    top: calc(50% - 0.4em);
-    right: 0px;
-    font-weight: 200;
-    color: rgba(255, 255, 255, 0.8) !important;
-  }
+  // .slide-options {
+  //   padding: 0;
+  //   justify-content: center;
+  //   align-items: center;
+  //   width: 85%;
+  //   ion-row > ion-col {
+  //     .option-title {
+  //       color: #666;
+  //     }
+  //     & > ion-row {
+  //       width: 85%;
+  //       margin-top: 0.5em;
+  //       border-radius: 0.2em;
+  //       background: #eee;
+  //     }
+  //   }
+  //   p {
+  //     text-align: center;
+  //     width: 100%;
+  //     color: #037e97;
+  //   }
 
-  #notifications-badge.badge.badge-ios,
-  .badge.badge-md {
-    color: #f8cb4f;
-  }
+  //   button {
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+  //     color: #999 !important;
+  //     background: transparent;
 
-  .workout-title {
-    font-size: 2.1em;
-    color: white !important;
-    margin-bottom: 0 !important;
-  }
+  //     padding: 0 !important;
+  //     margin: 0 !important;
+  //     margin-left: 1em !important;
 
-  .workout-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    color: rgba(255, 255, 255, 0.7) !important;
-    font-weight: 300;
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+  //     ion-icon {
+  //       padding: 0 !important;
+  //       margin: 0 !important;
 
-    ion-row {
-      padding: 0 !important;
-      margin: 0.2em !important;
-    }
-  }
-  .workout-average {
-    color: white !important;
-    margin-top: 2em;
-  }
+  //       background: rgba(227, 169, 23, 0.2) !important;
+  //       border-radius: 50%;
 
-  p {
-    padding: 0;
-    margin: 0;
-    text-align: left;
-  }
+  //       width: 1em;
+  //       text-align: center;
+  //       margin: 0 auto;
+  //       width: 1em;
+  //       font-weight: 600;
+  //       height: 1em;
+  //       display: flex;
+  //       justify-content: center;
+  //       align-items: center;
+  //     }
+  //   }
 
-  .workout-exercice {
-    font-size: 1.6em;
-  }
+  //   ion-col {
+  //     display: flex;
+  //     flex-flow: nowrap column;
+  //     justify-content: center;
+  //     align-items: center;
+  //     padding: 0;
+  //     margin: 0;
+  //     width: 100%;
+  //   }
 
-  .workout-time {
-    padding-left: 0.5em;
-  }
+  //   ion-row {
+  //     display: flex;
+  //     flex-flow: nowrap row;
+  //     justify-content: center;
+  //     align-items: center;
+  //     padding: 0;
+  //     margin: 0;
+  //     height: 100%;
+  //     width: 100%;
+  //   }
+  //   .option-title {
+  //     font-size: 65%;
+  //   }
 
-  .states {
-    width: 65%;
-    margin: 0 auto;
-    font-size: 1.5em;
-    ion-icon {
-      padding: 0.3em;
-    }
-  }
+  //   ion-icon {
+  //     font-size: 2em;
+  //     padding: 0.5em;
+  //     margin: 0;
+  //     display: flex;
+  //     height: 100%;
+  //   }
+  // }
 
-  .finish-workout {
-    position: fixed;
-    bottom: 40px;
-    left: 50%;
-    width: 50%;
-    padding: 2em;
-    margin: 0 auto;
-    margin-left: calc(-50% / 2);
-    border-radius: 1.5em 1.5em 0 0;
-    background: linear-gradient(135deg, #0ca3ad, #03c3d8);
-    color: white !important;
+  // ion-item {
+  //   padding: 0;
+  //   margin: 0;
+  //   font-size: 0.8em;
+  //   text-align: left;
+  //   border-radius: 0.2em;
+  //   background: transparent;
+  //   max-height: 4em;
+  //   h2 {
+  //     margin: 0;
+  //     padding: 0;
+  //     color: rgba(255, 255, 255, 0.9);
+  //     font-size: 1.4em;
+  //   }
+  //   p {
+  //     margin: 0;
+  //     padding: 0;
+  //     color: rgba(255, 255, 255, 0.6);
+  //     font-size: 1em;
+  //   }
 
-    z-index: 999999 !important;
-
-    &.button-md {
-      bottom: 60px;
-    }
-  }
-
-  // .item-wrapper active-sliding active-slide active-options-left
-
-  .slide-options {
-    padding: 0;
-    justify-content: center;
-    align-items: center;
-    width: 85%;
-    ion-row > ion-col {
-      .option-title {
-        color: #666;
-      }
-      & > ion-row {
-        width: 85%;
-        margin-top: 0.5em;
-        border-radius: 0.2em;
-        background: #eee;
-      }
-    }
-    p {
-      text-align: center;
-      width: 100%;
-      color: #037e97;
-    }
-
-    button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #999 !important;
-      background: transparent;
-
-      padding: 0 !important;
-      margin: 0 !important;
-      margin-left: 1em !important;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      ion-icon {
-        padding: 0 !important;
-        margin: 0 !important;
-
-        background: rgba(227, 169, 23, 0.2) !important;
-        border-radius: 50%;
-
-        width: 1em;
-        text-align: center;
-        margin: 0 auto;
-        width: 1em;
-        font-weight: 600;
-        height: 1em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    }
-
-    ion-col {
-      display: flex;
-      flex-flow: nowrap column;
-      justify-content: center;
-      align-items: center;
-      padding: 0;
-      margin: 0;
-      width: 100%;
-    }
-
-    ion-row {
-      display: flex;
-      flex-flow: nowrap row;
-      justify-content: center;
-      align-items: center;
-      padding: 0;
-      margin: 0;
-      height: 100%;
-      width: 100%;
-    }
-    .option-title {
-      font-size: 65%;
-    }
-
-    ion-icon {
-      font-size: 2em;
-      padding: 0.5em;
-      margin: 0;
-      display: flex;
-      height: 100%;
-    }
-  }
-
-  ion-item {
-    padding: 0;
-    margin: 0;
-    font-size: 0.8em;
-    text-align: left;
-    border-radius: 0.2em;
-    background: transparent;
-    max-height: 4em;
-    h2 {
-      margin: 0;
-      padding: 0;
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 1.4em;
-    }
-    p {
-      margin: 0;
-      padding: 0;
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 1em;
-    }
-
-    ion-thumbnail {
-      padding: 0 !important;
-      margin: 0 !important;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    img {
-      width: 5em;
-      height: 5em;
-    }
-  }
-
+  //   ion-thumbnail {
+  //     padding: 0 !important;
+  //     margin: 0 !important;
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+  //   }
+  //   img {
+  //     width: 5em;
+  //     height: 5em;
+  //   }
+  // }
 }

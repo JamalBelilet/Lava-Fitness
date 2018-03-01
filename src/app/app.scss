@@ -22,7 +22,6 @@
     url("../assets/fonts/AvenirLTStd-Medium.otf");
 }
 
-
 @font-face {
   font-family: "AvenirLTStd-Black";
   src: url("../assets/fonts/AvenirLTStd-Black.otf");
@@ -42,11 +41,6 @@
   font-family: "AvenirLTStd-Medium";
   src: url("../assets/fonts/AvenirLTStd-Medium.otf");
 }
-
-
-
-
-
 
 @font-face {
   font-family: "29ltbukrabold";
@@ -115,10 +109,12 @@ button {
 }
 
 .toolbar.toolbar-md {
+  * {
+    padding: 0!important;
+    margin: 0!important;
+  }
+
   .title.title-md {
-    position: absolute;
-    left: 0;
-    top: 0;
     height: 100%;
     width: 100%;
     text-align: center;
@@ -131,70 +127,80 @@ button {
 
 .tabs {
   // filter: blur(5px);
-  .tabbar.show-tabbar{
-    height: 7.9vh!important;
-    bottom:3vh !important;
-   }
+  .tabbar.show-tabbar {
+    height: 7.9vh !important;
+    // bottom:3vh !important;
+  }
 }
 
-
 .toolbar.toolbar-md,
-  .toolbar.toolbar-ios {
-    color: white !important;
-    background: transparent;
+.toolbar.toolbar-ios {
+  color: white !important;
+  background: transparent;
+  position: relative;
 
-    .toolbar-title.toolbar-title-md,
-    .toolbar-title.toolbar-title-ios {
-      color: rgba(255, 255, 255, 0.85) !important;
-      font-weight: 400;
-    }
 
-    ion-icon.back-button-icon.icon {
-      color: white !important;
-    }
-
-    .toolbar-background.toolbar-background-md,
-    .toolbar-background.toolbar-background-ios {
-      background: transparent;
-      color: white !important;
-
-      .back-button.bar-button {
-        color: white !important;
-
-        &.bar-button-md.back-button-md.bar-button-default.bar-button-default-md.show-back-button,
-        &.bar-button-ios.back-button-ios.bar-button-default.bar-button-default-ios.show-back-button {
-          color: white !important;
-        }
-      }
-    }
+  .toolbar-title.toolbar-title-md,
+  .toolbar-title.toolbar-title-ios {
+    font-family: "AvenirLTStd", Arial, Helvetica, sans-serif;
+    font-size: 4.55vw;
+    font-weight: 500;
+    color: #ffffff;
   }
 
 
-  ion-icon {
-    &[class*="custom-"] {
-        // Instead of using the font-based icons
-        // We're applying SVG masks
-        mask-size: contain;
-        mask-position: 50% 50%;
-        mask-repeat: no-repeat;
-        background: currentColor;
-        width: 3.2vh!important;
-        height: 3.2vh!important;
+
+  ion-icon.back-button-icon.icon {
+    top: calc( calc(100% - 2.30vh) / 2);
+    width: 2.42vw;
+    height: 2.30vh;
+    margin-top: -2vh!important;
+    // background: red;
+    font-size: 5vw;
+    color: white !important;
+  }
+
+  .toolbar-background.toolbar-background-md,
+  .toolbar-background.toolbar-background-ios {
+    background: transparent;
+    color: white !important;
+
+    .back-button.bar-button {
+      color: white !important;
+
+      &.bar-button-md.back-button-md.bar-button-default.bar-button-default-md.show-back-button,
+      &.bar-button-ios.back-button-ios.bar-button-default.bar-button-default-ios.show-back-button {
+        color: white !important;
+      }
     }
-    // custom icons
-    &[class*="custom-icon_home"] {
-        mask-image: url(../assets/icon/_home.png);
-    }
-    &[class*="custom-icon_booking"] {
-        mask-image: url(../assets/icon/_booking.png);
-    }
-    &[class*="custom-icon_measurement"] {
-        mask-image: url(../assets/icon/_measurement.png);
-    }
-    &[class*="custom-icon_my_body"] {
-        mask-image: url(../assets/icon/_my_body.png);
-    }
-    &[class*="custom-icon_more"] {
-        mask-image: url(../assets/icon/_more.png);
-    }
+  }
+}
+
+ion-icon {
+  &[class*="custom-"] {
+    // Instead of using the font-based icons
+    // We're applying SVG masks
+    mask-size: contain;
+    mask-position: 50% 50%;
+    mask-repeat: no-repeat;
+    background: currentColor;
+    width: 3.2vh !important;
+    height: 3.2vh !important;
+  }
+  // custom icons
+  &[class*="custom-icon_home"] {
+    mask-image: url(../assets/icon/_home.png);
+  }
+  &[class*="custom-icon_booking"] {
+    mask-image: url(../assets/icon/_booking.png);
+  }
+  &[class*="custom-icon_measurement"] {
+    mask-image: url(../assets/icon/_measurement.png);
+  }
+  &[class*="custom-icon_my_body"] {
+    mask-image: url(../assets/icon/_my_body.png);
+  }
+  &[class*="custom-icon_more"] {
+    mask-image: url(../assets/icon/_more.png);
+  }
 }
