@@ -131,7 +131,10 @@ button {
 
 .tabs {
   // filter: blur(5px);
-
+  .tabbar.show-tabbar{
+    height: 7.9vh!important;
+    bottom:3vh !important;
+   }
 }
 
 
@@ -165,3 +168,33 @@ button {
       }
     }
   }
+
+
+  ion-icon {
+    &[class*="custom-"] {
+        // Instead of using the font-based icons
+        // We're applying SVG masks
+        mask-size: contain;
+        mask-position: 50% 50%;
+        mask-repeat: no-repeat;
+        background: currentColor;
+        width: 3.2vh!important;
+        height: 3.2vh!important;
+    }
+    // custom icons
+    &[class*="custom-icon_home"] {
+        mask-image: url(../assets/icon/_home.png);
+    }
+    &[class*="custom-icon_booking"] {
+        mask-image: url(../assets/icon/_booking.png);
+    }
+    &[class*="custom-icon_measurement"] {
+        mask-image: url(../assets/icon/_measurement.png);
+    }
+    &[class*="custom-icon_my_body"] {
+        mask-image: url(../assets/icon/_my_body.png);
+    }
+    &[class*="custom-icon_more"] {
+        mask-image: url(../assets/icon/_more.png);
+    }
+}
