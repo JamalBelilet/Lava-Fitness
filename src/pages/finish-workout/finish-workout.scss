@@ -1,75 +1,112 @@
 .ion-page.show-page {
   background: rgba(0, 0, 0, 0.5);
 }
+page-finish-workout {
+  $sch: 347.3;
+  $scw: 195.5;
 
-.guide-modal {
-  $modal-inset-min-width: 50%;
-  display: flex;
-  height: 75vh;
-  margin-top: 12.5vh;
-  width: 80%;
-  margin-left: 10%;
-  background: white;
-  border-radius: 5px;
-  padding: 0.5em;
-
-  h2,
-  h3 {
-    font-size: 1.2em;
-    // background: red;
-    margin: 1em auto;
-    text-align: center !important;
-    color: #444;
-
-  }
-  h3 {
-    font-size: 1em;
+  * {
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
-  p {
-    // background: green;
-    text-align: center;
-    padding: 0;
-    margin: 1em auto;
-    color: #999;
-    font-weight: 100;
-    font-size: .8em;
-
+  .ion-page.show-page {
+    background: rgba(0, 0, 0, 0.9) !important;
   }
 
-  .close-button {
-    margin: 1em;
+  .guide-modal {
+    $modal-inset-min-width: 50%;
 
-    color: #999;
-    font-size: 0.8em;
-    ion-icon {
-      padding: 0.2em;
+    display: flex;
+    height: 207 / $sch * 100vh;
+    width: 167.5 / $scw * 100vw;
+    margin-top: 73.8 / $sch * 100vh !important;
+    margin-left: 14 / $scw * 100vw !important;
+    background: white;
+    border-radius: 5px;
+
+    position: relative;
+
+    .close-button {
+      position: absolute;
+      top: 7.5 / $sch * 100vh;
+      left: 8.5 / $scw * 100vw;
+
+      color: #bababa !important;
+      font-size: 6.8 / 1.25 / $scw * 100vw;
+      height: 5.3 / $sch * 100vh;
+      width: 26.3 / $scw * 100vw;
+
+      ion-icon {
+        font-size: 2em;
+      }
     }
-  }
 
-  button {
-    margin: 0 auto;
-    background: transparent;
-    img {
-      width: 3em;
-      background: transparent;
+    h2,
+    h3 {
+      position: absolute;
+      top: 30 / $sch * 100vh;
+
+      width: 100%;
+      text-align: center !important;
+
+      font-size: 12 / 1.25 / $scw * 100vw;
+      color: #575c69;
+
+
     }
-  }
 
-  .status {
-    button {
+    h3 {
+      top: (30 + 52.5) / $sch * 100vh;
+      font-size: 7.8 / 1.25 / $scw * 100vw;
+
+    }
+
+    p.footer, p.meta {
+      position: absolute;
+      top: (9.5 + 52.5) / $sch * 100vh;
+
+      text-align: center;
+      width: 100%;
+
+      font-size: 7.8 / 1.25 / $scw * 100vw;
+      color: #bababa;
+
+      &.footer {
+        top: ((9.5 + 52.5) + 118) / $sch * 100vh;
+        width: (95.5 / $scw * 100vw) !important;
+        left: 33 / $scw * 100vw;
+      }
+    }
+
+    .status {
+      position: absolute;
+      top: (58.5 + 52.5) / $sch * 100vh;
+      width: 100%;
       display: flex;
       justify-content: center;
-      align-content: center;
-      flex-flow: nowrap column;
-      text-align: center;
-    }
-  }
+      align-items: center;
 
-  ion-row:last-of-type {
-    p {
-      color: #999;
-      padding: 1em;
+      button {
+        background: transparent;
+        height: (5.3 + 2.5 + 17.8) / $sch * 100vh;
+        margin-right: 15.5 / $scw * 100vw !important;
+
+        &:last-of-type {
+          margin-right: 0 !important;
+        }
+      }
+
+      img {
+        width: auto;
+        height: 17.8 / $sch * 100vh;
+      }
+
+      p {
+        font-size: 6.8 / 1.25 / $scw * 100vw;
+        color: #bababa;
+        margin-top: 2.5 / $sch * 100vh !important;
+      }
     }
   }
 }

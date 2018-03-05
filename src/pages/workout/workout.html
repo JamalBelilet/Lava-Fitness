@@ -45,8 +45,8 @@
       <ion-item-sliding #slidingItem exercice.state='ios-checkmark-circle'>
         <ion-item #item (click)="open($event, slidingItem, item)">
 
+          <p class="counter">{{i + 1}}</p>
           <ion-thumbnail item-left>
-            <p class="counter">{{i + 1}}</p>
             <img src="assets/imgs/exerciceType.png">
 
           </ion-thumbnail>

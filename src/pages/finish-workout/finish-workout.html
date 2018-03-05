@@ -1,34 +1,29 @@
 <ion-content class="guide-modal">
 
-  <ion-row justify-content-start>
-    <button class="close-button" ion-button clear (click)="close()">
-      <ion-icon name="close"></ion-icon> close</button>
-  </ion-row>
-  <ion-row>
-    <h2>Workout Completed!</h2>
-  </ion-row>
-  <ion-row>
-    <p>3 out of 7</p>
-  </ion-row>
-  <ion-row>
-    <h3>How easy was it?</h3>
-  </ion-row>
+  <button class="close-button" ion-button clear (click)="close()">
+    <ion-icon name="close"> </ion-icon>  close</button>
+
+  <h2>Workout Completed!</h2>
+
+  <p class="meta">3 out of 7</p>
+
+  <h3>How easy was it?</h3>
+
   <ion-row class="status">
-    <button  (click)="close()">
+    <button (click)="close()">
       <img src="assets/imgs/_easy.png">
       <p>Easy</p>
     </button>
-    <button  (click)="close()">
+    <button (click)="close()">
       <img src="assets/imgs/_good.png">
       <p>Good</p>
     </button>
-    <button  (click)="close()">
+    <button (click)="close()">
       <img src="assets/imgs/_hard.png">
       <p>Hard</p>
     </button>
   </ion-row>
-  <ion-row>
-    <p>Good job! You have 1 more workout for this week</p>
-  </ion-row>
+
+  <p class="footer">Good job! You have 1 more workout for this week</p>
 
 </ion-content>
