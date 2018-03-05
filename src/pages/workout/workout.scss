@@ -244,6 +244,9 @@ page-workout {
       .item.item-block {
         // z-index: 5;
         background: transparent;
+        box-shadow: -12px 0 12px rgba(0, 0, 0, 0.15);
+        border-radius: 0;
+        background: white!important;
       }
 
       &:before {
