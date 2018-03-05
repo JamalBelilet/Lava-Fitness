@@ -46,13 +46,13 @@
         <ion-item #item (click)="open($event, slidingItem, item)">
 
           <ion-thumbnail item-left>
-            <img src="assets/imgs/exerciceType.png">
             <p class="counter">{{i + 1}}</p>
+            <img src="assets/imgs/exerciceType.png">
 
           </ion-thumbnail>
 
-          <p>{{exercice.Equipment.NameEN}}</p>
-          <p>{{exercice.Equipment.NameAR}}</p>
+          <p class="workout-p">{{exercice.Equipment.NameEN}}</p>
+          <p class="workout-p">{{exercice.Duration}} mins <span>Mid-Speed</span></p>
 
           <ion-buttons item-right>
             <button ion-button clear>
@@ -60,7 +60,7 @@
             </button>
           </ion-buttons>
         </ion-item>
-        <ion-item-options style="width: 85%" side="left" class="slide-options">
+        <ion-item-options style="width: 90.04%" side="left" class="slide-options">
           <ion-row justify-content-center>
             <ion-col>
               <p class="option-title">How many minutes?</p>
@@ -90,9 +90,11 @@
                 </ion-col>
               </ion-row>
             </ion-col>
-            <button class="main" ion-button clear (click)="exercice.state = 'ios-checkmark-circle'">
-              <ion-icon name="checkmark-outline"></ion-icon>
-            </button>
+            <ion-col class="main-button-container">
+              <button class="main" ion-button clear (click)="exercice.state = 'ios-checkmark-circle'">
+                <ion-icon name="checkmark-outline"></ion-icon>
+              </button>
+            </ion-col>
           </ion-row>
         </ion-item-options>
       </ion-item-sliding>

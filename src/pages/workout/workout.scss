@@ -1,4 +1,12 @@
 page-workout {
+  $sch: 347.3;
+  $scw: 195.5;
+
+  * {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
   .fixed-content {
     z-index: -2 !important;
   }
@@ -8,7 +16,12 @@ page-workout {
     font-family: "AvenirLTStd-light", Arial, Helvetica, sans-serif;
     height: calc(39.68vh);
 
-    background: linear-gradient(135deg, #0193a0, #21c1ca);
+    // background: linear-gradient(135deg, #0193a0, #21c1ca);
+    background: url(../assets/imgs/home-back.png);
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+
     width: 100%;
     box-shadow: 0 !important;
 
@@ -90,10 +103,10 @@ page-workout {
       right: 10.73vw;
 
       ion-row:last-of-type {
-        margin-left: 6.77vw;
+        margin-left: 6.77vw !important;
       }
       p {
-        margin-left: 1.53vw;
+        margin-left: 1.53vw !important;
       }
     }
     .workout-states {
@@ -111,22 +124,22 @@ page-workout {
 
       ion-icon {
         font-size: 4.21vw;
-        margin-right: 2.55vw;
+        margin-right: 2.55vw !important;
       }
     }
   }
 
   .workout-finish {
     position: fixed;
+
+    width: 72.8 / $scw * 100vw;
+    height: 22.3 / $sch * 100vh;
+
+    left: 58.3 / $scw * 100vw;
     bottom: 7.9vh !important;
-
-    width: 37.21vw;
-    left: 31.395vw;
-
-    height: 6.39vh;
-    font-size: 4.55vw;
+    font-size: 8.9 / 1.25 / $scw * 100vw;
     font-weight: 500;
-    color: #ffffff!important;
+    color: #ffffff !important;
     margin: 0;
 
     border-radius: 4vw 4vw 0 0;
@@ -138,344 +151,194 @@ page-workout {
   .scroll-content {
     margin-top: calc(39.68vh - 8.14vh) !important;
     z-index: 999;
-  }
-
-  .exercices {
-    // margin-top: -5em;
-
-    z-index: 99999999999 !important;
-
-    ion-thumbnail {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-
-      position: relative;
-    }
-
-    .counter {
-      position: absolute;
-      left: 0;
-      top: 10%;
-      font-size: 2.5em!important;
-      font-weight: 400;
-      width: 100%;
-      text-align: center;
-      color: #bbb;
-    }
-
-    img {
-      width: 2.5em;
-      height: auto;
-    }
-
-    .item-wrapper {
-      margin: 0.8em auto;
-      border-radius: 0.5em;
-      box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
-      // border: .5px solid black;
-    }
-
-    .item.item-block,
-    div.input-wrapper {
-      border-radius: 1em;
-      padding: auto 0;
-      margin: 0;
-      p {
-        padding: 0;
-        margin: 0;
-        font-size: 75%;
-      }
-    }
-  }
-
-  .no-padding {
-    padding: 0;
-    margin: 0;
-
-    button {
-      padding: 0 !important;
-      margin: 0 !important;
-    }
-  }
-  max-width: 100vw !important;
-
-  ion-content {
-    padding: 0 0.5em;
-    font-size: 85%;
-
-    text-align: left;
-
-    h2 {
-      font-size: 1.6em;
-      color: #666;
-      padding: 0 1em;
-    }
-  }
-
-  .scroll-content {
-    padding-top: 0 !important;
-  }
-  .exercices {
-    // margin-top: -5em;
-
-    z-index: 99999999999 !important;
-
-    ion-thumbnail {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 3;
-    }
-
-    img {
-      width: 2.5em;
-      height: auto;
-      z-index: 3;
-    }
-    counter-reset: ion-item-sliding;
 
     ion-item-sliding {
-      margin: 0.8em auto;
-      border-radius: 0.5em;
-      box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
-      // border: .5px solid black;
+      border-radius: 0.25em;
+      box-shadow: 0 0 16px rgba(0, 0, 0, 0.25); // border: .5px solid black;
+
+      height: 42.8 / $sch * 100vh;
+      width: 175.8 / $scw * 100vw;
+      margin: 0 auto !important;
+      margin-bottom: 10.8 / $sch * 100vh !important;
+
+      position: relative;
 
       .item.item-block {
-        // z-index: 5;
-        background: transparent;
-        box-shadow: -12px 0 12px rgba(0, 0, 0, 0.15);
         border-radius: 0;
-        background: white!important;
+        width: inherit;
+        height: inherit;
+        background: white !important;
+
+        box-shadow: -16px 0 16px rgba(0, 0, 0, 0.15);
       }
 
-      &:before {
-        content: counter(ion-item-sliding);
-        counter-increment: ion-item-sliding;
+      ion-thumbnail {
+        height: 24.8 / $sch * 100vh;
+        width: 22 / $scw * 100vw;
 
-        text-align: center;
-        position: absolute;
-        left: 0px;
-        top: 4px;
+        min-height: 24.8 / $sch * 100vh;
+        min-width: 22 / $scw * 100vw;
 
-        color: #aaa;
-        left: 120%;
-
-        font-size: 4.5em;
-        font-weight: 400;
-      }
-    }
-
-    .item.item-block,
-    div.input-wrapper {
-      border-radius: 1em;
-      padding: auto 0;
-      margin: 0;
-      p {
-        padding: 0;
-        margin: 0;
-        font-size: 75%;
-      }
-    }
-  }
-
-  #notification-button {
-    position: relative;
-    width: 42px;
-    top: 0px;
-    right: 1px;
-    overflow: visible !important;
-    font-size: 1.2em;
-    background: transparent;
-    border-radius: 100%;
-    padding: 0;
-    margin: 0;
-    color: rgba(255, 255, 255, 0.7) !important;
-  }
-
-  #notifications-badge {
-    background-color: transparent !important;
-    font-size: 0.8em;
-    padding: 0px;
-    position: absolute;
-    top: calc(50% - 0.4em);
-    right: 0px;
-    font-weight: 200;
-    color: rgba(255, 255, 255, 0.8) !important;
-  }
-
-  #notifications-badge.badge.badge-ios,
-  .badge.badge-md {
-    color: #f8cb4f;
-  }
-
-  .workout-title {
-    font-size: 2.1em;
-    color: white !important;
-    margin-bottom: 0 !important;
-  }
-
-  .workout-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    color: rgba(255, 255, 255, 0.7) !important;
-    font-weight: 300;
-
-    ion-row {
-      padding: 0 !important;
-      margin: 0.2em !important;
-    }
-  }
-  .workout-average {
-    color: white !important;
-    margin-top: 2em;
-  }
-
-  p {
-    padding: 0;
-    margin: 0;
-    text-align: left;
-  }
-
-  .workout-exercice {
-    font-size: 1.6em;
-  }
-
-  .workout-time {
-    padding-left: 0.5em;
-  }
-
-  .states {
-    width: 65%;
-    margin: 0 auto;
-    font-size: 1.5em;
-    ion-icon {
-      padding: 0.3em;
-    }
-  }
-
-  // .item-wrapper active-sliding active-slide active-options-left
-
-  .slide-options {
-    padding: 0;
-    justify-content: center;
-    align-items: center;
-    width: 85%;
-    ion-row > ion-col {
-      .option-title {
-        color: #666;
-      }
-      & > ion-row {
-        width: 85%;
-        margin-top: 0.5em;
-        border-radius: 0.2em;
-        background: #eee;
-      }
-    }
-    p {
-      text-align: center;
-      width: 100%;
-      color: #037e97;
-    }
-
-    button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #999 !important;
-      background: transparent;
-
-      padding: 0 !important;
-      margin: 0 !important;
-      margin-left: 1em !important;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      ion-icon {
-        padding: 0 !important;
         margin: 0 !important;
+        padding: 0 !important;
+        margin-top: 0 / $sch * 100vh !important;
+        margin-left: 13.5 / $scw * 100vw !important;
 
-        background: rgba(227, 169, 23, 0.2) !important;
-        border-radius: 50%;
+        img {
+          height: inherit;
+          width: auto;
+          z-index: 1 !important;
+        }
 
-        width: 1em;
-        text-align: center;
-        margin: 0 auto;
-        width: 1em;
-        font-weight: 600;
-        height: 1em;
+        .counter {
+          position: absolute;
+          top: 10 / $sch * 100vh;
+          left: 13.3 / $scw * 100vw;
+
+          font-size: 19.3 / 1.25 / $scw * 100vw !important;
+          width: 100%;
+          text-align: center;
+          color: #575c69;
+
+          height: 14.3 / $sch * 100vh;
+          width: 16.8 / $scw * 100vw;
+
+          z-index: 0 !important;
+        }
+      }
+
+      p.workout-p {
+        margin-left: 14.5 / $scw * 100vw !important;
+        font-size: 6.8 / $scw * 100vw;
+        color: #575c69;
+        margin-bottom: 4.5 / $sch * 100vh !important;
+
+        &:last-of-type {
+          margin-bottom: 0 !important;
+
+          span {
+            &::before {
+              content: "•";
+              display: inline-block;
+              padding: 1 / $scw * 100vw;
+
+              font-weight: 600;
+            }
+          }
+        }
+      }
+
+      button {
         display: flex;
         justify-content: center;
         align-items: center;
+
+        height: 15.3 / $sch * 100vh;
+        width: 15.3 / $scw * 100vw;
+
+        margin-right: 8.3 / $scw * 100vw !important;
+
+        ion-icon {
+          padding: 0 !important;
+          margin: 0 !important;
+
+          height: 15.3 / $sch * 100vh;
+          width: 15.3 / $scw * 100vw;
+
+          background: rgba(227, 169, 23, 0.15) !important;
+          color: #999999;
+
+          border-radius: 50%;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
       }
-    }
+      .slide-options {
+        padding: 0;
+        align-items: center;
+        width: 85%;
+        & > ion-row > ion-col {
+          margin: 0 0 0 (12 / $scw * 100vw) !important;
 
-    ion-col {
-      display: flex;
-      flex-flow: nowrap column;
-      justify-content: center;
-      align-items: center;
-      padding: 0;
-      margin: 0;
-      width: 100%;
-    }
+          &:first-of-type {
+            margin-left: 9 / $scw * 100vw !important;
+          }
 
-    ion-row {
-      display: flex;
-      flex-flow: nowrap row;
-      justify-content: center;
-      align-items: center;
-      padding: 0;
-      margin: 0;
-      height: 100%;
-      width: 100%;
-    }
-    .option-title {
-      font-size: 65%;
-    }
+          .option-title {
+            color: #575c69;
+            font-size: 6.3 / 1.25 / $scw * 100vw;
+          }
 
-    ion-icon {
-      font-size: 2em;
-      padding: 0.5em;
-      margin: 0;
-      display: flex;
-      height: 100%;
-    }
-  }
+          &.main-button-container {
+            margin: 0 !important;
+            padding: 0 !important;
 
-  ion-item {
-    padding: 0;
-    margin: 0;
-    font-size: 0.8em;
-    text-align: left;
-    border-radius: 0.2em;
-    background: transparent;
-    max-height: 4em;
-    h2 {
-      margin: 0;
-      padding: 0;
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 1.4em;
-    }
-    p {
-      margin: 0;
-      padding: 0;
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 1em;
-    }
+            align-items: center;
+            justify-content: center;
+            display: flex;
 
-    ion-thumbnail {
-      padding: 0 !important;
-      margin: 0 !important;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    img {
-      width: 5em;
-      height: 5em;
+            margin-left: 11 / $scw * 100vw !important;
+
+            .main {
+              margin: 0 auto !important;
+              padding: 0 !important;
+
+              width: 19.8 / $scw * 100vw;
+              height: 19.8 / $sch * 100vh;
+
+              ion-icon {
+                width: 19.8 / $scw * 100vw;
+                height: 19.8 / $sch * 100vh;
+                font-size: 18 / $scw * 100vw;
+                font-weight: 600;
+              }
+            }
+          }
+
+          & > ion-row {
+            width: 85%;
+            margin-top: 0.5em;
+            border-radius: 0.2em;
+            background: #eee;
+
+            width: 47.5 / $scw * 100vw;
+            height: 13 / $sch * 100vh;
+
+            margin-top: 3.5 / $sch * 100vh !important;
+
+            p {
+              font-size: 9.8 / 1.25 / $scw * 100vw;
+              color: #07b2bd;
+              text-align: center;
+              width: 100% !important;
+
+              height: 100% !important;
+
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+
+            button {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              color: #9295a0 !important;
+              background: transparent;
+
+              padding: 0 !important;
+              margin: 0 !important;
+
+              font-size: 10.2 / $scw * 100vw;
+
+              font-weight: 400;
+            }
+          }
+        }
+      }
     }
   }
 }

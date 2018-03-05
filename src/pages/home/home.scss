@@ -8,7 +8,12 @@ page-home {
     font-family: "AvenirLTStd-light", Arial, Helvetica, sans-serif;
     height: calc(47vh);
 
-    background: linear-gradient(135deg, #0193a0, #21c1ca);
+    // background: linear-gradient(135deg, #0193a0, #21c1ca);
+    background: url(../assets/imgs/home-back.png);
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+
     width: 100%;
     box-shadow: 0 !important;
 
