@@ -15,24 +15,25 @@
 
 
 
-  <ion-row class="schedules">
-    <ion-col>
-      <ion-card [navPush]="classShedule" [navParams]="'Fitness'">
+  <div class="schedules">
+    <div class="schedule" [navPush]="classShedule" [navParams]="'Fitness'">
+      <div class="schedule-container">
         <button ion-button clear>
           <img src="assets/imgs/_expand@2x.png">
         </button>
-        <h6>Fitness Class Schedule</h6>
-      </ion-card>
-    </ion-col>
-    <ion-col>
-      <ion-card [navPush]="classShedule" [navParams]="'Swiming'">
+        <p>Fitness Class Schedule</p>
+      </div>
+    </div>
+    <div class="schedule" [navPush]="classShedule" [navParams]="'Swiming'">
+      <div class="schedule-container">
         <button ion-button clear>
           <img src="assets/imgs/_expand@2x.png">
         </button>
-        <h6>Swiming Class Schedule</h6>
-      </ion-card>
-    </ion-col>
-  </ion-row>
+        <p>Swiming Class Schedule</p>
+      </div>
+
+    </div>
+  </div>
   <!-- <ion-row no-padding>
     <ion-col no-padding>
       <p class="workout-average">{{workout?.average}}</p>
@@ -44,41 +45,33 @@
 
 
 <ion-content>
-  <h2>Sessions: </h2>
-  <!-- <ion-row class="sessions">
-    <ion-col col-auto *ngFor="let session of ['Message','Weight Loss', 'Measurement', 'Spa', 'Physical Therapy', 'Nutrisins', 'Follow up', 'Obsesity Therapy']">
-      <ion-card>
-
-        <ion-card-title>{{session}}</ion-card-title>
-      </ion-card>
-    </ion-col>
-  </ion-row> -->
-  <ion-row class="services-for-booking-row">
-
-    <ion-col col-auto  *ngFor="let booking of (bookings$ | async)?.data ">
+  <h2 class="sessions-title">Sessions: </h2>
+  <ion-row class="services-for-booking-container">
+    <ion-col col-auto *ngFor="let booking of (bookings$ | async)?.data ">
       <p class="services-for-booking">{{booking.NameEN}}</p>
     </ion-col>
   </ion-row>
 
-  <ion-col class="sessions">
-    <ion-card (click)="bookClass()">
-      <ion-item>
+  <div class="sessions">
+
+    <div class="session" (click)="bookClass()">
+      <ion-item no-lines>
         <ion-thumbnail item-left>
-          <img src="assets/imgs/cycle.png">
+          <img src="assets/imgs/cycle-dark.png">
         </ion-thumbnail>
         <h2>Book a fittness class</h2>
         <p>Zamba, Yoga, Dancing, Cycle, ...etc</p>
       </ion-item>
-    </ion-card>
-    <ion-card (click)="bookSession()">
-      <ion-item>
+    </div>
+    <div class="session" (click)="bookSession()">
+      <ion-item no-lines>
         <ion-thumbnail item-left>
-          <img src="assets/imgs/relax.png">
+          <img src="assets/imgs/relax-dark.png">
         </ion-thumbnail>
         <h2>Book a session</h2>
         <p>Massage, Facial treatment, ...etc</p>
       </ion-item>
-    </ion-card>
-  </ion-col>
+    </div>
+  </div>
 
 </ion-content>
