@@ -1,4 +1,4 @@
-<ion-content class="guide-modal">
+<ion-content class="guide-modal" [ngClass]="{'done-modal': done}">
 
   <div *ngIf="!done">
     <ion-row justify-content-start>
@@ -49,18 +49,9 @@
   </div>
 
   <div *ngIf="done" class="done">
-    <ion-row justify-content-center>
-      <img src="assets/imgs/_confirmed@2x.png">
-    </ion-row>
-
-    <ion-row justify-content-center>
-      <h2>تم التسجيل بنجاح</h2>
-
-    </ion-row>
-
-    <ion-row justify-content-center>
-      <p>سيتواصل معكم خبراء اللياقة لتفعيل الحساب</p>
-    </ion-row>
+    <img src="assets/imgs/_confirmed@2x.png">
+    <h2>Thank you!</h2>
+    <p>your booking has been booked.</p>
   </div>
 
 </ion-content>

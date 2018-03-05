@@ -1,156 +1,159 @@
 .ion-page.show-page {
-  background: rgba(0, 0, 0, .5)!important;
+  background: rgba(0, 0, 0, 0.5) !important;
 }
 page-book {
+  $sch: 347.3;
+  $scw: 195.5;
 
-  font-family: "29ltbukrabold";
-
+  * {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
 
   .ion-page.show-page {
-    background: rgba(0, 0, 0, .9)!important;
+    background: rgba(0, 0, 0, 0.9) !important;
   }
 
   .guide-modal {
     $modal-inset-min-width: 50%;
     display: flex;
-    height: 65vh;
-    margin-top: 12.5vh;
-    width: 80%;
-    margin-left: 10%;
+    height: 207 / $sch * 100vh;
+    width: 167.5 / $scw * 100vw;
+    margin-top: 73.8 / $sch * 100vh!important;
+    margin-left: 14 / $scw * 100vw!important;
     background: white;
     border-radius: 5px;
     padding: 0.5em;
 
-    &.content-ios {
-      height: 55vh;
+    position: relative;
+
+    &.done-modal {
+      height: 160.3 / $sch * 100vh;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 7.5 / $sch * 100vh;
+      left: 8.5 / $scw * 100vw;
+
+      color: #bababa !important;
+      font-size: 6.8 / 1.25 / $scw * 100vw;
+      height: 5.3 / $sch * 100vh;
+      width: 26.3 / $scw * 100vw;
+
+      ion-icon {
+        font-size: 2em;
+      }
     }
 
     h2,
     h3 {
-      // background: red;
-      margin: 1.5em auto;
-      text-align: center !important;
-      color: #555;
 
-      font-family: "29ltbukrabold";
+      position: absolute;
+      top: 30 / $sch * 100vh;
+
+      width: 100%;
+      text-align: center !important;
+
+      font-size: 12 / 1.25 / $scw * 100vw;
+      color: #575c69;
     }
 
     p {
-      // background: green;
+
+      position: absolute;
+      top: 142.5 / $sch * 100vh;
+
       text-align: center;
-      padding: 0;
-      margin: 1em auto;
-      color: #999;
-      font-weight: 100;
-    }
-
-    .close-button {
-      margin: 1em;
-
-      color: #999!important;
-      font-size: 0.8em;
-      ion-icon {
-        padding: 0.2em;
-      }
-    }
-
-    button {
-      margin: 0 auto;
-      background: transparent;
-      img {
-        width: 2.8em;
-        background: transparent;
-      }
-
-    }
-
-    .status {
-      button {
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        flex-flow: nowrap column;
-        text-align: center;
-
-
-      }
-    }
-
-    ion-row:last-of-type {
-      p {
-        color: #999;
-        padding: 1em;
-      }
-    }
-  }
-
-  .book-button {
-    background: linear-gradient(to right, #0ca3ad, #03c3d8) !important;
-    color: white!important;
-    margin: 0 auto;
-    margin-top: 1em!important;
-
-  }
-
-  .shadow-input {
-    // width: 90%;
-    background: white;
-    margin: 1.5em 2em;
-    padding: 0em;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-    font-size: 1em;
-    border-radius: 0.2em;
-
-    &.gray {
-      background: #eeeeee;
-      box-shadow: none;
-    }
-
-    ion-icon {
       width: 100%;
+
+      font-size: 6.8 / 1.25 / $scw * 100vw;
+      color: #bababa;
+    }
+
+    .book-button {
+      position: absolute;
+      top: 168.3 / $sch * 100vh;
+
+      background: linear-gradient(to right, #0ca3ad, #03c3d8) !important;
+      margin: 0 auto;
+
+      width: 71.8 / $scw * 100vw;
+      height: 23 / $sch * 100vh;
+
+      font-size: 7.8 / 1.25 / $scw * 100vw;
+      color: #ffffff!important;
+    }
+
+    .shadow-input {
+      position: absolute;
+      top: 98.3 / $sch * 100vh;
+      left: 22 / $scw * 100vw;
+
+      width: 128.3 / $scw * 100vw;
+      height: 23 / $sch * 100vh;
+
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+      border-radius: 0.2em;
+
       display: flex;
       justify-content: center;
       align-items: center;
-    }
 
-    ion-input,
-    ion-icon,
-    button {
-      margin: 0 auto;
-      padding: 0;
-      color: #555;
-
-
-      &[disabled] {
-        color: #999;
+      &:first-of-type {
+        top: 62 / $sch * 100vh;
       }
-    }
-    button {
-      font-size: 0.8em;
-      text-transform: capitalize;
-      color: #555;
-    }
-    ion-icon {
-      font-size: 2em;
-    }
 
-    ::placeholder {
-      color: #999;
-      text-align: center;
-      font-weight: lighter;
+      ion-input {
+        color: #bababa;
+        font-size: 7.8 / 1.25 / $scw * 100vw;
+      }
+
+      ::placeholder {
+        font-size: 7.8 / 1.25 / $scw * 100vw;
+        color: #bababa;
+        text-align: center;
+        font-weight: lighter;
+      }
     }
   }
 
   .done {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: nowrap column;
-    height: 100%;
+
+
+
     img {
-      width: 5em;
-      height: 5em;
+      position: absolute;
+      top: 29.3 / $sch * 100vh;
+      left: 61.3 / $scw * 100vw;
+
+      width: auto;
+      height: 39.8 / $sch * 100vh;
+    }
+
+    h2 {
+      position: absolute;
+      top: 94 / $sch * 100vh;
+      width: 100%;
+      text-align: center;
+
+      color: #575c69;
+      font-size: 12 / 1.25 / $scw * 100vw;
+
+
+
+    }
+
+    p {
+      position: absolute;
+      top: 122.8 / $sch * 100vh;
+      width: 100%;
+      text-align: center;
+
+
+      color: #bababa;
+      font-size: 6.8 / 1.25 / $scw * 100vw;
+
     }
   }
-
 }

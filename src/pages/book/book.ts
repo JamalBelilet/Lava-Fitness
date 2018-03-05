@@ -19,7 +19,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 })
 export class BookPage {
   _book: any;
-  done = true;
+  done = false;
   sessions$: Observable<Object>;
   classes$: Observable<Object>;
 
@@ -62,7 +62,7 @@ export class BookPage {
     this.done = true;
     setTimeout(()=> {
       this.navCtrl.pop();
-    }, 1800)
+    }, 100800)
   }
 
 }
