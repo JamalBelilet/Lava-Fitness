@@ -23,7 +23,7 @@ export class AuthenticationProvider {
       "Content-Type": "application/json",
       AuthorizationKey: "as@dL8]Rn3$2S!anR"
     }),
-    AccessToken: "d00e55e82e9eaf77af3150baa8759136",
+    AccessToken: "5976f7468abec99a11468516351e9662",
     status: "",
     debug: false
   };
@@ -39,7 +39,7 @@ export class AuthenticationProvider {
       return of({
         status: 1,
         data: {
-          AccessToken: "d00e55e82e9eaf77af3150baa8759136"
+          AccessToken: "5976f7468abec99a11468516351e9662"
         }
       });
     }
@@ -66,7 +66,7 @@ export class AuthenticationProvider {
       return of({
         status: 1,
         data: {
-          AccessToken: "d00e55e82e9eaf77af3150baa8759136"
+          AccessToken: "5976f7468abec99a11468516351e9662"
         }
       });
     }
@@ -104,7 +104,7 @@ export class AuthenticationProvider {
       return of({
         status: 1,
         data: {
-          AccessToken: "d00e55e82e9eaf77af3150baa8759136"
+          AccessToken: "5976f7468abec99a11468516351e9662"
         }
       });
     }
