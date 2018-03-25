@@ -1,0 +1,81 @@
+page-weight-log-history {
+  $sch: 143.5;
+  $scw: 93.8;
+
+  * {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .header.header-md,
+  .header.header-ios {
+    box-shadow: 0 !important;
+
+    &:after {
+      background-image: none !important;
+    }
+
+    .toolbar.toolbar-md,
+    .toolbar.toolbar-ios {
+      .toolbar-title.toolbar-title-md,
+      .toolbar-title.toolbar-title-ios {
+        color: #575c69;
+        font-weight: 200;
+        font-size: 4.3 / $scw * 100vw;
+      }
+
+      ion-icon.back-button-icon.icon {
+        color: #575c69 !important;
+      }
+    }
+  }
+
+  .scroll-content {
+    margin-top: (50 + 15) / $sch * 100vh !important;
+  }
+  .weight-log-history-chart {
+    // min-height: 50 / $sch * 100vh;
+
+    position: relative;
+
+    button {
+      position: absolute;
+      bottom: 9 / $sch * 100vh;
+      right: 7.75 / $scw * 100vw;
+
+      padding: 0 !important;
+      margin: 0 !important;
+
+      background: #f4ce5f !important;
+      width: 8 / $scw * 100vw;
+      height: 8 / $scw * 100vw;
+      border-radius: 50%;
+
+      img {
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+
+  .history-title {
+    font-size: 4.3 / $scw * 100vw;
+    color: #575c69;
+
+    margin-left: 3.8 / $scw * 100vh !important;
+  }
+
+  ion-list {
+    padding: 0 (8.6 / $scw * 100vw) !important;
+
+    p {
+      font-size: 3 / $scw * 100vw !important;
+      color: #bababa !important;
+    }
+
+    h2 {
+      font-size: 3.5 / $scw * 100vw !important;
+      color: #575c69 !important;
+    }
+  }
+}

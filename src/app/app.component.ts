@@ -9,11 +9,14 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 
 import moment from 'moment';
+import { WeightLogHistoryPage } from '../pages/weight-log-history/weight-log-history';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage:any = TabsPage;
+
+
 
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {

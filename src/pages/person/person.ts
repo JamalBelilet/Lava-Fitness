@@ -2,6 +2,8 @@ import { Component, ViewChild } from "@angular/core";
 import { NavController, NavParams } from "ionic-angular";
 
 import { Chart } from "chart.js";
+import { WeightLogHistoryPage } from "../weight-log-history/weight-log-history";
+import { BodyWeightLogHistoryPage } from "../body-weight-log-history/body-weight-log-history";
 
 /**
  * Generated class for the PersonPage page.
@@ -22,6 +24,9 @@ export class PersonPage {
   lineChart: any;
   lineChart1: any;
   doughnutChart: any;
+
+  weightLogHistoryPage = WeightLogHistoryPage;
+  bodyWeightLogHistoryPage = BodyWeightLogHistoryPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 

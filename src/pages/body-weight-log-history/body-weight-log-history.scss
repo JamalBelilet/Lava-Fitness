@@ -1,0 +1,95 @@
+page-body-weight-log-history {
+  $sch: 143.5;
+  $scw: 93.8;
+
+  * {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .header.header-md,
+  .header.header-ios {
+    box-shadow: 0 !important;
+
+    &:after {
+      background-image: none !important;
+    }
+
+    .toolbar.toolbar-md,
+    .toolbar.toolbar-ios {
+      .toolbar-title.toolbar-title-md,
+      .toolbar-title.toolbar-title-ios {
+        color: #575c69;
+        font-weight: 200;
+        font-size: 4.3 / $scw * 100vw;
+      }
+
+      ion-icon.back-button-icon.icon {
+        color: #575c69 !important;
+        padding-left: 2.5 / $scw * 100vw !important;
+      }
+    }
+  }
+
+  .scroll-content {
+    margin-top: (50 + 15) / $sch * 100vh !important;
+  }
+  .weight-log-history-chart {
+    // min-height: 50 / $sch * 100vh;
+
+    position: relative;
+
+    button {
+      position: absolute;
+      bottom: 9 / $sch * 100vh;
+      right: 7.75 / $scw * 100vw;
+
+      padding: 0 !important;
+      margin: 0 !important;
+
+      background: #f4ce5f !important;
+      width: 8 / $scw * 100vw;
+      height: 8 / $scw * 100vw;
+      border-radius: 50%;
+
+      img {
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+
+  .history-title {
+    font-size: 4.3 / $scw * 100vw;
+    color: #575c69;
+
+    margin-left: 3.8 / $scw * 100vh !important;
+  }
+
+  ion-segment {
+    padding: 0 (6.5 / $scw * 100vw) !important;
+    font-size: 3 / $scw * 100vw !important;
+
+
+  }
+  ion-list {
+    padding: 0 (4.6 / $scw * 100vw) !important;
+    padding-top: 4.6 / $scw * 100vw !important;
+
+    .list-headers {
+      h2 {
+        color: #bababa !important;}
+    }
+
+    p {
+      font-size: 3 / $scw * 100vw !important;
+      color: #bababa !important;
+    }
+
+    h2 {
+      font-size: 3 / $scw * 100vw !important;
+      color: #575c69 !important;
+      padding: (1.5 / $scw * 100vw) (1 / $scw * 100vw)  !important;
+    }
+  }
+}

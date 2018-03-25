@@ -1,0 +1,97 @@
+
+<ion-header>
+  <ion-navbar padding>
+    <ion-title>weight log history</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="selectedHistory" color="lava">
+      <ion-segment-button value="arms">Arms</ion-segment-button>
+      <ion-segment-button value="chest">Chest</ion-segment-button>
+      <ion-segment-button value="waist">Waist</ion-segment-button>
+      <ion-segment-button value="hips">Hips</ion-segment-button>
+      <ion-segment-button value="thinght">Thinght</ion-segment-button>
+      <ion-segment-button value="legs">Legs</ion-segment-button>
+    </ion-segment>
+
+
+
+  </ion-toolbar>
+
+  <div class="weight-log-history-chart">
+    <canvas #lineCanvas></canvas>
+    <button ion-button clear>
+      <img src="assets/imgs/_expand@2x.png">
+    </button>
+  </div>
+</ion-header>
+
+
+
+<ion-content>
+
+
+  <h2 class="history-title">history</h2>
+
+  <ion-list no-lines>
+    <ion-row class="list-headers">
+      <ion-col col-3>
+        <h2>Date</h2>
+      </ion-col>
+      <ion-col col-9>
+        <ion-row>
+          <ion-col>
+            <h2>Arms</h2>
+          </ion-col>
+          <ion-col>
+            <h2>Chest</h2>
+          </ion-col>
+          <ion-col>
+            <h2>Waist</h2>
+          </ion-col>
+
+          <ion-col>
+            <h2>Hips</h2>
+          </ion-col>
+          <ion-col>
+            <h2>Thights</h2>
+          </ion-col>
+          <ion-col>
+            <h2>Legs</h2>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let i of [3,3,3,3,3,3,3]">
+      <ion-col col-3>
+        <h2>11/10/2017</h2>
+      </ion-col>
+      <ion-col col-9>
+        <ion-row>
+          <ion-col>
+            <h2>36cm</h2>
+          </ion-col>
+          <ion-col>
+            <h2>36cm</h2>
+          </ion-col>
+          <ion-col>
+            <h2>36cm</h2>
+          </ion-col>
+
+          <ion-col>
+            <h2>36cm</h2>
+          </ion-col>
+          <ion-col>
+            <h2>36cm</h2>
+          </ion-col>
+          <ion-col>
+            <h2>36cm</h2>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+
+</ion-content>

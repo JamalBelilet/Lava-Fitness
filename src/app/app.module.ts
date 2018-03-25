@@ -25,6 +25,7 @@ import { ProfileProvider } from "../providers/profile/profile";
 import { LavaProvider } from '../providers/lava/lava';
 import { ClassShedulePage } from "../pages/class-shedule/class-shedule";
 import { BookPage } from "../pages/book/book";
+import { WeightLogHistoryPage } from "../pages/weight-log-history/weight-log-history";
 
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
@@ -32,6 +33,7 @@ import {RoundProgressModule} from 'angular-svg-round-progressbar';
 import { Health } from '@ionic-native/health';
 import { LavaHealthProvider } from '../providers/lava-health/lava-health';
 import { MomentPipe } from "../pipes/moment/moment";
+import { BodyWeightLogHistoryPage } from "../pages/body-weight-log-history/body-weight-log-history";
 @NgModule({
   declarations: [
     MyApp,
@@ -46,6 +48,8 @@ import { MomentPipe } from "../pipes/moment/moment";
     FinishWorkoutPage,
     ClassShedulePage,
     BookPage,
+    WeightLogHistoryPage,
+    BodyWeightLogHistoryPage,
     MomentPipe
   ],
   imports: [
@@ -87,7 +91,9 @@ import { MomentPipe } from "../pipes/moment/moment";
     WorkoutPage,
     FinishWorkoutPage,
     ClassShedulePage,
-    BookPage
+    BookPage,
+    WeightLogHistoryPage,
+    BodyWeightLogHistoryPage
   ],
   providers: [
     StatusBar,

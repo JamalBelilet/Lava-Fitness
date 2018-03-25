@@ -1,0 +1,49 @@
+<ion-header>
+
+
+
+</ion-header>
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>weight log history</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="selectedHistory" color="lava">
+      <ion-segment-button value="sixmounths">
+        6 Months
+      </ion-segment-button>
+      <ion-segment-button value="all">
+        All
+      </ion-segment-button>
+    </ion-segment>
+
+
+
+  </ion-toolbar>
+
+  <div class="weight-log-history-chart">
+    <canvas #lineCanvas></canvas>
+    <button ion-button clear>
+      <img src="assets/imgs/_expand@2x.png">
+    </button>
+  </div>
+</ion-header>
+
+
+
+<ion-content>
+
+
+  <h2 class="history-title">history</h2>
+
+  <ion-list no-lines>
+    <ion-item *ngFor="let i of [3,3,3,3,3,3,3]">
+      <p item-start>11/10/2017</p>
+      <h2 item-end>61 kg</h2>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>

@@ -14,7 +14,7 @@
 
 
 <ion-content >
-  <ion-card class="measuerments-goal">
+  <ion-card class="measuerments-goal" [navPush]="weightLogHistoryPage">
     <ion-thumbnail class="measuerments-svg" item-start>
       <img src="assets/icon/weight.svg">
     </ion-thumbnail>
@@ -44,7 +44,7 @@
 
     <ion-slides slidesPerView="2.5">
       <ion-slide>
-        <ion-card class="analysis-card">
+        <ion-card class="analysis-card"  [navPush]="weightLogHistoryPage">
           <p class="analysis-card-hover">over</p>
           <img src="assets/icon/analysis.svg">
           <p class="analysis-card-header">BMI</p>
@@ -54,7 +54,7 @@
         </ion-card>
       </ion-slide>
       <ion-slide>
-        <ion-card class="analysis-card">
+        <ion-card class="analysis-card"  [navPush]="weightLogHistoryPage">
           <p class="analysis-card-hover">over</p>
           <img src="assets/icon/analysis.svg">
           <p class="analysis-card-header">BMI</p>
@@ -64,7 +64,7 @@
         </ion-card>
       </ion-slide>
       <ion-slide>
-        <ion-card class="analysis-card">
+        <ion-card class="analysis-card"  [navPush]="weightLogHistoryPage">
           <p class="analysis-card-hover">over</p>
           <img src="assets/icon/analysis.svg">
           <p class="analysis-card-header">BMI</p>
@@ -111,7 +111,7 @@
         <p class="body-segments-gray">38cm a year ago</p>
       </div>
 
-      <button clear class="body-card-full-history">SEE FULL HISTORY</button>
+      <button clear class="body-card-full-history" [navPush]="bodyWeightLogHistoryPage">SEE FULL HISTORY</button>
       <p>last measured: 4 weeks ago</p>
     </ion-card>
 
