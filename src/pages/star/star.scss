@@ -111,14 +111,14 @@ page-star {
     }
   }
 
-  .scroll-content {
-    position: relative;
+    .scroll-content {
+      position: relative;
 
-    padding: 0 !important;
-    margin: 0 !important;
-    padding-top: 21.8 / $sch * 100vh !important;
-    margin-top: 112.3 / $sch * 100vh !important;
-    z-index: 999;
+      padding: 0 !important;
+      margin: 0 !important;
+      padding-top: 21.8 / $sch * 100vh !important;
+      margin-top: 112.3 / $sch * 100vh !important;
+      z-index: 999;
 
     height: 100vh - 112.3 / $sch * 100vh - 7.9vh;
     width: 100%;

@@ -1,18 +1,27 @@
 page-person {
-  $sch: 347.3;
-  $scw: 195.5;
+  $sch: 143.5;
+  $scw: 93.8;
   // .fixed-content {
   //   z-index: -2 !important;
   // }
+
+  * {
+    // margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  ion-card {
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.125) !important;
+  }
 
   .header.header-md,
   .header.header-ios {
     position: relative;
     width: 100%;
-    height: 21.23vh;
+    height: 38.1 / $sch * 100vh;
     box-shadow: 0 !important;
 
-    // background: linear-gradient(135deg, #0193a0, #21c1ca);
+    // background: linear-gradient(135deg, #00929f, #22c3cc);
     background: url(../assets/imgs/booking-back.png);
     background-size: cover;
     background-position: bottom center;
@@ -27,13 +36,355 @@ page-person {
       .toolbar-title.toolbar-title-md,
       .toolbar-title.toolbar-title-ios {
         color: #ffffff;
-        font-weight: 400;
-        font-size: 8.9 / $scw * 100vw;
+        font-size: calc(calc(4.3 / $sch * 100vh) / $scw * 100vw);
+        font-family: "AvenirLTStd-Heavy" !important;
       }
 
       ion-icon.back-button-icon.icon {
         color: white !important;
       }
+    }
+  }
+
+  // .scroll-content {
+  //   position: relative;
+
+  //   padding: 0 !important;
+  //   margin: 0 !important;
+  //   padding-top: 0 !important;
+  //   margin-top: 38.1 / $sch * 100vh !important;
+  //   z-index: 999;
+  // }
+
+  .scroll-content {
+    margin-top: 38.1 / $sch * 100vh !important;
+  }
+
+  .measuerments-goal {
+    position: relative;
+
+    height: 19.3 / $sch * 100vh;
+    // width: 85.5 / $scw * 100vw;
+
+    .measuerments-svg {
+      position: absolute;
+      top: 3.8 / $sch * 100vh;
+      left: 3 / $scw * 100vw;
+
+      height: 10 / $sch * 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        // height: 10 / $sch * 100vh;
+        // width: auto;
+
+        width: 8.5 / $scw * 100vw !important;
+        height: 8.5 / $scw * 100vw !important;
+
+        // padding: 1.5 / $scw * 100vw !important;
+        background: rgba(62, 177, 253, 0.125);
+        border: 0.5px solid rgba(0, 0, 0, 0.125);
+        border-radius: 1.5 / $scw * 100vw;
+
+      }
+    }
+
+    .measuerments-gray {
+      position: absolute;
+      top: 3.8 / $sch * 100vh;
+      left: 14 / $scw * 100vw;
+
+      p.gray {
+        color: #bababa;
+        font-size: 2.8 / $scw * 100vw !important;
+      }
+
+      h2 {
+        color: #575c69;
+        font-size: 3.5 / $scw * 100vw;
+      }
+    }
+
+    .measuerments-chart {
+      position: absolute;
+      top: 3.8 / $sch * 100vh;
+      right: 0 / $scw * 100vw;
+      width: 40.3 / $scw * 100vw;
+      height: (5.5 + 4.3 + 2) / $sch * 100vh;
+    }
+  }
+
+  .weight-chart {
+    position: relative;
+    height: 41.3 / $sch * 100vh;
+    // width: 100%;
+
+    .weight-title {
+      position: absolute;
+      top: 4.3 / $sch * 100vh;
+      left: 3.8 / $scw * 100vw;
+
+      font-size: 3.5 / $scw * 100vw;
+      color: #575c69;
+    }
+    .weight-canvas {
+      position: absolute;
+      height: 29 / $sch * 100vh;
+      width: 100%;
+
+      top: 10 / $sch * 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      canvas {
+        max-height: 100%;
+        max-width: 41.3 / $scw * 100vh;
+      }
+    }
+  }
+
+  .analysis {
+    .analysis-header {
+      padding: 0 (2.5 / $scw * 100vw) !important;
+      img {
+        width: 8.5 / $scw * 100vw !important;
+        height: 8.5 / $scw * 100vw !important;
+
+        padding: 1.5 / $scw * 100vw !important;
+        background: rgba(62, 177, 253, 0.125);
+        border: 0.5px solid rgba(0, 0, 0, 0.125);
+        border-radius: 1.5 / $scw * 100vw;
+      }
+
+      p {
+        color: #575c69;
+        font-size: 4.3 / $scw * 100vw;
+        &.gray {
+          font-size: 2.8 / $scw * 100vw !important;
+          color: #bababa !important;
+        }
+      }
+    }
+
+    .analysis-card {
+      position: relative;
+
+      width: 31.5 / $scw * 100vw;
+      height: 42.3 / $sch * 100vh;
+
+      p {
+        &.analysis-card-hover {
+          position: absolute;
+          right: 2.5 / $scw * 100vw;
+          font-size: 2.8 / $scw * 100vw;
+          color: #bababa;
+        }
+        &.analysis-card-header {
+          position: absolute;
+          right: 12 / $scw * 100vw;
+          top: 15 / $sch * 100vh;
+          font-size: 3.5 / $scw * 100vw;
+          color: #575c69;
+        }
+        &.analysis-card-average {
+          position: absolute;
+          right: 8.3 / $scw * 100vw;
+          top: 21.3 / $sch * 100vh;
+          font-size: 4 / $scw * 100vw;
+          color: #575c69;
+        }
+        &.analysis-card-gray {
+          position: absolute;
+          right: 7.8 / $scw * 100vw;
+          top: 26.5 / $sch * 100vh;
+          font-size: 2.5 / $scw * 100vw;
+          color: #bababa;
+        }
+      }
+
+      img {
+        width: 8.5 / $scw * 100vw !important;
+        height: 8.5 / $scw * 100vw !important;
+
+        padding: 1.5 / $scw * 100vw !important;
+        background: rgba(62, 177, 253, 0.125);
+        border: 0.5px solid rgba(0, 0, 0, 0.125);
+        border-radius: 1.5 / $scw * 100vw;
+
+        position: absolute;
+        right: 12.5 / $scw * 100vw;
+        left: 12.5 / $scw * 100vw;
+        top: 5.3 / $sch * 100vh;
+      }
+
+      canvas {
+        position: absolute;
+        bottom: 0 / $sch * 100vh;
+        height: 10.3 / $sch * 100vh !important;
+      }
+    }
+  }
+
+  .body {
+    .body-header {
+      padding: 0 (2.5 / $scw * 100vw) !important;
+      img {
+        width: 8.5 / $scw * 100vw !important;
+        height: 8.5 / $scw * 100vw !important;
+
+        padding: 1.5 / $scw * 100vw !important;
+        background: rgba(62, 177, 253, 0.125);
+        border: 0.5px solid rgba(0, 0, 0, 0.125);
+        border-radius: 1.5 / $scw * 100vw;
+      }
+
+      p {
+        color: #575c69;
+        font-size: 4.3 / $scw * 100vw;
+      }
+    }
+
+    .body-card {
+      position: relative;
+
+      width: 86 / $scw * 100vw;
+      height: 99 / $sch * 100vh;
+
+      img {
+        position: absolute;
+
+        width: 22.3 / $scw * 100vw;
+        height: 83 / $sch * 100vh;
+
+        top: 3.8 / $sch * 100vh;
+        left: 31.8 / $scw * 100vw;
+      }
+
+      p {
+        width: 100%;
+        text-align: right;
+
+        color: #bababa;
+        font-size: 2.5 / $scw * 100vw;
+
+        position: absolute;
+        bottom: 3.8 / $sch * 100vh;
+        width: 95%;
+      }
+
+      .body-card-full-history {
+        width: 95%;
+        text-align: right;
+
+        color: #bababa !important;
+
+        font-size: 2.8 / $scw * 100vw;
+        text-decoration: underline;
+        text-transform: uppercase;
+
+        position: absolute;
+        bottom: 7.5 / $sch * 100vh;
+
+        background: transparent !important;
+
+      }
+
+
+
+      .arm,
+      .waist,
+      .legs,
+      .hips,
+      .chest {
+        position: absolute;
+        width: 15 / $scw * 100vw;
+        height: 9.8 / $sch * 100vh;
+
+        &::after {
+          content: "-------";
+          color: #22c3cc;
+          display: block;
+          position: absolute;
+          left: 100%;
+          top: 3 / $sch * 100vh;
+          letter-spacing: .5 / $scw * 100vw;
+        }
+
+        .body-segments-title {
+          position: absolute;
+          top: .5 / $sch * 100vh;
+          display: block;
+          height: 3em;
+          color: #22c3cc;
+          width: 100%;
+          text-align: left;
+          font-size: 3/ $scw * 100vw;
+        }
+
+        .body-segments-measuerments {
+          position: absolute;
+          top: 3.5 / $sch * 100vh;
+          display: block;
+          height: 3em;
+
+          width: 100%;
+          text-align: left;
+          color: #575c69;
+          font-size: 2.5 / $scw * 100vw;
+        }
+
+        .body-segments-gray {
+          position: absolute;
+          top: 6 / $sch * 100vh;
+          display: block;
+          height: 3em;
+
+          width: 100%;
+          text-align: left;
+          color: #bababa;
+          font-size: 2 / $scw * 100vw;
+        }
+      }
+
+      .arm {
+        left: 9.3 / $scw * 100vw;
+        top: 21.3 / $sch * 100vh;
+      }
+
+      .waist {
+        left: 12 / $scw * 100vw;
+        top: 32 / $sch * 100vh;
+      }
+
+      .legs {
+        left: 13.3 / $scw * 100vw;
+        top: 60 / $sch * 100vh;
+      }
+
+      .chest {
+        right: 12 / $scw * 100vw;
+        top: 19 / $sch * 100vh;
+
+        &::after {
+          left: auto;
+          right: 100%;
+        }
+      }
+
+      .hips {
+        right: 9.3 / $scw * 100vw;
+        top: 37.5 / $sch * 100vh;
+
+        &::after {
+          left: auto;
+          right: 100%;
+        }
+      }
+
     }
   }
 }

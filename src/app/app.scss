@@ -18,8 +18,12 @@
   font-family: "AvenirLTStd";
   src: url("../assets/fonts/AvenirLTStd-Black.otf"),
     url("../assets/fonts/AvenirLTStd-Book.otf"),
-    url("../assets/fonts/AvenirLTStd-Heavy.otf"),
     url("../assets/fonts/AvenirLTStd-Medium.otf");
+}
+
+@font-face {
+  font-family: "AvenirLTStd-Heavy";
+  src: url("../assets/fonts/AvenirLTStd-Heavy.otf")
 }
 
 @font-face {
