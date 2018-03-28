@@ -232,12 +232,12 @@ export class HomePage {
 
           let arr = Array.from(values(array));
           let arr_f = arr.map(val => {
-            val.ProgrameDetail = Array.from(values(val.ProgrameDetail));
+            val.ProgrameDetail = Array.from(values(val.CardioProgrameDetail));
             return val;
           });
 
-          console.log(arr_f);
-          return arr_f;
+          console.log("arr_f", arr);
+          return arr;
         })
       );
 
