@@ -2,6 +2,11 @@ page-survay {
   $sch: 167.3;
   $scw: 93.8;
 
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
   .scroll-content {
     background: #dedfe2;
   }
@@ -10,23 +15,19 @@ page-survay {
     padding: 0 !important;
     margin: 0;
     width: 86.3 / $scw * 100vw !important;
-    height: 146.8 / $sch * 100vh !important;
+    height: 134 / $sch * 100vh !important;
     margin: 0 (3.8 / $scw * 100vw) !important;
-    margin-top: 23 / $sch * 100vh !important;
+    margin-top: 20 / $sch * 100vh !important;
     position: relative;
   }
 
-  * {
-    padding: 0;
-    margin: 0;
-  }
 
   p {
     font-size: 3.8 / $scw * 100vw;
     color: #9b9b9b;
     padding-top: 6.3 / $sch * 100vh;
     padding-bottom: 2.5 / $sch * 100vh;
-    margin-left: 5 / $scw * 100vw;
+    margin-left: 5 / $scw * 100vw !important;
   }
 
   button {

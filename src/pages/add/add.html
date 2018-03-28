@@ -18,7 +18,7 @@
       <ion-list no-lines>
         <ion-item [navPush]="membershipPage">Membership</ion-item>
         <ion-item>My booking</ion-item>
-        <ion-item>Tell us what you think?</ion-item>
+        <ion-item [navPush]="survayPage">Tell us what you think?</ion-item>
         <ion-item>Special offers</ion-item>
         <ion-item>Invite your friend</ion-item>
       </ion-list>
@@ -26,12 +26,12 @@
   </ion-card>
 
   <ion-row>
-    <ion-card col-4>
+    <ion-card col-4  [navPush]="guidebookMachines">
       <img src="assets/icon/gps_copy.svg">
       <p>Guidebook</p>
       <p>Machines and tools</p>
     </ion-card>
-    <ion-card col-4>
+    <ion-card col-4  [navPush]="guidebookMuscles">
       <img src="assets/icon/gps_copy.svg">
       <p>Guidebook</p>
       <p>Muscles group</p>

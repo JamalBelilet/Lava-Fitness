@@ -21,4 +21,9 @@ export class SurvayPage {
     console.log('ionViewDidLoad SurvayPage');
   }
 
+
+  submit() {
+    this.navCtrl.pop();
+  }
+
 }

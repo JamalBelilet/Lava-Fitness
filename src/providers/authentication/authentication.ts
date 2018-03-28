@@ -2,8 +2,6 @@ import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 // import { TabsPage } from '../../pages/tabs/tabs';
 import { AlertController } from "ionic-angular";
-import { switchMap } from "rxjs/operators";
-import { Observable } from "rxjs/observable";
 import { of } from "rxjs/observable/of";
 
 /*

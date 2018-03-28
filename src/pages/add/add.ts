@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { MembershipPage } from '../membership/membership';
+import { SurvayPage } from '../survay/survay';
+import { GuidebookMachinesPage } from '../guidebook-machines/guidebook-machines';
+import { GuidebookMusclesPage } from '../guidebook-muscles/guidebook-muscles';
 
 /**
  * Generated class for the AddPage page.
@@ -15,6 +18,9 @@ import { MembershipPage } from '../membership/membership';
 })
 export class AddPage {
   membershipPage = MembershipPage;
+  survayPage = SurvayPage;
+  guidebookMachines = GuidebookMachinesPage;
+  guidebookMuscles = GuidebookMusclesPage;
 
   selectedBranch = 'Alquds branch';
   constructor(public navCtrl: NavController, public navParams: NavParams) {
