@@ -5,18 +5,27 @@ page-heart {
   //   z-index: -2 !important;
   // }
 
+  * {
+    // margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  ion-card {
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.125) !important;
+  }
+
   .header.header-md,
   .header.header-ios {
     position: relative;
     width: 100%;
-    height: 21.23vh;
+    height: 38.1 / $sch * 100vh;
     box-shadow: 0 !important;
 
-    // background: linear-gradient(135deg, #0193a0, #21c1ca);
-    background: url(../assets/imgs/booking-back.png);
-    background-size: cover;
-    background-position: bottom center;
-    background-repeat: no-repeat;
+    background: transparent;
+    // background: url(../assets/imgs/booking-back.png);
+    // background-size: contain;
+    // background-position: top center;
+    // background-repeat: no-repeat;
 
     &:after {
       background-image: none !important;
@@ -27,8 +36,18 @@ page-heart {
       .toolbar-title.toolbar-title-md,
       .toolbar-title.toolbar-title-ios {
         color: #ffffff;
-        font-weight: 400;
-        font-size: 4.3 / $scw * 100vw;
+        font-size: calc(calc(4.3 / $sch * 100vh) / $scw * 100vw);
+        font-family: "AvenirLTStd-Heavy" !important;
+
+        text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+
+
+      }
+
+      .toolbar-background.toolbar-background-ios {
+        border: none !important;
+
+        background: transparent;
       }
 
       ion-icon.back-button-icon.icon {
@@ -37,12 +56,25 @@ page-heart {
     }
   }
 
+  // .scroll-content {
+  //   position: relative;
+
+  //   padding: 0 !important;
+  //   margin: 0 !important;
+  //   padding-top: 0 !important;
+  //   margin-top: 38.1 / $sch * 100vh !important;
+  //   z-index: 999;
+  // }
+
   .scroll-content {
-    padding: 0 !important;
-    margin: 0 !important;
-    // padding-top: 21.8 / $sch * 100vh !important;
-    margin-top: 55 / $sch * 100vh !important;
-    margin-bottom: 10 / $sch * 100vh !important;
+    padding-top: 16.1 / $sch * 100vh !important;
+
+    margin-top: 0 / $sch * 100vh !important;
+
+    background: url(../assets/imgs/booking-back.png);
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
   }
 
   .today-container {
@@ -70,7 +102,7 @@ page-heart {
 
     .workouts {
       position: absolute;
-      width: 11.5 / $scw * 100vw;
+      width: 12.5 / $scw * 100vw;
       left: 20.8 / $scw * 100vw;
 
       button {

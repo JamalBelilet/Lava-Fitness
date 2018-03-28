@@ -1,4 +1,215 @@
 page-add {
   font-size: $font-size;
+  $sch: 167.3;
+  $scw: 93.8;
 
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  .main-nav-card {
+    padding: 0;
+    // margin: 0;
+    ion-card-header {
+      // width: 81.3 / $scw * 100vw;
+      height: 15 / $sch * 100vh;
+
+      background: #22c3cc;
+
+      ion-col {
+        justify-content: flex-start;
+        align-items: flex-start;
+        display: flex;
+        flex-flow: column nowrap;
+
+        padding: 0 !important;
+        margin: 0 !important;
+
+        &:last-of-type {
+          justify-content: flex-end;
+          align-items: flex-end;
+        }
+      }
+
+      h2 {
+        font-size: 3.8 / $scw * 100vw;
+        color: white;
+        padding: 0 !important;
+        margin: 0 !important;
+        height: 3.8 / $sch * 100vh !important;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+      }
+
+      p,
+      button {
+        font-size: 2.8 / $scw * 100vw !important;
+        color: #f9f9fa !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        height: 3.8 / $sch * 100vh !important;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+      }
+    }
+
+    .card-content.card-content-ios,
+    .card-content.card-content-md {
+      padding: 0;
+      padding-left: 5 / $scw * 100vw;
+    }
+    ion-list {
+      button {
+        background: transparent;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        height: 9.5 / $sch * 100vh !important;
+        width: auto;
+
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+
+        text-align: left !important;
+
+        font-size: 3.3 / $scw * 100vw !important;
+        color: #9b9b9b !important;
+
+        border-bottom: 0.1 / $scw * 100vw solid #e4eaef;
+
+        padding-right: 25 / $scw * 100vw !important;
+
+        border-radius: 0 !important;
+
+        &:first-of-type {
+          margin-top: 1.5 / $sch * 100vh !important;
+        }
+
+        &:last-of-type {
+          margin-bottom: 1.5 / $sch * 100vh !important;
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  .contact-header {
+    width: 65.3 / $scw * 100vw;
+
+    .label.label-ios,
+    .label.label-md {
+      color: #575c69;
+      font-size: 4.3 / $scw * 100vw;
+    }
+
+    ion-select {
+      width: 45.3 / $scw * 100vw;
+      height: 6.5 / $sch * 100vh;
+
+      font-size: 3.3 / $scw * 100vw !important;
+      background: #22c3cc;
+      color: white;
+      border-radius: 1 / $scw * 100vw !important;
+
+      padding: 2 / $scw * 100vw !important;
+
+      margin: 0 !important;
+
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+
+      * {
+        color: white !important;
+      }
+    }
+  }
+
+  .guides {
+
+    justify-content: center;
+    align-items: center;
+
+    ion-card {
+      width: 38.3 / $scw * 100vw !important;
+      height: 30.3 / $sch * 100vh !important;
+      position: relative;
+
+      padding: 0 !important;
+      margin: 2.15 / $scw * 100vw !important;
+
+      ion-icon {
+        position: absolute;
+        top: 6.8 / $sch * 100vh;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+
+        font-size: 7.5 / $scw * 100vw;
+
+        color: #22c3cc;
+      }
+
+      h2 {
+        position: absolute;
+        top: 16.8 / $sch * 100vh;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+
+        font-size: 4.3 / $scw * 100vw;
+
+        color: #575c69;
+      }
+
+      p {
+        position: absolute;
+        top: 21.8 / $sch * 100vh;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+
+        font-size: 2.5 / $scw * 100vw;
+
+        color: #bababa;
+      }
+    }
+  }
+
+  ion-list {
+    ion-row {
+      // line-height: .2em !important;
+      justify-content: flex-start;
+      align-items: center;
+      padding-top: 2.5 / $sch * 100vh;
+      ion-icon {
+        color: #22c3cc !important;
+        font-size: 7 / $scw * 100vw !important;
+        padding-left: 6.5 / $scw * 100vw;
+        padding-right: 1.5 / $scw * 100vw;
+      }
+      p {
+        font-size: 3.3 / $scw * 100vw !important;
+        color: #9b9b9b !important;
+      }
+
+      button {
+        font-size: 3.3 / $scw * 100vw !important;
+
+        text-decoration: underline !important;
+        color: #22c3cc !important;
+
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+    }
+  }
 }

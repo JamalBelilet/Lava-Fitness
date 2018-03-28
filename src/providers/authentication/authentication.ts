@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 // import { TabsPage } from '../../pages/tabs/tabs';
-import { AlertController } from "ionic-angular";
 import { of } from "rxjs/observable/of";
 
 /*
@@ -26,7 +25,7 @@ export class AuthenticationProvider {
     debug: false
   };
 
-  constructor(public http: HttpClient, private alertCtrl: AlertController) {
+  constructor(public http: HttpClient) {
     console.log("Hello AuthenticationProvider Provider");
   }
 

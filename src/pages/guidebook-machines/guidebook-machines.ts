@@ -16,7 +16,7 @@ export class GuidebookMachinesPage {
   selectedGroup = "Group: Ads";
 
   items: any = [];
-  itemExpandHeight: number = 100;
+  itemExpandHeight: number = 41.8 / 167.3 * 100;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.items = [

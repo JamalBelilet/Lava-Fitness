@@ -12,6 +12,8 @@ page-person {
 
   ion-card {
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.125) !important;
+    border-radius: 1 / $scw * 100vw !important;
+    padding: 0 !important;
   }
 
   .header.header-md,
@@ -21,11 +23,11 @@ page-person {
     height: 38.1 / $sch * 100vh;
     box-shadow: 0 !important;
 
-    // background: linear-gradient(135deg, #00929f, #22c3cc);
-    background: url(../assets/imgs/booking-back.png);
-    background-size: cover;
-    background-position: bottom center;
-    background-repeat: no-repeat;
+    background: transparent;
+    // background: url(../assets/imgs/booking-back.png);
+    // background-size: contain;
+    // background-position: top center;
+    // background-repeat: no-repeat;
 
     &:after {
       background-image: none !important;
@@ -38,6 +40,16 @@ page-person {
         color: #ffffff;
         font-size: calc(calc(4.3 / $sch * 100vh) / $scw * 100vw);
         font-family: "AvenirLTStd-Heavy" !important;
+
+        text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+
+
+      }
+
+      .toolbar-background.toolbar-background-ios {
+        border: none !important;
+
+        background: transparent;
       }
 
       ion-icon.back-button-icon.icon {
@@ -57,7 +69,14 @@ page-person {
   // }
 
   .scroll-content {
-    margin-top: 38.1 / $sch * 100vh !important;
+    padding-top: 16.1 / $sch * 100vh !important;
+
+    margin-top: 0 / $sch * 100vh !important;
+
+    background: url(../assets/imgs/booking-back.png);
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
   }
 
   .measuerments-goal {
@@ -88,7 +107,6 @@ page-person {
         background: rgba(62, 177, 253, 0.125);
         border: 0.5px solid rgba(0, 0, 0, 0.125);
         border-radius: 1.5 / $scw * 100vw;
-
       }
     }
 
@@ -142,14 +160,14 @@ page-person {
       align-items: center;
       canvas {
         max-height: 100%;
-        max-width: 41.3 / $scw * 100vh;
+        max-width: 40 / $scw * 100vh;
       }
     }
   }
 
   .analysis {
     .analysis-header {
-      padding: 0 (2.5 / $scw * 100vw) !important;
+      padding: 0 (3.5 / $scw * 100vw) !important;
       img {
         width: 8.5 / $scw * 100vw !important;
         height: 8.5 / $scw * 100vw !important;
@@ -231,7 +249,7 @@ page-person {
 
   .body {
     .body-header {
-      padding: 0 (2.5 / $scw * 100vw) !important;
+      padding: 0 (3.5 / $scw * 100vw) !important;
       img {
         width: 8.5 / $scw * 100vw !important;
         height: 8.5 / $scw * 100vw !important;
@@ -290,10 +308,7 @@ page-person {
         bottom: 7.5 / $sch * 100vh;
 
         background: transparent !important;
-
       }
-
-
 
       .arm,
       .waist,
@@ -311,18 +326,18 @@ page-person {
           position: absolute;
           left: 100%;
           top: 3 / $sch * 100vh;
-          letter-spacing: .5 / $scw * 100vw;
+          letter-spacing: 0.5 / $scw * 100vw;
         }
 
         .body-segments-title {
           position: absolute;
-          top: .5 / $sch * 100vh;
+          top: 0.5 / $sch * 100vh;
           display: block;
           height: 3em;
           color: #22c3cc;
           width: 100%;
           text-align: left;
-          font-size: 3/ $scw * 100vw;
+          font-size: 3 / $scw * 100vw;
         }
 
         .body-segments-measuerments {
@@ -351,17 +366,17 @@ page-person {
       }
 
       .arm {
-        left: 9.3 / $scw * 100vw;
+        left: 7 / $scw * 100vw;
         top: 21.3 / $sch * 100vh;
       }
 
       .waist {
-        left: 12 / $scw * 100vw;
+        left: 10 / $scw * 100vw;
         top: 32 / $sch * 100vh;
       }
 
       .legs {
-        left: 13.3 / $scw * 100vw;
+        left: 11 / $scw * 100vw;
         top: 60 / $sch * 100vh;
       }
 
@@ -384,7 +399,6 @@ page-person {
           right: 100%;
         }
       }
-
     }
   }
 }

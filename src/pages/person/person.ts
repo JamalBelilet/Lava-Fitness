@@ -67,7 +67,8 @@ export class PersonPage {
             {
               display: false
             }
-          ]
+          ],
+
         }
       }
     });
