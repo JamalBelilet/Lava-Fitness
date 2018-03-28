@@ -1,0 +1,56 @@
+page-survay {
+  $sch: 167.3;
+  $scw: 93.8;
+
+  .scroll-content {
+    background: #dedfe2;
+  }
+
+  ion-card {
+    padding: 0 !important;
+    margin: 0;
+    width: 86.3 / $scw * 100vw !important;
+    height: 146.8 / $sch * 100vh !important;
+    margin: 0 (3.8 / $scw * 100vw) !important;
+    margin-top: 23 / $sch * 100vh !important;
+    position: relative;
+  }
+
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  p {
+    font-size: 3.8 / $scw * 100vw;
+    color: #9b9b9b;
+    padding-top: 6.3 / $sch * 100vh;
+    padding-bottom: 2.5 / $sch * 100vh;
+    margin-left: 5 / $scw * 100vw;
+  }
+
+  button {
+    color: white !important;
+    height: 5.5 / $sch * 100vh !important;
+    font-size: 2.8 / $scw * 100vw !important;
+    margin-right: 2 / $scw * 100vw;
+
+    &:first-of-type {
+      margin-left: 5 / $scw * 100vw !important;
+    }
+
+    &[outline] {
+      color: #22c3cc !important;
+    }
+
+    &.submit {
+      height: 11 / $sch * 100vh !important;
+      width: 25 / $scw * 100vw !important;
+      font-size: 3.5 / $scw * 100vw !important;
+
+      position: absolute;
+      bottom: 5 / $sch * 100vh;
+      right: 5.3 / $scw * 100vw;
+    }
+  }
+}

@@ -1,18 +1,57 @@
-<!--
-  Generated template for the AddPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>Add</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
 <ion-content padding>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-row>
+        <ion-col>
+          <p>Sarah Alhumaid</p>
+          <p>#651321891</p>
+        </ion-col>
+        <ion-col>
+          <p>active member</p>
+          <button ion-button clear>Sign out</button>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list no-lines>
+        <ion-item [navPush]="membershipPage">Membership</ion-item>
+        <ion-item>My booking</ion-item>
+        <ion-item>Tell us what you think?</ion-item>
+        <ion-item>Special offers</ion-item>
+        <ion-item>Invite your friend</ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-row>
+    <ion-card col-4>
+      <img src="assets/icon/gps_copy.svg">
+      <p>Guidebook</p>
+      <p>Machines and tools</p>
+    </ion-card>
+    <ion-card col-4>
+      <img src="assets/icon/gps_copy.svg">
+      <p>Guidebook</p>
+      <p>Muscles group</p>
+    </ion-card>
+  </ion-row>
+
+
+  <ion-list no-lines>
+    <ion-item>
+      <ion-label>Contact us at: </ion-label>
+      <ion-select [(ngModel)]="selectedBranch" multiple="true">
+        <ion-option>Alquds branch</ion-option>
+        <ion-option>El Riadh branch</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item><ion-icon name="call" item-left></ion-icon><p>0111324579815</p></ion-item>
+    <ion-item><ion-icon name="map" item-left></ion-icon><p>Eastern ring road, Alquds Riadh 23514</p></ion-item>
+    <ion-item><ion-icon name="ios-navigate" item-left></ion-icon><p>Get directions</p></ion-item>
+  </ion-list>
+
 
 </ion-content>

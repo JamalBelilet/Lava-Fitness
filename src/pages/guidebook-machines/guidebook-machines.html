@@ -1,0 +1,43 @@
+<ion-content padding>
+  <div class="header">
+    <h2>Guidebook</h2>
+    <p>Gym machines & tools</p>
+    <ion-searchbar></ion-searchbar>
+    <ion-select [(ngModel)]="selectedGroup" multiple="true">
+      <ion-option>Group: Ads</ion-option>
+    </ion-select>
+  </div>
+
+
+  <!-- <ion-list>
+    <button detail-none (click)="expandItem(item)" ion-item *ngFor="let item of items">
+      <ion-thumbnail item-start>
+        <img src="http://placehold.it/100">
+      </ion-thumbnail>
+      <h2>My Neighbor Totoro</h2>
+      <p>Hayao Miyazaki • 1988</p>
+      <expandable [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
+        Hello people
+      </expandable>
+      <button ion-button clear item-end>View</button>
+    </button>
+  </ion-list> -->
+
+  <ion-list no-lines>
+    <button detail-none (click)="expandItem(item)" ion-item *ngFor="let item of items">
+      <ion-thumbnail item-start>
+        <img src="assets/icon/dumbbell.svg">
+      </ion-thumbnail>
+      <h2>Abs dumbbell</h2>
+      <p>Muscle group detailed <ion-icon name="ios-arrow-down"></ion-icon></p>
+      <expandable [expandHeight]="itemExpandHeight" [expanded]="item.expanded">
+        <ul>
+          <li>Consectetur cillum aute occaecat laboris in tempor officia eu et anim.</li>
+          <li>Dolore proident reprehenderit irure nisi.</li>
+          <li>Qui reprehenderit aute mollit occaecat dolore mollit irure irure labore nulla.</li>
+        </ul>
+      </expandable>
+    </button>
+  </ion-list>
+
+</ion-content>

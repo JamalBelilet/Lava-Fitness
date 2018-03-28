@@ -1,0 +1,194 @@
+page-membership {
+  $sch: 167.3;
+  $scw: 93.8;
+  // .fixed-content {
+  //   z-index: -2 !important;
+  // }
+
+  .header.header-md,
+  .header.header-ios {
+    position: relative;
+    width: 100%;
+    height: 38 / $sch * 100vh;
+    box-shadow: 0 !important;
+
+    // background: linear-gradient(135deg, #0193a0, #21c1ca);
+    background: url(../assets/imgs/booking-back.png);
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+
+    &:after {
+      background-image: none !important;
+    }
+
+    .toolbar.toolbar-md,
+    .toolbar.toolbar-ios {
+      .toolbar-title.toolbar-title-md,
+      .toolbar-title.toolbar-title-ios {
+        color: #ffffff;
+        font-weight: 400;
+        font-size: 4.3 / $scw * 100vw !important;
+      }
+
+      ion-icon.back-button-icon.icon {
+        color: white !important;
+      }
+    }
+
+    .membership-card-container {
+      position: absolute;
+      top: 23.5 / $sch * 100vh;
+      height: (136.3 - 15) / $sch * 100vh;
+      // width: 86.3 / $scw * 100vw;
+    }
+    .membership-card-header {
+      position: relative;
+      height: 41 / $sch * 100vh;
+      margin: 0 (3.8 / $scw * 100vw);
+      margin-top: 3.3 / $sch * 100vh;
+
+      border-radius: 1 / $sch * 100vh;
+      background: #22c3cc;
+
+      .membership-card-header-main {
+        position: absolute;
+        top: 3.8 / $sch * 100vh;
+        left: 3.8 / $scw * 100vw;
+        width: 33.5 / $scw * 100vw;
+        height: (2.8 + 12.3 - 3.8) / $scw * 100vw;
+
+        h2 {
+          font-size: 3.5 / $scw * 100vw;
+          color: #ffffff;
+        }
+
+        p {
+          font-size: 2.5 / $scw * 100vw;
+          color: #e4eaef;
+        }
+      }
+      .membership-card-header-action {
+        position: absolute;
+        top: 3.8 / $sch * 100vh;
+        right: 3.8 / $scw * 100vw;
+        width: 17.8 / $scw * 100vw;
+        height: 8 / $scw * 100vw;
+
+        button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 2.5 / $scw * 100vw;
+          color: #9b9b9b !important;
+          background: white !important;
+          width: 100%;
+          height: 100%;
+          padding: 0;
+          margin: 0;
+        }
+      }
+      .membership-card-header-sub {
+        position: absolute;
+        top: 20 / $sch * 100vh;
+        right: 3.8 / $scw * 100vw;
+        width: 31.5 / $scw * 100vw;
+        height: (2.5 + 19.5 - 11) / $scw * 100vw;
+        h2 {
+          font-size: 3.5 / $scw * 100vw;
+          color: #ffffff;
+        }
+
+        p {
+          font-size: 2.5 / $scw * 100vw;
+          color: #e4eaef;
+        }
+      }
+      .membership-card-header-footer {
+        position: absolute;
+        bottom: 3.8 / $sch * 100vh;
+        right: 3.8 / $scw * 100vw;
+        width: 19.5 / $scw * 100vw;
+        height: 2.5 / $scw * 100vw;
+
+        p {
+          font-size: 2.3 / $scw * 100vw;
+          color: #e4eaef;
+        }
+      }
+    }
+
+    .membership-card-trainer {
+      height: 11 / $sch * 100vh;
+
+      ion-row {
+        justify-content: center;
+        align-items: center;
+
+        height: 100%;
+        width: 100%;
+
+        * {
+          padding: 0;
+          margin: 0;
+        }
+
+        ion-col {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+        }
+
+        button {
+          font-size: 2.5 / $scw * 100vw !important;
+          color: #9b9b9b !important;
+
+          text-decoration: underline;
+          margin: 0 (2.3 / $scw * 100vw);
+        }
+
+        p {
+          font-size: 3.3 / $scw * 100vw;
+          color: #9b9b9b;
+
+          margin: 0 (2.3 / $scw * 100vw);
+        }
+
+        h2 {
+          font-size: 3.3 / $scw * 100vw;
+          color: #575c69;
+        }
+      }
+    }
+
+    .membership-card-checks {
+      * {
+        padding: 0;
+        margin: 0;
+        margin-left: 3.8 / $scw * 100vw;
+      }
+
+      h2 {
+        font-size: 4 / $scw * 100vw;
+        color: #575c69;
+
+        margin-top: 1 / $sch * 100vh;
+        margin-bottom: 2 / $sch * 100vh;
+      }
+      p {
+        font-size: 3.3 / $scw * 100vw;
+        color: #9b9b9b;
+        margin-top: 2.3 / $sch * 100vh;
+      }
+
+      ion-icon {
+        color: #22c3cc;
+        font-size: 5.5 / $scw * 100vw;
+        margin: (0.5 / $sch * 100vh) (1 / $scw * 100vw);
+        &:first-of-type {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}

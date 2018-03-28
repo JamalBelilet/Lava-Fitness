@@ -34,6 +34,11 @@ import { Health } from '@ionic-native/health';
 import { LavaHealthProvider } from '../providers/lava-health/lava-health';
 import { MomentPipe } from "../pipes/moment/moment";
 import { BodyWeightLogHistoryPage } from "../pages/body-weight-log-history/body-weight-log-history";
+import { MembershipPage } from "../pages/membership/membership";
+import { SurvayPage } from "../pages/survay/survay";
+import { GuidebookMachinesPage } from "../pages/guidebook-machines/guidebook-machines";
+import { ExpandableComponent } from "../components/expandable/expandable";
+import { GuidebookMusclesPage } from "../pages/guidebook-muscles/guidebook-muscles";
 @NgModule({
   declarations: [
     MyApp,
@@ -48,9 +53,15 @@ import { BodyWeightLogHistoryPage } from "../pages/body-weight-log-history/body-
     FinishWorkoutPage,
     ClassShedulePage,
     BookPage,
+    MembershipPage,
+    SurvayPage,
+    GuidebookMachinesPage,
     WeightLogHistoryPage,
     BodyWeightLogHistoryPage,
-    MomentPipe
+    GuidebookMusclesPage,
+
+    MomentPipe,
+    ExpandableComponent
   ],
   imports: [
     BrowserModule,
@@ -92,8 +103,14 @@ import { BodyWeightLogHistoryPage } from "../pages/body-weight-log-history/body-
     FinishWorkoutPage,
     ClassShedulePage,
     BookPage,
+    MembershipPage,
+    SurvayPage,
+    GuidebookMachinesPage,
     WeightLogHistoryPage,
-    BodyWeightLogHistoryPage
+    BodyWeightLogHistoryPage,
+    GuidebookMusclesPage,
+    ExpandableComponent
+
   ],
   providers: [
     StatusBar,

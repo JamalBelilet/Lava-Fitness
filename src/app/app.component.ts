@@ -10,12 +10,14 @@ import { LoginPage } from '../pages/login/login';
 
 import moment from 'moment';
 import { WeightLogHistoryPage } from '../pages/weight-log-history/weight-log-history';
+import { SurvayPage } from '../pages/survay/survay';
+import { GuidebookMachinesPage } from '../pages/guidebook-machines/guidebook-machines';
+import { GuidebookMusclesPage } from '../pages/guidebook-muscles/guidebook-muscles';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = TabsPage;
-
+  rootPage:any = SurvayPage;
 
 
 

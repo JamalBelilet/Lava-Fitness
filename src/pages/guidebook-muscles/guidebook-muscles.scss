@@ -1,0 +1,171 @@
+page-guidebook-muscles {
+  $sch: 202;
+  $scw: 93.8;
+
+  .scroll-content {
+    background: #DEDFE2;
+  }
+
+  ion-card {
+    padding: 0 !important;
+    margin: 0;
+    width: 86.3 / $scw * 100vw !important;
+    height: 146.8 / $sch * 100vh !important;
+    margin: 0 (3.8 / $scw * 100vw) !important;
+    margin-top: 23 / $sch * 100vh  !important;
+    position: relative;
+
+  }
+
+  .header {
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    h2 {
+      position: absolute;
+      top: 6.3 / $sch * 100vh;
+      left: 4.8 / $scw * 100vw;
+      font-size: 4.3 / $scw * 100vw;
+      color: #575c69;
+    }
+    p {
+      position: absolute;
+      top: 12 / $sch * 100vh;
+      left: 4.8 / $scw * 100vw;
+      font-size: 3.2 / $scw * 100vw;
+      color: #9b9b9b;
+    }
+  }
+
+  .body {
+    & > img {
+      position: absolute;
+      top: 35.5 / $sch * 100vh;
+      left: 31 / $scw * 100vw;
+      width: 24.3 / $scw * 100vw;
+      height: 85 / $sch * 100vh;
+
+    }
+
+    .click-tooltip {
+      font-size: 3.2 / $scw * 100vw;
+      color: #575c69;
+      position: absolute;
+      top: 27.8 / $sch * 100vh;
+      width: 100%;
+      text-align: center;
+
+    }
+  }
+
+
+  .deltoid {
+    font-size: 3.2 / $scw * 100vw;
+    color: #22c3cc;
+    position: absolute;
+    top: 51 / $sch * 100vh;
+    left: 14 / $scw * 100vw;
+
+    &::after {
+      content: "-----------●";
+      padding: 0 (1.5 / $scw * 100vw);
+      display: inline-block;
+    }
+  }
+  .side-abs {
+    font-size: 3.2 / $scw * 100vw;
+    color: #22c3cc;
+    position: absolute;
+    top: 62.5 / $sch * 100vh;
+    left: 16 / $scw * 100vw;
+
+    &::after {
+      content: "----------●";
+      padding: 0 (1.5 / $scw * 100vw);
+      display: inline-block;
+    }
+  }
+  .abs {
+    font-size: 3.2 / $scw * 100vw;
+    color: #22c3cc;
+    position: absolute;
+    top: 66.8 / $sch * 100vh;
+    left: 25.5 / $scw * 100vw;
+
+    &::after {
+      content: "----------●";
+      padding: 0 (1.5 / $scw * 100vw);
+      display: inline-block;
+    }
+  }
+  .quadriceps {
+    font-size: 3.2 / $scw * 100vw;
+    color: #22c3cc;
+    position: absolute;
+    top: 83.8 / $sch * 100vh;
+    left: 12.3 / $scw * 100vw;
+
+    &::after {
+      content: "----------●";
+      padding: 0 (1.5 / $scw * 100vw);
+      display: inline-block;
+    }
+  }
+  .chest {
+    font-size: 3.2 / $scw * 100vw;
+    color: #22c3cc;
+
+    position: absolute;
+    top: 52.5 / $sch * 100vh;
+    right: 21 / $scw * 100vw;
+
+    &::before {
+      content: "●----------";
+      padding: 0 (1.5 / $scw * 100vw);
+      display: inline-block;
+    }
+  }
+  .back {
+    font-size: 3.2 / $scw * 100vw;
+    color: #22c3cc;
+
+    position: absolute;
+    top: 58 / $sch * 100vh;
+    right: 22.5 / $scw * 100vw;
+
+    &::before {
+      content: "●----------";
+      padding: 0 (1.5 / $scw * 100vw);
+      display: inline-block;
+    }
+  }
+  .forearms {
+    font-size: 3.2 / $scw * 100vw;
+    color: #22c3cc;
+    position: absolute;
+    top: 67 / $sch * 100vh;
+    right: 10.3 / $scw * 100vw;
+
+    &::before {
+      content: "●----------";
+      padding: 0 (1.5 / $scw * 100vw);
+      display: inline-block;
+    }
+  }
+  .tibialis-anterior {
+    font-size: 3.2 / $scw * 100vw;
+    color: #22c3cc;
+
+    position: absolute;
+    top: 101 / $sch * 100vh;
+    right: 6.3 / $scw * 100vw;
+
+    &::before {
+      content: "●----------";
+      padding: 0 (1.5 / $scw * 100vw);
+      display: inline-block;
+    }
+  }
+
+}

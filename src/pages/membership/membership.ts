@@ -1,27 +1,24 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { MembershipPage } from '../membership/membership';
 
 /**
- * Generated class for the AddPage page.
+ * Generated class for the MembershipPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
 @Component({
-  selector: 'page-add',
-  templateUrl: 'add.html',
+  selector: 'page-membership',
+  templateUrl: 'membership.html',
 })
-export class AddPage {
-  membershipPage = MembershipPage;
+export class MembershipPage {
 
-  selectedBranch = 'Alquds branch';
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddPage');
+    console.log('ionViewDidLoad MembershipPage');
   }
 
 }

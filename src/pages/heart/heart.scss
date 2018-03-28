@@ -1,3 +1,207 @@
 page-heart {
+  $sch: 202;
+  $scw: 93.8;
+  // .fixed-content {
+  //   z-index: -2 !important;
+  // }
 
+  .header.header-md,
+  .header.header-ios {
+    position: relative;
+    width: 100%;
+    height: 21.23vh;
+    box-shadow: 0 !important;
+
+    // background: linear-gradient(135deg, #0193a0, #21c1ca);
+    background: url(../assets/imgs/booking-back.png);
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+
+    &:after {
+      background-image: none !important;
+    }
+
+    .toolbar.toolbar-md,
+    .toolbar.toolbar-ios {
+      .toolbar-title.toolbar-title-md,
+      .toolbar-title.toolbar-title-ios {
+        color: #ffffff;
+        font-weight: 400;
+        font-size: 4.3 / $scw * 100vw;
+      }
+
+      ion-icon.back-button-icon.icon {
+        color: white !important;
+      }
+    }
+  }
+
+  .scroll-content {
+    padding: 0 !important;
+    margin: 0 !important;
+    // padding-top: 21.8 / $sch * 100vh !important;
+    margin-top: 55 / $sch * 100vh !important;
+    margin-bottom: 10 / $sch * 100vh !important;
+  }
+
+  .today-container {
+    height: 14.1vh;
+
+    display: flex;
+    justify-content: space-between;
+
+    position: relative;
+
+    .today {
+      position: absolute;
+      top: 0;
+      left: 5 / $scw * 100vw;
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+
+      font-size: 3.5 / $scw * 100vw;
+      color: #575c69;
+
+      text-align: center;
+    }
+
+    .workouts {
+      position: absolute;
+      width: 11.5 / $scw * 100vw;
+      left: 20.8 / $scw * 100vw;
+
+      button {
+        position: absolute;
+        top: 5.8 / $sch * 100vh;
+        color: #22c3cc;
+        width: 100%;
+        height: 4.8 / $scw * 100vw;
+        padding: 0;
+        margin: 0;
+
+        ion-icon {
+          width: 4.8 / $scw * 100vw;
+          height: 4.8 / $scw * 100vw;
+          color: #22c3cc;
+        }
+      }
+
+      .workout-number {
+        position: absolute;
+
+        font-size: 2.5 / $scw * 100vw;
+        top: 12.8 / $sch * 100vh;
+
+        color: #575c69;
+      }
+
+      .workout-row {
+        position: absolute;
+        top: 16.3 / $sch * 100vh;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+
+        width: 100%;
+        p {
+          font-size: 2.5 / $scw * 100vw;
+          color: #575c69;
+        }
+        img {
+          width: 4.8 / $scw * 100vw;
+          height: 4.8 / $scw * 100vw;
+          color: #22c3cc;
+        }
+      }
+    }
+
+    .floors {
+      position: absolute;
+      top: 8.5 / $sch * 100vh;
+      right: 16 / $scw * 100vw;
+
+      p {
+        margin: 0;
+        padding: 0;
+
+        font-size: 3 / $scw * 100vw;
+        color: #575c69;
+
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+
+  ion-segment {
+    width: (19.3 * 3) / $scw * 100vw;
+    // height: 7.1 / $sch * 100vh !important;
+    margin: 0 auto;
+    margin-top: 8 / $sch * 100vh;
+
+    ion-segment-button {
+      font-size: 3.3 / $scw * 100vw !important;
+      padding: 0 !important;
+      height: 7.1 / $sch * 100vh !important;
+      text-align: center;
+
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  ion-select {
+    width: 17.3 / $scw * 100vw;
+    height: 6.5 / $sch * 100vh;
+    font-size: 3.3 / $scw * 100vw !important;
+    background: #22c3cc;
+
+    border-radius: 1 / $scw * 100vw !important;
+
+    padding: 2 / $scw * 100vw !important;
+    margin: 0 !important;
+    margin-left: 100vw  -  ( (17.3 + 7.8) / $scw * 100vw) !important;
+    margin-top: 9 / $sch * 100vh !important;
+    color: white;
+
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+
+
+
+    * {
+      color: white !important;
+    }
+  }
+
+  .history-chart {
+
+    position: relative;
+    margin-top: 3 / $sch * 100vh !important;
+
+    button {
+      position: absolute;
+      top: -0 / $sch * 100vh;
+      right: 7.75 / $scw * 100vw;
+
+      padding: 0 !important;
+      margin: 0 !important;
+
+      background: #f4ce5f !important;
+      width: 8 / $scw * 100vw;
+      height: 8 / $scw * 100vw;
+      border-radius: 50%;
+
+      img {
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
 }
