@@ -4,8 +4,8 @@
     <ion-card-header>
       <ion-row>
         <ion-col>
-          <h2>Sarah Alhumaid</h2>
-          <p>#651321891</p>
+          <h2>{{profileProvider.localProfile.FullName}}</h2>
+          <p>#{{profileProvider.localProfile.IdentityID}}</p>
         </ion-col>
         <ion-col>
           <p>Active member</p>
@@ -42,14 +42,14 @@
   <ion-list no-lines>
     <ion-item class="contact-header">
       <ion-label>Contact us at: </ion-label>
-      <ion-select [(ngModel)]="selectedBranch" multiple="true">
-        <ion-option>Alquds branch</ion-option>
-        <ion-option>El Riadh branch</ion-option>
+      <ion-select [(ngModel)]="selectedBranch" multiple="false">
+        <ion-option [value]="selectedBranch">{{selectedBranch?.NameEN}}</ion-option>
+        <ion-option *ngFor="let branch of (branches$ | async)?.data" [value]="branch">{{branch.NameEN}}</ion-option>
       </ion-select>
     </ion-item>
 
-    <ion-row><ion-icon name="call" item-left></ion-icon><p>0111324579815</p></ion-row>
-    <ion-row><ion-icon name="map" item-left></ion-icon><p>Eastern ring road, Alquds Riadh 23514</p></ion-row>
+    <ion-row><ion-icon name="call" item-left></ion-icon><p>{{selectedBranch.Phone}}</p></ion-row>
+    <ion-row><ion-icon name="map" item-left></ion-icon><p>{{selectedBranch.Address}}</p></ion-row>
     <ion-row><ion-icon name="ios-navigate" item-left></ion-icon><button ion-button clear>Get directions</button></ion-row>
   </ion-list>
 

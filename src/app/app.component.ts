@@ -17,7 +17,7 @@ import { GuidebookMusclesPage } from '../pages/guidebook-muscles/guidebook-muscl
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = TabsPage;
+  rootPage:any = LoginPage;
 
 
 

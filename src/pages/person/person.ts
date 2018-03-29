@@ -4,6 +4,8 @@ import { NavController, NavParams } from "ionic-angular";
 import { Chart } from "chart.js";
 import { WeightLogHistoryPage } from "../weight-log-history/weight-log-history";
 import { BodyWeightLogHistoryPage } from "../body-weight-log-history/body-weight-log-history";
+import { ProfileProvider } from "../../providers/profile/profile";
+import { Observable } from "rxjs/Observable";
 
 /**
  * Generated class for the PersonPage page.
@@ -28,10 +30,19 @@ export class PersonPage {
   weightLogHistoryPage = WeightLogHistoryPage;
   bodyWeightLogHistoryPage = BodyWeightLogHistoryPage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  memberInbodyResults$: Observable<Object>;
+  memberMeasurements$: Observable<Object>;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private profileProvider: ProfileProvider) {}
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad PersonPage");
+    this.memberInbodyResults$ = this.profileProvider.getMemberInbodyResults();
+
+    this.memberMeasurements$ = this.profileProvider.getMemberMeasurements();
+
+
+    this.memberInbodyResults$.subscribe(res => console.log(res));
 
 
     this.lineChart = new Chart(this.lineCanvas.nativeElement, {

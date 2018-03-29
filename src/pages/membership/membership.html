@@ -12,9 +12,10 @@
   <ion-card class="membership-card-container">
     <ion-card-header class="membership-card-header">
       <div class="membership-card-header-main">
-        <h2>Sarah Alhumaid</h2>
-        <p>#516546</p>
-        <p>Member since 12/10/2015</p>
+        <h2>{{profileProvider.localProfile.FullName}}</h2>
+        <p>#{{profileProvider.localProfile.IdentityID}}</p>
+        <!-- <p>Member since 12/10/2015</p> -->
+        <p>Member since {{(membership$ | async)?.StartDate}}</p>
       </div>
       <div class="membership-card-header-action">
         <button ion-button>Suspent
@@ -22,12 +23,13 @@
       </div>
       <div class="membership-card-header-sub">
         <p>Current subscription</p>
-        <h2>1 year membership</h2>
-        <p>Alquds branch</p>
+        <h2 *ngIf="(membership$ | async)?.Period == 360">1 year membership</h2>
+        <h2 *ngIf="(membership$ | async)?.Period != 360">{{(membership$ | async)?.Period }}days</h2>
+        <p>{{(membership$ | async)?.BranchName}}</p>
       </div>
 
       <div class="membership-card-header-footer">
-        <p>Ends in 12/10/2018</p>
+        <p>{{(membership$ | async)?.EndDate}}</p>
       </div>
     </ion-card-header>
 
@@ -49,7 +51,14 @@
     <div class="membership-card-checks">
       <h2>Included</h2>
 
-      <p>Emboady measuerments X3</p>
+      <ng-container *ngFor="let service of (membership$ | async)?.Services">
+        <p>{{service.NumberOfServices}}X {{service.ServiceName}}</p>
+        <ion-row>
+          <ion-icon *ngFor="let i of service.repeatByNumberOfServices" name="ios-checkmark-circle"></ion-icon>
+        </ion-row>
+      </ng-container>
+
+      <!-- <p>Emboady measuerments X3</p>
       <ion-row>
         <ion-icon name="ios-checkmark-circle"></ion-icon>
         <ion-icon name="ios-checkmark-circle"></ion-icon>
@@ -79,7 +88,7 @@
         <ion-icon name="ios-checkmark-circle"></ion-icon>
         <ion-icon name="ios-checkmark-circle"></ion-icon>
         <ion-icon name="ios-checkmark-circle"></ion-icon>
-      </ion-row>
+      </ion-row> -->
     </div>
   </ion-card>
 

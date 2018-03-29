@@ -217,6 +217,11 @@ export class HomePage {
   ionViewDidLoad() {
     this.ExerciseReservations$ = this.lavaProvider.getExerciseReservations();
     this.profile$ = this.profileProvider.getProfile();
+    this.profile$.subscribe(profile => {
+      this.profileProvider.localProfile = (profile as any).data;
+
+    })
+
     this.upcommingExercises = this.lavaProvider.getExerciseReservations();
 
     this.workouts$ = this.profileProvider

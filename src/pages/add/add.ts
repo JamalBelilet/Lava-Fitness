@@ -4,6 +4,8 @@ import { MembershipPage } from '../membership/membership';
 import { SurvayPage } from '../survay/survay';
 import { GuidebookMachinesPage } from '../guidebook-machines/guidebook-machines';
 import { GuidebookMusclesPage } from '../guidebook-muscles/guidebook-muscles';
+import { Observable } from 'rxjs/Observable';
+import { ProfileProvider } from '../../providers/profile/profile';
 
 /**
  * Generated class for the AddPage page.
@@ -23,11 +25,20 @@ export class AddPage {
   guidebookMuscles = GuidebookMusclesPage;
 
   selectedBranch = 'Alquds branch';
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  branches$: Observable<Object>;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private profileProvider: ProfileProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddPage');
+
+    this.branches$ = this.profileProvider.getBranches();
+
+    this.branches$.subscribe(branch => {
+      this.selectedBranch = (branch as any).data[3];
+      console.log(this.selectedBranch);
+    })
   }
 
 }

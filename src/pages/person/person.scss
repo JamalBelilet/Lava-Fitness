@@ -197,27 +197,31 @@ page-person {
       p {
         &.analysis-card-hover {
           position: absolute;
-          right: 2.5 / $scw * 100vw;
+          width: 100%;
+          text-align: center;
           font-size: 2.8 / $scw * 100vw;
           color: #bababa;
         }
         &.analysis-card-header {
           position: absolute;
-          right: 12 / $scw * 100vw;
+          width: 100%;
+          text-align: center;
           top: 15 / $sch * 100vh;
           font-size: 3.5 / $scw * 100vw;
           color: #575c69;
         }
         &.analysis-card-average {
           position: absolute;
-          right: 8.3 / $scw * 100vw;
+          width: 100%;
+          text-align: center;
           top: 21.3 / $sch * 100vh;
           font-size: 4 / $scw * 100vw;
           color: #575c69;
         }
         &.analysis-card-gray {
           position: absolute;
-          right: 7.8 / $scw * 100vw;
+          width: 100%;
+          text-align: center;
           top: 26.5 / $sch * 100vh;
           font-size: 2.5 / $scw * 100vw;
           color: #bababa;

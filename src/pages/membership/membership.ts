@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { ProfileProvider } from '../../providers/profile/profile';
+import { Observable } from "rxjs/Observable";
+import { map } from "rxjs/operators/map";
 
 /**
  * Generated class for the MembershipPage page.
@@ -14,11 +17,34 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class MembershipPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  membership$: Observable<Object>;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private profileProvider: ProfileProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MembershipPage');
+
+    this.membership$ = this.profileProvider.getMembership();
+
+    this.membership$  =this.membership$.pipe(
+      map(value => {
+        let membership = (value as any).data;
+
+        function* values(obj) {
+          for (let prop of Object.keys(obj)) yield obj[prop];
+        }
+
+        membership.Services = Array.from(values(membership.Services));
+
+        membership.Services.map(service => {
+          service.repeatByNumberOfServices = new Array(Number(service.NumberOfServices));
+        });
+
+        console.log("arr_f", membership);
+        return membership;
+      })
+    );
   }
 
 }
