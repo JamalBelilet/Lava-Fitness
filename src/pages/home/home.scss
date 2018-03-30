@@ -215,6 +215,8 @@ page-home {
           font-size: 2.5vw;
           font-weight: bolder;
 
+          color: #575c69;
+
           // background: red;
           left: 2.04vw;
           top: 1.72vh;
@@ -228,10 +230,10 @@ page-home {
           // background: red;
           left: 2.04vw;
           top: 3.81vh;
-
+          color: #9b9b9b;
           ion-col {
             &:first-of-type {
-              border-right: 1px solid black;
+              border-right: 1px solid #9b9b9b;;
 
               p {
                 width: 100%;
@@ -253,6 +255,8 @@ page-home {
           // background: red;
           left: 2.42vw;
           top: 9.48vh;
+          color: #575c69;
+
         }
         .workout-state {
           position: absolute;
@@ -262,6 +266,8 @@ page-home {
           // background: red;
           left: 2.81vw;
           top: 11.35vh;
+          color: #575c69;
+
         }
       }
     }
@@ -287,11 +293,11 @@ page-home {
           width: 8.19vh !important;
           background: transparent;
           box-shadow: none;
-          border: 1px solid black;
+          border: 1px solid #9b9b9b;
           margin-left: 3.32vw !important;
           ion-icon {
             font-size: 4.58vh !important;
-            color: black;
+            color: #575c69;
           }
         }
 
@@ -301,6 +307,8 @@ page-home {
 
           top: 1.72vh;
           left: 5.37vw;
+
+          color: #575c69;
 
           &::before {
             position: absolute;
@@ -317,6 +325,9 @@ page-home {
 
           top: 3.45vh;
           left: 5.37vw;
+
+          color: #9b9b9b;
+
         }
         .bookings-row {
           position: absolute;
@@ -327,6 +338,8 @@ page-home {
           // background: red;
           left: 5.37vw;
           top: 5.46vh;
+          color: #9b9b9b;
+
         }
       }
     }

@@ -23,7 +23,6 @@ export class LavaProvider {
     });
   }
 
-
   getExerciseSchedules(date: Date) {
     if (this.authProvider.config.debug) {
       return of({
@@ -44,12 +43,14 @@ export class LavaProvider {
       });
     }
     return this.http.get(
-      `${this.authProvider.config.baseUrl}/web/exercise/index?AccessToken=${this.authProvider.config.AccessToken}&BranchID=1&Year=2018&Month=02&Day=11`, {headers: this.authProvider.config.headers}
+      `${this.authProvider.config.baseUrl}/web/exercise/index?AccessToken=${
+        this.authProvider.config.AccessToken
+      }&BranchID=1&Year=2018&Month=02&Day=11`,
+      { headers: this.authProvider.config.headers }
     );
   }
 
   getExerciseReservations() {
-
     if (this.authProvider.config.debug) {
       return of({
         status: 1,
@@ -68,7 +69,10 @@ export class LavaProvider {
       });
     }
     return this.http.get(
-      `${this.authProvider.config.baseUrl}/web/exercise/view?AccessToken=${this.authProvider.config.AccessToken}`, {headers: this.authProvider.config.headers}
+      `${this.authProvider.config.baseUrl}/web/exercise/view?AccessToken=${
+        this.authProvider.config.AccessToken
+      }`,
+      { headers: this.authProvider.config.headers }
     );
   }
 
@@ -98,8 +102,7 @@ export class LavaProvider {
     );
   }
 
-  reserveExercise(updatedUser) {
-
+  reserveExercise(toReserveExercise) {
     if (this.authProvider.config.debug) {
       return of({
         status: 1,
@@ -118,7 +121,8 @@ export class LavaProvider {
     return this.http.post(
       `${this.authProvider.config.baseUrl}/web/exercise/reserve`,
       JSON.stringify({
-        ExerciseScheduleID: "2087"
+        AccessToken: this.authProvider.config.AccessToken,
+        ExerciseScheduleID: toReserveExercise.ToReserve
       }),
       options
     );
@@ -142,7 +146,10 @@ export class LavaProvider {
       });
     }
     return this.http.get(
-      `${this.authProvider.config.baseUrl}/web/messager/index?AccessToken=${this.authProvider.config.AccessToken}`, {headers: this.authProvider.config.headers}
+      `${this.authProvider.config.baseUrl}/web/messager/index?AccessToken=${
+        this.authProvider.config.AccessToken
+      }`,
+      { headers: this.authProvider.config.headers }
     );
   }
 
@@ -168,11 +175,14 @@ export class LavaProvider {
       });
     }
     return this.http.get(
-      `${this.authProvider.config.baseUrl}/web/messager/view?AccessToken=${this.authProvider.config.AccessToken}`, {headers: this.authProvider.config.headers}
+      `${this.authProvider.config.baseUrl}/web/messager/view?AccessToken=${
+        this.authProvider.config.AccessToken
+      }`,
+      { headers: this.authProvider.config.headers }
     );
   }
 
-  reserveMassageSession(updatedUser) {
+  reserveMassageSession(toReserveMassage) {
     if (this.authProvider.config.debug) {
       return of({
         status: 1,
@@ -191,10 +201,11 @@ export class LavaProvider {
     return this.http.post(
       `${this.authProvider.config.baseUrl}/web/massage/reserve`,
       JSON.stringify({
-        ServiceID: "4",
-        BranchID: "1",
-        MassagerID: "83",
-        Date: "2018-02-19 16:05:00"
+        AccessToken: this.authProvider.config.AccessToken,
+        ServiceID: toReserveMassage.ServiceID,
+        // BranchID: toReserveMassage.BranchID,
+        // MassagerID: toReserveMassage.MassagerID,
+        Date: toReserveMassage.Date
       }),
       options
     );

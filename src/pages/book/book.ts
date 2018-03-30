@@ -31,8 +31,8 @@ export class BookPage {
     this._book = navParams.get('book');
 
     this.reserveForm = formBuilder.group({
-      ToReserve: ["Choose a " + this._book, Validators.required],
-      DateTime: [new Date().toISOString(), Validators.required]
+      ServiceID: ["Choose a " + this._book, Validators.required],
+      Date: [new Date().toISOString(), Validators.required]
     });
   }
 
@@ -56,6 +56,7 @@ export class BookPage {
 
     }
     else if(this._book == 'session') {
+      console.log(this.reserveForm.value);
       this.lavaProvider.reserveMassageSession(this.reserveForm.value)
     }
 

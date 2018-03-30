@@ -40,8 +40,6 @@ page-heart {
         font-family: "AvenirLTStd-Heavy" !important;
 
         text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-
-
       }
 
       .toolbar-background.toolbar-background-ios {
@@ -100,6 +98,58 @@ page-heart {
       text-align: center;
     }
 
+    .circle {
+      position: absolute;
+      width: 18 / $scw * 100vw;
+
+      left: 37.3 / $scw * 100vw;
+
+      &.one {
+        left: 18 / $scw * 100vw;
+      }
+      &.two {
+        left: 37 / $scw * 100vw;
+      }
+      &.three {
+        left: 55.8 / $scw * 100vw;
+      }
+
+      img {
+        width: auto;
+        height: 18 / $scw * 100vw;
+        position: absolute;
+        top: 1.3 / $sch * 100vh;
+        left: 0;
+      }
+
+      .steps-num {
+        width: 100%;
+        text-align: center;
+        color: #22c3cc;
+        font-size: 3.3 / $scw * 100vw;
+
+        position: absolute;
+        top: (9.5) / $sch * 100vh;
+      }
+
+      .steps-text {
+        width: 100%;
+        text-align: center;
+        color: #9b9b9b;
+        font-size: 2 / $scw * 100vw;
+        position: absolute;
+        top: (13.5) / $sch * 100vh;
+      }
+
+      .steps-goal {
+        width: 100%;
+        text-align: center;
+        color: #9b9b9b;
+        font-size: 1.8 / $scw * 100vw;
+        position: absolute;
+        top: (19.5) / $sch * 100vh;
+      }
+    }
     .workouts {
       position: absolute;
       width: 12.5 / $scw * 100vw;
@@ -128,6 +178,29 @@ page-heart {
         top: 12.8 / $sch * 100vh;
 
         color: #575c69;
+
+        &.gray {
+          font-size: 2 / $scw * 100vw;
+          top: 15.8 / $sch * 100vh;
+
+          color: #9b9b9b;
+
+          text-align: center;
+        width: 100%;
+
+        }
+      }
+
+      .avg {
+        position: absolute;
+
+        font-size: 2.5 / $scw * 100vw;
+        top: 8 / $sch * 100vh;
+
+        color: #575c69;
+        text-align: center;
+
+        width: 100%;
       }
 
       .workout-row {
@@ -197,7 +270,7 @@ page-heart {
 
     padding: 2 / $scw * 100vw !important;
     margin: 0 !important;
-    margin-left: 100vw  -  ( (17.3 + 7.8) / $scw * 100vw) !important;
+    margin-left: 100vw - ((17.3 + 7.8) / $scw * 100vw) !important;
     margin-top: 9 / $sch * 100vh !important;
     color: white;
 
@@ -205,15 +278,12 @@ page-heart {
     justify-content: center;
     align-items: center;
 
-
-
     * {
       color: white !important;
     }
   }
 
   .history-chart {
-
     position: relative;
     margin-top: 3 / $sch * 100vh !important;
 
