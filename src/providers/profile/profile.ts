@@ -31,6 +31,7 @@ export class ProfileProvider {
   ) {
     console.log("Hello ProfileProvider Provider");
 
+
     this.headers = new HttpHeaders({
       "Content-Type": "application/x-www-form-urlencoded",
       AuthorizationKey: this.authProvider.config.AuthorizationKey,

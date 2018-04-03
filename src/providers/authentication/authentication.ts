@@ -39,6 +39,7 @@ export class AuthenticationProvider {
     const options = {
       headers,
       params,
+
       withCredentials: true
     };
     if(loginForm.MobileNumber.toString().substr(0, 3) != 966) {
@@ -47,7 +48,9 @@ export class AuthenticationProvider {
       }
     }
     return this.http.post(
-      `${this.config.baseUrl}/web/user/login`,
+      `${this.config.baseUrl}/web/user/profile?AccessToken=${
+        this.config.AccessToken
+      }`,
       `MobileNumber=${loginForm.MobileNumber}`,
       options
     );
