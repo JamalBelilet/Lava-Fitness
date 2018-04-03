@@ -145,7 +145,7 @@ export class LoginPage {
         loading.dismiss();
         let alert = this.alertCtrl.create({
           // message: error.error.errors,
-          message: error.error.errors || "Check your network connection !",
+          message: error.error.errors || JSON.stringify(error),
           buttons: [
             {
               text: "cancel",
@@ -180,7 +180,7 @@ export class LoginPage {
         loading.dismiss();
         let alert = this.alertCtrl.create({
           // message: error.error.errors,
-          message: error.error.errors || "Check your network connection !",
+          message: error.error.errors || JSON.stringify(error),
           buttons: [
             {
               text: "cancel",
@@ -247,7 +247,7 @@ export class LoginPage {
         loading.dismiss();
         let alert = this.alertCtrl.create({
           // message: error.error.errors,
-          message: error.error.errors || "Check your network connection !",
+          message: error.error.errors || JSON.stringify(error),
           buttons: [
             {
               text: "cancel",
