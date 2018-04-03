@@ -247,6 +247,7 @@ page-heart {
     // height: 7.1 / $sch * 100vh !important;
     margin: 0 auto;
     margin-top: 8 / $sch * 100vh;
+    z-index: 10;
 
     ion-segment-button {
       font-size: 3.3 / $scw * 100vw !important;
@@ -278,8 +279,11 @@ page-heart {
     justify-content: center;
     align-items: center;
 
+
+
     * {
       color: white !important;
+      max-height: 6.5 / $sch * 100vh !important;
     }
   }
 

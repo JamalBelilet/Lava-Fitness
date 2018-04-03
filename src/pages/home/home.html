@@ -10,22 +10,22 @@
 
   <img class="user-floors-img" src="assets/imgs/_stairs@2x.png">
   <p class="user-floors-text">floors</p>
-  <p class="user-floors-number">{{user.today.floors}}</p>
+  <p class="user-floors-number">{{myfloors || 0}}</p>
 
   <div class="user-circle">
     <round-progress class="user-circle-progress" [current]="2" [max]="3" [color]="'#f8cb4f'" [background]="'#ffffff'" [radius]="65.5"
       [stroke]="8" [semicircle]="false" [rounded]="true" [clockwise]="true" [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'"
       [animationDelay]="0">
     </round-progress>
-    <p class="user-circle-number">2</p>
+    <p class="user-circle-number">{{myActivity.startDate}}</p>
     <p class="user-circle-days">days</p>
   </div>
 
   <img class="user-steps-img" src="assets/imgs/_steps@2x.png">
   <p class="user-steps-text">steps</p>
-  <p class="user-steps-number">{{mySteps || 1253}}</p>
+  <p class="user-steps-number">{{mySteps || 0}}</p>
 
-  <p class="user-goal">goal: 3 days</p>
+  <p class="user-goal">goal: {{myActivity.endDate}} days</p>
 
 
 </ion-header>

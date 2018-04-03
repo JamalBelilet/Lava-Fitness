@@ -18,7 +18,7 @@ import { fromPromise } from "rxjs/observable/fromPromise";
 import { Health } from "@ionic-native/health";
 import { LavaHealthProvider } from "../../providers/lava-health/lava-health";
 
-import t from "moment";
+import moment from "moment";
 
 @Component({
   selector: "page-home",
@@ -26,6 +26,7 @@ import t from "moment";
 })
 export class HomePage {
   mySteps: any;
+  myFloors: any;
   workouts$: Observable<Object>;
   // @ViewChild("paymentTabs") paymentTabs: Tabs;
 
@@ -174,9 +175,15 @@ export class HomePage {
     ]
   };
 
-  mySteps$: any = [];
-
-  myActivity: any = [];
+  myActivity = {
+    startDate: 2,
+    endDate: 3,
+    value: {
+      still: { duration: 520000, calories: 30, distance: 0 },
+      walking: { duration: 223000, calories: 20, distance: 15 }
+    },
+    unit: "activitySummary"
+  };
 
   myHeartRate: any = [];
 
@@ -219,8 +226,7 @@ export class HomePage {
     this.profile$ = this.profileProvider.getProfile();
     this.profile$.subscribe(profile => {
       this.profileProvider.localProfile = (profile as any).data;
-
-    })
+    });
 
     this.upcommingExercises = this.lavaProvider.getExerciseReservations();
 
@@ -253,10 +259,13 @@ export class HomePage {
         this.health
           .requestAuthorization([
             {
-              read: ["steps"], //read only permission
+              read: ["steps"] //read only permission
             }
           ])
-          .then(res => this.getSteps())
+          .then(res => {
+            this.getSteps();
+            this.getFloors();
+          })
           .catch(e => this.presentAlert(JSON.stringify(e)));
       })
       .catch(e => this.presentAlert(JSON.stringify(e)));
@@ -290,11 +299,33 @@ export class HomePage {
 
   // this.paymentTabs.select(1);
 
+  getActivity() {
+    this.LavaHealth.getActivity()
+      .then(data => {
+        (this.myActivity as any) = data;
+        if (this.myActivity && (this.myActivity as any).length) {
+          this.myActivity = this.myActivity[0];
+
+          (this.myActivity as any).startDate = moment(
+            this.myActivity.startDate
+          ).fromNow();
+          (this.myActivity as any).endDate = moment(this.myActivity.endDate).fromNow();
+        }
+      })
+      .catch(error => this.presentAlert(JSON.stringify(error)));
+  }
+
   getSteps() {
     this.LavaHealth.getSteps()
       .then(data => {
-        this.presentAlert(data);
-        this.mySteps = data;
+        this.mySteps = (data as any).value;
+      })
+      .catch(error => this.presentAlert(JSON.stringify(error)));
+  }
+  getFloors() {
+    this.LavaHealth.getSteps()
+      .then(data => {
+        this.mySteps = Math.floor(Number((data as any).value) / 4);
       })
       .catch(error => this.presentAlert(JSON.stringify(error)));
   }
@@ -376,7 +407,7 @@ export class HomePage {
 
   presentAlert(msg) {
     let alert = this.alertCtrl.create({
-      title: "data",
+      title: "LavaHealth extension",
       subTitle: msg,
       buttons: ["Dismiss"]
     });

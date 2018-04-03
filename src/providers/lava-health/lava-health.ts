@@ -14,18 +14,32 @@ export class LavaHealthProvider {
     console.log("Hello LavaHealthProvider Provider");
   }
 
-  getSteps(
-    startDate: Date = new Date(new Date().setHours(0, 0, 0, 0)),
-    endDate: Date = new Date(),
-    bucket: string = "week"
-  ) {
+  getActivity() {
     return new Promise((resolve, reject) => {
       this.health
         .queryAggregated({
-          startDate: startDate,
-          endDate: endDate,
-          bucket: bucket,
-          dataType: "steps"
+          startDate: new Date(new Date().getTime() - 3 * 24 * 60 * 60 * 1000), // three days ago
+          endDate: new Date(), // now
+          dataType: "activity",
+          bucket: "day"
+        })
+        .then(successResponse => {
+          resolve(successResponse);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  }
+
+  getSteps() {
+    return new Promise((resolve, reject) => {
+      this.health
+        .queryAggregated({
+          startDate: new Date(new Date().getTime() - 3 * 24 * 60 * 60 * 1000), // three days ago
+          endDate: new Date(), // now
+          dataType: "steps",
+          bucket: "day"
         })
         .then(successResponse => {
           resolve(successResponse);

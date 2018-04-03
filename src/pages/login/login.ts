@@ -34,7 +34,7 @@ export class LoginPage {
   signupForm: FormGroup;
   verifyForm: FormGroup;
   signinForm: FormGroup;
-  loginstate = "verify";
+  loginstate = "signup";
 
   cities$: Observable<Object>;
 
@@ -174,7 +174,7 @@ export class LoginPage {
         this.navCtrl.setRoot(TabsPage);
 
 
-        storage.set("AccessToken", (res as any).data.AccessToken);
+        this.storage.set("AccessToken", (res as any).data.AccessToken);
       },
       error => {
         loading.dismiss();

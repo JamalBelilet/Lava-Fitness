@@ -15,7 +15,7 @@
 
       <ion-row justify-content-center class="shadow-input">
         <ion-col col-9 align-self-left>
-          <ion-select formControlName="ToReserve" text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;">
+          <ion-select formControlName="ServiceID" text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;">
             <ion-option style="width: 100%; margin: 0; " *ngIf="_book == 'session'">Choose a session</ion-option>
             <ion-option style="width: 100%; margin: 0; " *ngIf="_book == 'class'">Choose a class</ion-option>
 
@@ -31,7 +31,7 @@
 
       <ion-row justify-content-center class="shadow-input">
         <ion-col col-9 align-self-left>
-          <ion-datetime formControlName="DateTime" text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;"
+          <ion-datetime formControlName="Date" text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;"
             displayFormat="MM/DD/YYYY"></ion-datetime>
         </ion-col>
       </ion-row>

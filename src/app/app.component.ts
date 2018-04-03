@@ -30,9 +30,15 @@ export class MyApp {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      storage.get("AccessToken").then(val => {
+      // this.storage.set("AccessToken", "5976f7468abec99a11468516351e9662");
+
+      this.storage.get("AccessToken").then(val => {
+        if (val) {
+
+
         this.auth.config.AccessToken = val;
         this.rootPage = TabsPage;
+      }
       });
 
       statusBar.styleDefault();

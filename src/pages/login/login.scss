@@ -233,7 +233,7 @@ page-login {
   }
 
   .for-center-login-container {
-    height:75vh;
+    min-height:75vh;
 
 
     display: flex;
@@ -245,7 +245,7 @@ page-login {
   }
 
   .for-center-login {
-    height:40vh;
+    min-height:40vh;
     margin-top: 10vh;
 
 
