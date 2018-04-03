@@ -15,6 +15,7 @@ export class AuthenticationProvider {
   public config = {
     baseUrl: "/api",
 
+
     AuthorizationKey: "as@dL8]Rn3$2S!anR",
     headers: new HttpHeaders({
       "Content-Type": "application/json",

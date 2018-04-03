@@ -15,6 +15,8 @@ import { Observable } from "rxjs/Observable";
 import { ViewChild } from "@angular/core";
 import { Slides } from "ionic-angular";
 
+import { Storage } from '@ionic/storage';
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -45,7 +47,8 @@ export class LoginPage {
     private auth: AuthenticationProvider,
     private alertCtrl: AlertController,
     private profileProvider: ProfileProvider,
-    public loadingCtrl: LoadingController
+    public loadingCtrl: LoadingController,
+    private storage: Storage
   ) {
     this.signinForm = formBuilder.group({
       MobileNumber: ["", Validators.required]
@@ -93,9 +96,16 @@ export class LoginPage {
       // RegionID: ['', Validators.compose([Validators.required, Validators.maxLength(30),
       //   Validators.pattern(/[a-zA-Z0-9_]+/)]),
       // ],
-      Email: ['', Validators.compose(
-        [Validators.required, Validators.maxLength(40),
-          Validators.pattern(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)])],
+      Email: [
+        "",
+        Validators.compose([
+          Validators.required,
+          Validators.maxLength(40),
+          Validators.pattern(
+            /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
+          )
+        ])
+      ]
 
       // NationalityID: ['', Validators.compose([Validators.required, Validators.maxLength(30),
       //   Validators.pattern(/[a-zA-Z0-9_]+/)]),
@@ -162,6 +172,9 @@ export class LoginPage {
         loading.dismiss();
         this.auth.config.AccessToken = (res as any).data.AccessToken;
         this.navCtrl.setRoot(TabsPage);
+
+
+        storage.set("AccessToken", (res as any).data.AccessToken);
       },
       error => {
         loading.dismiss();
@@ -267,7 +280,7 @@ export class LoginPage {
   }
 
   slideChanged() {
-    if(this.slides.getActiveIndex()>3) return;
+    if (this.slides.getActiveIndex() > 3) return;
     this.currentIndex = this.slides.getActiveIndex();
     // this.hideSlides = currentIndex > 3;
   }

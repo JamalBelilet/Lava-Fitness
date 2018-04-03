@@ -39,6 +39,8 @@ import { SurvayPage } from "../pages/survay/survay";
 import { GuidebookMachinesPage } from "../pages/guidebook-machines/guidebook-machines";
 import { ExpandableComponent } from "../components/expandable/expandable";
 import { GuidebookMusclesPage } from "../pages/guidebook-muscles/guidebook-muscles";
+
+import { IonicStorageModule } from '@ionic/storage';
 @NgModule({
   declarations: [
     MyApp,
@@ -74,6 +76,7 @@ import { GuidebookMusclesPage } from "../pages/guidebook-muscles/guidebook-muscl
       pageTransition: "ios",
       animate: false
     }),
+    IonicStorageModule.forRoot(),
     HttpClientModule,
     NgCircleProgressModule.forRoot({
       // set defaults here
