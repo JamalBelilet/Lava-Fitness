@@ -32,6 +32,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       // this.storage.set("AccessToken", "5976f7468abec99a11468516351e9662");
 
+
       this.storage.get("AccessToken").then(val => {
         if (val) {
 
