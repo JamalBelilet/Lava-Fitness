@@ -13,7 +13,7 @@ import { of } from "rxjs/observable/of";
 export class AuthenticationProvider {
   // baseUrl: "http://lava.sa/api",
   public config = {
-    baseUrl: "/api",
+    baseUrl: "http://lava.sa/api",
 
     AuthorizationKey: "as@dL8]Rn3$2S!anR",
     headers: new HttpHeaders({
@@ -35,6 +35,7 @@ export class AuthenticationProvider {
       AuthorizationKey: "as@dL8]Rn3$2S!anR"
     });
     const params = new HttpParams();
+
     const options = {
       headers,
       params,
@@ -47,9 +48,7 @@ export class AuthenticationProvider {
       }
     }
     return this.http.post(
-      `${this.config.baseUrl}/web/user/profile?AccessToken=${
-        this.config.AccessToken
-      }`,
+      `${this.config.baseUrl}/web/user/login`,
       `MobileNumber=${loginForm.MobileNumber}`,
       options
     );
