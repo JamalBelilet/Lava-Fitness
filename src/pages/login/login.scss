@@ -60,12 +60,12 @@ page-login {
   }
 
   .login-img-container {
-    height: 25vh;
+    height: 20vh;
     justify-content: center;
     align-items: center;
     img {
       width: auto;
-      height: 35%;
+      height: 40%;
 
     }
   }
@@ -219,6 +219,47 @@ page-login {
         background: #02b0bf;
         border: 1px solid transparent;
       }
+    }
+  }
+
+  .switch-form {
+    padding: 0;
+    margin: 2vh 0;
+    span {
+      text-decoration: underline;
+      color: #0193a0;
+      padding: 0 2%;
+    }
+  }
+
+  .for-center-login-container {
+    height:75vh;
+
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-flow: nowrap column;
+    width: 100%;
+
+  }
+
+  .for-center-login {
+    height:40vh;
+    margin-top: 10vh;
+
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-flow: nowrap column;
+    width: 100%;
+  }
+
+  .center-change {
+    display: flex;
+    justify-content: flex-end;
+    button {
     }
   }
 }

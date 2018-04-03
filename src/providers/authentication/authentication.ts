@@ -13,7 +13,7 @@ import { of } from "rxjs/observable/of";
 export class AuthenticationProvider {
   // baseUrl: "http://lava.sa/api",
   public config = {
-    baseUrl: "http://lava.sa/api",
+    baseUrl: "/api",
 
     AuthorizationKey: "as@dL8]Rn3$2S!anR",
     headers: new HttpHeaders({
@@ -30,43 +30,30 @@ export class AuthenticationProvider {
   }
 
   login(loginForm) {
-    if (true) {
-
-
-      return of({
-        status: 1,
-        data: {
-          AccessToken: "5976f7468abec99a11468516351e9662"
-        }
-      });
+    const headers = new HttpHeaders({
+      "Content-Type": "application/x-www-form-urlencoded",
+      AuthorizationKey: "as@dL8]Rn3$2S!anR"
+    });
+    const params = new HttpParams();
+    const options = {
+      headers,
+      params,
+      withCredentials: true
+    };
+    if(loginForm.MobileNumber.toString().substr(0, 3) != 966) {
+      if (loginForm.MobileNumber.toString().substr(0, 1) == 0) {
+        loginForm.MobileNumber = "966" + loginForm.MobileNumber.toString().substr(1,);
+      }
     }
-    // const headers = new HttpHeaders({
-    //   "Content-Type": "application/x-www-form-urlencoded",
-    //   AuthorizationKey: "as@dL8]Rn3$2S!anR"
-    // });
-    // const params = new HttpParams();
-    // const options = {
-    //   headers,
-    //   params,
-    //   withCredentials: true
-    // };
-    // return this.http.post(
-    //   `${this.config.baseUrl}/web/user/login`,
-    //   `MobileNumber=${loginForm.MobileNumber}`,
-    //   options
-    // );
+    return this.http.post(
+      `${this.config.baseUrl}/web/user/login`,
+      `MobileNumber=${loginForm.MobileNumber}`,
+      options
+    );
   }
 
 
   register(user) {
-    if (this.config.debug) {
-      return of({
-        status: 1,
-        data: {
-          AccessToken: "5976f7468abec99a11468516351e9662"
-        }
-      });
-    }
     const headers = this.config.headers;
     const params = new HttpParams();
     const options = {
@@ -97,37 +84,28 @@ export class AuthenticationProvider {
   }
 
   verify(user) {
-    if (true) {
-      return of({
-        status: 1,
-        data: {
-          AccessToken: "5976f7468abec99a11468516351e9662"
-        }
-      });
+    const headers = this.config.headers;
+    const params = new HttpParams();
+    const options = {
+      headers,
+      params,
+      withCredentials: true
+    };
+    if(user.MobileNumber.toString().substr(0, 3) != 966) {
+      if (user.MobileNumber.toString().substr(0, 1) == 0) {
+        user.MobileNumber = "966" + user.MobileNumber.toString().substr(1,);
+      }
     }
-    // const headers = this.config.headers;
-    // const params = new HttpParams();
-    // const options = {
-    //   headers,
-    //   params,
-    //   withCredentials: true
-    // };
-    // return this.http
-    //   .post(
-    //     `${this.config.baseUrl}/web/user/verify-token`,
-    //     JSON.stringify({
-    //       AuthorizationKey: this.config.AuthorizationKey,
-    //       MobileNumber: user.MobileNumber,
-    //       VerificationCode: user.VerificationCode,
-    //       AccessToken: user.AccessToken
-    //     }),
-    //     options
-    //   )
-    //   .pipe(
-    //     switchMap(response => {
-    //       // this.config.AccessToken = (response as any).data.AccessToken;
-    //       return of(response);
-    //     })
-    //   );
+    return this.http
+      .post(
+        `${this.config.baseUrl}/web/user/verify-token`,
+        JSON.stringify({
+          AuthorizationKey: this.config.AuthorizationKey,
+          MobileNumber: user.MobileNumber,
+          VerificationCode: user.VerificationCode,
+          AccessToken: user.AccessToken
+        }),
+        options
+      )
   }
 }

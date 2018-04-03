@@ -29,7 +29,6 @@
         "angular-svg-round-progressbar": "^1.2.1",
         "chart.js": "^2.7.2",
         "compass-mixins": "^0.12.10",
-        "cordova-android": "7.0.0",
         "cordova-plugin-device": "^2.0.1",
         "cordova-plugin-health": "^1.0.4",
         "cordova-plugin-ionic": "^3.1.2",
@@ -59,8 +58,6 @@
             "cordova-plugin-whitelist": {},
             "cordova-plugin-health": {}
         },
-        "platforms": [
-            "android"
-        ]
+        "platforms": []
     }
 }

@@ -32,7 +32,7 @@ export class LoginPage {
   signupForm: FormGroup;
   verifyForm: FormGroup;
   signinForm: FormGroup;
-  loginstate = "signup";
+  loginstate = "verify";
 
   cities$: Observable<Object>;
 
@@ -126,7 +126,7 @@ export class LoginPage {
       res => {
         loading.dismiss();
         this.loginstate = "verify";
-        // this.auth.config.AccessToken = (res as any).data.AccessToken;
+        this.auth.config.AccessToken = (res as any).data.AccessToken;
         this.verifyForm.controls.MobileNumber.setValue(
           this.signinForm.value.MobileNumber
         );
@@ -160,7 +160,7 @@ export class LoginPage {
     this.auth.verify(this.verifyForm.value).subscribe(
       res => {
         loading.dismiss();
-        // this.auth.config.AccessToken = (res as any).data.AccessToken;
+        this.auth.config.AccessToken = (res as any).data.AccessToken;
         this.navCtrl.setRoot(TabsPage);
       },
       error => {
@@ -193,14 +193,14 @@ export class LoginPage {
       res => {
         loading.dismiss();
 
-        // this.loginstate = "verify";
-        // this.auth.config.AccessToken = (res as any).data.AccessToken;
-        // this.verifyForm.controls.MobileNumber.setValue(
-        //   this.signupForm.value.MobileNumber
-        // );
+        this.loginstate = "verify";
+        this.auth.config.AccessToken = (res as any).data.AccessToken;
+        this.verifyForm.controls.MobileNumber.setValue(
+          this.signupForm.value.MobileNumber
+        );
 
-        this.navCtrl.setRoot(TabsPage);
-        // this.auth.config.AccessToken = (res as any).data.AccessToken;
+        // this.navCtrl.setRoot(TabsPage);
+        this.auth.config.AccessToken = (res as any).data.AccessToken;
         return;
         // let alert = this.alertCtrl.create({
         //   title: "Enter verification code",
@@ -270,5 +270,9 @@ export class LoginPage {
     if(this.slides.getActiveIndex()>3) return;
     this.currentIndex = this.slides.getActiveIndex();
     // this.hideSlides = currentIndex > 3;
+  }
+
+  changeState(state) {
+    this.loginstate = state;
   }
 }
