@@ -29,28 +29,23 @@ export class AuthenticationProvider {
     console.log("Hello AuthenticationProvider Provider");
   }
 
-  login(loginForm) {
-    const headers = new HttpHeaders({
-      "Content-Type": "application/x-www-form-urlencoded",
-      AuthorizationKey: "as@dL8]Rn3$2S!anR"
-    });
+  login(user) {
+    const headers = this.config.headers;
     const params = new HttpParams();
-
     const options = {
       headers,
       params,
-
       withCredentials: true
     };
-    if(loginForm.MobileNumber.toString().substr(0, 3) != 966) {
-      if (loginForm.MobileNumber.toString().substr(0, 1) == 0) {
-        loginForm.MobileNumber = "966" + loginForm.MobileNumber.toString().substr(1,);
+    if(user.MobileNumber.toString().substr(0, 3) != 966) {
+      if (user.MobileNumber.toString().substr(0, 1) == 0) {
+        user.MobileNumber = "966" + user.MobileNumber.toString().substr(1,);
       }
     }
     return this.http.post(
       `${this.config.baseUrl}/web/user/login`,
       JSON.stringify({
-        MobileNumber: loginForm.MobileNumber,
+        MobileNumber: user.MobileNumber,
       }),
       options
     );
@@ -100,13 +95,14 @@ export class AuthenticationProvider {
         user.MobileNumber = "966" + user.MobileNumber.toString().substr(1,);
       }
     }
+    console.log('verify user', user);
     return this.http
       .post(
         `${this.config.baseUrl}/web/user/verify-token`,
         JSON.stringify({
           AuthorizationKey: this.config.AuthorizationKey,
           MobileNumber: user.MobileNumber,
-          VerificationCode: user.VerificationCode,
+          VerificationCode: user.VerifyNumber,
           AccessToken: this.config.AccessToken
         }),
         options
