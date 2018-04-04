@@ -49,7 +49,9 @@ export class AuthenticationProvider {
     }
     return this.http.post(
       `${this.config.baseUrl}/web/user/login`,
-      `MobileNumber=${loginForm.MobileNumber}`,
+      JSON.stringify({
+        MobileNumber: loginForm.MobileNumber,
+      }),
       options
     );
   }
