@@ -23,7 +23,7 @@ export class HeartPage {
 
   workoutChart = {
     type: "bar",
-    data: {
+    weeksData: {
       labels: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       datasets: [
         {
@@ -34,16 +34,28 @@ export class HeartPage {
         }
       ]
     },
+    monthsData: {
+      labels: ["1wk", "2wk", "3wk", "4wk"],
+      datasets: [
+        {
+          // label: "My First dataset",
+          backgroundColor: ["#18b7c5", "#18b7c5", "#18b7c5", "#18b7c5"],
+          borderColor: ["#22c3cc"],
+          data: [65, 59, 80, 81]
+        }
+      ]
+    },
     options: {
       responsive: true,
-      maintainAspectRatio: false
+      maintainAspectRatio: false,
+      legend: { display: false },
     }
   };
 
   stepsChart = {
     type: "line",
-    data: {
-      // labels: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    weeksData: {
+      labels: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       datasets: [
         {
           // label: "My First dataset",
@@ -53,17 +65,20 @@ export class HeartPage {
         }
       ]
     },
+    monthsData: {
+      labels: ["1wk", "2wk", "3wk", "4wk"],
+      datasets: [
+        {
+          // label: "My First dataset",
+          backgroundColor: ["rgba(34, 195, 204, 0.125)"],
+            borderColor: ["#22c3cc"],
+          data: [65, 59, 80, 81]
+        }
+      ]
+    },
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      layout: {
-        padding: {
-          left: 0,
-          right: 0,
-          top: 0,
-          bottom: 0
-        }
-      },
       legend: { display: false },
     }
   };

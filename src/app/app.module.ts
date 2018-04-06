@@ -44,6 +44,7 @@ import { IonicStorageModule } from '@ionic/storage';
 
 
 import { ChartModule } from 'angular2-chartjs';
+
 @NgModule({
   declarations: [
     MyApp,
