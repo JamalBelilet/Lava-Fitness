@@ -33,7 +33,7 @@
 <ion-content>
 
   <p class="workout-section-title">Start a Workout:</p>
-  <ion-slides class="workout-section-slides" slidesPerView="2.57">
+  <ion-slides class="workout-section-slides" spaceBetween="0" slidesPerView="2.57">
     <ion-slide class="workout-section-slides-slide" *ngFor="let workout of  workouts$ | async" [navPush]="workoutPage" [navParams]="workout">
       <p class="workout-title">{{workout.ProgramName}}</p>
 
@@ -54,7 +54,7 @@
 
 
   <p class="bookings-section-title">Upcoming Bookings:</p>
-  <ion-slides class="bookings-section-slides" slidesPerView="3.5">
+  <ion-slides class="bookings-section-slides" spaceBetween="0" slidesPerView="3.5">
     <ion-slide class="bookings-section-slides-slide">
       <button clear ion-button (click)="bookClass()">
         <ion-icon name="add"></ion-icon>

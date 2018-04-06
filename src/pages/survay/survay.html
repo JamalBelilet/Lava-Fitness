@@ -1,26 +1,12 @@
 <ion-content>
   <ion-card>
 
-    <p>What do you think about gym machines?</p>
-    <ion-row>
-      <button ion-button color="lava">Very good</button>
-      <button ion-button color="lava" outline>Needs improvments</button>
-      <button ion-button color="lava" outline>Verybad</button>
-    </ion-row>
-
-    <p>What machines do you practise on the most?</p>
-    <ion-row>
-      <button ion-button color="lava">Very good</button>
-      <button ion-button color="lava" outline>Needs improvments</button>
-      <button ion-button color="lava" outline>Verybad</button>
-    </ion-row>
-
-    <p>What do you think?</p>
-    <ion-row>
-      <button ion-button color="lava">Very good</button>
-      <button ion-button color="lava" outline>Needs improvments</button>
-      <button ion-button color="lava" outline>Verybad</button>
-    </ion-row>
+    <div *ngFor="let surv of survay">
+      <p>{{surv.question}}</p>
+      <ion-row>
+        <button ion-button (click)="surv.answer.value = option.value " [ngClass]="{'outline-option': !(surv.answer.value == option.value)}" [outline]="!(surv.answer.value == option.value)" color="lava" *ngFor="let option of surv.options">{{option.text}}</button>
+      </ion-row>
+    </div>
 
     <button ion-button color="lava" class="submit" (click)="submit()">Submit</button>
 

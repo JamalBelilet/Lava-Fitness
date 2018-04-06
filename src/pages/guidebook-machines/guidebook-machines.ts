@@ -23,7 +23,7 @@ export class GuidebookMachinesPage {
       { expanded: false },
       { expanded: true },
       { expanded: false },
-      { expanded: false },
+      // { expanded: false },
     ];
   }
 

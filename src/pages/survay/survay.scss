@@ -17,7 +17,7 @@ page-survay {
     width: 86.3 / $scw * 100vw !important;
     height: 134 / $sch * 100vh !important;
     margin: 0 (3.8 / $scw * 100vw) !important;
-    margin-top: 20 / $sch * 100vh !important;
+    margin-top: 10 / $sch * 100vh !important;
     position: relative;
   }
 
@@ -40,9 +40,6 @@ page-survay {
       margin-left: 5 / $scw * 100vw !important;
     }
 
-    &[outline] {
-      color: #22c3cc !important;
-    }
 
     &.submit {
       height: 11 / $sch * 100vh !important;
@@ -53,5 +50,10 @@ page-survay {
       bottom: 5 / $sch * 100vh;
       right: 5.3 / $scw * 100vw;
     }
+  }
+
+  .outline-option {
+
+    color: #22c3cc !important;
   }
 }

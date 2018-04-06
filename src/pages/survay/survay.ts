@@ -14,11 +14,52 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class SurvayPage {
 
+  survay = [];
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SurvayPage');
+    this.survay = [
+      {
+        question: 'Non sunt fugiat ut labore ipsum reprehenderit eiusmod ?',
+        answer: {text: 'Very Good', value: 3},
+        options: [
+          {text: 'Very Good', value: 3},
+          {text: 'Needs Improvments', value: 2},
+          {text: 'Very Bad', value: 1},
+        ]
+      },
+      {
+        question: 'Adipisicing voluptate in aliquip Lorem ?',
+        answer: {text: 'Very Good', value: 3},
+        options: [
+          {text: 'Very Good', value: 3},
+          {text: 'Needs Improvments', value: 2},
+          {text: 'Very Bad', value: 1},
+        ]
+      },
+      {
+        question: 'Aliquip aliqua cupidatat ad amet officia non culpa dolore ?',
+        answer: {text: 'Very Good', value: 3},
+        options: [
+          {text: 'Very Good', value: 3},
+          {text: 'Needs Improvments', value: 2},
+          {text: 'Very Bad', value: 1},
+        ]
+      },
+      {
+        question: 'Culpa velit consequat pariatur esse ut est ?',
+        answer: {text: 'Very Good', value: 3},
+        options: [
+          {text: 'Very Good', value: 3},
+          {text: 'Needs Improvments', value: 2},
+          {text: 'Very Bad', value: 1},
+        ]
+      }
+    ]
   }
 
 

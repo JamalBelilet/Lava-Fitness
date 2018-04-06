@@ -199,7 +199,8 @@ page-home {
         background: white;
         height: 14.16vh;
         // width: 39.25vw !important;
-        margin: 2.73vh 0 3.52vh 1.66vw !important;
+        margin: 2.73vh 0 3.52vh 0 !important;
+        margin-left: 1.66vw !important;
         box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
         border-radius: 1vw;
 
@@ -294,7 +295,7 @@ page-home {
           background: transparent;
           box-shadow: none;
           border: 1px solid #9b9b9b;
-          margin-left: 3.32vw !important;
+          // margin-left: 3.32vw !important;
           ion-icon {
             font-size: 4.58vh !important;
             color: #575c69;
