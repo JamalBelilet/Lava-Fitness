@@ -156,9 +156,11 @@ button {
 
   ion-icon.back-button-icon.icon {
     top: calc( calc(100% - 2.30vh) / 2);
+    left: 0vw!important;
     width: 2.42vw;
     height: 2.30vh;
     margin-top: -2vh!important;
+    margin-left: 4vw!important;
     // background: red;
     font-size: 5vw;
     color: white !important;
