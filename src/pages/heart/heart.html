@@ -104,23 +104,23 @@
   </ion-segment>
 
   <ion-select [(ngModel)]="selectedOption">
-    <ion-option value="weeks">Weeks</ion-option>
-    <ion-option value="months">Months</ion-option>
+    <ion-option value="weeks">Week</ion-option>
+    <ion-option value="months">Month</ion-option>
   </ion-select>
   <div [ngSwitch]="selectedSegment">
     <div class="history-chart" *ngSwitchCase="'workouts'">
       <button ion-button clear>
         <img src="assets/imgs/_expand@2x.png">
       </button>
-      <chart [type]="workoutChart.type" [data]="(selectedOption == 'weeks' && workoutChart.weeksData) || (selectedOption == 'months' && workoutChart.monthsData) " [options]="workoutChart.options"></chart>
+      <chart [type]="workoutChart.type" *ngIf="selectedOption == 'weeks'" [data]="workoutChart.weeksData" [options]="workoutChart.options"></chart>
+      <chart [type]="workoutChart.type" *ngIf="selectedOption == 'months'"  [data]="workoutChart.monthsData" [options]="workoutChart.options"></chart>
     </div>
     <div class="history-chart" *ngSwitchCase="'steps'" >
       <button ion-button clear>
         <img src="assets/imgs/_expand@2x.png">
       </button>
-      <chart [type]="stepsChart.type" [data]="(selectedOption == 'weeks' && stepsChart.weeksData) || (selectedOption == 'months' && stepsChart.monthsData) " [options]="stepsChart.options"></chart>
-
-      <!-- <chart [type]="stepsChart.type" [data]="stepsChart.data" [options]="stepsChart.options"></chart> -->
+      <chart [type]="stepsChart.type" *ngIf="selectedOption == 'weeks'" [data]="stepsChart.weeksData" [options]="stepsChart.options"></chart>
+      <chart [type]="stepsChart.type" *ngIf="selectedOption == 'months'"  [data]="stepsChart.monthsData" [options]="stepsChart.options"></chart>
     </div>
   </div>
 

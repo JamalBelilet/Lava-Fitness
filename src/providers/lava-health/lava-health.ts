@@ -50,14 +50,34 @@ export class LavaHealthProvider {
     });
   }
 
-  getStepsParams(
-    bucket: string = "week"
+  getStepsParams(bucket: string = "week") {
+    return new Promise((resolve, reject) => {
+      this.health
+        .queryAggregated({
+          startDate: new Date(new Date().setHours(0, 0, 0, 0)),
+          endDate: new Date(),
+          bucket: bucket,
+          dataType: "steps"
+        })
+        .then(successResponse => {
+          resolve(successResponse);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  }
+  getStepsPerParams(
+    startDate = new Date(new Date().setHours(0, 0, 0, 0)),
+    endDate = new Date(),
+    bucket: string = "week",
+    dataType = "steps"
   ) {
     return new Promise((resolve, reject) => {
       this.health
         .queryAggregated({
           startDate: new Date(new Date().setHours(0, 0, 0, 0)),
-          endDate:new Date(),
+          endDate: new Date(),
           bucket: bucket,
           dataType: "steps"
         })
