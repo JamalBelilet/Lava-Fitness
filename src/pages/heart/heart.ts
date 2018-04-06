@@ -24,11 +24,27 @@ export class HeartPage {
   workoutChart = {
     type: "bar",
     weeksData: {
-      labels: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      labels: [
+        "Saturday",
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
       datasets: [
         {
           // label: "My First dataset",
-          backgroundColor: ["#18b7c5", "#18b7c5", "#18b7c5", "#18b7c5", "#18b7c5", "#18b7c5", "#18b7c5"],
+          backgroundColor: [
+            "#18b7c5",
+            "#18b7c5",
+            "#18b7c5",
+            "#18b7c5",
+            "#18b7c5",
+            "#18b7c5",
+            "#18b7c5"
+          ],
           borderColor: ["#22c3cc"],
           data: [65, 59, 80, 81, 56, 55, 40]
         }
@@ -48,19 +64,27 @@ export class HeartPage {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      legend: { display: false },
+      legend: { display: false }
     }
   };
 
   stepsChart = {
     type: "line",
     weeksData: {
-      labels: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      labels: [
+        "Saturday",
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
       datasets: [
         {
           // label: "My First dataset",
           backgroundColor: ["rgba(34, 195, 204, 0.125)"],
-            borderColor: ["#22c3cc"],
+          borderColor: ["#22c3cc"],
           data: [65, 59, 80, 81, 56, 55, 40]
         }
       ]
@@ -71,7 +95,7 @@ export class HeartPage {
         {
           // label: "My First dataset",
           backgroundColor: ["rgba(34, 195, 204, 0.125)"],
-            borderColor: ["#22c3cc"],
+          borderColor: ["#22c3cc"],
           data: [65, 59, 80, 81]
         }
       ]
@@ -79,7 +103,7 @@ export class HeartPage {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      legend: { display: false },
+      legend: { display: false }
     }
   };
 
@@ -92,7 +116,6 @@ export class HeartPage {
   ionViewDidLoad() {
     console.log("ionViewDidLoad HeartPage");
   }
-
 
   getSteps() {
     this.LavaHealth.getSteps()
