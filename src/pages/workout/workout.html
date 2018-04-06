@@ -10,38 +10,41 @@
     <ion-title>Workout</ion-title>
   </ion-navbar>
 
-  <p class="workout-title">{{workout?.ProgramName}}</p>
 
-  <button class="workout-notification-button" ion-button clear>
-
-    <img class="workout-notifications-button-img" src="assets/icon/_message.png">
-    <ion-badge class="workout-notifications-button-badge" clear>0</ion-badge>
-  </button>
-
-  <p class="workout-exercice">Tone muscles</p>
-
-  <ion-row class="workout-meta">
-    <ion-row>
-      <ion-icon name="time-outline"></ion-icon>
-      <p class="workout-time">{{workout?.NumberOfDays}}</p>
-    </ion-row>
-
-    <ion-row class="workout-time-container">
-      <!-- <ion-icon name="ios-code-working"></ion-icon> -->
-      <img class="workout-time-img" src="assets/icon/dumbbell-white.svg">
-      <!-- <p class="workout-time">{{workout?.CreationDate | moment}}</p> -->
-      <p class="workout-time">{{workout?.CardioProgrameDetail.length}}</p>
-    </ion-row>
-  </ion-row>
-
-  <ion-row class="workout-states">
-    <ion-icon *ngFor="let exercice of workout?.CardioProgrameDetail" [name]="'ios-checkmark-circle'"></ion-icon>
-  </ion-row>
 
 </ion-header>
 
 
 <ion-content padding>
+  <div class="workout-header">
+      <p class="workout-title">{{workout?.ProgramName}}</p>
+
+      <button class="workout-notification-button" ion-button clear>
+
+        <img class="workout-notifications-button-img" src="assets/icon/_message.png">
+        <ion-badge class="workout-notifications-button-badge" clear>0</ion-badge>
+      </button>
+
+      <p class="workout-exercice">Tone muscles</p>
+
+      <ion-row class="workout-meta">
+        <ion-row>
+          <ion-icon name="time-outline"></ion-icon>
+          <p class="workout-time">{{workout?.NumberOfDays}}</p>
+        </ion-row>
+
+        <ion-row class="workout-time-container">
+          <!-- <ion-icon name="ios-code-working"></ion-icon> -->
+          <img class="workout-time-img" src="assets/icon/dumbbell-white.svg">
+          <!-- <p class="workout-time">{{workout?.CreationDate | moment}}</p> -->
+          <p class="workout-time">{{workout?.CardioProgrameDetail.length}}</p>
+        </ion-row>
+      </ion-row>
+
+      <ion-row class="workout-states">
+        <ion-icon *ngFor="let exercice of workout?.CardioProgrameDetail" [name]="'ios-checkmark-circle'"></ion-icon>
+      </ion-row>
+  </div>
   <ion-list class="exercices" no-lines>
     <ng-container *ngFor="let exercice of workout?.CardioProgrameDetail; let i = index">
       <ion-item-sliding #slidingItem exercice.state='ios-checkmark-circle'>
@@ -163,6 +166,6 @@
       </ng-container> -->
 
   </ion-list>
-  <button ion-button class="workout-finish" (click)="finishWorkout()">Finish Workout</button>
+  <button ion-fixed ion-button class="workout-finish" (click)="finishWorkout()">Finish Workout</button>
 
 </ion-content>

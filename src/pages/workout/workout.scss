@@ -2,39 +2,57 @@ page-workout {
   $sch: 347.3;
   $scw: 195.5;
 
+
   * {
     padding: 0 !important;
     margin: 0 !important;
   }
 
-  .fixed-content {
-    z-index: -2 !important;
-  }
 
   .header.header-md,
   .header.header-ios {
-    font-family: "AvenirLTStd-light", Arial, Helvetica, sans-serif;
-    height: calc(39.68vh);
-
-    // background: linear-gradient(135deg, #0193a0, #21c1ca);
-    background: url(../assets/imgs/home-back.png);
-    background-size: cover;
-    background-position: bottom center;
-    background-repeat: no-repeat;
-
+    position: relative;
     width: 100%;
+    height: 38.1 / $sch * 100vh;
     box-shadow: 0 !important;
 
-    position: relative;
-
-    * {
-      padding: 0;
-      margin: 0;
-    }
+    background: transparent;
+    // background: url(../assets/imgs/booking-back.png);
+    // background-size: contain;
+    // background-position: top center;
+    // background-repeat: no-repeat;
 
     &:after {
       background-image: none !important;
     }
+
+    .toolbar.toolbar-md,
+    .toolbar.toolbar-ios {
+      .toolbar-title.toolbar-title-md,
+      .toolbar-title.toolbar-title-ios {
+        color: #ffffff;
+        font-size: calc(calc(4.3 / $sch * 100vh) / $scw * 100vw);
+        font-family: "AvenirLTStd-Heavy" !important;
+
+        text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+      }
+
+      .toolbar-background.toolbar-background-ios {
+        border: none !important;
+
+        background: transparent;
+      }
+
+      ion-icon.back-button-icon.icon {
+        color: white !important;
+      }
+    }
+  }
+
+  .workout-header {
+    width: 100%;
+    position: relative;
+    height: 28vh;
 
     .workout-title {
       font-family: "29ltbukraregular", "AvenirLTStd-Medium", Arial, Helvetica,
@@ -64,8 +82,8 @@ page-workout {
     .workout-time-img {
       height: 2.3vh;
       width: auto;
-      margin: 0; padding:0;
-
+      margin: 0;
+      padding: 0;
     }
     .workout-notification-button {
       position: absolute;
@@ -159,8 +177,15 @@ page-workout {
   }
 
   .scroll-content {
-    margin-top: calc(39.68vh - 8.14vh) !important;
-    z-index: 999;
+    padding-top: 0 / $sch * 100vh !important;
+
+    margin-top: 0 / $sch * 100vh !important;
+
+    background: url(../assets/imgs/Lava-app-YSF_06-Workout.png);
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+
 
     .sliding-col {
       display: flex;
@@ -205,14 +230,11 @@ page-workout {
 
         z-index: 1 !important;
 
-
         img {
           height: inherit;
           width: auto;
           z-index: 1 !important;
         }
-
-
       }
 
       .counter {
