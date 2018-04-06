@@ -57,6 +57,16 @@ page-workout {
       top: 13.58vh;
       left: 10.32vw;
     }
+
+    .workout-time-container {
+      flex-flow: nowrap row;
+    }
+    .workout-time-img {
+      height: 2.3vh;
+      width: auto;
+      margin: 0; padding:0;
+
+    }
     .workout-notification-button {
       position: absolute;
 
@@ -151,6 +161,13 @@ page-workout {
   .scroll-content {
     margin-top: calc(39.68vh - 8.14vh) !important;
     z-index: 999;
+
+    .sliding-col {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      align-items: center;
+    }
 
     ion-item-sliding {
       border-radius: 0.25em;

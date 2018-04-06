@@ -24,7 +24,7 @@
       <p class="gray">goal 53 kg</p>
     </div>
     <div class="measuerments-chart">
-      <canvas #lineCanvas></canvas>
+      <canvas #lineCanvasWeight></canvas>
     </div>
   </ion-card>
 
@@ -46,21 +46,21 @@
       <ion-slide>
         <ion-card class="analysis-card" [navPush]="weightLogHistoryPage">
           <p class="analysis-card-hover">over</p>
-          <img src="assets/icon/analysis.svg">
+          <img src="assets/icon/weight.svg">
           <p class="analysis-card-header">SMM</p>
           <p class="analysis-card-average">{{(memberInbodyResults$ | async)?.data[0].SMM}} kg</p>
           <p class="analysis-card-gray">normal 15 - 25</p>
-          <canvas #lineCanvas1></canvas>
+          <canvas #lineCanvasSMM></canvas>
         </ion-card>
       </ion-slide>
       <ion-slide>
         <ion-card class="analysis-card" [navPush]="weightLogHistoryPage">
           <p class="analysis-card-hover">over</p>
-          <img src="assets/icon/analysis.svg">
+          <img src="assets/icon/Energy.svg">
           <p class="analysis-card-header">PBF</p>
           <p class="analysis-card-average">{{(memberInbodyResults$ | async)?.data[0].PBF}}%</p>
           <p class="analysis-card-gray">normal 15 - 25</p>
-          <canvas #lineCanvas1></canvas>
+          <canvas #lineCanvasPBF></canvas>
         </ion-card>
       </ion-slide>
       <ion-slide>
@@ -70,16 +70,16 @@
           <p class="analysis-card-header">Weight</p>
           <p class="analysis-card-average">{{(memberInbodyResults$ | async)?.data[0].Weight}} KG</p>
           <!-- <p class="analysis-card-gray">normal 18 - 25</p> -->
-          <canvas #lineCanvas1></canvas>
+          <canvas #lineCanvasWeightSub></canvas>
         </ion-card>
       </ion-slide>
-      <ion-slide>
+      <!-- <ion-slide>
         <ion-card class="analysis-card" [navPush]="weightLogHistoryPage">
           <p class="analysis-card-hover">over</p>
           <img src="assets/icon/analysis.svg">
           <p class="analysis-card-header">Musle Fat Mass</p>
           <p class="analysis-card-average">{{(memberInbodyResults$ | async)?.data[0].MusleFatMass}}</p>
-          <!-- <p class="analysis-card-gray">normal 18 - 25</p> -->
+          <p class="analysis-card-gray">normal 18 - 25</p>
           <canvas #lineCanvas1></canvas>
         </ion-card>
       </ion-slide>
@@ -89,7 +89,7 @@
           <img src="assets/icon/analysis.svg">
           <p class="analysis-card-header">Basal Metabolic Rate</p>
           <p class="analysis-card-average">{{(memberInbodyResults$ | async)?.data[0].BasalMetabolicRate}}</p>
-          <!-- <p class="analysis-card-gray">normal 18 - 25</p> -->
+          <p class="analysis-card-gray">normal 18 - 25</p>
           <canvas #lineCanvas1></canvas>
         </ion-card>
       </ion-slide>
@@ -99,7 +99,7 @@
           <img src="assets/icon/analysis.svg">
           <p class="analysis-card-header">Dry Lean Mass</p>
           <p class="analysis-card-average">{{(memberInbodyResults$ | async)?.data[0].DryLeanMass}}</p>
-          <!-- <p class="analysis-card-gray">normal 18 - 25</p> -->
+          <p class="analysis-card-gray">normal 18 - 25</p>
           <canvas #lineCanvas1></canvas>
         </ion-card>
       </ion-slide>
@@ -109,10 +109,10 @@
           <img src="assets/icon/analysis.svg">
           <p class="analysis-card-header">Total Body Water</p>
           <p class="analysis-card-average">{{(memberInbodyResults$ | async)?.data[0].TotalBodyWater}}</p>
-          <!-- <p class="analysis-card-gray">normal 18 - 25</p> -->
+          <p class="analysis-card-gray">normal 18 - 25</p>
           <canvas #lineCanvas1></canvas>
         </ion-card>
-      </ion-slide>
+      </ion-slide> -->
 
     </ion-slides>
   </ion-item>

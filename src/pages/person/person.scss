@@ -100,10 +100,14 @@ page-person {
         // height: 10 / $sch * 100vh;
         // width: auto;
 
+
+
+        // padding: 1.5 / $scw * 100vw !important;
+
         width: 8.5 / $scw * 100vw !important;
         height: 8.5 / $scw * 100vw !important;
 
-        // padding: 1.5 / $scw * 100vw !important;
+        padding: 1.5 / $scw * 100vw !important;
         background: rgba(62, 177, 253, 0.125);
         border: 0.5px solid rgba(0, 0, 0, 0.125);
         border-radius: 1.5 / $scw * 100vw;

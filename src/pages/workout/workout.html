@@ -15,7 +15,7 @@
   <button class="workout-notification-button" ion-button clear>
 
     <img class="workout-notifications-button-img" src="assets/icon/_message.png">
-    <ion-badge class="workout-notifications-button-badge" clear>2</ion-badge>
+    <ion-badge class="workout-notifications-button-badge" clear>0</ion-badge>
   </button>
 
   <p class="workout-exercice">Tone muscles</p>
@@ -26,14 +26,16 @@
       <p class="workout-time">{{workout?.NumberOfDays}}</p>
     </ion-row>
 
-    <ion-row>
-      <ion-icon name="ios-code-working"></ion-icon>
-      <p class="workout-time">{{workout?.CreationDate | moment}}</p>
+    <ion-row class="workout-time-container">
+      <!-- <ion-icon name="ios-code-working"></ion-icon> -->
+      <img class="workout-time-img" src="assets/icon/dumbbell-white.svg">
+      <!-- <p class="workout-time">{{workout?.CreationDate | moment}}</p> -->
+      <p class="workout-time">{{workout?.CardioProgrameDetail.length}}</p>
     </ion-row>
   </ion-row>
 
   <ion-row class="workout-states">
-    <ion-icon *ngFor="let exercice of workout?.ProgrameDetail" [name]="'ios-checkmark-circle'"></ion-icon>
+    <ion-icon *ngFor="let exercice of workout?.CardioProgrameDetail" [name]="'ios-checkmark-circle'"></ion-icon>
   </ion-row>
 
 </ion-header>
@@ -41,7 +43,7 @@
 
 <ion-content padding>
   <ion-list class="exercices" no-lines>
-    <ng-container *ngFor="let exercice of workout?.ProgrameDetail; let i = index">
+    <ng-container *ngFor="let exercice of workout?.CardioProgrameDetail; let i = index">
       <ion-item-sliding #slidingItem exercice.state='ios-checkmark-circle'>
         <ion-item #item (click)="open($event, slidingItem, item)">
 
@@ -62,7 +64,7 @@
         </ion-item>
         <ion-item-options style="width: 90.04%" side="left" class="slide-options">
           <ion-row justify-content-center>
-            <ion-col>
+            <ion-col class="sliding-col">
               <p class="option-title">How many minutes?</p>
               <ion-row justify-content-center>
                 <ion-col col-3>
@@ -76,7 +78,7 @@
                 </ion-col>
               </ion-row>
             </ion-col>
-            <ion-col>
+            <ion-col class="sliding-col">
               <p class="option-title">Calories burned?</p>
               <ion-row justify-content-center>
                 <ion-col (click)="exercice.calories = exercice.calories - 1" col-3>

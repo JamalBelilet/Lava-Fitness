@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component } from "@angular/core";
+import { NavController, NavParams } from "ionic-angular";
+import { ProfileProvider } from "../../providers/profile/profile";
 
 /**
  * Generated class for the FinishWorkoutPage page.
@@ -9,22 +10,32 @@ import { NavController, NavParams } from 'ionic-angular';
  */
 
 @Component({
-  selector: 'page-finish-workout',
-  templateUrl: 'finish-workout.html',
+  selector: "page-finish-workout",
+  templateUrl: "finish-workout.html"
 })
 export class FinishWorkoutPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  workoutID: any;
+  constructor(
+    private profileProvider: ProfileProvider,
+    public navCtrl: NavController,
+    public navParams: NavParams
+  ) {
+    this.workoutID = navParams.data.workoutID;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FinishWorkoutPage');
+    console.log("ionViewDidLoad FinishWorkoutPage");
   }
 
-
+  evaluate(level) {
+    this.profileProvider
+      .evaluateProgram(this.workoutID, level)
+      .subscribe(res => {
+        this.navCtrl.pop();
+      });
+  }
 
   close() {
     this.navCtrl.pop();
   }
-
 }

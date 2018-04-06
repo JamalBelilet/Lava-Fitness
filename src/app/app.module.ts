@@ -41,6 +41,9 @@ import { ExpandableComponent } from "../components/expandable/expandable";
 import { GuidebookMusclesPage } from "../pages/guidebook-muscles/guidebook-muscles";
 
 import { IonicStorageModule } from '@ionic/storage';
+
+
+import { ChartModule } from 'angular2-chartjs';
 @NgModule({
   declarations: [
     MyApp,
@@ -87,7 +90,8 @@ import { IonicStorageModule } from '@ionic/storage';
       innerStrokeColor: "#C7E596",
       animationDuration: 300,
     }),
-    RoundProgressModule
+    RoundProgressModule,
+    ChartModule
 
   ],
 

@@ -2,6 +2,7 @@ import { Component, ViewChild } from "@angular/core";
 import { NavController, NavParams } from "ionic-angular";
 
 import { Chart } from "chart.js";
+import { LavaHealthProvider } from "../../providers/lava-health/lava-health";
 /**
  * Generated class for the HeartPage page.
  *
@@ -10,62 +11,95 @@ import { Chart } from "chart.js";
  */
 
 @Component({
-  selector: 'page-heart',
-  templateUrl: 'heart.html',
+  selector: "page-heart",
+  templateUrl: "heart.html"
 })
 export class HeartPage {
-  selectedSegment = 'workouts';
-  selectedOption = 'weeks';
+  myMonthSteps: any;
+  myWeekSteps: any;
+  mySteps: any;
+  selectedSegment = "workouts";
+  selectedOption = "weeks";
 
-  @ViewChild("lineCanvas") lineCanvas;
+  workoutChart = {
+    type: "bar",
+    data: {
+      labels: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      datasets: [
+        {
+          // label: "My First dataset",
+          backgroundColor: ["#18b7c5", "#18b7c5", "#18b7c5", "#18b7c5", "#18b7c5", "#18b7c5", "#18b7c5"],
+          borderColor: ["#22c3cc"],
+          data: [65, 59, 80, 81, 56, 55, 40]
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false
+    }
+  };
 
-  lineChart: any;
+  stepsChart = {
+    type: "line",
+    data: {
+      // labels: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      datasets: [
+        {
+          // label: "My First dataset",
+          backgroundColor: ["rgba(34, 195, 204, 0.125)"],
+            borderColor: ["#22c3cc"],
+          data: [65, 59, 80, 81, 56, 55, 40]
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: {
+        padding: {
+          left: 0,
+          right: 0,
+          top: 0,
+          bottom: 0
+        }
+      },
+      legend: { display: false },
+    }
+  };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private LavaHealth: LavaHealthProvider
+  ) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad HeartPage');
-
-    this.lineChart = new Chart(this.lineCanvas.nativeElement, {
-      type: "bar",
-      data: {
-        labels: ["7/1", "7/1", "7/1", "7/1"],
-
-        datasets: [
-          {
-            backgroundColor: ["#18b7c5", "#18b7c5", "#18b7c5", "#18b7c5"],
-            borderColor: ["#22c3cc"],
-            borderWidth: 1,
-            data: [100, 20, 150, 30]
-          }
-        ]
-      },
-      options: {
-        layout: {
-          padding: {
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0
-          }
-        },
-        legend: { display: false },
-        title: {
-          display: false,
-          text: "last weight 4 weaks ago",
-          fontSize: 8,
-          color: "#bababa"
-        },
-        scales: {
-          yAxes: [
-            {
-              display: true
-            }
-          ]
-        }
-      }
-    });
+    console.log("ionViewDidLoad HeartPage");
   }
 
+
+  getSteps() {
+    this.LavaHealth.getSteps()
+      .then(data => {
+        this.mySteps = (data as any).value;
+      })
+      .catch(error => {});
+  }
+
+  getStepsWeek() {
+    this.LavaHealth.getStepsParams()
+      .then(data => {
+        this.myWeekSteps = (data as any).value;
+      })
+      .catch(error => {});
+  }
+
+  getStepsMonth() {
+    this.LavaHealth.getStepsParams("month")
+      .then(data => {
+        this.myMonthSteps = (data as any).value;
+      })
+      .catch(error => {});
+  }
 }

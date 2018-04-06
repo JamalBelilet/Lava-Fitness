@@ -19,12 +19,20 @@ import { Observable } from "rxjs/Observable";
   templateUrl: "person.html"
 })
 export class PersonPage {
-  @ViewChild("lineCanvas") lineCanvas;
-  @ViewChild("lineCanvas1") lineCanvas1;
+  @ViewChild("lineCanvasWeight") lineCanvasWeight;
+
+  @ViewChild("lineCanvasWeightSub") lineCanvasWeightSub;
+  @ViewChild("lineCanvasSMM") lineCanvasSMM;
+  @ViewChild("lineCanvasPBF") lineCanvasPBF;
+
   @ViewChild("doughnutCanvas") doughnutCanvas;
 
-  lineChart: any;
-  lineChart1: any;
+  lineChartWeight: any;
+
+  lineChartWeightSub: any;
+  lineChartSMM: any;
+  lineChartPBF: any;
+
   doughnutChart: any;
 
   weightLogHistoryPage = WeightLogHistoryPage;
@@ -45,7 +53,7 @@ export class PersonPage {
     this.memberInbodyResults$.subscribe(res => console.log(res));
 
 
-    this.lineChart = new Chart(this.lineCanvas.nativeElement, {
+    this.lineChartWeight = new Chart(this.lineCanvasWeight.nativeElement, {
       type: "line",
       data: {
         datasets: [
@@ -84,7 +92,77 @@ export class PersonPage {
       }
     });
 
-    this.lineChart1 = new Chart(this.lineCanvas1.nativeElement, {
+    this.lineChartWeightSub = new Chart(this.lineCanvasWeightSub.nativeElement, {
+      type: "line",
+      data: {
+        datasets: [
+          {
+            backgroundColor: ["rgba(34, 195, 204, 0.125)"],
+            borderColor: ["#22c3cc"],
+            borderWidth: 1,
+            data: [100, 20, 150, 30, 0]
+          }
+        ]
+      },
+      options: {
+        layout: {
+          padding: {
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0
+          }
+        },
+        legend: { display: false },
+        title: {
+          display: false,
+        },
+        scales: {
+          yAxes: [
+            {
+              display: false
+            }
+          ]
+        }
+      }
+    });
+
+    this.lineChartSMM = new Chart(this.lineCanvasSMM.nativeElement, {
+      type: "line",
+      data: {
+        datasets: [
+          {
+            backgroundColor: ["rgba(34, 195, 204, 0.125)"],
+            borderColor: ["#22c3cc"],
+            borderWidth: 1,
+            data: [100, 20, 150, 30, 0]
+          }
+        ]
+      },
+      options: {
+        layout: {
+          padding: {
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0
+          }
+        },
+        legend: { display: false },
+        title: {
+          display: false,
+        },
+        scales: {
+          yAxes: [
+            {
+              display: false
+            }
+          ]
+        }
+      }
+    });
+
+    this.lineChartPBF = new Chart(this.lineCanvasPBF.nativeElement, {
       type: "line",
       data: {
         datasets: [

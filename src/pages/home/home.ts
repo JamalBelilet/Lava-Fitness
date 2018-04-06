@@ -28,152 +28,11 @@ export class HomePage {
   mySteps: any;
   myFloors: any;
   workouts$: Observable<Object>;
-  // @ViewChild("paymentTabs") paymentTabs: Tabs;
 
   upcommingExercises: Observable<Object>;
   profile$: Observable<Object>;
   ExerciseReservations$: Observable<Object>;
   workoutPage = WorkoutPage;
-  user = {
-    name: "Sara Alhumaid",
-    active: "Active Member",
-    today: {
-      floors: 11,
-
-      steps: 2321
-    },
-    workouts: [
-      {
-        title: "Upperbody Day",
-        exercice: "Tone muscies",
-        time: "30 min",
-        average: "1/wk",
-        state: "Sarted",
-        exercices: [
-          {
-            name: "Walk",
-            meta: "10 mins Mis-Speed",
-            state: "ios-checkmark-circle",
-            minutes: 25,
-            calories: 126
-          },
-
-          {
-            name: "Walk",
-            meta: "10 mins Mis-Speed",
-            state: "ios-checkmark-circle",
-            minutes: 3,
-            calories: 50
-          },
-          {
-            name: "Walk",
-            meta: "10 mins Mis-Speed",
-            state: "ios-checkmark-circle",
-            minutes: 6,
-            calories: 65
-          },
-          {
-            name: "Walk",
-            meta: "10 mins Mis-Speed",
-            state: "ios-radio-button-off",
-            minutes: 6,
-            calories: 75
-          },
-          {
-            name: "Walk",
-            meta: "10 mins Mis-Speed",
-            state: "ios-radio-button-off",
-            minutes: 6,
-            calories: 95
-          },
-          {
-            name: "Walk",
-            meta: "10 mins Mis-Speed",
-            state: "ios-radio-button-off",
-            minutes: 2,
-            calories: 40
-          },
-          {
-            name: "Walk",
-            meta: "10 mins Mis-Speed",
-            state: "ios-radio-button-off",
-            minutes: 50,
-            calories: 126
-          },
-          {
-            name: "Walk",
-            meta: "10 mins Mis-Speed",
-            state: "ios-radio-button-off",
-            minutes: 20,
-            calories: 126
-          },
-          {
-            name: "Walk",
-            meta: "10 mins Mis-Speed",
-            state: "ios-radio-button-off",
-            minutes: 10,
-            calories: 126
-          },
-          {
-            name: "Walk",
-            meta: "10 mins Mis-Speed",
-            state: "ios-radio-button-off",
-            minutes: 5,
-            calories: 126
-          },
-          {
-            name: "Walk",
-            meta: "10 mins Mis-Speed",
-            state: "ios-radio-button-off",
-            minutes: 25,
-            calories: 126
-          }
-        ]
-      },
-      {
-        title: "Upperbody Day",
-        exercice: "tone muscies",
-        time: "30 min",
-        average: "1/wk",
-        state: "Sarted"
-      },
-      {
-        title: "Upperbody Day",
-        exercice: "tone muscies",
-        time: "30 min",
-        average: "1/wk",
-        state: "Sarted"
-      },
-      {
-        title: "Upperbody Day",
-        exercice: "tone muscies",
-        time: "30 min",
-        average: "1/wk",
-        state: "Sarted"
-      },
-      {
-        title: "Upperbody Day",
-        exercice: "tone muscies",
-        time: "30 min",
-        average: "1/wk",
-        state: "Sarted"
-      }
-    ],
-    bookings: [
-      {
-        title: "Yoga",
-        duration: "30 min",
-        day: "today",
-        time: "6:15 pm"
-      },
-      {
-        title: "Yoga",
-        duration: "30 min",
-        day: "today",
-        time: "6:15 pm"
-      }
-    ]
-  };
 
   myActivity = {
     startDate: 2,
@@ -243,7 +102,8 @@ export class HomePage {
 
           let arr = Array.from(values(array));
           let arr_f = arr.map(val => {
-            val.ProgrameDetail = Array.from(values(val.CardioProgrameDetail));
+            val.CardioProgrameDetail = Array.from(values(val.CardioProgrameDetail));
+            val.BodybuildingProgrameDetail = Array.from(values(val.BodybuildingProgrameDetail));
             return val;
           });
 

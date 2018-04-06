@@ -24,9 +24,9 @@
 
     <div class="circle">
       <img src="assets/imgs/circle.svg">
-      <p class="steps-num">2500</p>
+      <p class="steps-num">{{mySteps || 0}}</p>
       <p class="steps-text">steps</p>
-      <p class="steps-goal">3000</p>
+      <p class="steps-goal"></p>
 
     </div>
 
@@ -51,9 +51,9 @@
     </div>
     <div class="circle two">
       <img src="assets/imgs/circle.svg">
-      <p class="steps-num">2500</p>
+      <p class="steps-num">{{myWeekSteps || 0}}</p>
       <p class="steps-text">steps</p>
-      <p class="steps-goal">3000</p>
+      <p class="steps-goal"></p>
 
     </div>
 
@@ -71,24 +71,26 @@
       <br>month</p>
 
     <div class="workouts">
-      <p class="avg">Avg.<br>3</p>
-      <p class="workout-number gray">Workout<br>per week</p>
+      <p class="avg">Avg.
+        <br>3</p>
+      <p class="workout-number gray">Workout
+        <br>per week</p>
     </div>
 
     <div class="circle two">
-        <img src="assets/imgs/circle.svg">
-        <p class="steps-num">15</p>
-        <p class="steps-text">workouts</p>
-        <p class="steps-goal">20 days</p>
+      <img src="assets/imgs/circle.svg">
+      <p class="steps-num">15</p>
+      <p class="steps-text">workouts</p>
+      <p class="steps-goal">20 days</p>
 
-      </div>
-      <div class="circle three">
-        <img src="assets/imgs/circle.svg">
-        <p class="steps-num">10k</p>
-        <p class="steps-text">steps</p>
-        <p class="steps-goal">3000</p>
+    </div>
+    <div class="circle three">
+      <img src="assets/imgs/circle.svg">
+      <p class="steps-num">{{myMonthSteps || 0}}</p>
+      <p class="steps-text">steps</p>
+      <p class="steps-goal"></p>
 
-      </div>
+    </div>
 
   </ion-card>
 
@@ -96,11 +98,8 @@
     <ion-segment-button value="workouts">
       Workouts
     </ion-segment-button>
-    <ion-segment-button value="Steps">
+    <ion-segment-button value="steps">
       steps
-    </ion-segment-button>
-    <ion-segment-button value="floors">
-      Floors
     </ion-segment-button>
   </ion-segment>
 
@@ -108,12 +107,20 @@
     <ion-option value="weeks">Weeks</ion-option>
     <ion-option value="months">Months</ion-option>
   </ion-select>
-
-  <div class="history-chart">
-    <button ion-button clear>
-      <img src="assets/imgs/_expand@2x.png">
-    </button>
-    <canvas #lineCanvas></canvas>
+  <div [ngSwitch]="selectedSegment">
+    <div class="history-chart" *ngSwitchCase="'workouts'">
+      <button ion-button clear>
+        <img src="assets/imgs/_expand@2x.png">
+      </button>
+      <chart [type]="workoutChart.type" [data]="workoutChart.data" [options]="workoutChart.options"></chart>
+    </div>
+    <div class="history-chart" *ngSwitchCase="'steps'" >
+      <button ion-button clear>
+        <img src="assets/imgs/_expand@2x.png">
+      </button>
+      <chart [type]="stepsChart.type" [data]="stepsChart.data" [options]="stepsChart.options"></chart>
+    </div>
   </div>
+
 
 </ion-content>

@@ -64,7 +64,7 @@ export class BookPage {
     this.done = true;
     setTimeout(()=> {
       this.navCtrl.pop();
-    }, 100800)
+    }, 3800)
   }
 
 }

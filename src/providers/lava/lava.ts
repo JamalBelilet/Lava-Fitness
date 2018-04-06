@@ -103,14 +103,6 @@ export class LavaProvider {
   }
 
   reserveExercise(toReserveExercise) {
-    if (this.authProvider.config.debug) {
-      return of({
-        status: 1,
-        data: {
-          AccessToken: "accb45021c8be4550dd1e826aad388f0"
-        }
-      });
-    }
     const headers = this.authProvider.config.headers;
     const params = new HttpParams();
     const options = {
@@ -118,11 +110,12 @@ export class LavaProvider {
       params,
       withCredentials: true
     };
+    console.error("toReserveExercise.ToReserve ", toReserveExercise.ServiceID);
     return this.http.post(
       `${this.authProvider.config.baseUrl}/web/exercise/reserve`,
       JSON.stringify({
         AccessToken: this.authProvider.config.AccessToken,
-        ExerciseScheduleID: toReserveExercise.ToReserve
+        ExerciseScheduleID: toReserveExercise.ServiceID
       }),
       options
     );
