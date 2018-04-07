@@ -45,6 +45,18 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { ChartModule } from 'angular2-chartjs';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+const FIREBASE_CREDENTIALS = {
+  apiKey: "AIzaSyAggtWMxyL84Eq8ZV8X6Hce9Atpu2W-wi8",
+  authDomain: "lava-fitness.firebaseapp.com",
+  databaseURL: "https://lava-fitness.firebaseio.com",
+  projectId: "lava-fitness",
+  storageBucket: "lava-fitness.appspot.com",
+  messagingSenderId: "478955498356"
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -92,7 +104,9 @@ import { ChartModule } from 'angular2-chartjs';
       animationDuration: 300,
     }),
     RoundProgressModule,
-    ChartModule
+    ChartModule,
+    AngularFireModule.initializeApp(FIREBASE_CREDENTIALS),
+    AngularFireAuthModule
 
   ],
 

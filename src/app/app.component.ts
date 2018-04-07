@@ -14,6 +14,10 @@ import { GuidebookMachinesPage } from "../pages/guidebook-machines/guidebook-mac
 import { GuidebookMusclesPage } from "../pages/guidebook-muscles/guidebook-muscles";
 import { Storage } from "@ionic/storage";
 import { AuthenticationProvider } from "../providers/authentication/authentication";
+
+import * as firebase from 'firebase/app';
+import { AngularFireAuth } from "angularfire2/auth";
+
 @Component({
   templateUrl: "app.html"
 })
@@ -25,7 +29,8 @@ export class MyApp {
     statusBar: StatusBar,
     splashScreen: SplashScreen,
     private storage: Storage,
-    private auth: AuthenticationProvider
+    private auth: AuthenticationProvider,
+    public afAuth: AngularFireAuth
   ) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -46,6 +51,10 @@ export class MyApp {
       splashScreen.hide();
 
       moment.locale("en");
+
+      this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(c => {}).catch(error => {});
     });
   }
+
+
 }
