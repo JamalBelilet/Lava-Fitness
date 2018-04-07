@@ -52,7 +52,7 @@ export class MyApp {
 
       moment.locale("en");
 
-      this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(c => {}).catch(error => {});
+      // this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(c => {}).catch(error => {});
     });
   }
 

@@ -160,6 +160,19 @@ page-home {
     }
   }
 
+  .header.header-md {
+    .user-goal {
+      position: absolute;
+
+      font-size: 2.37vw;
+      font-weight: 500;
+      color: #9dd9df;
+      top: 42.97vh!important;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
   .scroll-content {
     position: relative;
 

@@ -16,8 +16,8 @@
       <ion-row justify-content-center class="shadow-input">
         <ion-col col-9 align-self-left>
           <ion-select formControlName="ServiceID" text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;">
-            <ion-option style="width: 100%; margin: 0; " *ngIf="_book == 'session'">Choose a session</ion-option>
-            <ion-option style="width: 100%; margin: 0; " *ngIf="_book == 'class'">Choose a class</ion-option>
+            <ion-option style="width: 100%; margin: 0; " *ngIf="_book == 'session'" [value]="null">Choose a session</ion-option>
+            <ion-option style="width: 100%; margin: 0; " *ngIf="_book == 'class'" [value]="null">Choose a class</ion-option>
 
             <ng-template [ngIf]="_book == 'class'">
               <ion-option *ngFor="let class of (classes$ | async)?.data" [value]="class.ID">{{class.TitleEN}}</ion-option>
@@ -42,7 +42,7 @@
 
 
       <ion-row justify-content-center>
-        <button ion-button class="book-button">Book now</button>
+        <button [disabled]="!reserveForm.valid" ion-button class="book-button">Book now</button>
       </ion-row>
 
     </form>

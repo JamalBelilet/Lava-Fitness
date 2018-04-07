@@ -32,7 +32,10 @@ export class BookPage {
     this._book = navParams.get('book');
 
     this.reserveForm = formBuilder.group({
-      ServiceID: ["Choose a " + this._book, Validators.required],
+      ServiceID: ["Choose a " + this._book, Validators.compose([
+        Validators.required,
+      Validators.pattern(/\d+/)
+      ])],
       Date: [new Date().toISOString(), Validators.required]
     });
   }
