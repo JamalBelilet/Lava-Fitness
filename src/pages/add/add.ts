@@ -73,4 +73,8 @@ export class AddPage {
 
   }
 
+  myBooking() {
+    console.log(this.navCtrl.parent.select(2));
+  }
+
 }

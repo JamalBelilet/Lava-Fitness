@@ -108,7 +108,7 @@ export class HomePage {
             return val;
           });
 
-          console.log("arr_f", arr);
+
 
 
           const wokroutsC = {
@@ -118,14 +118,15 @@ export class HomePage {
           };
 
           wokroutsC.workouts.forEach(item => {
-            if(item.numberOfWorkoutFinishers) {
+            if(item.NumberOfWorkoutFinishers) {
 
-              wokroutsC.sumOfNumberOfWorkoutFinishers += item.numberOfWorkoutFinishers
+              wokroutsC.sumOfNumberOfWorkoutFinishers += Number(item.NumberOfWorkoutFinishers)
+              item.numberOfWorkoutFinishersT = new Array(Number(item.NumberOfWorkoutFinishers))
             }
 
-            if(item.weekRepetitions) {
+            if(item.WeekRepetitions) {
 
-              wokroutsC.sumOfWeekRepetitions += item.weekRepetitions
+              wokroutsC.sumOfWeekRepetitions += item.WeekRepetitions
             }
           })
 
