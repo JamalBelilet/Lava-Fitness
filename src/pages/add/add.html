@@ -50,7 +50,7 @@
 
     <ion-row><ion-icon name="call" item-left></ion-icon><p>{{selectedBranch?.Phone}}</p></ion-row>
     <ion-row><ion-icon name="map" item-left></ion-icon><p>{{selectedBranch?.Address}}</p></ion-row>
-    <ion-row><ion-icon name="ios-navigate" item-left></ion-icon><button ion-button clear>Get directions</button></ion-row>
+    <ion-row><ion-icon name="ios-navigate" item-left (click)="navigateTo(selectedBranch?.Address)"></ion-icon><button ion-button clear>Get directions</button></ion-row>
   </ion-list>
 
 

@@ -12,6 +12,7 @@ import { LoginPage } from '../login/login';
 
 import { SocialSharing } from '@ionic-native/social-sharing';
 
+import { LaunchNavigator } from '@ionic-native/launch-navigator';
 
 /**
  * Generated class for the AddPage page.
@@ -34,6 +35,7 @@ export class AddPage {
 
   branches$: Observable<Object>;
     constructor(
+      private launchNavigator: LaunchNavigator,
       private socialSharing: SocialSharing,
       private actionSheetController: ActionSheetController,
       public app: App, private alertCtrl: AlertController,private storage: Storage, public navCtrl: NavController, public navParams: NavParams, private profileProvider: ProfileProvider) {
@@ -115,6 +117,14 @@ export class AddPage {
       ]
     });
     sharePortionActionSheet.present();
+  }
+
+  navigateTo(address) {
+    this.launchNavigator.navigate(address)
+      .then(
+        success => console.log('Launched navigator'),
+        error => console.log('Error launching navigator', error)
+      );
   }
 
 }
