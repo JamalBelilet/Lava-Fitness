@@ -25,9 +25,10 @@ import moment from "moment";
   templateUrl: "home.html"
 })
 export class HomePage {
+  workoutsSums$: Observable<void>;
   mySteps: any;
-  myFloors: any;
-  workouts$: Observable<Object>;
+  myDistance: any;
+  workoutsC$: Observable<Object>;
 
   upcommingExercises: Observable<Object>;
   profile$: Observable<Object>;
@@ -89,7 +90,7 @@ export class HomePage {
 
     this.upcommingExercises = this.lavaProvider.getExerciseReservations();
 
-    this.workouts$ = this.profileProvider
+    this.workoutsC$ = this.profileProvider
       .getMemberPrograms()
 
       .pipe(
@@ -108,9 +109,39 @@ export class HomePage {
           });
 
           console.log("arr_f", arr);
-          return arr;
+
+
+          const wokroutsC = {
+            workouts: arr,
+            sumOfNumberOfWorkoutFinishers: 0,
+            sumOfWeekRepetitions: 0
+          };
+
+          wokroutsC.workouts.forEach(item => {
+            if(item.numberOfWorkoutFinishers) {
+
+              wokroutsC.sumOfNumberOfWorkoutFinishers += item.numberOfWorkoutFinishers
+            }
+
+            if(item.weekRepetitions) {
+
+              wokroutsC.sumOfWeekRepetitions += item.weekRepetitions
+            }
+          })
+
+
+          return wokroutsC;
         })
       );
+
+    // this.workoutsSums$ = this.workouts$.pipe(
+    //   map(value => {
+
+
+    //     return;
+    //   })
+    // );
+    // this.workoutsSums$.subscribe(res => {});
 
     this.health
       .isAvailable()
@@ -124,7 +155,7 @@ export class HomePage {
           ])
           .then(res => {
             this.getSteps();
-            this.getFloors();
+            this.getDistance();
           })
           .catch(e => this.presentAlert(JSON.stringify(e)));
       })
@@ -182,10 +213,10 @@ export class HomePage {
       })
       .catch(error => this.presentAlert(JSON.stringify(error)));
   }
-  getFloors() {
-    this.LavaHealth.getSteps()
+  getDistance() {
+    this.LavaHealth.getDistance()
       .then(data => {
-        this.mySteps = Math.floor(Number((data as any).value) / 4);
+        this.myDistance = (data as any).value;
       })
       .catch(error => this.presentAlert(JSON.stringify(error)));
   }
