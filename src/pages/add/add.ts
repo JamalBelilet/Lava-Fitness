@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController, App } from 'ionic-angular';
+import { NavController, NavParams, AlertController, App, ActionSheetController } from 'ionic-angular';
 import { MembershipPage } from '../membership/membership';
 import { SurvayPage } from '../survay/survay';
 import { GuidebookMachinesPage } from '../guidebook-machines/guidebook-machines';
@@ -9,6 +9,8 @@ import { ProfileProvider } from '../../providers/profile/profile';
 
 import { Storage } from '@ionic/storage';
 import { LoginPage } from '../login/login';
+
+import { SocialSharing } from '@ionic-native/social-sharing';
 
 
 /**
@@ -31,7 +33,10 @@ export class AddPage {
   selectedBranch = 'Alquds branch';
 
   branches$: Observable<Object>;
-    constructor(public app: App, private alertCtrl: AlertController,private storage: Storage, public navCtrl: NavController, public navParams: NavParams, private profileProvider: ProfileProvider) {
+    constructor(
+      private socialSharing: SocialSharing,
+      private actionSheetController: ActionSheetController,
+      public app: App, private alertCtrl: AlertController,private storage: Storage, public navCtrl: NavController, public navParams: NavParams, private profileProvider: ProfileProvider) {
   }
 
   ionViewDidLoad() {
@@ -75,6 +80,41 @@ export class AddPage {
 
   myBooking() {
     console.log(this.navCtrl.parent.select(2));
+  }
+
+
+  sendInvitation() {
+    let sharePortionActionSheet = this.actionSheetController.create ({
+      title: 'Invite your friends',
+      buttons: [
+        {
+          text: 'share Lava on Facebook',
+          icon: 'logo-facebook',
+          handler: () => {
+            this.socialSharing.shareViaFacebook("Lava Fitness", null, 'http://lava.sa');
+          }
+        },
+        {
+          text: 'share Lava on twitter ',
+          icon: 'logo-twitter',
+          handler: () => {
+            this.socialSharing.shareViaTwitter("Lava Fitness", null, 'http://lava.sa');
+          }
+        },
+        {
+          text: 'Invite ...',
+          icon: 'ios-text-outline',
+          handler: () => {
+            this.socialSharing.share("Lava Fitness", null, null, 'http://lava.sa');
+          }
+        },
+        {
+          text: 'cancel',
+          role: 'destructive'
+        }
+      ]
+    });
+    sharePortionActionSheet.present();
   }
 
 }

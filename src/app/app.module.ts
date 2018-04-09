@@ -48,6 +48,9 @@ import { ChartModule } from 'angular2-chartjs';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+
+import { SocialSharing } from '@ionic-native/social-sharing';
+
 const FIREBASE_CREDENTIALS = {
   apiKey: "AIzaSyAggtWMxyL84Eq8ZV8X6Hce9Atpu2W-wi8",
   authDomain: "lava-fitness.firebaseapp.com",
@@ -142,7 +145,8 @@ const FIREBASE_CREDENTIALS = {
     ProfileProvider,
     LavaProvider,
     Health,
-    LavaHealthProvider
+    LavaHealthProvider,
+    SocialSharing
 
   ]
 })
