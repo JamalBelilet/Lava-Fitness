@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { LavaProvider } from '../../providers/lava/lava';
-import { Observable } from 'rxjs/Observable';
-import { ProfileProvider } from '../../providers/profile/profile';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Component } from "@angular/core";
+import { NavController, NavParams } from "ionic-angular";
+import { LavaProvider } from "../../providers/lava/lava";
+import { Observable } from "rxjs/Observable";
+import { ProfileProvider } from "../../providers/profile/profile";
+import { FormBuilder, Validators, FormGroup } from "@angular/forms";
 
 /**
  * Generated class for the BookPage page.
@@ -12,11 +12,9 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
  * Ionic pages and navigation.
  */
 
-
-
 @Component({
-  selector: 'page-book',
-  templateUrl: 'book.html',
+  selector: "page-book",
+  templateUrl: "book.html"
 })
 export class BookPage {
   _book: any;
@@ -24,50 +22,61 @@ export class BookPage {
   sessions$: Observable<Object>;
   classes$: Observable<Object>;
 
-  reserveForm: FormGroup;
+  reserveExerciseForm: FormGroup;
+  reserveSessionForm: FormGroup;
 
   constructor(
     public formBuilder: FormBuilder,
-    public navCtrl: NavController, public navParams: NavParams, private assetsProvider: ProfileProvider, private lavaProvider: LavaProvider) {
-    this._book = navParams.get('book');
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private assetsProvider: ProfileProvider,
+    private lavaProvider: LavaProvider
+  ) {
+    this._book = navParams.get("book");
 
-    this.reserveForm = formBuilder.group({
-      ServiceID: ["Choose a " + this._book, Validators.compose([
-        Validators.required,
-      Validators.pattern(/\d+/)
-      ])],
-      Date: [new Date().toISOString(), Validators.required]
-    });
+    if (this._book == "class") {
+      this.reserveExerciseForm = formBuilder.group({
+        Exercise: [
+          "Choose a " + this._book,
+          Validators.compose([Validators.required])
+        ],
+        Date: [new Date().toISOString(), Validators.required]
+      });
+    } else if (this._book == "session") {
+      this.reserveSessionForm = formBuilder.group({
+        Service: [
+          "Choose a " + this._book,
+          Validators.compose([Validators.required])
+        ],
+        Date: [new Date().toISOString(), Validators.required]
+      });
+    }
   }
-
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad BookPage');
+    console.log("ionViewDidLoad BookPage");
 
     console.log(this._book);
-    this.classes$ = this.assetsProvider.getClasses();
-    this.sessions$ = this.assetsProvider.getServices();
+    this.classes$ = this.lavaProvider.getExerciseReservations();
+    // this.classes$ = this.assetsProvider.getClasses();
+    this.sessions$ = this.lavaProvider.getMassageReservations();
   }
-
 
   close() {
     this.navCtrl.pop();
   }
 
-  book(){
-    if(this._book == 'class') {
-      this.lavaProvider.reserveExercise(this.reserveForm.value)
+  book() {
+    if (this._book == "class") {
+      this.lavaProvider.reserveExercise(this.reserveExerciseForm.value).subscribe(res => console.log('reserveExercise', JSON.stringify(res)));
+    } else if (this._book == "session") {
+      this.lavaProvider.reserveMassageSession(this.reserveSessionForm.value).subscribe(res => console.log('reserveMassageSession', JSON.stringify(res)));
 
-    }
-    else if(this._book == 'session') {
-      console.log(this.reserveForm.value);
-      this.lavaProvider.reserveMassageSession(this.reserveForm.value)
     }
 
     this.done = true;
-    setTimeout(()=> {
+    setTimeout(() => {
       this.navCtrl.pop();
-    }, 3800)
+    }, 3800);
   }
-
 }

@@ -162,23 +162,6 @@ export class ProfileProvider {
   }
 
   getServices() {
-    if (this.authProvider.config.debug) {
-      return of({
-        status: 1,
-        data: [
-          {
-            ID: 1,
-            NameAR: "الصالات الریاضیة",
-            NameEN: "GYM"
-          },
-          {
-            ID: 2,
-            NameAR: "اسشارة أخصائیة التغذیة",
-            NameEN: "Nutrition Consultation"
-          }
-        ]
-      });
-    }
     return this.http.get(
       `${this.authProvider.config.baseUrl}/web/service/index?AccessToken=${
         this.authProvider.config.AccessToken

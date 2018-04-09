@@ -10,21 +10,12 @@
       <h2 *ngIf="_book == 'class'">Book a Class</h2>
     </ion-row>
 
-    <form [formGroup]="reserveForm" (ngSubmit)="book()">
-
-
+    <form  *ngIf="_book == 'class'" [formGroup]="reserveExerciseForm" (ngSubmit)="book()">
       <ion-row justify-content-center class="shadow-input">
         <ion-col col-9 align-self-left>
-          <ion-select formControlName="ServiceID" text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;">
-            <ion-option style="width: 100%; margin: 0; " *ngIf="_book == 'session'" [value]="null">Choose a session</ion-option>
-            <ion-option style="width: 100%; margin: 0; " *ngIf="_book == 'class'" [value]="null">Choose a class</ion-option>
-
-            <ng-template [ngIf]="_book == 'class'">
-              <ion-option *ngFor="let class of (classes$ | async)?.data" [value]="class.ID">{{class.TitleEN}}</ion-option>
-            </ng-template>
-            <ng-template [ngIf]="_book == 'session'">
-              <ion-option *ngFor="let session of (sessions$ | async)?.data" [value]="session.ID">{{session.NameEN}}</ion-option>
-            </ng-template>
+          <ion-select formControlName="Exercise" text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;">
+            <ion-option style="width: 100%; margin: 0; " [value]="null">Choose a class</ion-option>
+            <ion-option *ngFor="let class of (classes$ | async)?.data" [value]="class">{{class.ExerciseTitle}}</ion-option>
           </ion-select>
         </ion-col>
       </ion-row>
@@ -42,7 +33,58 @@
 
 
       <ion-row justify-content-center>
-        <button [disabled]="!reserveForm.valid" ion-button class="book-button">Book now</button>
+        <button [disabled]="!reserveExerciseForm?.valid" ion-button class="book-button">Book now</button>
+      </ion-row>
+
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <form  *ngIf="_book == 'session'" [formGroup]="reserveSessionForm" (ngSubmit)="book()">
+
+
+      <ion-row justify-content-center class="shadow-input">
+        <ion-col col-9 align-self-left>
+          <ion-select formControlName="Service" text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;">
+            <ion-option style="width: 100%; margin: 0; " [value]="null">Choose a session</ion-option>
+
+            <ion-option *ngFor="let session of (sessions$ | async)?.data" [value]="session">{{session.ServiceName}}</ion-option>
+
+          </ion-select>
+        </ion-col>
+      </ion-row>
+
+      <ion-row justify-content-center class="shadow-input">
+        <ion-col col-9 align-self-left>
+          <ion-datetime formControlName="Date" text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;"
+            displayFormat="MM/DD/YYYY"></ion-datetime>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <p>Yoga class | Thuresday | 8:10</p>
+      </ion-row>
+
+
+      <ion-row justify-content-center>
+        <button [disabled]="!reserveSessionForm?.valid" ion-button class="book-button">Book now</button>
       </ion-row>
 
     </form>

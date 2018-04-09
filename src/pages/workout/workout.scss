@@ -53,7 +53,7 @@ page-workout {
   .workout-header {
     width: 100%;
     position: relative;
-    height: 28vh;
+    height: 30vh;
 
     .workout-title {
       font-family: "29ltbukraregular", "AvenirLTStd-Medium", Arial, Helvetica,
@@ -178,7 +178,7 @@ page-workout {
   }
 
   .scroll-content {
-    padding-top: 10 / $sch * 100vh !important;
+    padding-top: 20 / $sch * 100vh !important;
 
     margin-top: 0 / $sch * 100vh !important;
 

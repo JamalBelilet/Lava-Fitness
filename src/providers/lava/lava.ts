@@ -51,23 +51,6 @@ export class LavaProvider {
   }
 
   getExerciseReservations() {
-    if (this.authProvider.config.debug) {
-      return of({
-        status: 1,
-        data: [
-          {
-            ID: 1286,
-            ExerciseScheduleID: 2079,
-            CreationDate: "2018-02-18 16:27:46"
-          },
-          {
-            ID: 65,
-            ExerciseScheduleID: 1303,
-            CreationDate: "2018-01-03 15:35:42"
-          }
-        ]
-      });
-    }
     return this.http.get(
       `${this.authProvider.config.baseUrl}/web/exercise/view?AccessToken=${
         this.authProvider.config.AccessToken
@@ -102,7 +85,7 @@ export class LavaProvider {
     );
   }
 
-  reserveExercise(toReserveExercise) {
+  reserveExercise(exerciseC) {
     const headers = this.authProvider.config.headers;
     const params = new HttpParams();
     const options = {
@@ -110,34 +93,23 @@ export class LavaProvider {
       params,
       withCredentials: true
     };
-    console.error("toReserveExercise.ToReserve ", toReserveExercise.ServiceID);
+
+    console.log(JSON.stringify({
+      AccessToken: this.authProvider.config.AccessToken,
+      ExerciseScheduleID: exerciseC.Exercise.ExerciseScheduleID
+    }))
+
     return this.http.post(
       `${this.authProvider.config.baseUrl}/web/exercise/reserve`,
       JSON.stringify({
         AccessToken: this.authProvider.config.AccessToken,
-        ExerciseScheduleID: toReserveExercise.ServiceID
+        ExerciseScheduleID: exerciseC.Exercise.ExerciseScheduleID
       }),
       options
     );
   }
 
   getAllMassageReservations() {
-    if (this.authProvider.config.debug) {
-      return of({
-        status: 1,
-        data: [
-          {
-            ID: "179",
-            Date: "2018-02-15 16:05:00",
-            BranchID: "4",
-            BranchName: "\u0645\u062e\u0631\u062c 5",
-            MassagerID: "83",
-            MassagerName:
-              "\u0641\u0627\u0637\u0645\u0629\u0635\u0644\u0627\u062d"
-          }
-        ]
-      });
-    }
     return this.http.get(
       `${this.authProvider.config.baseUrl}/web/messager/index?AccessToken=${
         this.authProvider.config.AccessToken
@@ -147,43 +119,15 @@ export class LavaProvider {
   }
 
   getMassageReservations() {
-    if (this.authProvider.config.debug) {
-      return of({
-        status: 1,
-        data: [
-          {
-            ID: "179",
-            Date: "2018-02-15 16:05:00",
-            ServiceID: "4",
-            ServiceName:
-              "\u0633\u0627\u0639\u0629\u0648\u0627\u062d\u062f\u0629 \u0645\u0633\u0627\u062c\u0633\u0648\u064a\u062f\u064a - \u0627\u0644\u062c\u0633\u0645\u0643\u0627\u0645\u0644",
-            BranchID: "4",
-            BranchName: "\u0645\u062e\u0631\u062c 5",
-            MassagerID: "83",
-            MassagerName:
-              "\u0641\u0627\u0637\u0645\u0629\u0635\u0644\u0627\u062d",
-            CreationDate: "2018-02-14 16:09:20"
-          }
-        ]
-      });
-    }
     return this.http.get(
-      `${this.authProvider.config.baseUrl}/web/messager/view?AccessToken=${
+      `${this.authProvider.config.baseUrl}/web/massage/view?AccessToken=${
         this.authProvider.config.AccessToken
       }`,
       { headers: this.authProvider.config.headers }
     );
   }
 
-  reserveMassageSession(toReserveMassage) {
-    if (this.authProvider.config.debug) {
-      return of({
-        status: 1,
-        data: {
-          AccessToken: "accb45021c8be4550dd1e826aad388f0"
-        }
-      });
-    }
+  reserveMassageSession(ServiceC) {
     const headers = this.authProvider.config.headers;
     const params = new HttpParams();
     const options = {
@@ -191,14 +135,22 @@ export class LavaProvider {
       params,
       withCredentials: true
     };
+
+    console.log(JSON.stringify({
+      AccessToken: this.authProvider.config.AccessToken,
+      ServiceID: ServiceC.Service.ServiceID,
+      BranchID: ServiceC.Service.BranchID,
+      MassagerID: ServiceC.Service.MassagerID,
+      Date: ServiceC.Service.Date
+    }));
     return this.http.post(
       `${this.authProvider.config.baseUrl}/web/massage/reserve`,
       JSON.stringify({
         AccessToken: this.authProvider.config.AccessToken,
-        ServiceID: toReserveMassage.ServiceID,
-        // BranchID: toReserveMassage.BranchID,
-        // MassagerID: toReserveMassage.MassagerID,
-        Date: toReserveMassage.Date
+        ServiceID: ServiceC.Service.ServiceID,
+        BranchID: ServiceC.Service.BranchID,
+        MassagerID: ServiceC.Service.MassagerID,
+        Date: ServiceC.Service.Date
       }),
       options
     );
