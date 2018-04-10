@@ -35,7 +35,7 @@ export class MyApp {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.storage.set("AccessToken", "6fe4166fe804c32edcc2da6bd6a2151c")
+      // this.storage.set("AccessToken", "6fe4166fe804c32edcc2da6bd6a2151c")
 
 
       this.storage.get("AccessToken").then(val => {
