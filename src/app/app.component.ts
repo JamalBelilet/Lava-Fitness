@@ -15,8 +15,7 @@ import { GuidebookMusclesPage } from "../pages/guidebook-muscles/guidebook-muscl
 import { Storage } from "@ionic/storage";
 import { AuthenticationProvider } from "../providers/authentication/authentication";
 
-import * as firebase from 'firebase/app';
-import { AngularFireAuth } from "angularfire2/auth";
+
 
 @Component({
   templateUrl: "app.html"
@@ -25,17 +24,17 @@ export class MyApp {
   rootPage: any = LoginPage;
 
   constructor(
+
+    private auth: AuthenticationProvider,
     platform: Platform,
     statusBar: StatusBar,
     splashScreen: SplashScreen,
     private storage: Storage,
-    private auth: AuthenticationProvider,
-    public afAuth: AngularFireAuth
   ) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      // this.storage.set("AccessToken", "6fe4166fe804c32edcc2da6bd6a2151c")
+      this.storage.set("AccessToken", "dc2494305d1023c7b7be37dfe9e2b418")
 
 
       this.storage.get("AccessToken").then(val => {

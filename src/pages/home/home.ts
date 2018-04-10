@@ -20,6 +20,9 @@ import { LavaHealthProvider } from "../../providers/lava-health/lava-health";
 
 import moment from "moment";
 
+import * as firebase from 'firebase/app';
+import { AngularFireAuth } from "angularfire2/auth";
+
 @Component({
   selector: "page-home",
   templateUrl: "home.html"
@@ -72,6 +75,8 @@ export class HomePage {
   };
 
   constructor(
+
+    public afAuth: AngularFireAuth,
     public modalCtrl: ModalController,
     public navCtrl: NavController,
     private lavaProvider: LavaProvider,
@@ -144,7 +149,9 @@ export class HomePage {
     // );
     // this.workoutsSums$.subscribe(res => {});
 
-    this.health
+
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(c => {
+      this.health
       .isAvailable()
       .then((available: boolean) => {
         console.log(available);
@@ -161,6 +168,10 @@ export class HomePage {
           .catch(e => this.presentAlert(JSON.stringify(e)));
       })
       .catch(e => this.presentAlert(JSON.stringify(e)));
+    }).catch(error => {});
+
+
+
 
     // map(this.workouts$ => {
     //   let array = (value as any).data;
