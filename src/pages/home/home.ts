@@ -150,7 +150,7 @@ export class HomePage {
     // this.workoutsSums$.subscribe(res => {});
 
 
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(c => {
+    // this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(c => {
       this.health
       .isAvailable()
       .then((available: boolean) => {
@@ -168,7 +168,7 @@ export class HomePage {
           .catch(e => this.presentAlert(JSON.stringify(e)));
       })
       .catch(e => this.presentAlert(JSON.stringify(e)));
-    }).catch(error => {});
+    // }).catch(error => {});
 
 
 

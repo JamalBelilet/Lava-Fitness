@@ -17,7 +17,7 @@
     <ion-card-content>
       <ion-list no-lines>
         <button ion-button clear [navPush]="membershipPage">Membership</button>
-        <button ion-button clea (click)="myBooking()">My booking</button>
+        <button ion-button clear (click)="myBooking()">My booking</button>
         <button ion-button clear [navPush]="survayPage">Tell us what you think?</button>
         <!-- <button ion-button clear>Special offers</button> -->
         <button ion-button clear (click)="sendInvitation()">Invite your friends</button>
@@ -50,7 +50,7 @@
 
     <ion-row><ion-icon name="call" item-left></ion-icon><p>{{selectedBranch?.Phone}}</p></ion-row>
     <ion-row><ion-icon name="map" item-left></ion-icon><p>{{selectedBranch?.Address}}</p></ion-row>
-    <ion-row><ion-icon name="ios-navigate" item-left (click)="navigateTo(selectedBranch?.Address)"></ion-icon><button ion-button clear>Get directions</button></ion-row>
+    <ion-row><ion-icon name="ios-navigate" item-left (click)="navigateTo(selectedBranch?.Address)"></ion-icon><button ion-button clear (click)="navigateTo(selectedBranch?.Address)">Get directions</button></ion-row>
   </ion-list>
 
 
