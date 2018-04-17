@@ -52,6 +52,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
+
 
 const FIREBASE_CREDENTIALS = {
   apiKey: "AIzaSyAggtWMxyL84Eq8ZV8X6Hce9Atpu2W-wi8",
@@ -149,7 +152,8 @@ const FIREBASE_CREDENTIALS = {
     Health,
     LavaHealthProvider,
     SocialSharing,
-    LaunchNavigator
+    LaunchNavigator,
+    InAppBrowser
 
   ]
 })

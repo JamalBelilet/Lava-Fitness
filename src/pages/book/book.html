@@ -13,7 +13,8 @@
     <form  *ngIf="_book == 'class'" [formGroup]="reserveExerciseForm" (ngSubmit)="book()">
       <ion-row justify-content-center class="shadow-input">
         <ion-col col-9 align-self-left>
-          <ion-select formControlName="Exercise" text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;">
+          <ion-select #class (ionChange)="selectChanges(class)" [compareWith]="compareFn" formControlName="Exercise" text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;">
+
             <ion-option style="width: 100%; margin: 0; " [value]="null">Choose a class</ion-option>
             <ion-option *ngFor="let class of (classes$ | async)?.data" [value]="class">{{class.ExerciseTitle}}</ion-option>
           </ion-select>
@@ -28,8 +29,8 @@
       </ion-row>
 
       <ion-row>
-        <p>Yoga class | Thuresday | 8:10</p>
-      </ion-row>
+          <p>{{selectedClass?.CoachName}}</p>
+        </ion-row>
 
 
       <ion-row justify-content-center>
@@ -62,7 +63,8 @@
 
       <ion-row justify-content-center class="shadow-input">
         <ion-col col-9 align-self-left>
-          <ion-select formControlName="Service" text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;">
+          <ion-select #selectSession (ionChange)="selectChanges(selectSession.value)" [compareWith]="compareFn" formControlName="Service" text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;">
+
             <ion-option style="width: 100%; margin: 0; " [value]="null">Choose a session</ion-option>
 
             <ion-option *ngFor="let session of (sessions$ | async)?.data" [value]="session">{{session.ServiceName}}</ion-option>
@@ -71,6 +73,11 @@
         </ion-col>
       </ion-row>
 
+      <ion-row>
+        <p>{{selectedSession?.MassagerName}}</p>
+      </ion-row>
+
+
       <ion-row justify-content-center class="shadow-input">
         <ion-col col-9 align-self-left>
           <ion-datetime formControlName="Date" text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;"
@@ -78,9 +85,6 @@
         </ion-col>
       </ion-row>
 
-      <ion-row>
-        <p>Yoga class | Thuresday | 8:10</p>
-      </ion-row>
 
 
       <ion-row justify-content-center>

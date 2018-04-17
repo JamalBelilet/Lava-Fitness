@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Output, EventEmitter } from "@angular/core";
 import { NavController, NavParams, ItemSliding, Item, AlertController, ModalController } from "ionic-angular";
 import { FinishWorkoutPage } from "../finish-workout/finish-workout";
 import { ProfileProvider } from "../../providers/profile/profile";
@@ -16,6 +16,7 @@ import { ProfileProvider } from "../../providers/profile/profile";
 })
 export class WorkoutPage {
   workout;
+  // @Output() finish = new EventEmitter();
   constructor(private profileProvider: ProfileProvider,public navCtrl: NavController, public navParams: NavParams, private modalCtrl: ModalController) {
     this.workout = navParams.data;
   }
@@ -42,8 +43,9 @@ export class WorkoutPage {
   }
 
   public finishWorkout() {
-    console.log('this.profileProvider.finishProgram(this.workout.ID);', this.workout.ID)
-    this.profileProvider.finishProgram(this.workout.ID).subscribe(res => {});
+    this.profileProvider.finishProgram(this.workout.ID).subscribe(res => {
+      // this.finish.emit(this.workout);
+    });
     let modal = this.modalCtrl.create(FinishWorkoutPage, {workoutID: this.workout.ID}).present();
   }
 }

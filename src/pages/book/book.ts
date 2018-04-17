@@ -22,6 +22,9 @@ export class BookPage {
   sessions$: Observable<Object>;
   classes$: Observable<Object>;
 
+  selectedSession;
+  selectedClass;
+
   reserveExerciseForm: FormGroup;
   reserveSessionForm: FormGroup;
 
@@ -42,6 +45,9 @@ export class BookPage {
         ],
         Date: [new Date().toISOString(), Validators.required]
       });
+
+      console.log(this.reserveExerciseForm.controls.Exercise);
+
     } else if (this._book == "session") {
       this.reserveSessionForm = formBuilder.group({
         Service: [
@@ -50,14 +56,40 @@ export class BookPage {
         ],
         Date: [new Date().toISOString(), Validators.required]
       });
+
+      console.log(this.reserveSessionForm.controls.Exercise);
+
     }
+  }
+
+  selectChanges(selected) {
+    if (this._book == "class") {
+
+      this.selectedClass = selected;
+
+
+
+    } else if (this._book == "session") {
+
+      this.selectedSession = selected;
+
+    }
+  }
+
+  compareFn(e1, e2): boolean {
+
+    return e1 && e2 ? e1.ID === e2.ID : e1 === e2;
   }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad BookPage");
 
     console.log(this._book);
-    this.classes$ = this.lavaProvider.getExerciseReservations();
+    this.classes$ = this.lavaProvider.getExerciseSchedules();
+    this.classes$.subscribe(res => {
+      console.error(JSON.stringify(res));
+
+    })
     // this.classes$ = this.assetsProvider.getClasses();
     this.sessions$ = this.lavaProvider.getMassageReservations();
   }

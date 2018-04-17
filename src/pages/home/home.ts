@@ -316,4 +316,9 @@ export class HomePage {
     });
     alert.present();
   }
+
+  goToProfile() {
+    this.navCtrl.parent.select(4);
+
+  }
 }

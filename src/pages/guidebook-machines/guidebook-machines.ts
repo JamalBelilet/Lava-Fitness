@@ -42,4 +42,5 @@ export class GuidebookMachinesPage {
       return listItem;
     });
   }
+
 }

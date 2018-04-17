@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { Platform } from "ionic-angular";
+import { Platform, AlertController } from "ionic-angular";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 
@@ -14,6 +14,8 @@ import { GuidebookMachinesPage } from "../pages/guidebook-machines/guidebook-mac
 import { GuidebookMusclesPage } from "../pages/guidebook-muscles/guidebook-muscles";
 import { Storage } from "@ionic/storage";
 import { AuthenticationProvider } from "../providers/authentication/authentication";
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 
 
 
@@ -24,7 +26,8 @@ export class MyApp {
   rootPage: any = LoginPage;
 
   constructor(
-
+    private iab: InAppBrowser,
+    private alertCtrl: AlertController,
     private auth: AuthenticationProvider,
     platform: Platform,
     statusBar: StatusBar,
@@ -34,7 +37,7 @@ export class MyApp {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      // this.storage.set("AccessToken", "dc2494305d1023c7b7be37dfe9e2b418")
+      this.storage.set("AccessToken", "fb85615cdb316e80787e5a08184f2d04")
 
 
       this.storage.get("AccessToken").then(val => {
@@ -52,6 +55,29 @@ export class MyApp {
       moment.locale("en");
 
       // this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(c => {}).catch(error => {});
+
+
+      let alert = this.alertCtrl.create({
+        title: '',
+        message: 'To get all the features of Lava Fitness, you have to install Google fit from Playstore',
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            handler: () => {
+              console.log('Cancel clicked');
+            }
+          },
+          {
+            text: 'Get Google Fit',
+            handler: () => {
+              this.iab.create('https://play.google.com/store/apps/details?id=com.google.android.apps.fitness', '_system');
+            }
+          }
+        ]
+      });
+      alert.present();
+
     });
   }
 

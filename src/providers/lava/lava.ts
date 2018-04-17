@@ -23,29 +23,15 @@ export class LavaProvider {
     });
   }
 
-  getExerciseSchedules(date: Date) {
-    if (this.authProvider.config.debug) {
-      return of({
-        status: 1,
-        data: {
-          ID: "2410",
-          Date: "2018-02-11 14:00:00",
-          BranchID: "4",
-          BranchName: "\u0645\u062e\u0631\u062c 5",
-          ExerciseID: "7",
-          ExerciseTitle: "jhkhk",
-          CoachID: "103",
-          CoachName: "fjfj",
-          Duration: "45",
-          Capacity: "20",
-          ReservationCount: "0"
-        }
-      });
-    }
+  getExerciseSchedules(date: Date = new Date()) {
+
+    const day = date.getDay() > 9 ? date.getDay() : "0" + date.getDay();
+    const month = date.getMonth() > 9 ? date.getMonth() : "0" + date.getMonth();
+
     return this.http.get(
       `${this.authProvider.config.baseUrl}/web/exercise/index?AccessToken=${
         this.authProvider.config.AccessToken
-      }&BranchID=1&Year=2018&Month=02&Day=11`,
+      }&BranchID=1&Year=${date.getFullYear()}&Month=${month}&Day=${day}&Type=0`,
       { headers: this.authProvider.config.headers }
     );
   }
@@ -94,6 +80,7 @@ export class LavaProvider {
       withCredentials: true
     };
 
+
     console.log(JSON.stringify({
       AccessToken: this.authProvider.config.AccessToken,
       ExerciseScheduleID: exerciseC.Exercise.ExerciseScheduleID
@@ -111,9 +98,9 @@ export class LavaProvider {
 
   getAllMassageReservations() {
     return this.http.get(
-      `${this.authProvider.config.baseUrl}/web/messager/index?AccessToken=${
+      `${this.authProvider.config.baseUrl}/web/}/massage/index?AccessToken=${
         this.authProvider.config.AccessToken
-      }`,
+      }&BranchID=1&Year=2018&Month=02&Day=18&MassagerID=83`,
       { headers: this.authProvider.config.headers }
     );
   }

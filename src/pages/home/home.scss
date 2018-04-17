@@ -122,7 +122,9 @@ page-home {
       // overflow: hidden;
 
       .user-circle-progress {
-        width: 99% !important;
+        max-width: 95% !important;
+        max-height: 100%;
+        margin: 0 auto;
       }
       .user-circle-number {
         position: absolute;
@@ -130,7 +132,7 @@ page-home {
         font-size: 14.14vw;
         font-weight: normal;
         color: #ffffff;
-        top: 5vh;
+        top: 4vh;
         // top: 6.39vh;
         width: 100%;
         text-align: center;
@@ -141,7 +143,7 @@ page-home {
         font-size: 3.19vw;
         font-weight: 300;
         color: #ffffff;
-        top: 13.2vh;
+        top: 13vh;
         // top: 13.2vh;
         width: 100%;
         text-align: center;

@@ -3,12 +3,12 @@
     <ion-title>Home</ion-title>
   </ion-navbar> -->
 
-  <p class="user-name">{{(profile$ | async)?.data.FullName}}</p>
-  <p class="user-active">ACTIVE MEMBER</p>
+  <p class="user-name" (click)="goToProfile()">{{(profile$ | async)?.data.FullName}}</p>
+  <p class="user-active" (click)="goToProfile()">ACTIVE MEMBER</p>
 
   <p class="user-today">This Week</p>
 
-  <img class="user-floors-img" src="assets/imgs/_stairs@2x.png">
+  <img class="user-floors-img" src="assets/imgs/distance-to-travel-between-two-points.png">
   <p class="user-floors-text">distance</p>
   <p class="user-floors-number">{{myDistance || 0}}</p>
 
