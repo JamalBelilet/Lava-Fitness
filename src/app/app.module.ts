@@ -27,8 +27,7 @@ import { ClassShedulePage } from "../pages/class-shedule/class-shedule";
 import { BookPage } from "../pages/book/book";
 import { WeightLogHistoryPage } from "../pages/weight-log-history/weight-log-history";
 
-import { NgCircleProgressModule } from 'ng-circle-progress';
-import {RoundProgressModule} from 'angular-svg-round-progressbar';
+// import { NgCircleProgressModule } from 'ng-circle-progress';
 
 import { Health } from '@ionic-native/health';
 import { LavaHealthProvider } from '../providers/lava-health/lava-health';
@@ -53,6 +52,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { PhotoViewer } from "@ionic-native/photo-viewer";
 
 
 
@@ -102,16 +102,15 @@ const FIREBASE_CREDENTIALS = {
     }),
     IonicStorageModule.forRoot(),
     HttpClientModule,
-    NgCircleProgressModule.forRoot({
-      // set defaults here
-      radius: 100,
-      outerStrokeWidth: 16,
-      innerStrokeWidth: 8,
-      outerStrokeColor: "#78C000",
-      innerStrokeColor: "#C7E596",
-      animationDuration: 300,
-    }),
-    RoundProgressModule,
+    // NgCircleProgressModule.forRoot({
+    //   // set defaults here
+    //   radius: 100,
+    //   outerStrokeWidth: 16,
+    //   innerStrokeWidth: 8,
+    //   outerStrokeColor: "#78C000",
+    //   innerStrokeColor: "#C7E596",
+    //   animationDuration: 300,
+    // }),
     ChartModule,
     AngularFireModule.initializeApp(FIREBASE_CREDENTIALS),
     AngularFireAuthModule
@@ -153,7 +152,8 @@ const FIREBASE_CREDENTIALS = {
     LavaHealthProvider,
     SocialSharing,
     LaunchNavigator,
-    InAppBrowser
+    InAppBrowser,
+    PhotoViewer
 
   ]
 })

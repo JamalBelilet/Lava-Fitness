@@ -5,6 +5,7 @@ import { BookPage } from "../book/book";
 import { LavaProvider } from "../../providers/lava/lava";
 import { Observable } from "rxjs/Observable";
 import { ProfileProvider } from "../../providers/profile/profile";
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 
 /**
  * Generated class for the StarPage page.
@@ -36,6 +37,7 @@ export class StarPage {
 
   classShedule = ClassShedulePage;
   constructor(
+    private photoViewer: PhotoViewer,
     public navCtrl: NavController,
     public navParams: NavParams,
     private modalCtrl: ModalController,
@@ -48,6 +50,10 @@ export class StarPage {
 
     this.bookings$ = this.profileProvider.getServices();
     // this.bookings$ = this.lavaProvider.getExerciseReservations();
+  }
+
+  previewSchedule(imgURL) {
+    this.photoViewer.show('https://mysite.com/path/to/image.jpg');
   }
 
   bookClass() {
