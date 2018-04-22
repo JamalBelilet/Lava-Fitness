@@ -52,6 +52,7 @@ export class PersonPage {
 
   }
 
+
   ionViewDidLoad() {
     console.log("ionViewDidLoad PersonPage");
     this.memberInbodyResults$ = this.profileProvider.getMemberInbodyResults();
@@ -116,7 +117,7 @@ export class PersonPage {
             scales: {
               yAxes: [
                 {
-                  display: false
+                  display: true
                 }
               ]
             }
@@ -152,7 +153,7 @@ export class PersonPage {
             scales: {
               yAxes: [
                 {
-                  display: false
+                  display: true
                 }
               ]
             }

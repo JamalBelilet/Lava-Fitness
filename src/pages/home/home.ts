@@ -84,7 +84,9 @@ export class HomePage {
     private alertCtrl: AlertController,
     private health: Health,
     private LavaHealth: LavaHealthProvider
-  ) {}
+  ) {
+    moment.locale("ar");
+  }
 
   ionViewDidLoad() {
     this.ExerciseReservations$ = this.lavaProvider.getExerciseReservations();
@@ -319,6 +321,18 @@ export class HomePage {
 
   goToProfile() {
     this.navCtrl.parent.select(4);
+
+  }
+
+  showUpcomingBookingsDetails(booking) {
+    let alert = this.alertCtrl.create({
+      title: booking.ExerciseTitle,
+      subTitle: booking.BranchName,
+      message: "مع " + booking.CoachName + "، يوم " + moment(booking.Date).format("DD-MM-YYYY"),
+      buttons: ["Dismiss"]
+
+    });
+    alert.present();
 
   }
 }

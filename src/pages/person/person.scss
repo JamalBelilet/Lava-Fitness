@@ -116,7 +116,7 @@ page-person {
 
     .measuerments-gray {
       position: absolute;
-      top: 3.8 / $sch * 100vh;
+      top: 5 / $sch * 100vh;
       left: 14 / $scw * 100vw;
 
       p.gray {
@@ -132,7 +132,7 @@ page-person {
 
     .measuerments-chart {
       position: absolute;
-      top: 3.8 / $sch * 100vh;
+      top: 2.5 / $sch * 100vh;
       right: 0 / $scw * 100vw;
       width: 40.3 / $scw * 100vw;
       height: (5.5 + 4.3 + 2) / $sch * 100vh;

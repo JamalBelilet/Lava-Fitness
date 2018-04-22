@@ -60,7 +60,7 @@
         <ion-icon name="add"></ion-icon>
       </button>
     </ion-slide>
-    <ion-slide class="bookings-section-slides-slide" *ngFor="let booking of (upcommingExercises | async)?.data">
+    <ion-slide class="bookings-section-slides-slide" *ngFor="let booking of (upcommingExercises | async)?.data" (click)="showUpcomingBookingsDetails(booking)">
       <p class="bookings-title">{{booking?.ExerciseTitle}}</p>
       <p class="bookings-wk">{{booking?.Duration}}</p>
       <ion-row no-padding class="bookings-row">

@@ -21,6 +21,10 @@ export class HeartPage {
   myMonthSteps: any;
   myWeekSteps: any;
   mySteps: any;
+
+  myWeekDistance: any;
+  myDistance: any;
+
   selectedSegment = "workouts";
   selectedOption = "weeks";
 
@@ -136,10 +140,28 @@ export class HeartPage {
             this.getStepsMonth();
             this.getStepsPerWeek();
             this.getStepsPerDay();
+            this.getDistance();
+            this.getWeekDistance();
           })
           .catch(e => {});
       })
       .catch(e => {});
+  }
+
+  getDistance() {
+    this.LavaHealth.getDistance()
+      .then(data => {
+        this.myDistance = (data as any).value;
+      })
+      .catch(error => {});
+  }
+
+  getWeekDistance() {
+    this.LavaHealth.getWeekDistance()
+      .then(data => {
+        this.myWeekDistance = (data as any).value;
+      })
+      .catch(error => {});
   }
 
   getSteps() {
