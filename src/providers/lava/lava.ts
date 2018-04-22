@@ -90,7 +90,7 @@ export class LavaProvider {
       `${this.authProvider.config.baseUrl}/web/exercise/reserve`,
       JSON.stringify({
         AccessToken: this.authProvider.config.AccessToken,
-        ExerciseScheduleID: exerciseC.Exercise.ExerciseScheduleID
+        ExerciseScheduleID: exerciseC.Date.ExerciseScheduleID
       }),
       options
     );
@@ -125,19 +125,19 @@ export class LavaProvider {
 
     console.log(JSON.stringify({
       AccessToken: this.authProvider.config.AccessToken,
-      ServiceID: ServiceC.Service.ServiceID,
-      BranchID: ServiceC.Service.BranchID,
-      MassagerID: ServiceC.Service.MassagerID,
-      Date: ServiceC.Service.Date
+      ServiceID: ServiceC.Date.ServiceID,
+      BranchID: ServiceC.Date.BranchID,
+      MassagerID: ServiceC.Date.MassagerID,
+      Date: ServiceC.Date.Date
     }));
     return this.http.post(
       `${this.authProvider.config.baseUrl}/web/massage/reserve`,
       JSON.stringify({
         AccessToken: this.authProvider.config.AccessToken,
-        ServiceID: ServiceC.Service.ServiceID,
-        BranchID: ServiceC.Service.BranchID,
-        MassagerID: ServiceC.Service.MassagerID,
-        Date: ServiceC.Service.Date
+        ServiceID: ServiceC.Date.ServiceID,
+        BranchID: ServiceC.Date.BranchID,
+        MassagerID: ServiceC.Date.MassagerID,
+        Date: ServiceC.Date.Date
       }),
       options
     );

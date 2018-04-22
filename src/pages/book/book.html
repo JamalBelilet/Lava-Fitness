@@ -10,27 +10,46 @@
       <h2 *ngIf="_book == 'class'">Book a Class</h2>
     </ion-row>
 
-    <form  *ngIf="_book == 'class'" [formGroup]="reserveExerciseForm" (ngSubmit)="book()">
+    <form *ngIf="_book == 'class'" [formGroup]="reserveExerciseForm" (ngSubmit)="book()">
       <ion-row justify-content-center class="shadow-input">
         <ion-col col-9 align-self-left>
-          <ion-select #class (ionChange)="selectChanges(class)" [compareWith]="compareFn" formControlName="Exercise" text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;">
+          <ion-select #class (ionChange)="selectChanges(class.value)" [compareWith]="compareFn" formControlName="Exercise" text-center
+            style="width: 100%; margin: 0; max-width: 100%; color: #999!important;">
 
             <ion-option style="width: 100%; margin: 0; " [value]="null">Choose a class</ion-option>
-            <ion-option *ngFor="let class of (classes$ | async)?.data" [value]="class">{{class.ExerciseTitle}}</ion-option>
+            <ion-option *ngFor="let class of (classes$ | async)?.data" [value]="class" style="width: 100%; margin: 0; max-width: 100%; color: #999!important; background-color: red">
+              {{class.key}}
+            </ion-option>
           </ion-select>
         </ion-col>
       </ion-row>
 
       <ion-row justify-content-center class="shadow-input">
         <ion-col col-9 align-self-left>
-          <ion-datetime formControlName="Date" text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;"
-            displayFormat="MM/DD/YYYY"></ion-datetime>
+          <ion-select  formControlName="Date" [disabled]="!selectedClass?.data" #date (ionChange)="selectDate(date.value)" text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;">
+            <ion-option style="width: 100%; margin: 0; " [value]="null">Choose a Date</ion-option>
+            <ion-option *ngFor="let class of selectedClass?.data" [value]="class" style="width: 100%; margin: 0; max-width: 100%; color: #999!important; background-color: red">
+              {{class.Date}}
+            </ion-option>
+          </ion-select>
         </ion-col>
       </ion-row>
 
-      <ion-row>
-          <p>{{selectedClass?.CoachName}}</p>
-        </ion-row>
+      <ion-row justify-content-center class="shadow-input-l shadow-input">
+
+        <ion-col col-9 align-self-left>
+          <ion-input [readonly]="true" [value]="selectedClassDate?.CoachName || 'Coach'" #coach text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row justify-content-center class="shadow-input-ll shadow-input">
+
+        <ion-col col-9 align-self-left>
+          <ion-input [readonly]="true" [value]="selectedClassDate?.BranchName || 'Branch'" #coach text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;">
+          </ion-input>
+        </ion-col>
+      </ion-row>
 
 
       <ion-row justify-content-center>
@@ -58,32 +77,47 @@
 
 
 
-    <form  *ngIf="_book == 'session'" [formGroup]="reserveSessionForm" (ngSubmit)="book()">
-
+    <form *ngIf="_book == 'session'" [formGroup]="reserveSessionForm" (ngSubmit)="book()">
 
       <ion-row justify-content-center class="shadow-input">
         <ion-col col-9 align-self-left>
-          <ion-select #selectSession (ionChange)="selectChanges(selectSession.value)" [compareWith]="compareFn" formControlName="Service" text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;">
+          <ion-select #selectSession (ionChange)="selectChanges(selectSession.value)" [compareWith]="compareFn" formControlName="Service"
+            text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;">
 
             <ion-option style="width: 100%; margin: 0; " [value]="null">Choose a session</ion-option>
 
-            <ion-option *ngFor="let session of (sessions$ | async)?.data" [value]="session">{{session.ServiceName}}</ion-option>
+            <ion-option *ngFor="let session of (sessions$ | async)?.data" [value]="session">{{session.key}}</ion-option>
 
           </ion-select>
         </ion-col>
       </ion-row>
 
-      <ion-row>
-        <p>{{selectedSession?.MassagerName}}</p>
-      </ion-row>
-
-
       <ion-row justify-content-center class="shadow-input">
-        <ion-col col-9 align-self-left>
-          <ion-datetime formControlName="Date" text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;"
-            displayFormat="MM/DD/YYYY"></ion-datetime>
-        </ion-col>
-      </ion-row>
+          <ion-col col-9 align-self-left>
+            <ion-select  formControlName="Date" [disabled]="!selectedSession?.data" #date (ionChange)="selectDate(date.value)" text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;">
+              <ion-option style="width: 100%; margin: 0; " [value]="null">Choose a Date</ion-option>
+              <ion-option *ngFor="let session of selectedSession?.data" [value]="session" style="width: 100%; margin: 0; max-width: 100%; color: #999!important; background-color: red">
+                {{session.Date}}
+              </ion-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+
+        <ion-row justify-content-center class="shadow-input-l shadow-input">
+
+          <ion-col col-9 align-self-left>
+            <ion-input [readonly]="true" [value]="selectedSessionDate?.MassagerName || 'Massager'" #coach text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;">
+            </ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row justify-content-center class="shadow-input-ll shadow-input">
+
+          <ion-col col-9 align-self-left>
+            <ion-input [readonly]="true" [value]="selectedSessionDate?.BranchName || 'Branch'" #coach text-center style="width: 100%; margin: 0; max-width: 100%; color: #999!important;">
+            </ion-input>
+          </ion-col>
+        </ion-row>
 
 
 
