@@ -20,8 +20,8 @@
     </ion-thumbnail>
     <div class="measuerments-gray">
       <p class="gray">over</p>
-      <h2>{{(memberInbodyResults$ | async)?.data[0].Weight}}kg</h2>
-      <p class="gray">goal 53 kg</p>
+      <h2>{{(memberMeasurements$ | async)?.data[0].Weight}}kg</h2>
+      <!-- <p class="gray">goal 53 kg</p> -->
     </div>
     <div class="measuerments-chart">
       <canvas #lineCanvasWeight></canvas>
@@ -39,80 +39,40 @@
     <ion-item no-lines class="analysis-header">
       <img src="assets/icon/analysis.svg" item-start>
       <p>Analysis</p>
-      <p class="gray" item-end>last measured: 4 weeks ago</p>
+      <p class="gray" item-end>last measured: {{(memberInbodyResults$ | async)?.data[0].CreationDate}}</p>
     </ion-item>
 
     <ion-slides slidesPerView="2.5">
       <ion-slide>
-        <ion-card class="analysis-card" [navPush]="weightLogHistoryPage">
+        <ion-card class="analysis-card" [navPush]="weightLogHistoryPage" [navParams]="{dataC: (memberInbodyResults$ | async)?.data, selectedC: 'SMM'}">
           <p class="analysis-card-hover">over</p>
           <img src="assets/icon/weight.svg">
           <p class="analysis-card-header">SMM</p>
           <p class="analysis-card-average">{{(memberInbodyResults$ | async)?.data[0].SMM}} kg</p>
-          <p class="analysis-card-gray">normal 15 - 25</p>
+          <!-- <p class="analysis-card-gray">normal 15 - 25</p> -->
           <canvas #lineCanvasSMM></canvas>
         </ion-card>
       </ion-slide>
       <ion-slide>
-        <ion-card class="analysis-card" [navPush]="weightLogHistoryPage">
+        <ion-card class="analysis-card" [navPush]="weightLogHistoryPage" [navParams]="{dataC: (memberInbodyResults$ | async)?.data, selectedC: 'PBF'}">
           <p class="analysis-card-hover">over</p>
           <img src="assets/icon/Energy.svg">
           <p class="analysis-card-header">PBF</p>
           <p class="analysis-card-average">{{(memberInbodyResults$ | async)?.data[0].PBF}}%</p>
-          <p class="analysis-card-gray">normal 15 - 25</p>
+          <!-- <p class="analysis-card-gray">normal 15 - 25</p> -->
           <canvas #lineCanvasPBF></canvas>
         </ion-card>
       </ion-slide>
       <ion-slide>
-        <ion-card class="analysis-card" [navPush]="weightLogHistoryPage">
+        <ion-card class="analysis-card" [navPush]="weightLogHistoryPage" [navParams]="{dataC: (memberMeasurements$ | async)?.data, selectedC: 'Weight'}">
           <p class="analysis-card-hover">over</p>
           <img src="assets/icon/analysis.svg">
           <p class="analysis-card-header">Weight</p>
-          <p class="analysis-card-average">{{(memberInbodyResults$ | async)?.data[0].Weight}} KG</p>
+          <p class="analysis-card-average">{{(memberMeasurements$ | async)?.data[0].Weight}} KG</p>
           <!-- <p class="analysis-card-gray">normal 18 - 25</p> -->
           <canvas #lineCanvasWeightSub></canvas>
         </ion-card>
       </ion-slide>
-      <!-- <ion-slide>
-        <ion-card class="analysis-card" [navPush]="weightLogHistoryPage">
-          <p class="analysis-card-hover">over</p>
-          <img src="assets/icon/analysis.svg">
-          <p class="analysis-card-header">Musle Fat Mass</p>
-          <p class="analysis-card-average">{{(memberInbodyResults$ | async)?.data[0].MusleFatMass}}</p>
-          <p class="analysis-card-gray">normal 18 - 25</p>
-          <canvas #lineCanvas1></canvas>
-        </ion-card>
-      </ion-slide>
-      <ion-slide>
-        <ion-card class="analysis-card" [navPush]="weightLogHistoryPage">
-          <p class="analysis-card-hover">over</p>
-          <img src="assets/icon/analysis.svg">
-          <p class="analysis-card-header">Basal Metabolic Rate</p>
-          <p class="analysis-card-average">{{(memberInbodyResults$ | async)?.data[0].BasalMetabolicRate}}</p>
-          <p class="analysis-card-gray">normal 18 - 25</p>
-          <canvas #lineCanvas1></canvas>
-        </ion-card>
-      </ion-slide>
-      <ion-slide>
-        <ion-card class="analysis-card" [navPush]="weightLogHistoryPage">
-          <p class="analysis-card-hover">over</p>
-          <img src="assets/icon/analysis.svg">
-          <p class="analysis-card-header">Dry Lean Mass</p>
-          <p class="analysis-card-average">{{(memberInbodyResults$ | async)?.data[0].DryLeanMass}}</p>
-          <p class="analysis-card-gray">normal 18 - 25</p>
-          <canvas #lineCanvas1></canvas>
-        </ion-card>
-      </ion-slide>
-      <ion-slide>
-        <ion-card class="analysis-card" [navPush]="weightLogHistoryPage">
-          <p class="analysis-card-hover">over</p>
-          <img src="assets/icon/analysis.svg">
-          <p class="analysis-card-header">Total Body Water</p>
-          <p class="analysis-card-average">{{(memberInbodyResults$ | async)?.data[0].TotalBodyWater}}</p>
-          <p class="analysis-card-gray">normal 18 - 25</p>
-          <canvas #lineCanvas1></canvas>
-        </ion-card>
-      </ion-slide> -->
 
     </ion-slides>
   </ion-item>
@@ -130,35 +90,35 @@
         <p class="body-segments-title">Arm</p>
         <p *ngIf="(memberMeasurements$ | async)?.data[0].Arm" class="body-segments-measuerments">{{(memberMeasurements$ | async)?.data[0].Arm}} cm</p>
         <p *ngIf="!(memberMeasurements$ | async)?.data[0].Arm" class="body-segments-measuerments">..</p>
-        <p class="body-segments-gray">38cm a year ago</p>
+        <!-- <p class="body-segments-gray">38cm a year ago</p> -->
       </div>
       <div class="waist">
         <p class="body-segments-title">Waist</p>
         <p *ngIf="(memberMeasurements$ | async)?.data[0].Waist" class="body-segments-measuerments">{{(memberMeasurements$ | async)?.data[0].Waist}} cm</p>
         <p *ngIf="!(memberMeasurements$ | async)?.data[0].Waist" class="body-segments-measuerments">..</p>
-        <p class="body-segments-gray">38cm a year ago</p>
+        <!-- <p class="body-segments-gray">38cm a year ago</p> -->
       </div>
       <div class="legs">
         <p class="body-segments-title">Legs</p>
         <p *ngIf="(memberMeasurements$ | async)?.data[0].Legs" class="body-segments-measuerments">{{(memberMeasurements$ | async)?.data[0].Legs}} cm</p>
         <p *ngIf="!(memberMeasurements$ | async)?.data[0].Legs" class="body-segments-measuerments">..</p>
-        <p class="body-segments-gray">38cm a year ago</p>
+        <!-- <p class="body-segments-gray">38cm a year ago</p> -->
       </div>
       <div class="hips">
         <p class="body-segments-title">Chest</p>
         <p *ngIf="(memberMeasurements$ | async)?.data[0].Chest" class="body-segments-measuerments">{{(memberMeasurements$ | async)?.data[0].Chest}} cm</p>
         <p *ngIf="!(memberMeasurements$ | async)?.data[0].Chest" class="body-segments-measuerments">..</p>
-        <p class="body-segments-gray">38cm a year ago</p>
+        <!-- <p class="body-segments-gray">38cm a year ago</p> -->
       </div>
       <div class="chest">
         <p class="body-segments-title">Hips </p>
         <p *ngIf="(memberMeasurements$ | async)?.data[0].Hips" class="body-segments-measuerments">{{(memberMeasurements$ | async)?.data[0].Hips}} cm</p>
         <p *ngIf="!(memberMeasurements$ | async)?.data[0].Hips" class="body-segments-measuerments">..</p>
-        <p class="body-segments-gray">38cm a year ago</p>
+        <!-- <p class="body-segments-gray">38cm a year ago</p> -->
       </div>
 
-      <button clear class="body-card-full-history" [navPush]="bodyWeightLogHistoryPage">SEE FULL HISTORY</button>
-      <p>last measured: 4 weeks ago</p>
+      <button clear class="body-card-full-history" [navPush]="bodyWeightLogHistoryPage" [navParams]="(memberMeasurements$ | async)?.data">SEE FULL HISTORY</button>
+      <p>last measured: {{(memberMeasurements$ | async)?.data[0].CreationDate}}</p>
     </ion-card>
 
   </ion-item>

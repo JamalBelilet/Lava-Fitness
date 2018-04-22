@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { Chart } from "chart.js";
+import moment from "moment";
 
 /**
  * Generated class for the WeightLogHistoryPage page.
@@ -20,8 +21,17 @@ export class WeightLogHistoryPage {
   lineChart: any;
 
   selectedHistory = 'sixmounths';
+  memberInbodyResults = [];
+  selectedC;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.memberInbodyResults = navParams.data.dataC;
+    this.selectedC = navParams.data.selectedC;
+
+    this.memberInbodyResults = this.memberInbodyResults.map(meus => {
+      meus.CreationDate = moment(meus.CreationDate).format("MM/DD/YYYY");
+      return meus;
+    })
   }
 
   ionViewDidLoad() {
@@ -35,7 +45,7 @@ export class WeightLogHistoryPage {
             backgroundColor: ["rgba(34, 195, 204, 0)"],
             borderColor: ["#22c3cc"],
             borderWidth: 3.5,
-            data: [100, 50, 150, 30, 50]
+            data: this.memberInbodyResults.map(d => d[this.selectedC]).reverse()
           }
         ]
       },

@@ -39,9 +39,9 @@
   <h2 class="history-title">history</h2>
 
   <ion-list no-lines>
-    <ion-item *ngFor="let i of [3,3,3,3,3,3,3]">
-      <p item-start>11/10/2017</p>
-      <h2 item-end>61 kg</h2>
+    <ion-item *ngFor="let memberInbodyResult of memberInbodyResults">
+      <p item-start>{{memberInbodyResult.CreationDate}}</p>
+      <h2 item-end>{{memberInbodyResult[this.selectedC]}} kg</h2>
     </ion-item>
   </ion-list>
 

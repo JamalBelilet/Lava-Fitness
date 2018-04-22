@@ -5,13 +5,13 @@
   </ion-navbar>
 
   <ion-toolbar>
-    <ion-segment [(ngModel)]="selectedHistory" color="lava">
-      <ion-segment-button value="arms">Arms</ion-segment-button>
-      <ion-segment-button value="chest">Chest</ion-segment-button>
-      <ion-segment-button value="waist">Waist</ion-segment-button>
-      <ion-segment-button value="hips">Hips</ion-segment-button>
-      <ion-segment-button value="thinght">Thinght</ion-segment-button>
-      <ion-segment-button value="legs">Legs</ion-segment-button>
+    <ion-segment [(ngModel)]="selectedHistory" (ionChange)="onSegmentChange()" color="lava">
+      <ion-segment-button value="Arm">Arm</ion-segment-button>
+      <ion-segment-button value="Chest">Chest</ion-segment-button>
+      <ion-segment-button value="Waist">Waist</ion-segment-button>
+      <ion-segment-button value="Hips">Hips</ion-segment-button>
+      <ion-segment-button value="Thinght">Thinght</ion-segment-button>
+      <ion-segment-button value="Legs">Legs</ion-segment-button>
     </ion-segment>
 
 
@@ -41,7 +41,7 @@
       <ion-col col-9>
         <ion-row>
           <ion-col>
-            <h2>Arms</h2>
+            <h2>Arm</h2>
           </ion-col>
           <ion-col>
             <h2>Chest</h2>
@@ -63,30 +63,30 @@
       </ion-col>
     </ion-row>
 
-    <ion-row *ngFor="let i of [3,3,3,3,3,3,3]">
+    <ion-row *ngFor="let measur of this.memberMeasurements">
       <ion-col col-3>
-        <h2>11/10/2017</h2>
+        <h2>{{measur.CreationDate}}</h2>
       </ion-col>
       <ion-col col-9>
         <ion-row>
           <ion-col>
-            <h2>36cm</h2>
+            <h2>{{measur.Arm}}</h2>
           </ion-col>
           <ion-col>
-            <h2>36cm</h2>
+            <h2>{{measur.Chest}}</h2>
           </ion-col>
           <ion-col>
-            <h2>36cm</h2>
+            <h2>{{measur.Waist}}</h2>
           </ion-col>
 
           <ion-col>
-            <h2>36cm</h2>
+            <h2>{{measur.Hips}}</h2>
           </ion-col>
           <ion-col>
-            <h2>36cm</h2>
+            <h2>{{measur.Thights}}</h2>
           </ion-col>
           <ion-col>
-            <h2>36cm</h2>
+            <h2>{{measur.Legs}}</h2>
           </ion-col>
         </ion-row>
       </ion-col>

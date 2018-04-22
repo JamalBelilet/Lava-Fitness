@@ -6,6 +6,7 @@ import { WeightLogHistoryPage } from "../weight-log-history/weight-log-history";
 import { BodyWeightLogHistoryPage } from "../body-weight-log-history/body-weight-log-history";
 import { ProfileProvider } from "../../providers/profile/profile";
 import { Observable } from "rxjs/Observable";
+import { map } from "rxjs/operators";
 
 /**
  * Generated class for the PersonPage page.
@@ -41,7 +42,15 @@ export class PersonPage {
   memberInbodyResults$: Observable<Object>;
   memberMeasurements$: Observable<Object>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private profileProvider: ProfileProvider) {}
+
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private profileProvider: ProfileProvider
+  ) {
+
+  }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad PersonPage");
@@ -49,166 +58,203 @@ export class PersonPage {
 
     this.memberMeasurements$ = this.profileProvider.getMemberMeasurements();
 
+    this.memberInbodyResults$.pipe(
+      map(res => {
+        (res as any).data = (res as any).data.sort(function(
+          measurementA,
+          measurementB
+        ) {
+          return (
+            new Date(measurementA.CreationDate) <
+            new Date(measurementB.CreationDate)
+          );
+        });
 
-    this.memberInbodyResults$.subscribe(res => console.log(res));
-
-
-    this.lineChartWeight = new Chart(this.lineCanvasWeight.nativeElement, {
-      type: "line",
-      data: {
-        datasets: [
-          {
-            backgroundColor: ["rgba(34, 195, 204, 0.125)"],
-            borderColor: ["#22c3cc"],
-            borderWidth: 1,
-            data: [100, 20, 150, 30, 0]
+        let dataC = (res as any).data[0];
+        console.log(dataC);
+        console.log(1);
+        console.log(dataC);
+        this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
+          type: "doughnut",
+          data: {
+            labels: ["Fats", "Water"],
+            datasets: [
+              {
+                data: [dataC.BodyFatMass / dataC.Weight * 100, dataC.TotalBodyWater / dataC.Weight * 100, 100 - (dataC.BodyFatMass / dataC.Weight * 100 + dataC.TotalBodyWater / dataC.Weight * 100)],
+                backgroundColor: ["#22c3cc", "#65a4ed", "#aaaaaa"],
+                hoverBackgroundColor: ["#22c3cc", "#65a4ed", "#aaaaaa"]
+              }
+            ]
           }
-        ]
-      },
-      options: {
-        layout: {
-          padding: {
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0
-          }
-        },
-        legend: { display: false },
-        title: {
-          display: true,
-          text: "last weight 4 weaks ago",
-          fontSize: 8,
-          color: "#bababa"
-        },
-        scales: {
-          yAxes: [
-            {
+        });
+
+        this.lineChartSMM = new Chart(this.lineCanvasSMM.nativeElement, {
+          type: "line",
+          data: {
+            datasets: [
+              {
+                backgroundColor: ["rgba(34, 195, 204, 0.125)"],
+                borderColor: ["#22c3cc"],
+                borderWidth: 1,
+                data: (res as any).data.map(d => d.SMM).reverse()
+              }
+            ]
+          },
+          options: {
+            layout: {
+              padding: {
+                left: 0,
+                right: 0,
+                top: 0,
+                bottom: 0
+              }
+            },
+            legend: { display: false },
+            title: {
               display: false
+            },
+            scales: {
+              yAxes: [
+                {
+                  display: false
+                }
+              ]
             }
-          ],
-
-        }
-      }
-    });
-
-    this.lineChartWeightSub = new Chart(this.lineCanvasWeightSub.nativeElement, {
-      type: "line",
-      data: {
-        datasets: [
-          {
-            backgroundColor: ["rgba(34, 195, 204, 0.125)"],
-            borderColor: ["#22c3cc"],
-            borderWidth: 1,
-            data: [100, 20, 150, 30, 0]
           }
-        ]
-      },
-      options: {
-        layout: {
-          padding: {
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0
-          }
-        },
-        legend: { display: false },
-        title: {
-          display: false,
-        },
-        scales: {
-          yAxes: [
-            {
+        });
+
+        this.lineChartPBF = new Chart(this.lineCanvasPBF.nativeElement, {
+          type: "line",
+          data: {
+            datasets: [
+              {
+                backgroundColor: ["rgba(34, 195, 204, 0.125)"],
+                borderColor: ["#22c3cc"],
+                borderWidth: 1,
+                data: (res as any).data.map(d => d.PBF).reverse()
+
+              }
+            ]
+          },
+          options: {
+            layout: {
+              padding: {
+                left: 0,
+                right: 0,
+                top: 0,
+                bottom: 0
+              }
+            },
+            legend: { display: false },
+            title: {
               display: false
+            },
+            scales: {
+              yAxes: [
+                {
+                  display: false
+                }
+              ]
             }
-          ]
-        }
-      }
-    });
+          }
+        });
 
-    this.lineChartSMM = new Chart(this.lineCanvasSMM.nativeElement, {
-      type: "line",
-      data: {
-        datasets: [
-          {
-            backgroundColor: ["rgba(34, 195, 204, 0.125)"],
-            borderColor: ["#22c3cc"],
-            borderWidth: 1,
-            data: [100, 20, 150, 30, 0]
-          }
-        ]
-      },
-      options: {
-        layout: {
-          padding: {
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0
-          }
-        },
-        legend: { display: false },
-        title: {
-          display: false,
-        },
-        scales: {
-          yAxes: [
-            {
-              display: false
+      })
+    ).subscribe(re => {});
+
+    this.memberMeasurements$ = this.memberMeasurements$.pipe(
+      map(res => {
+        (res as any).data = (res as any).data.sort(function(
+          measurementA,
+          measurementB
+        ) {
+          return (
+            new Date(measurementA.CreationDate) <
+            new Date(measurementB.CreationDate)
+          );
+        });
+
+        this.lineChartWeight = new Chart(this.lineCanvasWeight.nativeElement, {
+          type: "line",
+          data: {
+            datasets: [
+              {
+                backgroundColor: ["rgba(34, 195, 204, 0.125)"],
+                borderColor: ["#22c3cc"],
+                borderWidth: 1,
+                data: (res as any).data.map(d => d.Weight).reverse()
+              }
+            ]
+          },
+          options: {
+            layout: {
+              padding: {
+                left: 0,
+                right: 0,
+                top: 0,
+                bottom: 0
+              }
+            },
+            legend: { display: false },
+            title: {
+              display: true,
+              text: `last weight: ${(res as any).data[0].CreationDate}`,
+              fontSize: 8,
+              color: "#bababa"
+            },
+            scales: {
+              yAxes: [
+                {
+                  display: true
+                }
+              ]
             }
-          ]
-        }
-      }
-    });
+          }
+        });
 
-    this.lineChartPBF = new Chart(this.lineCanvasPBF.nativeElement, {
-      type: "line",
-      data: {
-        datasets: [
+        this.lineChartWeightSub = new Chart(
+          this.lineCanvasWeightSub.nativeElement,
           {
-            backgroundColor: ["rgba(34, 195, 204, 0.125)"],
-            borderColor: ["#22c3cc"],
-            borderWidth: 1,
-            data: [100, 20, 150, 30, 0]
-          }
-        ]
-      },
-      options: {
-        layout: {
-          padding: {
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0
-          }
-        },
-        legend: { display: false },
-        title: {
-          display: false,
-        },
-        scales: {
-          yAxes: [
-            {
-              display: false
+            type: "line",
+            data: {
+              datasets: [
+                {
+                  backgroundColor: ["rgba(34, 195, 204, 0.125)"],
+                  borderColor: ["#22c3cc"],
+                  borderWidth: 1,
+                  data: (res as any).data.map(d => d.Weight).reverse()
+                }
+              ]
+            },
+            options: {
+              layout: {
+                padding: {
+                  left: 0,
+                  right: 0,
+                  top: 0,
+                  bottom: 0
+                }
+              },
+              legend: { display: false },
+              title: {
+                display: false
+              },
+              scales: {
+                yAxes: [
+                  {
+                    display: false
+                  }
+                ]
+              }
             }
-          ]
-        }
-      }
-    });
-
-    this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
-      type: "doughnut",
-      data: {
-        labels: ["Fats", "Minirals", "Water", "Protein"],
-        datasets: [
-          {
-            data: [50, 4, 20, 10],
-            backgroundColor: ["#22c3cc", "#22c3cc", "#65a4ed", "#50e3c2"],
-            hoverBackgroundColor: ["#22c3cc", "#22c3cc", "#65a4ed", "#50e3c2"]
           }
-        ]
-      }
-    });
+        );
+
+        return res;
+      })
+    );
+
+
+
   }
 }
