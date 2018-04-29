@@ -25,19 +25,20 @@ export class LavaProvider {
     });
   }
 
-  getExerciseSchedules(dateC, monthC, year) {
-
+  getExerciseSchedules(branchID, dateC, monthC, year) {
     const date = dateC > 9 ? dateC : "0" + dateC;
     const month = monthC > 9 ? monthC : "0" + monthC;
 
-    console.log(`${this.authProvider.config.baseUrl}/web/exercise/index?AccessToken=${
-      this.authProvider.config.AccessToken
-    }&BranchID=1&Year=${year}&Month=${month}&Day=${date}&Type=0`)
+    console.log(
+      `${this.authProvider.config.baseUrl}/web/exercise/index?AccessToken=${
+        this.authProvider.config.AccessToken
+      }&BranchID=${branchID}&Year=${year}&Month=${month}&Day=${date}&Type=0`
+    );
 
     return this.http.get(
       `${this.authProvider.config.baseUrl}/web/exercise/index?AccessToken=${
         this.authProvider.config.AccessToken
-      }&BranchID=1&Year=${year}&Month=${month}&Day=${date}&Type=0`,
+      }&BranchID=${branchID}&Year=${year}&Month=${month}&Day=${date}&Type=0`,
       { headers: this.authProvider.config.headers }
     );
   }
@@ -86,11 +87,12 @@ export class LavaProvider {
       withCredentials: true
     };
 
-
-    console.log(JSON.stringify({
-      AccessToken: this.authProvider.config.AccessToken,
-      ExerciseScheduleID: ExerciseScheduleIDC
-    }))
+    console.log(
+      JSON.stringify({
+        AccessToken: this.authProvider.config.AccessToken,
+        ExerciseScheduleID: ExerciseScheduleIDC
+      })
+    );
 
     return this.http.post(
       `${this.authProvider.config.baseUrl}/web/exercise/reserve`,
@@ -102,11 +104,26 @@ export class LavaProvider {
     );
   }
 
-  getAllMassageReservations() {
+  // const date = dateC > 9 ? dateC : "0" + dateC;
+  //   const month = monthC > 9 ? monthC : "0" + monthC;
+
+  //   console.log(`${this.authProvider.config.baseUrl}/web/exercise/index?AccessToken=${
+  //     this.authProvider.config.AccessToken
+  //   }&BranchID=1&Year=${year}&Month=${month}&Day=${date}&Type=0`)
+
+  //   return this.http.get(
+  //     `${this.authProvider.config.baseUrl}/web/exercise/index?AccessToken=${
+  //       this.authProvider.config.AccessToken
+  //     }&BranchID=1&Year=${year}&Month=${month}&Day=${date}&Type=0`,
+  //     { headers: this.authProvider.config.headers }
+  //   );
+  getAllMassageReservations(BranchID, MassagerID, dateC, monthC, year) {
+    const date = dateC > 9 ? dateC : "0" + dateC;
+    const month = monthC > 9 ? monthC : "0" + monthC;
     return this.http.get(
-      `${this.authProvider.config.baseUrl}/web/}/massage/index?AccessToken=${
+      `${this.authProvider.config.baseUrl}/web/massage/index?AccessToken=${
         this.authProvider.config.AccessToken
-      }&BranchID=1&Year=2018&Month=02&Day=18&MassagerID=83`,
+      }&BranchID=${BranchID}&Year=${year}&Month=${month}&Day=${date}&MassagerID=${MassagerID}&Type=0`,
       { headers: this.authProvider.config.headers }
     );
   }
@@ -129,21 +146,23 @@ export class LavaProvider {
       withCredentials: true
     };
 
-    console.log(JSON.stringify({
-      AccessToken: this.authProvider.config.AccessToken,
-      ServiceID: ServiceC.Date.ServiceID,
-      BranchID: ServiceC.Date.BranchID,
-      MassagerID: ServiceC.Date.MassagerID,
-      Date: moment(ServiceC.Date.Date).locale("en")
-    }));
+    console.log(
+      JSON.stringify({
+        AccessToken: this.authProvider.config.AccessToken,
+        ServiceID: ServiceC.ServiceID,
+        BranchID: ServiceC.BranchID,
+        MassagerID: ServiceC.MassagerID,
+        Date: moment(ServiceC.Date).locale("en")
+      })
+    );
     return this.http.post(
       `${this.authProvider.config.baseUrl}/web/massage/reserve`,
       JSON.stringify({
         AccessToken: this.authProvider.config.AccessToken,
-        ServiceID: ServiceC.Date.ServiceID,
-        BranchID: ServiceC.Date.BranchID,
-        MassagerID: ServiceC.Date.MassagerID,
-        Date: moment(ServiceC.Date.Date).locale("en")
+        ServiceID: ServiceC.ServiceID,
+        BranchID: ServiceC.BranchID,
+        MassagerID: ServiceC.MassagerID,
+        Date: moment(ServiceC.Date).locale("en")
       }),
       options
     );

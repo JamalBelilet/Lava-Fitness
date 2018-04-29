@@ -56,6 +56,7 @@ import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { PhotoViewer } from "@ionic-native/photo-viewer";
 import { ClassesBookingPage } from "../pages/classes-booking/classes-booking";
+import { ServicesBookingPage } from "../pages/services-booking/services-booking";
 
 
 
@@ -91,7 +92,8 @@ const FIREBASE_CREDENTIALS = {
 
     MomentPipe,
     ExpandableComponent,
-    ClassesBookingPage
+    ClassesBookingPage,
+    ServicesBookingPage
 
 
   ],
@@ -138,7 +140,8 @@ const FIREBASE_CREDENTIALS = {
     BodyWeightLogHistoryPage,
     GuidebookMusclesPage,
     ExpandableComponent,
-    ClassesBookingPage
+    ClassesBookingPage,
+    ServicesBookingPage
 
 
 

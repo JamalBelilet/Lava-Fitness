@@ -1,4 +1,5 @@
-page-classes-booking {
+page-services-booking {
+
   $sch: 202;
   $scw: 93.8;
   // .fixed-content {
@@ -74,25 +75,20 @@ page-classes-booking {
     background-position: top center;
     background-repeat: no-repeat;
 
+
     ion-card {
       ion-card-header {
-        background: linear-gradient(
-          to bottom,
-          rgba(47, 181, 191, 1) 0%,
-          rgba(33, 193, 202, 1) 100%
-        );
+        background: linear-gradient(to bottom, rgba(47,181,191,1) 0%,rgba(33,193,202,1) 100%);
         &.info {
-          background: linear-gradient(
-            to right,
-            rgb(243, 187, 34) 0%,
-            rgb(255, 238, 0) 100%
-          );
+          background: linear-gradient(to right, rgb(243, 187, 34) 0%,rgb(255, 238, 0) 100%);
+
+
         }
         p {
           color: white;
 
           span {
-            opacity: 0.7;
+            opacity: .7;
           }
         }
 
@@ -105,4 +101,5 @@ page-classes-booking {
       }
     }
   }
+
 }

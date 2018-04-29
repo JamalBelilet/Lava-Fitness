@@ -7,6 +7,7 @@ import { FormBuilder, Validators, FormGroup } from "@angular/forms";
 import { map } from "rxjs/operators";
 import moment from "moment";
 import { ClassesBookingPage } from "../classes-booking/classes-booking";
+import { ServicesBookingPage } from "../services-booking/services-booking";
 
 /**
  * Generated class for the BookPage page.
@@ -21,6 +22,7 @@ import { ClassesBookingPage } from "../classes-booking/classes-booking";
 })
 export class BookPage {
   branches$: Observable<Object>;
+  massagers$: Observable<Object>;
   selectedClassDate: any;
   selectedSessionDate: any;
 
@@ -30,12 +32,16 @@ export class BookPage {
   done = false;
   sessions$: Observable<Object>;
   classes$: Observable<Object>;
+  // selectedDate = new Date();
 
   selectedSession;
   selectedClass;
 
   reserveExerciseForm: FormGroup;
   reserveSessionForm: FormGroup;
+
+
+  nowDate;
 
   constructor(
     public formBuilder: FormBuilder,
@@ -45,7 +51,17 @@ export class BookPage {
     private lavaProvider: LavaProvider,
     private alertCtrl: AlertController
   ) {
+
+    let monthC = new Date().getMonth()+1;
+    let dateC = new Date().getDate();
+    const date = dateC > 9 ? dateC : "0" + dateC;
+    const month = monthC > 9 ? monthC : "0" + monthC;
+
+    this.nowDate = `${new Date().getFullYear()}-${month}-${date}`
+
     this._book = navParams.get("book");
+
+
 
     if (this._book == "class") {
       this.reserveExerciseForm = formBuilder.group({
@@ -53,38 +69,33 @@ export class BookPage {
           "Choose a " + this._book,
           Validators.compose([Validators.required])
         ],
-        Date: ["Choose a Date", Validators.required]
+        Date: [this.nowDate, Validators.required]
       });
 
       console.log(this.reserveExerciseForm.controls.Exercise);
     } else if (this._book == "session") {
       this.reserveSessionForm = formBuilder.group({
-        Service: [
+        Branch: [
           "Choose a " + this._book,
           Validators.compose([Validators.required])
         ],
-        Date: ["Choose a Date", Validators.required]
+        Massager: [
+          "Choose a Massager",
+          Validators.compose([Validators.required])
+        ],
+        Date: [this.nowDate, Validators.required]
       });
 
       console.log(this.reserveSessionForm.controls.Exercise);
     }
   }
 
-  selectChanges(selected) {
-    if (this._book == "class") {
-      this.selectedClass = selected;
-      this.selectedClassDate = null;
-    } else if (this._book == "session") {
-      this.selectedSession = selected;
-      this.selectedSessionDate = null;
-    }
-  }
 
-  selectDate(selected) {
-    if (this._book == "class") {
-      this.selectedClassDate = selected;
-    } else if (this._book == "session") {
-      this.selectedSessionDate = selected;
+  selectChanges(branch) {
+    if (this._book == "session") {
+      console.warn(branch.ID)
+      this.massagers$ = this.assetsProvider.getMassagers(branch.ID);
+      this.massagers$.subscribe(res=>console.log('hei', res));
     }
   }
 
@@ -101,6 +112,7 @@ export class BookPage {
     console.log(this._book);
 
     this.branches$ = this.assetsProvider.getBranches();
+    this.massagers$ = this.assetsProvider.getMassagers(1);
 
     this.classes$ = this.lavaProvider.getExerciseReservations();
     this.classes$ = this.classes$.pipe(
@@ -172,40 +184,8 @@ export class BookPage {
   book() {
     if (this._book == "class") {
       this.navCtrl.push(ClassesBookingPage, this.reserveExerciseForm.value);
-
-      // this.lavaProvider
-      //   .reserveExercise(this.reserveExerciseForm.value)
-      //   .subscribe(
-      //     res => {
-      //       this.done = true;
-      //       setTimeout(() => {
-      //         this.navCtrl.pop();
-      //       }, 3800);
-      //       console.log("reserveExercise", JSON.stringify(res));
-      //     },
-      //     error =>
-      //       this.alertCtrl
-      //         .create()
-      //         .setMessage(error.error.errors)
-      //         .present()
-      //   );
     } else if (this._book == "session") {
-      this.lavaProvider
-        .reserveMassageSession(this.reserveSessionForm.value)
-        .subscribe(
-          res => {
-            this.done = true;
-            setTimeout(() => {
-              this.navCtrl.pop();
-            }, 3800);
-            console.log("reserveMassageSession", JSON.stringify(res));
-          },
-          error =>
-            this.alertCtrl
-              .create()
-              .setMessage(error.error.errors)
-              .present()
-        );
+      this.navCtrl.push(ServicesBookingPage, this.reserveSessionForm.value);
     }
   }
 }

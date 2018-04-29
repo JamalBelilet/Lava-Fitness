@@ -41,4 +41,17 @@
       <p><span>Date:</span> {{class.Date}}</p>
     </ion-card-content>
   </ion-card>
+
+  <ion-card *ngIf="(classes$ | async)?.data?.length && (classes$ | async)?.data?.length < 1">
+
+      <ion-card-header class="info">
+        <p>
+          <span>Info:</span> No items available for now</p>
+      </ion-card-header>
+      <ion-card-content padding>
+        <p>
+          Please try to change the date, or the massager</p>
+      </ion-card-content>
+    </ion-card>
+
 </ion-content>

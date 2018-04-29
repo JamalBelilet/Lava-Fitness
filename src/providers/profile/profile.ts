@@ -281,29 +281,11 @@ export class ProfileProvider {
     );
   }
 
-  getMassagers() {
-    if (this.authProvider.config.debug) {
-      return of({
-        status: 1,
-        data: [
-          {
-            ID: 83,
-            FullName: "\u0641\u0627\u0637\u0645\u0629\u0635\u0644\u0627\u062d",
-            FullNameEN: "Fatima Salah"
-          },
-          {
-            ID: 84,
-            FullName:
-              "\u0645\u0627\u064a\u0627\u0644\u0633\u0627\u0646\u062a\u0631\u0627",
-            FullNameEN: "May Alcantra"
-          }
-        ]
-      });
-    }
+  getMassagers(BranchID) {
     return this.http.get(
-      `${this.authProvider.config.baseUrl}/web/messager/index?AccessToken=${
+      `${this.authProvider.config.baseUrl}/web/massager/index?AccessToken=${
         this.authProvider.config.AccessToken
-      }`,
+      }&BranchID=${BranchID}`,
       { headers: this.authProvider.config.headers }
     );
   }

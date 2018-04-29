@@ -26,9 +26,6 @@ export class MyApp {
 
   constructor(
     private alertCtrl: AlertController,
-
-
-
     private auth: AuthenticationProvider,
     platform: Platform,
     statusBar: StatusBar,

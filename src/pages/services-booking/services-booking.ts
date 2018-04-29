@@ -5,18 +5,18 @@ import { Observable } from "rxjs/Observable";
 import moment from "moment";
 
 /**
- * Generated class for the ClassesBookingPage page.
+ * Generated class for the ServicesBookingPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
 @Component({
-  selector: "page-classes-booking",
-  templateUrl: "classes-booking.html"
+  selector: 'page-services-booking',
+  templateUrl: 'services-booking.html',
 })
-export class ClassesBookingPage {
-  classes$: Observable<Object>;
+export class ServicesBookingPage {
+  services$: Observable<Object>;
   constructor(
     private alertCtrl: AlertController,
     private lavaProvider: LavaProvider,
@@ -33,8 +33,9 @@ export class ClassesBookingPage {
         .toISOString()
     ).getDate();
     console.log(date);
-    this.classes$ = this.lavaProvider.getExerciseSchedules(
+    this.services$ = this.lavaProvider.getAllMassageReservations(
       this.navParams.data.Branch.ID,
+      this.navParams.data.Massager.ID,
       date,
       new Date(
         moment(this.navParams.data.Date)
@@ -48,13 +49,13 @@ export class ClassesBookingPage {
       ).getFullYear()
     );
 
-    this.classes$.subscribe(res => console.log(res));
+    this.services$.subscribe(res => console.log(res));
   }
 
-  book(ExerciseScheduleIDC) {
+  book(serviceC) {
     let alert = this.alertCtrl.create({
       title: "",
-      message: "confirm the reservation of this class?",
+      message: "confirm the reservation of this message?",
       buttons: [
         {
           text: "Cancel",
@@ -66,7 +67,7 @@ export class ClassesBookingPage {
         {
           text: "Confirm",
           handler: () => {
-            this.lavaProvider.reserveExercise(ExerciseScheduleIDC).subscribe(
+            this.lavaProvider.reserveMassageSession(serviceC).subscribe(
               res => {
                 setTimeout(() => {
                   // this.navCtrl.pop();
