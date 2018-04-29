@@ -89,7 +89,10 @@ export class HomePage {
     private iab: InAppBrowser,
   ) {
     moment.locale("ar");
+
+
   }
+
 
   ionViewDidLoad() {
     this.ExerciseReservations$ = this.lavaProvider.getExerciseReservations();

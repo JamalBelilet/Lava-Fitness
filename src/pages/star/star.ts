@@ -6,6 +6,7 @@ import { LavaProvider } from "../../providers/lava/lava";
 import { Observable } from "rxjs/Observable";
 import { ProfileProvider } from "../../providers/profile/profile";
 import { PhotoViewer } from '@ionic-native/photo-viewer';
+import { ClassesBookingPage } from "../classes-booking/classes-booking";
 
 /**
  * Generated class for the StarPage page.
@@ -60,6 +61,8 @@ export class StarPage {
     let BookingModal = this.modalCtrl.create(BookPage, {book: 'class'});
 
     BookingModal.present();
+
+    // this.navCtrl.push(ClassesBookingPage);
   }
 
   bookSession() {

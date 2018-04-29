@@ -1,0 +1,44 @@
+<!--
+  Generated template for the ClassesBookingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Classe booking</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-card *ngFor="let class of (classes$ | async)?.data">
+
+    <ion-card-header>
+      <ion-row>
+        <ion-col col-9>
+          <div>
+            <p><span>Class:</span> {{class.ExerciseTitle}}</p>
+            <p><span>Branch:</span> {{class.BranchName}}</p>
+          </div>
+        </ion-col>
+        <ion-col col-3>
+          <button (click)="book(class.ID)" ion-button clear>
+            <p>book</p>
+          </button>
+        </ion-col>
+      </ion-row>
+
+
+
+    </ion-card-header>
+    <ion-card-content padding>
+      <p><span>Coach:</span> {{class.CoachName}}</p>
+      <p><span>Duration:</span> {{class.Duration}}</p>
+      <p><span>Date:</span> {{class.Date}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

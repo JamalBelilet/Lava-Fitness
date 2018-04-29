@@ -1,0 +1,99 @@
+page-classes-booking {
+  $sch: 202;
+  $scw: 93.8;
+  // .fixed-content {
+  //   z-index: -2 !important;
+  // }
+
+  * {
+    // margin: 0 !important;
+    // padding: 0 !important;
+  }
+
+  ion-card {
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.125) !important;
+  }
+
+  .header.header-md,
+  .header.header-ios {
+    position: relative;
+    width: 100%;
+    height: 38.1 / $sch * 100vh;
+    box-shadow: 0 !important;
+
+    background: transparent;
+    // background: url(../assets/imgs/booking-back.png);
+    // background-size: contain;
+    // background-position: top center;
+    // background-repeat: no-repeat;
+
+    &:after {
+      background-image: none !important;
+    }
+
+    .toolbar.toolbar-md,
+    .toolbar.toolbar-ios {
+      .toolbar-title.toolbar-title-md,
+      .toolbar-title.toolbar-title-ios {
+        color: #ffffff;
+        font-size: calc(calc(4.3 / $sch * 100vh) / $scw * 100vw);
+        font-family: "AvenirLTStd-Heavy" !important;
+
+        text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+      }
+
+      .toolbar-background.toolbar-background-ios {
+        border: none !important;
+
+        background: transparent;
+      }
+
+      ion-icon.back-button-icon.icon {
+        color: white !important;
+      }
+    }
+  }
+
+  // .scroll-content {
+  //   position: relative;
+
+  //   padding: 0 !important;
+  //   margin: 0 !important;
+  //   padding-top: 0 !important;
+  //   margin-top: 38.1 / $sch * 100vh !important;
+  //   z-index: 999;
+  // }
+
+  .scroll-content {
+    padding-top: 28.1 / $sch * 100vh !important;
+
+    margin-top: 0 / $sch * 100vh !important;
+
+    background: url(../assets/imgs/booking-back.png);
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+
+
+    ion-card {
+      ion-card-header {
+        background: linear-gradient(to bottom, rgba(47,181,191,1) 0%,rgba(33,193,202,1) 100%);
+        p {
+          color: white;
+
+          span {
+            opacity: .7;
+          }
+        }
+
+        button {
+          p {
+            font-weight: bold;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+

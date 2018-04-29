@@ -25,15 +25,19 @@ export class LavaProvider {
     });
   }
 
-  getExerciseSchedules(date: Date = new Date()) {
+  getExerciseSchedules(dateC, monthC, year) {
 
-    const day = date.getDay() > 9 ? date.getDay() : "0" + date.getDay();
-    const month = date.getMonth() > 9 ? date.getMonth() : "0" + date.getMonth();
+    const date = dateC > 9 ? dateC : "0" + dateC;
+    const month = monthC > 9 ? monthC : "0" + monthC;
+
+    console.log(`${this.authProvider.config.baseUrl}/web/exercise/index?AccessToken=${
+      this.authProvider.config.AccessToken
+    }&BranchID=1&Year=${year}&Month=${month}&Day=${date}&Type=0`)
 
     return this.http.get(
       `${this.authProvider.config.baseUrl}/web/exercise/index?AccessToken=${
         this.authProvider.config.AccessToken
-      }&BranchID=1&Year=${date.getFullYear()}&Month=${month}&Day=${day}&Type=0`,
+      }&BranchID=1&Year=${year}&Month=${month}&Day=${date}&Type=0`,
       { headers: this.authProvider.config.headers }
     );
   }
@@ -73,7 +77,7 @@ export class LavaProvider {
     );
   }
 
-  reserveExercise(exerciseC) {
+  reserveExercise(ExerciseScheduleIDC) {
     const headers = this.authProvider.config.headers;
     const params = new HttpParams();
     const options = {
@@ -85,14 +89,14 @@ export class LavaProvider {
 
     console.log(JSON.stringify({
       AccessToken: this.authProvider.config.AccessToken,
-      ExerciseScheduleID: exerciseC.Exercise.ExerciseScheduleID
+      ExerciseScheduleID: ExerciseScheduleIDC
     }))
 
     return this.http.post(
       `${this.authProvider.config.baseUrl}/web/exercise/reserve`,
       JSON.stringify({
         AccessToken: this.authProvider.config.AccessToken,
-        ExerciseScheduleID: exerciseC.Date.ExerciseScheduleID
+        ExerciseScheduleID: ExerciseScheduleIDC
       }),
       options
     );

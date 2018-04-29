@@ -55,6 +55,7 @@ import { LaunchNavigator } from '@ionic-native/launch-navigator';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { PhotoViewer } from "@ionic-native/photo-viewer";
+import { ClassesBookingPage } from "../pages/classes-booking/classes-booking";
 
 
 
@@ -89,11 +90,15 @@ const FIREBASE_CREDENTIALS = {
     GuidebookMusclesPage,
 
     MomentPipe,
-    ExpandableComponent
+    ExpandableComponent,
+    ClassesBookingPage
+
+
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp, {
+      mode: "ios",
       backButtonText: "",
       iconMode: "ios",
       modalEnter: "modal-slide-in",
@@ -132,7 +137,10 @@ const FIREBASE_CREDENTIALS = {
     WeightLogHistoryPage,
     BodyWeightLogHistoryPage,
     GuidebookMusclesPage,
-    ExpandableComponent
+    ExpandableComponent,
+    ClassesBookingPage
+
+
 
   ],
   providers: [
