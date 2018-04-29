@@ -22,15 +22,15 @@ import { LoginPage } from "../pages/login/login";
 import { AuthenticationProvider } from "../providers/authentication/authentication";
 import { WorkoutPage } from "../pages/workout/workout";
 import { ProfileProvider } from "../providers/profile/profile";
-import { LavaProvider } from '../providers/lava/lava';
+import { LavaProvider } from "../providers/lava/lava";
 import { ClassShedulePage } from "../pages/class-shedule/class-shedule";
 import { BookPage } from "../pages/book/book";
 import { WeightLogHistoryPage } from "../pages/weight-log-history/weight-log-history";
 
 // import { NgCircleProgressModule } from 'ng-circle-progress';
 
-import { Health } from '@ionic-native/health';
-import { LavaHealthProvider } from '../providers/lava-health/lava-health';
+import { Health } from "@ionic-native/health";
+import { LavaHealthProvider } from "../providers/lava-health/lava-health";
 import { MomentPipe } from "../pipes/moment/moment";
 import { BodyWeightLogHistoryPage } from "../pages/body-weight-log-history/body-weight-log-history";
 import { MembershipPage } from "../pages/membership/membership";
@@ -39,26 +39,23 @@ import { GuidebookMachinesPage } from "../pages/guidebook-machines/guidebook-mac
 import { ExpandableComponent } from "../components/expandable/expandable";
 import { GuidebookMusclesPage } from "../pages/guidebook-muscles/guidebook-muscles";
 
-import { IonicStorageModule } from '@ionic/storage';
+import { IonicStorageModule } from "@ionic/storage";
 
+import { ChartModule } from "angular2-chartjs";
 
-import { ChartModule } from 'angular2-chartjs';
+import { AngularFireModule } from "angularfire2";
+import { AngularFireAuthModule } from "angularfire2/auth";
 
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+import { RoundProgressModule } from "angular-svg-round-progressbar";
 
-import {RoundProgressModule} from 'angular-svg-round-progressbar';
+import { SocialSharing } from "@ionic-native/social-sharing";
+import { LaunchNavigator } from "@ionic-native/launch-navigator";
 
-
-import { SocialSharing } from '@ionic-native/social-sharing';
-import { LaunchNavigator } from '@ionic-native/launch-navigator';
-
-import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { InAppBrowser } from "@ionic-native/in-app-browser";
 import { PhotoViewer } from "@ionic-native/photo-viewer";
 import { ClassesBookingPage } from "../pages/classes-booking/classes-booking";
 import { ServicesBookingPage } from "../pages/services-booking/services-booking";
-
-
+import { MyBookingPage } from "../pages/my-booking/my-booking";
 
 const FIREBASE_CREDENTIALS = {
   apiKey: "AIzaSyAggtWMxyL84Eq8ZV8X6Hce9Atpu2W-wi8",
@@ -93,9 +90,8 @@ const FIREBASE_CREDENTIALS = {
     MomentPipe,
     ExpandableComponent,
     ClassesBookingPage,
-    ServicesBookingPage
-
-
+    ServicesBookingPage,
+    MyBookingPage
   ],
   imports: [
     BrowserModule,
@@ -115,9 +111,7 @@ const FIREBASE_CREDENTIALS = {
     ChartModule,
     AngularFireModule.initializeApp(FIREBASE_CREDENTIALS),
     AngularFireAuthModule
-
   ],
-
 
   bootstrap: [IonicApp],
   entryComponents: [
@@ -141,10 +135,9 @@ const FIREBASE_CREDENTIALS = {
     GuidebookMusclesPage,
     ExpandableComponent,
     ClassesBookingPage,
-    ServicesBookingPage
+    ServicesBookingPage,
 
-
-
+    MyBookingPage
   ],
   providers: [
     StatusBar,
@@ -159,7 +152,6 @@ const FIREBASE_CREDENTIALS = {
     LaunchNavigator,
     InAppBrowser,
     PhotoViewer
-
   ]
 })
 export class AppModule {}

@@ -13,6 +13,7 @@ import { LoginPage } from '../login/login';
 import { SocialSharing } from '@ionic-native/social-sharing';
 
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
+import { MyBookingPage } from '../my-booking/my-booking';
 
 /**
  * Generated class for the AddPage page.
@@ -30,6 +31,9 @@ export class AddPage {
   survayPage = SurvayPage;
   guidebookMachines = GuidebookMachinesPage;
   guidebookMuscles = GuidebookMusclesPage;
+
+  myBooking = MyBookingPage;
+
 
   selectedBranch = 'Alquds branch';
 
@@ -80,9 +84,9 @@ export class AddPage {
 
   }
 
-  myBooking() {
-    console.log(this.navCtrl.parent.select(2));
-  }
+  // myBooking() {
+  //   console.log(this.navCtrl.parent.select(2));
+  // }
 
 
   sendInvitation() {

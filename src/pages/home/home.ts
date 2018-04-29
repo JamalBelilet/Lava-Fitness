@@ -23,8 +23,8 @@ import moment from "moment";
 import * as firebase from "firebase/app";
 import { AngularFireAuth } from "angularfire2/auth";
 
-import { InAppBrowser } from '@ionic-native/in-app-browser';
-
+import { InAppBrowser } from "@ionic-native/in-app-browser";
+import { switchMap } from "rxjs/operators";
 
 @Component({
   selector: "page-home",
@@ -86,13 +86,10 @@ export class HomePage {
     private alertCtrl: AlertController,
     private health: Health,
     private LavaHealth: LavaHealthProvider,
-    private iab: InAppBrowser,
+    private iab: InAppBrowser
   ) {
     moment.locale("ar");
-
-
   }
-
 
   ionViewDidLoad() {
     this.ExerciseReservations$ = this.lavaProvider.getExerciseReservations();
@@ -122,6 +119,13 @@ export class HomePage {
             val.BodybuildingProgrameDetail = Array.from(
               values(val.BodybuildingProgrameDetail)
             );
+
+            val.BodybuildingProgrameDetail = val.BodybuildingProgrameDetail.map(
+              exo => {
+                exo.Calories = 0;
+                return exo;
+              }
+            );
             return val;
           });
 
@@ -148,8 +152,19 @@ export class HomePage {
 
           return wokroutsC;
         })
-      );
+      )
 
+      this.workoutsC$.subscribe(workoutsC=> {
+        let workoutsCC = this.workoutsC$;
+        (workoutsC as any).workouts.forEach(workout => {
+          workoutsCC = this.pipeWorkoutsFilter(workoutsCC, workout.ID)
+        });
+        this.workoutsC$=workoutsCC;
+      })
+
+
+
+      // this.workoutsC$.subscribe(res => {})
     // this.workoutsSums$ = this.workouts$.pipe(
     //   map(value => {
 
@@ -365,5 +380,29 @@ export class HomePage {
       buttons: ["Dismiss"]
     });
     alert.present();
+  }
+
+
+  pipeWorkoutsFilter(workoutsC, workoutID) {
+    return workoutsC.pipe(
+      switchMap(resC => {
+        return this.lavaProvider.getMemberReadouts(workoutID).pipe(
+          map(res => {
+            (resC as any).workouts.forEach(workout => {
+              workout.CardioProgrameDetail.forEach(cardioExercise => {
+                (res as any).data.Cardio.forEach(cardio => {
+                  if (cardioExercise.Equipment.ID == cardio.Equipment.ID) {
+                    cardioExercise.state = "done";
+                  }
+                });
+              });
+            });
+            console.log("resC", resC);
+
+            return resC;
+          })
+        );
+      })
+    );
   }
 }

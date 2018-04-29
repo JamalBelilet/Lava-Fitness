@@ -17,15 +17,16 @@
     <ion-card-content>
       <ion-list no-lines>
         <button ion-button clear [navPush]="membershipPage">Membership</button>
-        <button ion-button clear (click)="myBooking()">My booking</button>
-        <button ion-button clear [navPush]="survayPage">Tell us what you think?</button>
+        <button ion-button clear [navPush]="myBooking">My booking</button>
+
+        <!-- <button ion-button clear [navPush]="survayPage">Tell us what you think?</button> -->
         <!-- <button ion-button clear>Special offers</button> -->
         <button ion-button clear (click)="sendInvitation()">Invite your friends</button>
       </ion-list>
     </ion-card-content>
   </ion-card>
 
-  <ion-row class="guides">
+  <!-- <ion-row class="guides">
     <ion-card col-4  [navPush]="guidebookMachines">
       <ion-icon name="ios-book"></ion-icon>
       <h2>Guidebook</h2>
@@ -36,7 +37,7 @@
       <h2>Guidebook</h2>
       <p>Muscles group</p>
     </ion-card>
-  </ion-row>
+  </ion-row> -->
 
 
   <ion-list no-lines>

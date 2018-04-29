@@ -167,4 +167,61 @@ export class LavaProvider {
       options
     );
   }
+
+  getMemberReadouts(ProgramID) {
+    return this.http.get(
+      `${this.authProvider.config.baseUrl}/web/cardio/readout?AccessToken=${
+        this.authProvider.config.AccessToken
+      }&ProgramID=${ProgramID}`,
+      { headers: this.authProvider.config.headers }
+    );
+  }
+
+  addCardioReadout(exercise, workoutID) {
+    const headers = this.authProvider.config.headers;
+    const params = new HttpParams();
+    const options = {
+      headers,
+      params,
+      withCredentials: true
+    };
+
+    return this.http.post(
+      `${this.authProvider.config.baseUrl}/web/cardio/add-cardio-readout`,
+      JSON.stringify({
+        AccessToken: this.authProvider.config.AccessToken,
+        EquipmentID: exercise.Equipment.ID,
+        ProgramID: workoutID,
+        Duration: exercise.Duration,
+        Speed: exercise.Speed,
+        Level: exercise.Level,
+        HeartRate: exercise.HeartRate
+      }),
+      options
+    );
+  }
+
+  addBoddyBuildingReadout(exercise, workoutID) {
+    const headers = this.authProvider.config.headers;
+    const params = new HttpParams();
+    const options = {
+      headers,
+      params,
+      withCredentials: true
+    };
+
+    return this.http.post(
+      `${this.authProvider.config.baseUrl}/web/cardio/add-bodybuilding-readout`,
+      JSON.stringify({
+        AccessToken: this.authProvider.config.AccessToken,
+        EquipmentID: exercise.Equipment.ID,
+        ProgramID: workoutID,
+        Duration: exercise.Duration,
+        Repetition: exercise.Repetition,
+        NumberOfRepetition: exercise.NumberOfRepetition,
+        Calories: exercise.Calories
+      }),
+      options
+    );
+  }
 }

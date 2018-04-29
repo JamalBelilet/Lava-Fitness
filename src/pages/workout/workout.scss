@@ -206,6 +206,10 @@ page-workout {
 
       position: relative;
 
+      &.state_done {
+        background: red!important;
+      }
+
       .item.item-block {
         position: relative;
 
