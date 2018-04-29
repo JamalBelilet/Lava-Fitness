@@ -54,7 +54,7 @@ export class StarPage {
   }
 
   previewSchedule(imgURL) {
-    this.photoViewer.show('https://mysite.com/path/to/image.jpg');
+    this.photoViewer.show('http://via.placeholder.com/350x150', 'Schedule', {share: true});
   }
 
   bookClass() {
