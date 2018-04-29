@@ -154,13 +154,16 @@ export class HomePage {
         })
       )
 
-      this.workoutsC$.subscribe(workoutsC=> {
-        let workoutsCC = this.workoutsC$;
-        (workoutsC as any).workouts.forEach(workout => {
-          workoutsCC = this.pipeWorkoutsFilter(workoutsCC, workout.ID)
-        });
-        this.workoutsC$=workoutsCC;
-      })
+      // this.workoutsC$.subscribe(workoutsC=> {
+      //   let workoutsCC = this.workoutsC$;
+      //   (workoutsC as any).workouts.forEach(workout => {
+      //     workoutsCC = this.pipeWorkoutsFilter(workoutsCC, workout.ID)
+      //   });
+      //   this.workoutsC$=workoutsCC;
+      // })
+
+
+
 
 
 

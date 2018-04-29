@@ -10,6 +10,9 @@ import {
 import { FinishWorkoutPage } from "../finish-workout/finish-workout";
 import { ProfileProvider } from "../../providers/profile/profile";
 import { LavaProvider } from "../../providers/lava/lava";
+import { map, switchMap } from "rxjs/operators";
+import { of } from "rxjs/observable/of";
+import { Observable } from "rxjs/Observable";
 
 /**
  * Generated class for the WorkoutPage page.
@@ -23,7 +26,9 @@ import { LavaProvider } from "../../providers/lava/lava";
   templateUrl: "workout.html"
 })
 export class WorkoutPage {
+  workout$: Observable<any>;
   workout;
+
   // @Output() finish = new EventEmitter();
   constructor(
     private profileProvider: ProfileProvider,
@@ -33,10 +38,45 @@ export class WorkoutPage {
     private lavaProvider: LavaProvider
   ) {
     this.workout = navParams.data;
+
+    // this.workoutsC$.subscribe(workoutsC=> {
+    //   let workoutsCC = this.workoutsC$;
+    //   (workoutsC as any).workouts.forEach(workout => {
+    //     workoutsCC = this.pipeWorkoutsFilter(workoutsCC, workout.ID)
+    //   });
+    //   this.workoutsC$=workoutsCC;
+    // })
   }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad WorkoutPage");
+
+    this.workout$ = this.lavaProvider.getMemberReadouts(this.workout.ID).pipe(
+      switchMap(res => {
+        this.workout.CardioProgrameDetail = this.workout.CardioProgrameDetail.map(
+          cardioExercise => {
+            (res as any).data.Cardio.forEach(cardio => {
+              if (cardioExercise.Equipment.ID == cardio.Equipment.ID) {
+                cardioExercise.state = "done";
+              }
+            });
+            return cardioExercise;
+          }
+        );
+
+        this.workout.BodybuildingProgrameDetail = this.workout.BodybuildingProgrameDetail.map(
+          bodybuildingExerciseExercise => {
+            (res as any).data.Bodybuilding.forEach(bodybuilding => {
+              if (bodybuildingExerciseExercise.Equipment.ID == bodybuilding.Equipment.ID) {
+                bodybuildingExerciseExercise.state = "done";
+              }
+            });
+            return bodybuildingExerciseExercise;
+          }
+        );
+        return of(this.workout);
+      })
+    );
   }
 
   public open($event, itemSlide: ItemSliding, item: Item) {
@@ -65,28 +105,27 @@ export class WorkoutPage {
       .present();
   }
 
-
-//   "24": {
-//     "Equipment": {
-//         "ID": 1,
-//         "NameEN": "Treadmill",
-//         "NameAR": "جهاز سير",
-//         "Photo": null
-//     },
-//     "Duration": 1,
-//     "Speed": 0,
-//     "Level": 1,
-//     "HeartRate": "101 - 110"
-// }
+  //   "24": {
+  //     "Equipment": {
+  //         "ID": 1,
+  //         "NameEN": "Treadmill",
+  //         "NameAR": "جهاز سير",
+  //         "Photo": null
+  //     },
+  //     "Duration": 1,
+  //     "Speed": 0,
+  //     "Level": 1,
+  //     "HeartRate": "101 - 110"
+  // }
   endCardioReadout(exersice, workoutID) {
-    this.lavaProvider.addCardioReadout(exersice, workoutID).subscribe(
-      res=> console.log(res)
-    );
+    this.lavaProvider
+      .addCardioReadout(exersice, workoutID)
+      .subscribe(res => console.log(res));
   }
 
   endBodyBuildingReadout(exersice, workoutID) {
-    this.lavaProvider.addBoddyBuildingReadout(exersice, workoutID).subscribe(
-      res=> console.log(res)
-    );
+    this.lavaProvider
+      .addBoddyBuildingReadout(exersice, workoutID)
+      .subscribe(res => console.log(res));
   }
 }
