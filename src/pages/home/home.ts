@@ -20,8 +20,11 @@ import { LavaHealthProvider } from "../../providers/lava-health/lava-health";
 
 import moment from "moment";
 
-import * as firebase from 'firebase/app';
+import * as firebase from "firebase/app";
 import { AngularFireAuth } from "angularfire2/auth";
+
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 
 @Component({
   selector: "page-home",
@@ -75,7 +78,6 @@ export class HomePage {
   };
 
   constructor(
-
     public afAuth: AngularFireAuth,
     public modalCtrl: ModalController,
     public navCtrl: NavController,
@@ -83,7 +85,8 @@ export class HomePage {
     private profileProvider: ProfileProvider,
     private alertCtrl: AlertController,
     private health: Health,
-    private LavaHealth: LavaHealthProvider
+    private LavaHealth: LavaHealthProvider,
+    private iab: InAppBrowser,
   ) {
     moment.locale("ar");
   }
@@ -110,13 +113,14 @@ export class HomePage {
 
           let arr = Array.from(values(array));
           let arr_f = arr.map(val => {
-            val.CardioProgrameDetail = Array.from(values(val.CardioProgrameDetail));
-            val.BodybuildingProgrameDetail = Array.from(values(val.BodybuildingProgrameDetail));
+            val.CardioProgrameDetail = Array.from(
+              values(val.CardioProgrameDetail)
+            );
+            val.BodybuildingProgrameDetail = Array.from(
+              values(val.BodybuildingProgrameDetail)
+            );
             return val;
           });
-
-
-
 
           const wokroutsC = {
             workouts: arr,
@@ -125,18 +129,19 @@ export class HomePage {
           };
 
           wokroutsC.workouts.forEach(item => {
-            if(item.NumberOfWorkoutFinishers) {
-
-              wokroutsC.sumOfNumberOfWorkoutFinishers += Number(item.NumberOfWorkoutFinishers)
-              item.numberOfWorkoutFinishersT = new Array(Number(item.NumberOfWorkoutFinishers))
+            if (item.NumberOfWorkoutFinishers) {
+              wokroutsC.sumOfNumberOfWorkoutFinishers += Number(
+                item.NumberOfWorkoutFinishers
+              );
+              item.numberOfWorkoutFinishersT = new Array(
+                Number(item.NumberOfWorkoutFinishers)
+              );
             }
 
-            if(item.WeekRepetitions) {
-
-              wokroutsC.sumOfWeekRepetitions += item.WeekRepetitions
+            if (item.WeekRepetitions) {
+              wokroutsC.sumOfWeekRepetitions += item.WeekRepetitions;
             }
-          })
-
+          });
 
           return wokroutsC;
         })
@@ -145,15 +150,13 @@ export class HomePage {
     // this.workoutsSums$ = this.workouts$.pipe(
     //   map(value => {
 
-
     //     return;
     //   })
     // );
     // this.workoutsSums$.subscribe(res => {});
 
-
     // this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(c => {
-      this.health
+    this.health
       .isAvailable()
       .then((available: boolean) => {
         console.log(available);
@@ -169,11 +172,33 @@ export class HomePage {
           })
           .catch(e => this.presentAlert(JSON.stringify(e)));
       })
-      .catch(e => this.presentAlert(JSON.stringify(e)));
+      .catch(e => {
+        let alert = this.alertCtrl.create({
+          title: "",
+          message:
+            "To get all the features of Lava Fitness, you have to install Google fit from Playstore",
+          buttons: [
+            {
+              text: "Cancel",
+              role: "cancel",
+              handler: () => {
+                console.log("Cancel clicked");
+              }
+            },
+            {
+              text: "Get Google Fit",
+              handler: () => {
+                this.iab.create(
+                  "https://play.google.com/store/apps/details?id=com.google.android.apps.fitness",
+                  "_system"
+                );
+              }
+            }
+          ]
+        });
+        alert.present();
+      });
     // }).catch(error => {});
-
-
-
 
     // map(this.workouts$ => {
     //   let array = (value as any).data;
@@ -214,7 +239,9 @@ export class HomePage {
           (this.myActivity as any).startDate = moment(
             this.myActivity.startDate
           ).fromNow();
-          (this.myActivity as any).endDate = moment(this.myActivity.endDate).fromNow();
+          (this.myActivity as any).endDate = moment(
+            this.myActivity.endDate
+          ).fromNow();
         }
       })
       .catch(error => this.presentAlert(JSON.stringify(error)));
@@ -321,18 +348,19 @@ export class HomePage {
 
   goToProfile() {
     this.navCtrl.parent.select(4);
-
   }
 
   showUpcomingBookingsDetails(booking) {
     let alert = this.alertCtrl.create({
       title: booking.ExerciseTitle,
       subTitle: booking.BranchName,
-      message: "مع " + booking.CoachName + "، يوم " + moment(booking.Date).format("DD-MM-YYYY"),
+      message:
+        "مع " +
+        booking.CoachName +
+        "، يوم " +
+        moment(booking.Date).format("DD-MM-YYYY"),
       buttons: ["Dismiss"]
-
     });
     alert.present();
-
   }
 }

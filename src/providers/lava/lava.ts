@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { AuthenticationProvider } from "../authentication/authentication";
 import { of } from "rxjs/observable/of";
+import moment from "moment";
+
 /*
   Generated class for the LavaProvider provider.
 
@@ -128,7 +130,7 @@ export class LavaProvider {
       ServiceID: ServiceC.Date.ServiceID,
       BranchID: ServiceC.Date.BranchID,
       MassagerID: ServiceC.Date.MassagerID,
-      Date: ServiceC.Date.Date
+      Date: moment(ServiceC.Date.Date).locale("en")
     }));
     return this.http.post(
       `${this.authProvider.config.baseUrl}/web/massage/reserve`,
@@ -137,7 +139,7 @@ export class LavaProvider {
         ServiceID: ServiceC.Date.ServiceID,
         BranchID: ServiceC.Date.BranchID,
         MassagerID: ServiceC.Date.MassagerID,
-        Date: ServiceC.Date.Date
+        Date: moment(ServiceC.Date.Date).locale("en")
       }),
       options
     );

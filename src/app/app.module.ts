@@ -47,6 +47,8 @@ import { ChartModule } from 'angular2-chartjs';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+import {RoundProgressModule} from 'angular-svg-round-progressbar';
+
 
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
@@ -102,15 +104,7 @@ const FIREBASE_CREDENTIALS = {
     }),
     IonicStorageModule.forRoot(),
     HttpClientModule,
-    // NgCircleProgressModule.forRoot({
-    //   // set defaults here
-    //   radius: 100,
-    //   outerStrokeWidth: 16,
-    //   innerStrokeWidth: 8,
-    //   outerStrokeColor: "#78C000",
-    //   innerStrokeColor: "#C7E596",
-    //   animationDuration: 300,
-    // }),
+    RoundProgressModule,
     ChartModule,
     AngularFireModule.initializeApp(FIREBASE_CREDENTIALS),
     AngularFireAuthModule

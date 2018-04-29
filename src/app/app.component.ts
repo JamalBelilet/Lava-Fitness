@@ -14,7 +14,6 @@ import { GuidebookMachinesPage } from "../pages/guidebook-machines/guidebook-mac
 import { GuidebookMusclesPage } from "../pages/guidebook-muscles/guidebook-muscles";
 import { Storage } from "@ionic/storage";
 import { AuthenticationProvider } from "../providers/authentication/authentication";
-import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 
 
@@ -26,7 +25,6 @@ export class MyApp {
   rootPage: any = LoginPage;
 
   constructor(
-    private iab: InAppBrowser,
     private alertCtrl: AlertController,
     private auth: AuthenticationProvider,
     platform: Platform,
@@ -57,26 +55,7 @@ export class MyApp {
       // this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(c => {}).catch(error => {});
 
 
-      let alert = this.alertCtrl.create({
-        title: '',
-        message: 'To get all the features of Lava Fitness, you have to install Google fit from Playstore',
-        buttons: [
-          {
-            text: 'Cancel',
-            role: 'cancel',
-            handler: () => {
-              console.log('Cancel clicked');
-            }
-          },
-          {
-            text: 'Get Google Fit',
-            handler: () => {
-              this.iab.create('https://play.google.com/store/apps/details?id=com.google.android.apps.fitness', '_system');
-            }
-          }
-        ]
-      });
-      alert.present();
+
 
     });
   }
