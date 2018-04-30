@@ -2,12 +2,10 @@ page-workout {
   $sch: 347.3;
   $scw: 195.5;
 
-
   * {
     padding: 0 !important;
     margin: 0 !important;
   }
-
 
   .header.header-md,
   .header.header-ios {
@@ -46,7 +44,6 @@ page-workout {
       ion-icon.back-button-icon.icon {
         color: white !important;
       }
-
     }
   }
 
@@ -187,7 +184,6 @@ page-workout {
     background-position: top center;
     background-repeat: no-repeat;
 
-
     .sliding-col {
       display: flex;
       flex-flow: column nowrap;
@@ -207,7 +203,7 @@ page-workout {
       position: relative;
 
       &.state_done {
-        background: red!important;
+        background: red !important;
       }
 
       .item.item-block {
@@ -390,6 +386,30 @@ page-workout {
           }
         }
       }
+    }
+  }
+
+  .lava-divider {
+    margin: 2vh 0!important;
+    border-top: 1px solid #eee!important;
+    position: relative;
+    width: 100%;
+    height: 2vh;
+    display: flex;
+    justify-content: center;
+
+
+    p {
+      z-index: 10;
+      position: absolute;
+      top: -1.5vh;
+      font-size: 4vw;
+    background: white;
+    color: #aaa;
+    border-radius: 1vw;
+
+      padding: 0 1vw!important;
+
     }
   }
 }

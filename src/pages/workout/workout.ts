@@ -120,12 +120,16 @@ export class WorkoutPage {
   endCardioReadout(exersice, workoutID) {
     this.lavaProvider
       .addCardioReadout(exersice, workoutID)
-      .subscribe(res => console.log(res));
+      .subscribe(res => {{
+
+      }});
   }
 
   endBodyBuildingReadout(exersice, workoutID) {
     this.lavaProvider
       .addBoddyBuildingReadout(exersice, workoutID)
-      .subscribe(res => console.log(res));
+      .subscribe(res => {
+
+      });
   }
 }
