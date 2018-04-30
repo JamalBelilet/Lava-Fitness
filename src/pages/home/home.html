@@ -30,7 +30,7 @@
       <p class="user-steps-number">{{mySteps || 0}}</p>
     </div>
 
-    <p class="user-goal">goal: {{(workoutsC$| async)?.sumOfWeekRepetitions}} finishes</p>
+    <p class="user-goal">goal: {{(workoutsC$| async)?.sumOfWeekRepetitions || 0}} finishes</p>
 
   </div>
 

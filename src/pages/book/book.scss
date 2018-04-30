@@ -18,9 +18,9 @@ page-book {
     $modal-inset-min-width: 50%;
 
     display: flex;
-    height: 250 / $sch * 100vh;
+    height: 220 / $sch * 100vh;
     width: 167.5 / $scw * 100vw;
-    margin-top: 50.8 / $sch * 100vh !important;
+    margin-top: (50.8 + 15) / $sch * 100vh !important;
     margin-left: 14 / $scw * 100vw !important;
     background: white;
     border-radius: 5px;
@@ -72,7 +72,7 @@ page-book {
 
     .book-button {
       position: absolute;
-      top: (168.3 + 50) / $sch * 100vh;
+      top: (168.3 + 50 - 40) / $sch * 100vh;
 
       background: linear-gradient(to right, #0ca3ad, #03c3d8) !important;
       margin: 0 auto;

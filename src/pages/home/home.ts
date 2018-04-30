@@ -20,9 +20,6 @@ import { LavaHealthProvider } from "../../providers/lava-health/lava-health";
 
 import moment from "moment";
 
-import * as firebase from "firebase/app";
-import { AngularFireAuth } from "angularfire2/auth";
-
 import { InAppBrowser } from "@ionic-native/in-app-browser";
 import { switchMap } from "rxjs/operators";
 
@@ -78,7 +75,6 @@ export class HomePage {
   };
 
   constructor(
-    public afAuth: AngularFireAuth,
     public modalCtrl: ModalController,
     public navCtrl: NavController,
     private lavaProvider: LavaProvider,
@@ -184,7 +180,7 @@ export class HomePage {
         this.health
           .requestAuthorization([
             {
-              read: ["steps"] //read only permission
+              read: ["steps", "distance"], //read only permission
             }
           ])
           .then(res => {

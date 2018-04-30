@@ -15,7 +15,8 @@ import { GuidebookMusclesPage } from "../pages/guidebook-muscles/guidebook-muscl
 import { Storage } from "@ionic/storage";
 import { AuthenticationProvider } from "../providers/authentication/authentication";
 
-
+import * as firebase from "firebase/app";
+import { AngularFireAuth } from "angularfire2/auth";
 
 
 @Component({
@@ -25,6 +26,7 @@ export class MyApp {
   rootPage: any = LoginPage;
 
   constructor(
+    private afAuth: AngularFireAuth,
     private alertCtrl: AlertController,
     private auth: AuthenticationProvider,
     platform: Platform,
