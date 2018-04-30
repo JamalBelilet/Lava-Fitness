@@ -3,21 +3,40 @@ page-home {
     z-index: -2 !important;
   }
 
+  .ion-page.show-page {
+
+  }
+
+
   .header.header-md,
   .header.header-ios {
     font-family: "AvenirLTStd-light", Arial, Helvetica, sans-serif;
     height: calc(47vh);
+    background: transparent;
 
-    // background: linear-gradient(135deg, #0193a0, #21c1ca);
     background: url(../assets/imgs/home-back.png);
     background-size: cover;
     background-position: bottom center;
     background-repeat: no-repeat;
 
+    // background-color: #0193a0;
+
+
     width: 100%;
     box-shadow: 0 !important;
 
     position: relative;
+
+    .in-header {
+      width: 100%;
+      height: 100%;
+    background-image: url(../assets/imgs/wave.png);
+
+    background-size: auto 120%;
+    background-position: center 27vh;
+    background-repeat: no-repeat;
+
+    }
 
     * {
       padding: 0;
@@ -67,38 +86,30 @@ page-home {
     }
 
     .user-floors-img {
-      position: absolute;
-
       width: 7.16vw;
-      height: 2.8vh;
-      top: 25vh;
-      left: 13.68vw;
+      height: 4.31vh;
+
+      padding-bottom: 1.5vh !important;
     }
     .user-floors-text {
-      position: absolute;
-
       font-size: 2.37vw;
       font-weight: 500;
       color: #9dd9df;
-      top: 29.4vh;
-      left: 14.19vw;
+      margin: 0.5vh 0 !important;
     }
     .user-floors-number {
-      position: absolute;
-
       font-size: 5.88vw;
       font-weight: 500;
       // font-weight: 900;
       color: #ffffff;
-      top: 32.06vh;
-      left: 14.19vw;
     }
 
     .user-steps-img {
       @extend .user-floors-img;
+      padding-bottom: 0 !important;
+
       right: 13.68vw;
       width: 5.75vw;
-      height: 4.31vh;
       left: auto;
     }
     .user-steps-text {
@@ -129,10 +140,10 @@ page-home {
       .user-circle-number {
         position: absolute;
 
-        font-size: 14.14vw;
+        font-size: 11.5vw;
         font-weight: normal;
         color: #ffffff;
-        top: 4vh;
+        top: 3.5vh;
         // top: 6.39vh;
         width: 100%;
         text-align: center;
@@ -140,10 +151,10 @@ page-home {
       .user-circle-days {
         position: absolute;
 
-        font-size: 3.19vw;
+        font-size: 2.8vw;
         font-weight: 300;
         color: #ffffff;
-        top: 13vh;
+        top: 11.5vh;
         // top: 13.2vh;
         width: 100%;
         text-align: center;
@@ -169,7 +180,7 @@ page-home {
       font-size: 2.37vw;
       font-weight: 500;
       color: #9dd9df;
-      top: 42.97vh!important;
+      top: 42.97vh !important;
       width: 100%;
       text-align: center;
     }
@@ -272,7 +283,6 @@ page-home {
           left: 2.42vw;
           top: 9.48vh;
           color: #575c69;
-
         }
         .workout-state {
           position: absolute;
@@ -283,7 +293,6 @@ page-home {
           left: 2.81vw;
           top: 11.35vh;
           color: #575c69;
-
         }
       }
     }
@@ -343,7 +352,6 @@ page-home {
           left: 5.37vw;
 
           color: #9b9b9b;
-
         }
         .bookings-row {
           position: absolute;
@@ -355,313 +363,25 @@ page-home {
           left: 5.37vw;
           top: 5.46vh;
           color: #9b9b9b;
-
         }
       }
     }
   }
 
-  // .exercices {
-  //   // margin-top: -5em;
+  .distance,
+  .steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: nowrap column;
 
-  //   z-index: 99999999999 !important;
+    position: absolute;
+    top: 25.06vh;
+    left: 14.19vw;
 
-  //   ion-thumbnail {
-  //     display: flex;
-  //     justify-content: center;
-  //     align-items: center;
-  //   }
-
-  //   img {
-  //     width: 2.5em;
-  //     height: auto;
-  //   }
-
-  //   .item-wrapper {
-  //     margin: 0.8em auto;
-  //     border-radius: 0.5em;
-  //     box-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
-  //     // border: .5px solid black;
-  //   }
-
-  //   .item.item-block,
-  //   div.input-wrapper {
-  //     border-radius: 1em;
-  //     padding: auto 0;
-  //     margin: 0;
-  //     p {
-  //       padding: 0;
-  //       margin: 0;
-  //       font-size: 75%;
-  //     }
-  //   }
-  // }
-
-  // .no-padding {
-  //   padding: 0;
-  //   margin: 0;
-
-  //   button {
-  //     padding: 0 !important;
-  //     margin: 0 !important;
-  //   }
-  // }
-  // max-width: 100vw !important;
-
-  // ion-content {
-  //   padding: 0 0.5em;
-  //   font-size: 85%;
-
-  //   text-align: left;
-
-  //   h2 {
-  //     font-size: 1.6em;
-  //     color: #666;
-  //     padding: 0 1em;
-  //   }
-  // }
-
-  // #notification-button {
-  //   position: relative;
-  //   width: 42px;
-  //   top: 0px;
-  //   right: 1px;
-  //   overflow: visible !important;
-  //   font-size: 1.5em;
-  //   background: transparent;
-  //   border-radius: 100%;
-  //   padding: 0;
-  //   margin: 0.5em;
-  //   color: white !important;
-  // }
-  // #notifications-badge {
-  //   background-color: transparent;
-  //   font-size: 0.6em;
-  //   padding: 0px;
-  //   position: absolute;
-  //   top: calc(50% + 0.1em);
-  //   right: 0.1em;
-  //   font-weight: 200;
-  //   color: white !important;
-  //   fill: white;
-  // }
-  // #notifications-badge.badge.badge-ios,
-  // .badge.badge-md {
-  //   color: #f8cb4f !important;
-  // }
-
-  // .progress-container {
-  //   position: relative;
-  //   // background: red;
-  //   padding: 0;
-  //   margin: 0;
-  // }
-
-  // .progress-days {
-  //   position: absolute;
-  //   // top: calc(-60/30 -3em);
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   flex-flow: nowrap column;
-  //   // background: rgba(185, 185, 241,.5);
-  //   left: 0;
-  //   top: 0 !important;
-  //   font-size: 3em;
-  //   font-weight: 600;
-  //   width: 100%;
-  //   height: 100%;
-  //   padding: 0;
-  //   margin: 0;
-  //   text-align: center;
-  //   span {
-  //     display: block;
-  //     font-size: 40%;
-  //     font-weight: 300;
-  //   }
-  // }
-
-  // .user-container {
-  //   .user-name {
-  //     font-size: 1.5em;
-  //     font-weight: 600;
-  //     padding: 0;
-  //     margin: 0;
-  //     text-align: center;
-  //   }
-  //   .user-active {
-  //     font-size: 0.9em;
-  //     padding: 0;
-  //     margin: 0;
-  //     text-align: center;
-  //     color: rgba(255, 255, 255, 0.7) !important;
-  //   }
-  // }
-  // .today-container {
-  //   ion-row {
-  //     width: 100%;
-  //     display: flex;
-  //     justify-content: space-around;
-  //     align-items: center;
-  //   }
-
-  //   ion-col {
-  //     display: flex;
-  //     flex-flow: nowrap column;
-  //     justify-content: center;
-  //     align-items: center;
-  //   }
-
-  //   .floors,
-  //   .steps,
-  //   .today,
-  //   .percentage-circle {
-  //     font-size: 0.9em;
-  //     padding: 0;
-  //     margin: 0;
-  //     text-align: center;
-  //   }
-  //   .today {
-  //     padding: 1em;
-  //   }
-  //   .floors,
-  //   .steps,
-  //   .percentage-circle {
-  //     font-size: 0.8em;
-  //     color: rgba(255, 255, 255, 0.7) !important;
-  //     font-size: 0.8;
-  //     img {
-  //       width: auto;
-  //       height: 3em;
-  //     }
-  //     p {
-  //       color: rgba(255, 255, 255, 0.7) !important;
-  //       // padding: 0.5em;
-  //       padding: 0.1em;
-  //       margin: 0;
-
-  //       &.act-number {
-  //         color: rgba(255, 255, 255, 1) !important;
-  //         font-size: 2.2em;
-  //         font-weight: 600;
-  //       }
-  //     }
-  //   }
-  // }
-
-  // #Start-a-Workout {
-  //   width: 100%;
-
-  //   margin: 0 auto;
-
-  //   div {
-  //     padding: 0 0.5em;
-  //     height: 95%;
-  //   }
-  // }
-  // .workout {
-  //   background: linear-gradient(135deg, #0ca3ad, #03c3d8);
-  //   color: white !important;
-  //   font-size: 75%;
-  //   padding: 0.8em;
-  //   margin: 0.3em;
-  //   border-radius: 5px;
-  //   box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
-  //   color: rgba(255, 255, 255, 0.7) !important;
-  //   font-weight: 300;
-  //   text-align: left;
-
-  //   // margin-top: 1em;
-  //   margin-left: 1em;
-
-  //   margin: 0;
-
-  //   &:last-of-type {
-  //     margin-right: 1em;
-  //   }
-  //   // &:first-of-type {
-  //   //   margin-left: 1em!important;
-  //   //   background: red;
-  //   // }
-  //   .workout-title {
-  //     font-size: 1.1em;
-  //     color: white !important;
-  //     display: flex;
-  //     justify-content: flex-start;
-  //     align-items: center;
-  //   }
-  //   .workout-container {
-  //     display: flex;
-  //     justify-content: space-between;
-  //     width: 100%;
-  //     margin: 0.2em 0;
-  //   }
-  //   .workout-average {
-  //     color: white !important;
-  //     margin-top: 2em;
-  //   }
-  //   p {
-  //     padding: 0;
-  //     margin: 0.125em 0;
-  //     text-align: left;
-  //   }
-  // }
-  // .booking {
-  //   background: white;
-  //   color: #555 !important;
-  //   padding: 0.125em 2.6em;
-  //   margin: 0.3em;
-  //   border-radius: 5px;
-  //   box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
-  //   font-weight: 300;
-
-  //   text-align: left;
-
-  //   margin-top: 1em;
-  //   margin-left: 2em;
-
-  //   .workout-title {
-  //     font-weight: 700;
-  //     font-size: 1.1em;
-  //     color: #999 !important;
-  //     display: flex;
-  //     justify-content: flex-start;
-  //     align-items: center;
-
-  //     &::before {
-  //       content: "•";
-  //       display: block;
-  //       margin-left: -1.4em;
-  //       padding: 0 0.5em;
-  //       font-size: 2em;
-  //       color: yellow;
-  //     }
-  //   }
-
-  //   p {
-  //     font-size: 0.9em;
-  //     padding-left: 0.2em;
-  //     padding-right: 0.2em;
-  //     padding-bottom: 0.1em;
-  //   }
-
-  //   &.add-button {
-  //     max-width: 6em;
-  //     height: initial;
-
-  //     button {
-  //       font-size: 2.8em;
-  //       padding: 0.1em;
-  //       margin: 0;
-  //       font-weight: 200;
-  //       width: 100%;
-  //       height: 100%;
-  //       ion-icon {
-  //         font-weight: 200;
-  //         height: 100%;
-  //         color: #666 !important;
-  //       }
-  //     }
-  //   }
-  // }
+    &.steps {
+      left: auto;
+      right: 14.19vw;
+    }
+  }
 }
