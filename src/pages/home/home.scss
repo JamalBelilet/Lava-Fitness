@@ -309,13 +309,14 @@ page-home {
 
       .bookings-section-slides-slide {
         @extend .workout-section-slides-slide;
-        // width: 28.64vw!important;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+        width: (30.64 - 2vw)!important;
         height: 8.19vh;
 
-        margin-left: 4.09vw !important;
+        margin-left: 2 + 2vw !important;
 
         &:first-of-type {
-          width: 8.19vh !important;
+          width:8.19vh !important;
           background: transparent;
           box-shadow: none;
           border: 1px solid #9b9b9b;

@@ -53,7 +53,7 @@
         </ion-col>
       </ion-row>
 
-      <p class="workout-wk">{{workout.WeekRepetition}}/wk</p>
+      <p class="workout-wk">{{workout.WeekRepetition}}/week</p>
       <p class="workout-state">{{workout.CreationDate | moment}}</p>
 
     </ion-slide>
@@ -61,7 +61,7 @@
 
 
   <p class="bookings-section-title">Upcoming Bookings:</p>
-  <ion-slides class="bookings-section-slides" spaceBetween="0" slidesPerView="3.5">
+  <ion-slides class="bookings-section-slides" spaceBetween="0" slidesPerView="3">
     <ion-slide class="bookings-section-slides-slide">
       <button clear ion-button (click)="bookClass()">
         <ion-icon name="add"></ion-icon>

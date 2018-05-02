@@ -84,7 +84,7 @@ export class HomePage {
     private LavaHealth: LavaHealthProvider,
     private iab: InAppBrowser
   ) {
-    moment.locale("ar");
+    moment.locale("en");
   }
 
   ionViewDidLoad() {
@@ -94,7 +94,13 @@ export class HomePage {
       this.profileProvider.localProfile = (profile as any).data;
     });
 
-    this.upcommingExercises = this.lavaProvider.getExerciseReservations();
+    this.upcommingExercises = this.lavaProvider.getExerciseReservations().pipe(map(res => {
+      console.log('upcommigExercices', res);
+      (res as any).data = (res as any).data.filter(data => {
+        return new Date(data.Date) > new Date();
+      })
+      return res;
+    }))
 
     this.workoutsC$ = this.profileProvider
       .getMemberPrograms()

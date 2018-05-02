@@ -175,6 +175,12 @@ export class PersonPage {
           );
         });
 
+        return res;
+      })
+    );
+
+    this.memberMeasurements$.pipe(
+      map(res => {
         this.lineChartWeight = new Chart(this.lineCanvasWeight.nativeElement, {
           type: "line",
           data: {
@@ -253,7 +259,7 @@ export class PersonPage {
 
         return res;
       })
-    );
+    ).subscribe(res => console.log('this.memberMeasurements$', res))
 
 
 
