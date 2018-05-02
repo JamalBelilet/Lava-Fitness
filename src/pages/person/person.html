@@ -20,7 +20,6 @@
       <img src="assets/icon/weight.svg">
     </ion-thumbnail>
     <div class="measuerments-gray">
-      <p class="gray">over</p>
       <h2>{{(memberMeasurements$ | async)?.data[0].Weight}}kg</h2>
       <!-- <p class="gray">goal 53 kg</p> -->
     </div>
@@ -46,7 +45,6 @@
     <ion-slides slidesPerView="2.5">
       <ion-slide>
         <ion-card class="analysis-card" [navPush]="weightLogHistoryPage" [navParams]="{dataC: (memberInbodyResults$ | async)?.data, selectedC: 'SMM'}">
-          <p class="analysis-card-hover">over</p>
           <img src="assets/icon/weight.svg">
           <p class="analysis-card-header">SMM</p>
           <p class="analysis-card-average">{{(memberInbodyResults$ | async)?.data[0].SMM}} kg</p>
@@ -56,7 +54,6 @@
       </ion-slide>
       <ion-slide>
         <ion-card class="analysis-card" [navPush]="weightLogHistoryPage" [navParams]="{dataC: (memberInbodyResults$ | async)?.data, selectedC: 'PBF'}">
-          <p class="analysis-card-hover">over</p>
           <img src="assets/icon/Energy.svg">
           <p class="analysis-card-header">PBF</p>
           <p class="analysis-card-average">{{(memberInbodyResults$ | async)?.data[0].PBF}}%</p>
@@ -66,7 +63,6 @@
       </ion-slide>
       <ion-slide>
         <ion-card class="analysis-card" [navPush]="weightLogHistoryPage" [navParams]="{dataC: (memberMeasurements$ | async)?.data, selectedC: 'Weight'}">
-          <p class="analysis-card-hover">over</p>
           <img src="assets/icon/analysis.svg">
           <p class="analysis-card-header">Weight</p>
           <p class="analysis-card-average">{{(memberMeasurements$ | async)?.data[0].Weight}} KG</p>
