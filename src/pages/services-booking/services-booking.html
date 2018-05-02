@@ -50,7 +50,7 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card *ngIf="(services$ | async)?.data?.length && (services$ | async)?.data?.length < 1">
+  <ion-card *ngIf="!(services$ | async)?.data || !(services$ | async)?.data.length">
 
     <ion-card-header class="info">
       <p>
