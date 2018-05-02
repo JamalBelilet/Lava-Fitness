@@ -49,7 +49,9 @@ export class MyApp {
       }
       });
 
-      statusBar.styleDefault();
+      // statusBar.styleDefault();
+      // statusBar.backgroundColorByHexString("fefefe");
+      statusBar.overlaysWebView(true);
       splashScreen.hide();
 
       moment.locale("en");

@@ -54,6 +54,8 @@ page-my-booking {
 
     .toolbar.toolbar-md,
     .toolbar.toolbar-ios {
+      margin: 2vh 0!important;
+
       .toolbar-title.toolbar-title-md,
       .toolbar-title.toolbar-title-ios {
         color: #ffffff;
@@ -86,7 +88,7 @@ page-my-booking {
   // }
 
   .scroll-content {
-    padding-top: 28.1 / $sch * 100vh !important;
+    padding-top: 34.1 / $sch * 100vh !important;
 
     margin-top: 0 / $sch * 100vh !important;
 
