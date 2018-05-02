@@ -42,19 +42,19 @@
     </ion-row>
 
     <ion-row class="workout-states">
-        <ng-container *ngFor="let exercice of (workout$ | async)?.CardioProgrameDetail; let i = index">
-          <ion-icon *ngIf="exercice.state == 'done'" [name]="'ios-checkmark-circle'"></ion-icon>
-        </ng-container>
-        <ng-container *ngFor="let exercice of (workout$ | async)?.BodybuildingProgrameDetail; let i = index">
-          <ion-icon *ngIf="exercice.state == 'done'" [name]="'ios-checkmark-circle'"></ion-icon>
-        </ng-container>
+      <ng-container *ngFor="let exercice of (workout$ | async)?.CardioProgrameDetail; let i = index">
+        <ion-icon *ngIf="exercice.state == 'done'" [name]="'ios-checkmark-circle'"></ion-icon>
+      </ng-container>
+      <ng-container *ngFor="let exercice of (workout$ | async)?.BodybuildingProgrameDetail; let i = index">
+        <ion-icon *ngIf="exercice.state == 'done'" [name]="'ios-checkmark-circle'"></ion-icon>
+      </ng-container>
 
-        <ng-container *ngFor="let exercice of (workout$ | async)?.CardioProgrameDetail; let i = index">
-            <ion-icon *ngIf="exercice.state != 'done'" [name]="'ios-checkmark-circle-outline'"></ion-icon>
-          </ng-container>
-          <ng-container *ngFor="let exercice of (workout$ | async)?.BodybuildingProgrameDetail; let i = index">
-            <ion-icon *ngIf="exercice.state != 'done'" [name]="'ios-checkmark-circle-outline'"></ion-icon>
-          </ng-container>
+      <ng-container *ngFor="let exercice of (workout$ | async)?.CardioProgrameDetail; let i = index">
+        <ion-icon *ngIf="exercice.state != 'done'" [name]="'ios-checkmark-circle-outline'"></ion-icon>
+      </ng-container>
+      <ng-container *ngFor="let exercice of (workout$ | async)?.BodybuildingProgrameDetail; let i = index">
+        <ion-icon *ngIf="exercice.state != 'done'" [name]="'ios-checkmark-circle-outline'"></ion-icon>
+      </ng-container>
     </ion-row>
   </div>
   <ion-list class="exercices" no-lines>
@@ -310,6 +310,12 @@
           </ion-row>
         </ion-item-options>
       </ion-item-sliding>
+    </ng-container>
+
+    <ng-container>
+      <div class="lava-spacer"></div>
+      <div class="lava-spacer"></div>
+      <div class="lava-spacer"></div>
     </ng-container>
 
   </ion-list>

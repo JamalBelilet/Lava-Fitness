@@ -232,37 +232,37 @@ export class HeartPage {
     this.stepsChart.weeksData.datasets = [];
     [
       {
-        label: new Date(new Date().getTime() - 6 * 24 * 60 * 60 * 1000).getDay,
+        label: new Date(new Date().getTime() - 6 * 24 * 60 * 60 * 1000).getDay(),
         startDate: new Date(new Date().getTime() - 7 * 24 * 60 * 60 * 1000),
         endDate: new Date(new Date().getTime() - 6 * 24 * 60 * 60 * 1000)
       },
       {
-        label: new Date(new Date().getTime() - 5 * 24 * 60 * 60 * 1000).getDay,
+        label: new Date(new Date().getTime() - 5 * 24 * 60 * 60 * 1000).getDay(),
         startDate: new Date(new Date().getTime() - 6 * 24 * 60 * 60 * 1000),
         endDate: new Date(new Date().getTime() - 5 * 24 * 60 * 60 * 1000)
       },
       {
-        label: new Date(new Date().getTime() - 4 * 24 * 60 * 60 * 1000).getDay,
+        label: new Date(new Date().getTime() - 4 * 24 * 60 * 60 * 1000).getDay(),
         startDate: new Date(new Date().getTime() - 5 * 24 * 60 * 60 * 1000),
         endDate: new Date(new Date().getTime() - 4 * 24 * 60 * 60 * 1000)
       },
       {
-        label: new Date(new Date().getTime() - 3 * 24 * 60 * 60 * 1000).getDay,
+        label: new Date(new Date().getTime() - 3 * 24 * 60 * 60 * 1000).getDay(),
         startDate: new Date(new Date().getTime() - 4 * 24 * 60 * 60 * 1000),
         endDate: new Date(new Date().getTime() - 3 * 24 * 60 * 60 * 1000)
       },
       {
-        label: new Date(new Date().getTime() - 2 * 24 * 60 * 60 * 1000).getDay,
+        label: new Date(new Date().getTime() - 2 * 24 * 60 * 60 * 1000).getDay(),
         startDate: new Date(new Date().getTime() - 3 * 24 * 60 * 60 * 1000),
         endDate: new Date(new Date().getTime() - 2 * 24 * 60 * 60 * 1000)
       },
       {
-        label: new Date(new Date().getTime() - 1 * 24 * 60 * 60 * 1000).getDay,
+        label: new Date(new Date().getTime() - 1 * 24 * 60 * 60 * 1000).getDay(),
         startDate: new Date(new Date().getTime() - 2 * 24 * 60 * 60 * 1000),
         endDate: new Date(new Date().getTime() - 1 * 24 * 60 * 60 * 1000)
       },
       {
-        label: new Date().getDay,
+        label: new Date().getDay(),
         startDate: new Date(new Date().getTime() - 1 * 24 * 60 * 60 * 1000),
         endDate: new Date()
       }
