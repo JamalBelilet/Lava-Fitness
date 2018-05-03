@@ -37,6 +37,7 @@
         "com-sarriaroman-photoviewer": "^1.1.16",
         "compass-mixins": "^0.12.10",
         "cordova-android": "7.0.0",
+        "cordova-android-play-services-gradle-release": "^1.4.1",
         "cordova-plugin-device": "^2.0.1",
         "cordova-plugin-health": "^1.0.5",
         "cordova-plugin-inappbrowser": "^2.0.2",
@@ -74,7 +75,10 @@
             "cordova-sqlite-storage": {},
             "cordova-plugin-x-socialsharing": {},
             "cordova-plugin-inappbrowser": {},
-            "com-sarriaroman-photoviewer": {}
+            "com-sarriaroman-photoviewer": {},
+            "cordova-android-play-services-gradle-release": {
+                "PLAY_SERVICES_VERSION": "15.+"
+            }
         },
         "platforms": [
             "android"

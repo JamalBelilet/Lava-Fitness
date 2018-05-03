@@ -85,26 +85,26 @@
               <p class="option-title">How many minutes?</p>
               <ion-row justify-content-center>
                 <ion-col col-3>
-                  <button (click)="exercice.Duration = exercice.Duration - 1" ion-button clear>-</button>
+                  <button (click)="decreaseDuration($event, slidingItem, item, exercice)" ion-button clear>-</button>
                 </ion-col>
                 <ion-col col-5>
                   <p>{{exercice.Duration}}</p>
                 </ion-col>
                 <ion-col col-3>
-                  <button (click)="exercice.Duration = exercice.Duration + 1" ion-button clear>+</button>
+                  <button (click)="encreaseDuration($event, slidingItem, item, exercice)" ion-button clear>+</button>
                 </ion-col>
               </ion-row>
             </ion-col>
             <ion-col class="sliding-col">
               <p class="option-title">Speed?</p>
               <ion-row justify-content-center>
-                <ion-col (click)="exercice.Speed = exercice.Speed - 1" col-3>
+                <ion-col (click)="encreaseSpeed($event, slidingItem, item, exercice)" col-3>
                   <button ion-button clear>-</button>
                 </ion-col>
                 <ion-col col-5>
                   <p>{{exercice.Speed}}</p>
                 </ion-col>
-                <ion-col (click)="exercice.Speed = exercice.Speed + 1" col-3>
+                <ion-col (click)="encreaseSpeed($event, slidingItem, item, exercice)" col-3>
                   <button ion-button clear>+</button>
                 </ion-col>
               </ion-row>
@@ -147,26 +147,26 @@
               <p class="option-title">How many minutes?</p>
               <ion-row justify-content-center>
                 <ion-col col-3>
-                  <button (click)="exercice.Duration = exercice.Duration - 1" ion-button clear>-</button>
+                  <button (click)="decreaseDuration($event, slidingItem, item, exercice)" ion-button clear>-</button>
                 </ion-col>
                 <ion-col col-5>
                   <p>{{exercice.Duration || 0}}</p>
                 </ion-col>
                 <ion-col col-3>
-                  <button (click)="exercice.Duration = exercice.Duration + 1" ion-button clear>+</button>
+                  <button (click)="encreaseDuration($event, slidingItem, item, exercice)" ion-button clear>+</button>
                 </ion-col>
               </ion-row>
             </ion-col>
             <ion-col class="sliding-col">
               <p class="option-title">Calories burned?</p>
               <ion-row justify-content-center>
-                <ion-col (click)="exercice.Calories = exercice.Calories - 1" col-3>
+                <ion-col (click)="decreaseCalories($event, slidingItem, item, exercice)" col-3>
                   <button ion-button clear>-</button>
                 </ion-col>
                 <ion-col col-5>
                   <p>{{exercice.Calories}}</p>
                 </ion-col>
-                <ion-col (click)="exercice.Calories = exercice.Calories + 1" col-3>
+                <ion-col (click)="encreaseCalories($event, slidingItem, item, exercice)" col-3>
                   <button ion-button clear>+</button>
                 </ion-col>
               </ion-row>
@@ -216,26 +216,26 @@
               <p class="option-title">How many minutes?</p>
               <ion-row justify-content-center>
                 <ion-col col-3>
-                  <button (click)="exercice.Duration = exercice.Duration - 1" ion-button clear>-</button>
+                  <button (click)="decreaseDuration($event, slidingItem, item, exercice)" ion-button clear>-</button>
                 </ion-col>
                 <ion-col col-5>
                   <p>{{exercice.Duration}}</p>
                 </ion-col>
                 <ion-col col-3>
-                  <button (click)="exercice.Duration = exercice.Duration + 1" ion-button clear>+</button>
+                  <button (click)="encreaseDuration($event, slidingItem, item, exercice)" ion-button clear>+</button>
                 </ion-col>
               </ion-row>
             </ion-col>
             <ion-col class="sliding-col">
               <p class="option-title">Speed?</p>
               <ion-row justify-content-center>
-                <ion-col (click)="exercice.Speed = exercice.Speed - 1" col-3>
+                <ion-col (click)="encreaseSpeed($event, slidingItem, item, exercice)" col-3>
                   <button ion-button clear>-</button>
                 </ion-col>
                 <ion-col col-5>
                   <p>{{exercice.Speed}}</p>
                 </ion-col>
-                <ion-col (click)="exercice.Speed = exercice.Speed + 1" col-3>
+                <ion-col (click)="encreaseSpeed($event, slidingItem, item, exercice)" col-3>
                   <button ion-button clear>+</button>
                 </ion-col>
               </ion-row>
@@ -278,26 +278,26 @@
               <p class="option-title">How many minutes?</p>
               <ion-row justify-content-center>
                 <ion-col col-3>
-                  <button (click)="exercice.Duration = exercice.Duration - 1" ion-button clear>-</button>
+                  <button (click)="decreaseDuration($event, slidingItem, item, exercice)" ion-button clear>-</button>
                 </ion-col>
                 <ion-col col-5>
                   <p>{{exercice.Duration || 0}}</p>
                 </ion-col>
                 <ion-col col-3>
-                  <button (click)="exercice.Duration = exercice.Duration + 1" ion-button clear>+</button>
+                  <button (click)="encreaseDuration($event, slidingItem, item, exercice)" ion-button clear>+</button>
                 </ion-col>
               </ion-row>
             </ion-col>
             <ion-col class="sliding-col">
               <p class="option-title">Calories burned?</p>
               <ion-row justify-content-center>
-                <ion-col (click)="exercice.Calories = exercice.Calories - 1" col-3>
+                <ion-col (click)="decreaseCalories($event, slidingItem, item, exercice)" col-3>
                   <button ion-button clear>-</button>
                 </ion-col>
                 <ion-col col-5>
                   <p>{{exercice.Calories}}</p>
                 </ion-col>
-                <ion-col (click)="exercice.Calories = exercice.Calories + 1" col-3>
+                <ion-col (click)="encreaseCalories($event, slidingItem, item, exercice)" col-3>
                   <button ion-button clear>+</button>
                 </ion-col>
               </ion-row>

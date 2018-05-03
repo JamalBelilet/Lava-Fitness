@@ -67,7 +67,10 @@ export class WorkoutPage {
         this.workout.BodybuildingProgrameDetail = this.workout.BodybuildingProgrameDetail.map(
           bodybuildingExerciseExercise => {
             (res as any).data.Bodybuilding.forEach(bodybuilding => {
-              if (bodybuildingExerciseExercise.Equipment.ID == bodybuilding.Equipment.ID) {
+              if (
+                bodybuildingExerciseExercise.Equipment.ID ==
+                bodybuilding.Equipment.ID
+              ) {
                 bodybuildingExerciseExercise.state = "done";
               }
             });
@@ -79,10 +82,68 @@ export class WorkoutPage {
     );
   }
 
+  decreaseDuration($event, slidingItem, item, exersice) {
+    exersice.Duration = exersice.Duration - 1;
+    this.stopPropagation($event, slidingItem, item);
+  }
+  encreaseDuration($event, slidingItem, item, exersice) {
+    exersice.Duration = exersice.Duration + 1;
+    this.stopPropagation($event, slidingItem, item);
+  }
+
+  decreaseCalories($event, slidingItem, item, exersice) {
+    exersice.Calories = exersice.Calories - 1;
+    this.stopPropagation($event, slidingItem, item);
+  }
+  encreaseCalories($event, slidingItem, item, exersice) {
+    exersice.Calories = exersice.Calories + 1;
+    this.stopPropagation($event, slidingItem, item);
+  }
+
+  decreaseSpeed($event, slidingItem, item, exersice) {
+    exersice.Speed = exersice.Speed - 1;
+    this.stopPropagation($event, slidingItem, item);
+  }
+  encreaseSpeed($event, slidingItem, item, exersice) {
+    exersice.Speed = exersice.Speed + 1;
+    this.stopPropagation($event, slidingItem, item);
+  }
+
+  stopPropagation($event, slidingItem, item) {
+    $event.stopPropagation();
+
+    $event.preventDefault();
+
+    slidingItem.setElementClass("active-sliding", true);
+    slidingItem.setElementClass("active-sliding", true);
+    slidingItem.setElementClass("active-slide", true);
+    slidingItem.setElementClass("active-options-left", true);
+
+    setTimeout(
+      () => {
+        slidingItem.setElementClass("active-sliding", true);
+        slidingItem.setElementClass("active-sliding", true);
+        slidingItem.setElementClass("active-slide", true);
+        slidingItem.setElementClass("active-options-left", true);
+      },
+      350,
+      400,
+      450,
+      500,
+      650,
+      900
+    );
+    // "active-slide active-options-left";
+    item.setElementStyle("transform", "translate3d(0, 0px, 0px)");
+    item.setElementStyle("transform", "translate3d(90.04%, 0px, 0px)");
+  }
+
   public open($event, itemSlide: ItemSliding, item: Item) {
     // reproduce the slide on the click
     $event.stopPropagation();
+
     $event.preventDefault();
+
     itemSlide.setElementClass("active-sliding", true);
     itemSlide.setElementClass("active-slide", true);
     itemSlide.setElementClass("active-options-left", true);
@@ -118,18 +179,15 @@ export class WorkoutPage {
   //     "HeartRate": "101 - 110"
   // }
   endCardioReadout(exersice, workoutID) {
-    this.lavaProvider
-      .addCardioReadout(exersice, workoutID)
-      .subscribe(res => {{
-
-      }});
+    this.lavaProvider.addCardioReadout(exersice, workoutID).subscribe(res => {
+      {
+      }
+    });
   }
 
   endBodyBuildingReadout(exersice, workoutID) {
     this.lavaProvider
       .addBoddyBuildingReadout(exersice, workoutID)
-      .subscribe(res => {
-
-      });
+      .subscribe(res => {});
   }
 }
