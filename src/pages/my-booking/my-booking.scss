@@ -11,24 +11,22 @@ page-my-booking {
   }
 
   .segment {
-    height: 5.5vh!important;
+    height: 5vh !important;
     padding: 0;
-
   }
   .segment-button {
     // padding: 2vh 3vw!important;
-    height: 100%!important;
-    width: 100%!important;
+    height: 100% !important;
+    width: 100% !important;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    font-size: 4vw!important;
+    font-size: 4vw !important;
   }
 
   .segment-button.segment-activated {
-    color: #1a969c!important;
-
+    color: #1a969c !important;
   }
 
   ion-card {
@@ -43,10 +41,10 @@ page-my-booking {
     box-shadow: 0 !important;
 
     background: transparent;
-    // background: url(../assets/imgs/booking-back.png);
-    // background-size: contain;
-    // background-position: top center;
-    // background-repeat: no-repeat;
+    background: url(../assets/imgs/booking-back.png);
+    background-size: 100%;
+    background-position: top center;
+    background-repeat: no-repeat;
 
     &:after {
       background-image: none !important;
@@ -54,7 +52,8 @@ page-my-booking {
 
     .toolbar.toolbar-md,
     .toolbar.toolbar-ios {
-      margin: 2vh 0!important;
+      // margin: 2vh 0!important;
+      margin-bottom: 0 !important;
 
       .toolbar-title.toolbar-title-md,
       .toolbar-title.toolbar-title-ios {
@@ -63,6 +62,7 @@ page-my-booking {
         font-family: "AvenirLTStd-Heavy" !important;
 
         text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+        margin-top: 0 !important;
       }
 
       .toolbar-background.toolbar-background-ios {
@@ -104,6 +104,15 @@ page-my-booking {
           rgba(47, 181, 191, 1) 0%,
           rgba(33, 193, 202, 1) 100%
         );
+
+        &.disabled {
+          background: linear-gradient(
+            to bottom,
+            rgb(176, 188, 189) 0%,
+            rgb(132, 139, 139) 100%
+          );
+        }
+
         &.info {
           background: linear-gradient(
             to right,
@@ -120,6 +129,20 @@ page-my-booking {
         }
 
         button {
+          &:disabled {
+            transform: translateX(-12vw);
+            opacity: .8;
+
+            p {
+              font-weight: bold;
+              text-decoration: none;
+              color: rgb(255,255,255);
+              opacity: .8;
+              font-size: 75%;
+
+            }
+          }
+
           p {
             font-weight: bold;
             text-decoration: underline;
@@ -128,5 +151,4 @@ page-my-booking {
       }
     }
   }
-
 }

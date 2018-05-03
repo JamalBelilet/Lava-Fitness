@@ -56,6 +56,7 @@ import { PhotoViewer } from "@ionic-native/photo-viewer";
 import { ClassesBookingPage } from "../pages/classes-booking/classes-booking";
 import { ServicesBookingPage } from "../pages/services-booking/services-booking";
 import { MyBookingPage } from "../pages/my-booking/my-booking";
+import { IsNewPipe } from "../pipes/is-new/is-new";
 
 const FIREBASE_CREDENTIALS = {
   apiKey: "AIzaSyAggtWMxyL84Eq8ZV8X6Hce9Atpu2W-wi8",
@@ -86,6 +87,8 @@ const FIREBASE_CREDENTIALS = {
     WeightLogHistoryPage,
     BodyWeightLogHistoryPage,
     GuidebookMusclesPage,
+    IsNewPipe,
+
 
     MomentPipe,
     ExpandableComponent,

@@ -52,15 +52,7 @@ export class LavaProvider {
     );
   }
 
-  updateReservation(updatedUser) {
-    if (this.authProvider.config.debug) {
-      return of({
-        status: 1,
-        data: {
-          AccessToken: "accb45021c8be4550dd1e826aad388f0"
-        }
-      });
-    }
+  updateExerciseReservation(exerciseID) {
     const headers = this.authProvider.config.headers;
     const params = new HttpParams();
     const options = {
@@ -70,8 +62,27 @@ export class LavaProvider {
     };
     return this.http.post(
       `${this.authProvider.config.baseUrl}/web/exercise/update`,
+
       JSON.stringify({
-        ID: "1286",
+        ID: exerciseID,
+        Canceled: "1"
+      }),
+      options
+    );
+  }
+
+  updateServiceReservation(massageID) {
+    const headers = this.authProvider.config.headers;
+    const params = new HttpParams();
+    const options = {
+      headers,
+      params,
+      withCredentials: true
+    };
+    return this.http.post(
+      `${this.authProvider.config.baseUrl}/web/massage/update`,
+      JSON.stringify({
+        ID: massageID,
         Canceled: "1"
       }),
       options

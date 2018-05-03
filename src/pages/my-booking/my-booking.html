@@ -30,7 +30,7 @@
     <div *ngSwitchCase="'classes'">
       <ion-card *ngFor="let class of (classeReservations$ | async)?.data">
 
-        <ion-card-header>
+        <ion-card-header [ngClass]="{'disabled': !(class.Date | isNew)}">
           <ion-row>
             <ion-col col-9>
               <div>
@@ -40,9 +40,17 @@
                   <span>Branch:</span> {{class.BranchName}}</p>
               </div>
             </ion-col>
+
+            <ion-col col-3>
+              <button (click)="cancelExercice(class.ID)" ion-button clear>
+
+
+                <p>
+                  <span *ngIf="class.Date | isNew">Cancel</span>
+                </p>
+              </button>
+            </ion-col>
           </ion-row>
-
-
 
         </ion-card-header>
         <ion-card-content padding>
@@ -68,42 +76,51 @@
       </ion-card>
     </div>
     <div *ngSwitchCase="'sessions'">
-        <ion-card *ngFor="let service of (serviceReservations$ | async)?.data">
+      <ion-card *ngFor="let service of (serviceReservations$ | async)?.data">
 
-            <ion-card-header>
-              <ion-row>
-                <ion-col col-9>
-                  <div>
-                    <p>
-                      <span>service:</span> Message</p>
-                    <p>
-                      <span>Branch:</span> {{service.BranchName}}</p>
-                  </div>
-                </ion-col>
-              </ion-row>
+        <ion-card-header>
+          <ion-row>
+            <ion-col col-9>
+              <div>
+                <p>
+                  <span>service:</span> Message</p>
+                <p>
+                  <span>Branch:</span> {{service.BranchName}}</p>
+              </div>
+            </ion-col>
+
+            <ion-col col-3>
+              <button (click)="cancelService(service.ID)" ion-button clear>
+                <p>
+                  <span *ngIf="service.Date | isNew">Cancel</span>
+                  <span *ngIf="!(service.Date | isNew)">Delete</span>
+                </p>
+              </button>
+            </ion-col>
+          </ion-row>
 
 
 
-            </ion-card-header>
-            <ion-card-content padding>
-              <p>
-                <span>Massager:</span> {{service.MassagerName}}</p>
-              <p>
-                <span>Date:</span> {{service.Date}}</p>
-            </ion-card-content>
-          </ion-card>
+        </ion-card-header>
+        <ion-card-content padding>
+          <p>
+            <span>Massager:</span> {{service.MassagerName}}</p>
+          <p>
+            <span>Date:</span> {{service.Date}}</p>
+        </ion-card-content>
+      </ion-card>
 
-          <ion-card *ngIf="(serviceReservations$ | async)?.data?.length && (serviceReservations$ | async)?.data?.length < 1">
+      <ion-card *ngIf="(serviceReservations$ | async)?.data?.length && (serviceReservations$ | async)?.data?.length < 1">
 
-            <ion-card-header class="info">
-              <p>
-                <span>Info:</span> No items available for now</p>
-            </ion-card-header>
-            <ion-card-content padding>
-              <p>
-                You have to reserve a service first</p>
-            </ion-card-content>
-          </ion-card>
+        <ion-card-header class="info">
+          <p>
+            <span>Info:</span> No items available for now</p>
+        </ion-card-header>
+        <ion-card-content padding>
+          <p>
+            You have to reserve a service first</p>
+        </ion-card-content>
+      </ion-card>
     </div>
   </div>
 
