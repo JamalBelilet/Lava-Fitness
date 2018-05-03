@@ -23,7 +23,7 @@ import { AngularFireAuth } from "angularfire2/auth";
   templateUrl: "app.html"
 })
 export class MyApp {
-  rootPage: any = LoginPage;
+  rootPage: any;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -47,7 +47,9 @@ export class MyApp {
         this.auth.config.AccessToken = val;
         this.rootPage = TabsPage;
       }
-      });
+      }).catch(e => {
+        this.rootPage = LoginPage;
+      })
 
       // statusBar.styleDefault();
       // statusBar.backgroundColorByHexString("fefefe");

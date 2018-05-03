@@ -31,6 +31,7 @@
       <ion-card *ngFor="let class of (classeReservations$ | async)?.data">
 
         <ion-card-header [ngClass]="{'disabled': !(class.Date | isNew)}">
+
           <ion-row>
             <ion-col col-9>
               <div>
@@ -78,7 +79,7 @@
     <div *ngSwitchCase="'sessions'">
       <ion-card *ngFor="let service of (serviceReservations$ | async)?.data">
 
-        <ion-card-header>
+        <ion-card-header [ngClass]="{'disabled': !(service.Date | isNew)}">
           <ion-row>
             <ion-col col-9>
               <div>
@@ -93,7 +94,6 @@
               <button (click)="cancelService(service.ID)" ion-button clear>
                 <p>
                   <span *ngIf="service.Date | isNew">Cancel</span>
-                  <span *ngIf="!(service.Date | isNew)">Delete</span>
                 </p>
               </button>
             </ion-col>

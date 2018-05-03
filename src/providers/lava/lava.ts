@@ -65,7 +65,8 @@ export class LavaProvider {
 
       JSON.stringify({
         ID: exerciseID,
-        Canceled: "1"
+        Canceled: "1",
+        AccessToken: this.authProvider.config.AccessToken,
       }),
       options
     );
@@ -83,7 +84,8 @@ export class LavaProvider {
       `${this.authProvider.config.baseUrl}/web/massage/update`,
       JSON.stringify({
         ID: massageID,
-        Canceled: "1"
+        Canceled: "1",
+        AccessToken: this.authProvider.config.AccessToken,
       }),
       options
     );

@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { NavController, NavParams } from "ionic-angular";
+import { NavController, NavParams, AlertController } from "ionic-angular";
 import { LavaProvider } from "../../providers/lava/lava";
 import { Observable } from "rxjs/Observable";
 
@@ -21,7 +21,8 @@ export class MyBookingPage {
   constructor(
     private lavaProvider: LavaProvider,
     public navCtrl: NavController,
-    public navParams: NavParams
+    public navParams: NavParams,
+    public alertCtrl: AlertController
   ) {}
 
   ionViewDidLoad() {
@@ -31,14 +32,68 @@ export class MyBookingPage {
   }
 
   cancelService(serviceID) {
-    this.lavaProvider.updateServiceReservation(serviceID).subscribe(res => {});
-
+    let alert = this.alertCtrl.create({
+      title: "",
+      message: "confirm the reservation of this class?",
+      buttons: [
+        {
+          text: "Cancel",
+          role: "cancel",
+          handler: () => {
+            console.log("Cancel clicked");
+          }
+        },
+        {
+          text: "Confirm",
+          handler: () => {
+            this.lavaProvider.updateServiceReservation(serviceID).subscribe(
+              res => {
+                this.serviceReservations$ = this.lavaProvider.getMassageReservations();
+              },
+              error => {
+                this.alertCtrl
+                  .create()
+                  .setMessage(error.error.errors)
+                  .present();
+              }
+            );
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
   cancelExercice(exerciseID) {
-    this.lavaProvider
-      .updateExerciseReservation(exerciseID)
-      .subscribe(res => {});
-
+    let alert = this.alertCtrl.create({
+      title: "",
+      message: "confirm the reservation of this class?",
+      buttons: [
+        {
+          text: "Cancel",
+          role: "cancel",
+          handler: () => {
+            console.log("Cancel clicked");
+          }
+        },
+        {
+          text: "Confirm",
+          handler: () => {
+            this.lavaProvider.updateExerciseReservation(exerciseID).subscribe(
+              res => {
+                this.classeReservations$ = this.lavaProvider.getExerciseReservations();
+              },
+              error => {
+                this.alertCtrl
+                  .create()
+                  .setMessage(error.error.errors)
+                  .present();
+              }
+            );
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 }
