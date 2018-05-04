@@ -11,7 +11,7 @@
   </ion-navbar>
 
   <ion-toolbar>
-    <ion-segment [(ngModel)]="selectedType" color="light">
+    <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="selectedType" color="light">
       <ion-segment-button value="classes">
         Classes
       </ion-segment-button>
@@ -28,7 +28,7 @@
 
   <div [ngSwitch]="selectedType">
     <div *ngSwitchCase="'classes'">
-      <ion-card *ngFor="let class of (classeReservations$ | async)?.data">
+      <ion-card *ngFor="let class of classeReservations?.data">
 
         <ion-card-header [ngClass]="{'disabled': !(class.Date | isNew)}">
 
@@ -64,7 +64,7 @@
         </ion-card-content>
       </ion-card>
 
-      <ion-card *ngIf="(classeReservations$ | async)?.data?.length && (classeReservations$ | async)?.data?.length < 1">
+      <ion-card *ngIf="classeReservations?.data?.length && classeReservations?.data?.length < 1">
 
         <ion-card-header class="info">
           <p>
@@ -77,7 +77,7 @@
       </ion-card>
     </div>
     <div *ngSwitchCase="'sessions'">
-      <ion-card *ngFor="let service of (serviceReservations$ | async)?.data">
+      <ion-card *ngFor="let service of serviceReservations?.data">
 
         <ion-card-header [ngClass]="{'disabled': !(service.Date | isNew)}">
           <ion-row>
@@ -110,7 +110,7 @@
         </ion-card-content>
       </ion-card>
 
-      <ion-card *ngIf="(serviceReservations$ | async)?.data?.length && (serviceReservations$ | async)?.data?.length < 1">
+      <ion-card *ngIf="serviceReservations?.data?.length && serviceReservations?.data?.length < 1">
 
         <ion-card-header class="info">
           <p>

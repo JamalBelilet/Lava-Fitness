@@ -1,7 +1,13 @@
 import { Component } from "@angular/core";
-import { NavController, NavParams, AlertController } from "ionic-angular";
+import {
+  NavController,
+  NavParams,
+  AlertController,
+  LoadingController
+} from "ionic-angular";
 import { LavaProvider } from "../../providers/lava/lava";
 import { Observable } from "rxjs/Observable";
+import { map } from "rxjs/operators";
 
 /**
  * Generated class for the MyBookingPage page.
@@ -17,18 +23,56 @@ import { Observable } from "rxjs/Observable";
 export class MyBookingPage {
   classeReservations$: Observable<Object>;
   serviceReservations$: Observable<Object>;
+  classeReservations;
+  serviceReservations;
   selectedType = "classes";
+
+  loading = this.loadingCtrl.create({
+    spinner: "ios"
+  });
+
   constructor(
     private lavaProvider: LavaProvider,
     public navCtrl: NavController,
     public navParams: NavParams,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
+    private loadingCtrl: LoadingController
   ) {}
 
   ionViewDidLoad() {
-    this.classeReservations$ = this.lavaProvider.getExerciseReservations();
-    this.serviceReservations$ = this.lavaProvider.getMassageReservations();
+    this.loading.present();
+
+    this.lavaProvider.getExerciseReservations().pipe(
+      map(res => {
+        if (this.loading) {
+          this.loading.dismiss();
+          this.loading = null;
+        }
+
+        return res;
+      })
+    ).subscribe(res => {
+      this.classeReservations = res;
+    })
+   this.lavaProvider.getMassageReservations().pipe(
+      map(res => {
+        if (this.loading) {
+          this.loading.dismiss();
+          this.loading = null;
+        }
+
+        return res;
+      })
+    ).subscribe(res => {
+      this.serviceReservations = res;
+    })
     console.log("ionViewDidLoad MyBookingPage");
+  }
+
+  segmentChanged(event) {
+    this.loading = this.loadingCtrl.create({
+      spinner: "ios"
+    });
   }
 
   cancelService(serviceID) {

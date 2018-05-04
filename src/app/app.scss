@@ -14,6 +14,14 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+.loading-ios .loading-wrapper, .loading-md .loading-wrapper {
+  background: transparent!important;
+  color: #22c3cc;
+}
+$loading-ios-spinner-color: #22c3cc!important;
+$loading-ios-spinner-ios-color: #22c3cc!important;
+$loading-ios-spinner-color: #22c3cc!important;
+$loading-ios-spinner-dots-color: #22c3cc!important;
 @font-face {
   font-family: "AvenirLTStd";
   src: url("../assets/fonts/AvenirLTStd-Black.otf"),

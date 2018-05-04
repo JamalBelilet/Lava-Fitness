@@ -119,6 +119,7 @@ export class BookPage {
       map(res => {
         (res as any).data = (res as any).data.map(meus => {
           meus.Date = moment(meus.Date).format("MM/DD/YYYY");
+
           return meus;
         });
 

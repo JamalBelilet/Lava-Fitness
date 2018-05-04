@@ -1,8 +1,9 @@
 import { Component } from "@angular/core";
-import { NavController, NavParams, AlertController } from "ionic-angular";
+import { NavController, NavParams, AlertController, LoadingController } from "ionic-angular";
 import { LavaProvider } from "../../providers/lava/lava";
 import { Observable } from "rxjs/Observable";
 import moment from "moment";
+import { map } from "rxjs/operators";
 
 /**
  * Generated class for the ServicesBookingPage page.
@@ -12,21 +13,28 @@ import moment from "moment";
  */
 
 @Component({
+
   selector: 'page-services-booking',
   templateUrl: 'services-booking.html',
 })
 export class ServicesBookingPage {
   services$: Observable<Object>;
+  loading = this.loadingCtrl.create({
+    spinner: "ios"
+  });
   constructor(
     private alertCtrl: AlertController,
     private lavaProvider: LavaProvider,
     public navCtrl: NavController,
-    public navParams: NavParams
+    public navParams: NavParams,
+    private loadingCtrl: LoadingController
   ) {
     console.log(navParams.data);
   }
 
   ionViewDidLoad() {
+    this.loading.present();
+
     let date = new Date(
       moment(this.navParams.data.Date)
         .locale("en")
@@ -47,9 +55,16 @@ export class ServicesBookingPage {
           .locale("en")
           .toISOString()
       ).getFullYear()
-    );
+    ).pipe(
+      map(res => {
+        if (this.loading) {
+          this.loading.dismiss();
+          this.loading = null;
+        }
 
-    this.services$.subscribe(res => console.log(res));
+        return res;
+      })
+    );
   }
 
   book(serviceC) {

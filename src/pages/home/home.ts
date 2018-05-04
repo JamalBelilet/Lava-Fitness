@@ -4,7 +4,8 @@ import {
   NavController,
   ModalController,
   Tabs,
-  AlertController
+  AlertController,
+  LoadingController
 } from "ionic-angular";
 import { WorkoutPage } from "../workout/workout";
 import { LavaProvider } from "../../providers/lava/lava";
@@ -82,12 +83,20 @@ export class HomePage {
     private alertCtrl: AlertController,
     private health: Health,
     private LavaHealth: LavaHealthProvider,
-    private iab: InAppBrowser
+    private iab: InAppBrowser,
+    private loadingCtrl: LoadingController
+
   ) {
     moment.locale("en");
   }
 
   ionViewDidLoad() {
+    let loading = this.loadingCtrl.create({
+      spinner: "ios"
+    });
+    loading.present();
+
+
     this.ExerciseReservations$ = this.lavaProvider.getExerciseReservations();
     this.profile$ = this.profileProvider.getProfile();
     this.profile$.subscribe(profile => {
@@ -151,6 +160,11 @@ export class HomePage {
               wokroutsC.sumOfWeekRepetitions += item.WeekRepetitions;
             }
           });
+
+          if(loading) {
+            loading.dismiss();
+            loading = null;
+          }
 
           return wokroutsC;
         })

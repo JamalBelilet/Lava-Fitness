@@ -5,7 +5,8 @@ import {
   ItemSliding,
   Item,
   AlertController,
-  ModalController
+  ModalController,
+  LoadingController
 } from "ionic-angular";
 import { FinishWorkoutPage } from "../finish-workout/finish-workout";
 import { ProfileProvider } from "../../providers/profile/profile";
@@ -13,6 +14,7 @@ import { LavaProvider } from "../../providers/lava/lava";
 import { map, switchMap } from "rxjs/operators";
 import { of } from "rxjs/observable/of";
 import { Observable } from "rxjs/Observable";
+import { DomSanitizer } from "@angular/platform-browser";
 
 /**
  * Generated class for the WorkoutPage page.
@@ -29,13 +31,17 @@ export class WorkoutPage {
   workout$: Observable<any>;
   workout;
 
+
+
   // @Output() finish = new EventEmitter();
   constructor(
     private profileProvider: ProfileProvider,
     public navCtrl: NavController,
     public navParams: NavParams,
     private modalCtrl: ModalController,
-    private lavaProvider: LavaProvider
+    private lavaProvider: LavaProvider,
+    private sanitizer: DomSanitizer,
+    private loadingCtrl: LoadingController
   ) {
     this.workout = navParams.data;
 
@@ -50,6 +56,11 @@ export class WorkoutPage {
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad WorkoutPage");
+
+    let loading = this.loadingCtrl.create({
+      spinner: "ios"
+    });
+    loading.present();
 
     this.workout$ = this.lavaProvider.getMemberReadouts(this.workout.ID).pipe(
       switchMap(res => {
@@ -77,9 +88,18 @@ export class WorkoutPage {
             return bodybuildingExerciseExercise;
           }
         );
+
+
+        if(loading) {
+          loading.dismiss();
+          loading = null;
+        }
+
         return of(this.workout);
       })
     );
+
+
   }
 
   decreaseDuration($event, slidingItem, item, exersice) {
