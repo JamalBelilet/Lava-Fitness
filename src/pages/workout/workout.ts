@@ -109,33 +109,122 @@ export class WorkoutPage {
     this.stopPropagation($event, slidingItem, item);
   }
 
+  slidingDrag($event, slidingItem) {
+    this.stopPropagation($event, slidingItem, null);
+  }
+
   stopPropagation($event, slidingItem, item) {
-    $event.stopPropagation();
-
-    $event.preventDefault();
-
     slidingItem.setElementClass("active-sliding", true);
     slidingItem.setElementClass("active-sliding", true);
     slidingItem.setElementClass("active-slide", true);
     slidingItem.setElementClass("active-options-left", true);
 
-    setTimeout(
-      () => {
-        slidingItem.setElementClass("active-sliding", true);
-        slidingItem.setElementClass("active-sliding", true);
-        slidingItem.setElementClass("active-slide", true);
-        slidingItem.setElementClass("active-options-left", true);
-      },
-      350,
-      400,
-      450,
-      500,
-      650,
-      900
-    );
+    setTimeout(() => {
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-slide", true);
+      slidingItem.setElementClass("active-options-left", true);
+    }, 350);
+
+    setTimeout(() => {
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-slide", true);
+      slidingItem.setElementClass("active-options-left", true);
+    }, 450);
+
+    setTimeout(() => {
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-slide", true);
+      slidingItem.setElementClass("active-options-left", true);
+    }, 500);
+
+    setTimeout(() => {
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-slide", true);
+      slidingItem.setElementClass("active-options-left", true);
+    }, 500);
+
+    setTimeout(() => {
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-slide", true);
+      slidingItem.setElementClass("active-options-left", true);
+    }, 500);
+
+    setTimeout(() => {
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-slide", true);
+      slidingItem.setElementClass("active-options-left", true);
+    }, 550);
+
+    setTimeout(() => {
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-slide", true);
+      slidingItem.setElementClass("active-options-left", true);
+    }, 600);
+
+    setTimeout(() => {
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-slide", true);
+      slidingItem.setElementClass("active-options-left", true);
+    }, 650);
+    setTimeout(() => {
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-slide", true);
+      slidingItem.setElementClass("active-options-left", true);
+    }, 700);
+    setTimeout(() => {
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-slide", true);
+      slidingItem.setElementClass("active-options-left", true);
+    }, 750);
+
+    setTimeout(() => {
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-slide", true);
+      slidingItem.setElementClass("active-options-left", true);
+    }, 800);
+    setTimeout(() => {
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-slide", true);
+      slidingItem.setElementClass("active-options-left", true);
+    }, 850);
+
+    setTimeout(() => {
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-slide", true);
+      slidingItem.setElementClass("active-options-left", true);
+    }, 900);
+
+    setTimeout(() => {
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-slide", true);
+      slidingItem.setElementClass("active-options-left", true);
+    }, 950);
+
+    setTimeout(() => {
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-sliding", true);
+      slidingItem.setElementClass("active-slide", true);
+      slidingItem.setElementClass("active-options-left", true);
+    }, 1000);
+
+    // setTimeout(() => {slidingItem.setElementClass("active-sliding", true);slidingItem.setElementClass("active-sliding", true);slidingItem.setElementClass("active-slide", true);slidingItem.setElementClass("active-options-left", true);},
+    // 1000);
     // "active-slide active-options-left";
-    item.setElementStyle("transform", "translate3d(0, 0px, 0px)");
-    item.setElementStyle("transform", "translate3d(90.04%, 0px, 0px)");
+    item && item.setElementStyle("transform", "translate3d(90.04%, 0px, 0px)");
   }
 
   public open($event, itemSlide: ItemSliding, item: Item) {

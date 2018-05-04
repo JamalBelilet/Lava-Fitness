@@ -60,7 +60,7 @@
   <ion-list class="exercices" no-lines>
     <ng-container *ngFor="let exercice of (workout$ | async)?.CardioProgrameDetail; let i = index">
 
-      <ion-item-sliding *ngIf="exercice.state != 'done'" #slidingItem>
+      <ion-item-sliding (ionDrag)="slidingDrag($event, slidingItem)" *ngIf="exercice.state != 'done'" #slidingItem>
         <ion-item #item (click)="open($event, slidingItem, item)">
 
           <p class="counter">{{i + 1}}</p>
@@ -121,7 +121,7 @@
     </ng-container>
 
     <ng-container *ngFor="let exercice of (workout$ | async)?.BodybuildingProgrameDetail; let i = index">
-      <ion-item-sliding #slidingItem *ngIf="exercice.state != 'done'">
+      <ion-item-sliding (ionDrag)="slidingDrag($event, slidingItem)" #slidingItem *ngIf="exercice.state != 'done'">
         <ion-item #item (click)="open($event, slidingItem, item)">
 
           <p class="counter">{{i + 1}}</p>
@@ -191,7 +191,7 @@
 
     <ng-container *ngFor="let exercice of (workout$ | async)?.CardioProgrameDetail; let i = index">
 
-      <ion-item-sliding *ngIf="exercice.state == 'done'" #slidingItem>
+      <ion-item-sliding (ionDrag)="slidingDrag($event, slidingItem)" *ngIf="exercice.state == 'done'" #slidingItem>
         <ion-item #item (click)="open($event, slidingItem, item)">
 
           <p class="counter">{{i + 1}}</p>
@@ -252,7 +252,7 @@
     </ng-container>
 
     <ng-container *ngFor="let exercice of (workout$ | async)?.BodybuildingProgrameDetail; let i = index">
-      <ion-item-sliding #slidingItem *ngIf="exercice.state == 'done'">
+      <ion-item-sliding (ionDrag)="slidingDrag($event, slidingItem)" #slidingItem *ngIf="exercice.state == 'done'">
         <ion-item #item (click)="open($event, slidingItem, item)">
 
           <p class="counter">{{i + 1}}</p>
