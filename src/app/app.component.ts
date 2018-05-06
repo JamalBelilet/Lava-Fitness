@@ -18,6 +18,7 @@ import { AuthenticationProvider } from "../providers/authentication/authenticati
 import * as firebase from "firebase/app";
 import { AngularFireAuth } from "angularfire2/auth";
 
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   templateUrl: "app.html"
@@ -26,30 +27,37 @@ export class MyApp {
   rootPage: any;
 
   constructor(
+    translate: TranslateService,
     private afAuth: AngularFireAuth,
     private alertCtrl: AlertController,
     private auth: AuthenticationProvider,
     platform: Platform,
     statusBar: StatusBar,
     splashScreen: SplashScreen,
-    private storage: Storage,
+    private storage: Storage
   ) {
+    // this language will be used as a fallback when a translation isn't found in the current language
+    translate.setDefaultLang("ar");
+
+    // the lang to use, if the lang isn't available, it will use the current loader to get them
+    translate.use("ar");
+
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.storage.set("AccessToken", "fb85615cdb316e80787e5a08184f2d04")
+      this.storage.set("AccessToken", "fb85615cdb316e80787e5a08184f2d04");
 
-
-      this.storage.get("AccessToken").then(val => {
-        if (val) {
-
-
-        this.auth.config.AccessToken = val;
-        this.rootPage = TabsPage;
-      }
-      }).catch(e => {
-        this.rootPage = LoginPage;
-      })
+      this.storage
+        .get("AccessToken")
+        .then(val => {
+          if (val) {
+            this.auth.config.AccessToken = val;
+            this.rootPage = TabsPage;
+          }
+        })
+        .catch(e => {
+          this.rootPage = LoginPage;
+        });
 
       // statusBar.styleDefault();
       // statusBar.backgroundColorByHexString("fefefe");
@@ -59,12 +67,6 @@ export class MyApp {
       moment.locale("en");
 
       // this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(c => {}).catch(error => {});
-
-
-
-
     });
   }
-
-
 }

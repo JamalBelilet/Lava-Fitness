@@ -58,6 +58,8 @@ import { ServicesBookingPage } from "../pages/services-booking/services-booking"
 import { MyBookingPage } from "../pages/my-booking/my-booking";
 import { IsNewPipe } from "../pipes/is-new/is-new";
 
+import { TranslateModule } from "@ngx-translate/core";
+
 const FIREBASE_CREDENTIALS = {
   apiKey: "AIzaSyAggtWMxyL84Eq8ZV8X6Hce9Atpu2W-wi8",
   authDomain: "lava-fitness.firebaseapp.com",
@@ -66,6 +68,13 @@ const FIREBASE_CREDENTIALS = {
   storageBucket: "lava-fitness.appspot.com",
   messagingSenderId: "478955498356"
 };
+
+import { TranslateLoader } from "@ngx-translate/core";
+import { HttpClient } from "@angular/common/http";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+export function setTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
+}
 
 @NgModule({
   declarations: [
@@ -88,7 +97,6 @@ const FIREBASE_CREDENTIALS = {
     BodyWeightLogHistoryPage,
     GuidebookMusclesPage,
     IsNewPipe,
-
 
     MomentPipe,
     ExpandableComponent,
@@ -113,7 +121,15 @@ const FIREBASE_CREDENTIALS = {
     RoundProgressModule,
     ChartModule,
     AngularFireModule.initializeApp(FIREBASE_CREDENTIALS),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (setTranslateLoader),
+        deps: [HttpClient]
+      }
+    })
   ],
 
   bootstrap: [IonicApp],

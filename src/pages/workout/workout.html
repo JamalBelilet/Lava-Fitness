@@ -30,7 +30,7 @@
     <ion-row class="workout-meta">
       <ion-row>
         <ion-icon name="time-outline"></ion-icon>
-        <p class="workout-time">{{workout.NumberOfDays}} days</p>
+        <p class="workout-time">{{workout.NumberOfDays}} {{"Days" | translate}}</p>
       </ion-row>
 
       <ion-row class="workout-time-container">
@@ -70,8 +70,8 @@
           </ion-thumbnail>
 
           <p class="workout-p">{{exercice.Equipment.NameEN}}</p>
-          <p class="workout-p">{{exercice.Duration || '0'}} mins
-            <span>Level: </span>{{exercice.Level}}</p>
+          <p class="workout-p">{{exercice.Duration || '0'}} {{"Mins" | translate}}
+            <span>{{"Level" | translate}}: </span>{{exercice.Level}}</p>
 
           <ion-buttons item-right>
             <button ion-button clear>
@@ -82,7 +82,7 @@
         <ion-item-options style="width: 90.04%" side="left" class="slide-options">
           <ion-row justify-content-center>
             <ion-col class="sliding-col">
-              <p class="option-title">How many minutes?</p>
+              <p class="option-title">{{"How many minutes" | translate}}?</p>
               <ion-row justify-content-center>
                 <ion-col col-3>
                   <button (click)="decreaseDuration($event, slidingItem, item, exercice)" ion-button clear>-</button>
@@ -96,7 +96,7 @@
               </ion-row>
             </ion-col>
             <ion-col class="sliding-col">
-              <p class="option-title">Speed?</p>
+              <p class="option-title">{{"Speed" | translate}}?</p>
               <ion-row justify-content-center>
                 <ion-col (click)="encreaseSpeed($event, slidingItem, item, exercice)" col-3>
                   <button ion-button clear>-</button>
@@ -131,8 +131,8 @@
           </ion-thumbnail>
 
           <p class="workout-p">{{exercice.Equipment.NameEN}}</p>
-          <p class="workout-p">{{exercice.Duration || '0'}} mins
-            <span>{{exercice.NumberOfRepetition}} x {{exercice.Repetition}} repetitions</span>
+          <p class="workout-p">{{exercice.Duration || '0'}} {{"Mins" | translate}}
+            <span>{{exercice.NumberOfRepetition}} x {{exercice.Repetition}} {{"Repetitions" | translate}}</span>
           </p>
 
           <ion-buttons item-right>
@@ -144,7 +144,7 @@
         <ion-item-options style="width: 90.04%" side="left" class="slide-options">
           <ion-row justify-content-center>
             <ion-col class="sliding-col">
-              <p class="option-title">How many minutes?</p>
+              <p class="option-title">{{"How many minutes" | translate}}?</p>
               <ion-row justify-content-center>
                 <ion-col col-3>
                   <button (click)="decreaseDuration($event, slidingItem, item, exercice)" ion-button clear>-</button>
@@ -158,7 +158,7 @@
               </ion-row>
             </ion-col>
             <ion-col class="sliding-col">
-              <p class="option-title">Calories burned?</p>
+              <p class="option-title">{{"Calories burned" | translate}}?</p>
               <ion-row justify-content-center>
                 <ion-col (click)="decreaseCalories($event, slidingItem, item, exercice)" col-3>
                   <button ion-button clear>-</button>
@@ -186,7 +186,7 @@
     </ng-container>
 
     <div class="lava-divider" *ngIf="(workout$ | async)?.CardioProgrameDetail.length > 0 || (workout$ | async)?.BodybuildingProgrameDetail.length > 0">
-      <p>done</p>
+      <p>{{"Done" | translate}}</p>
     </div>
 
     <ng-container *ngFor="let exercice of (workout$ | async)?.CardioProgrameDetail; let i = index">
@@ -201,8 +201,8 @@
           </ion-thumbnail>
 
           <p class="workout-p">{{exercice.Equipment.NameEN}}</p>
-          <p class="workout-p">{{exercice.Duration || '0'}} mins
-            <span>Level: </span>{{exercice.Level}}</p>
+          <p class="workout-p">{{exercice.Duration || '0'}} {{"Mins" | translate}}
+            <span>{{"Level" | translate}}: </span>{{exercice.Level}}</p>
 
           <ion-buttons item-right>
             <button ion-button clear>
@@ -213,7 +213,7 @@
         <ion-item-options style="width: 90.04%" side="left" class="slide-options">
           <ion-row justify-content-center>
             <ion-col class="sliding-col">
-              <p class="option-title">How many minutes?</p>
+              <p class="option-title">{{"How many minutes" | translate}}?</p>
               <ion-row justify-content-center>
                 <ion-col col-3>
                   <button (click)="decreaseDuration($event, slidingItem, item, exercice)" ion-button clear>-</button>
@@ -227,7 +227,7 @@
               </ion-row>
             </ion-col>
             <ion-col class="sliding-col">
-              <p class="option-title">Speed?</p>
+              <p class="option-title">{{"Speed" | translate}}?</p>
               <ion-row justify-content-center>
                 <ion-col (click)="encreaseSpeed($event, slidingItem, item, exercice)" col-3>
                   <button ion-button clear>-</button>
@@ -262,8 +262,8 @@
           </ion-thumbnail>
 
           <p class="workout-p">{{exercice.Equipment.NameEN}}</p>
-          <p class="workout-p">{{exercice.Duration || '0'}} mins
-            <span>{{exercice.NumberOfRepetition}} x {{exercice.Repetition}} repetitions</span>
+          <p class="workout-p">{{exercice.Duration || '0'}} {{"Mins" | translate}}
+            <span>{{exercice.NumberOfRepetition}} x {{exercice.Repetition}} {{"Repetitions" | translate}}</span>
           </p>
 
           <ion-buttons item-right>
@@ -275,7 +275,7 @@
         <ion-item-options style="width: 90.04%" side="left" class="slide-options">
           <ion-row justify-content-center>
             <ion-col class="sliding-col">
-              <p class="option-title">How many minutes?</p>
+              <p class="option-title">{{"How many minutes" | translate}}?</p>
               <ion-row justify-content-center>
                 <ion-col col-3>
                   <button (click)="decreaseDuration($event, slidingItem, item, exercice)" ion-button clear>-</button>
@@ -289,7 +289,7 @@
               </ion-row>
             </ion-col>
             <ion-col class="sliding-col">
-              <p class="option-title">Calories burned?</p>
+              <p class="option-title">{{"Calories burned" | translate}}?</p>
               <ion-row justify-content-center>
                 <ion-col (click)="decreaseCalories($event, slidingItem, item, exercice)" col-3>
                   <button ion-button clear>-</button>
@@ -319,6 +319,6 @@
     </ng-container>
 
   </ion-list>
-  <button ion-fixed ion-button class="workout-finish" (click)="finishWorkout()">Finish Workout</button>
+  <button ion-fixed ion-button class="workout-finish" (click)="finishWorkout()">{{"Finish workout" | translate}}</button>
 
 </ion-content>

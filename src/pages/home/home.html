@@ -2,16 +2,27 @@
   <!-- <ion-navbar>
     <ion-title>Home</ion-title>
   </ion-navbar> -->
+  <!-- {
+    "Active member": "Active member",
+    "This week": "This week",
+    "Start a workout": "Start a workout",
+    "Finish": "Finish",
+    "Goal": "Goal",
+    "week": "week",
+    "Upcoming Bookings": "Upcoming Bookings",
+    "Steps": "Steps",
+    "Distance": "Distance"
+  } -->
   <div class="in-header">
 
     <p class="user-name" (click)="goToProfile()">{{(profile$ | async)?.data.FullName}}</p>
-    <p class="user-active" (click)="goToProfile()">ACTIVE MEMBER</p>
+    <p class="user-active" (click)="goToProfile()">{{"Active member" | translate}}</p>
 
-    <p class="user-today">This Week</p>
+    <p class="user-today">{{"This week"| translate}}</p>
 
     <div class="distance">
       <img class="user-floors-img" src="assets/imgs/distance-to-travel-between-two-points.png">
-      <p class="user-floors-text">distance</p>
+      <p class="user-floors-text">{{"Distance" | translate}}</p>
       <p class="user-floors-number">{{myDistance || 0}}</p>
     </div>
 
@@ -21,16 +32,16 @@
         [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="0">
       </round-progress>
       <p class="user-circle-number">{{(workoutsC$| async)?.sumOfNumberOfWorkoutFinishers}}</p>
-      <p class="user-circle-days">finishes</p>
+      <p class="user-circle-days">{{"finish" | translate}}</p>
     </div>
 
     <div class="steps">
       <img class="user-steps-img" src="assets/imgs/_steps@2x.png">
-      <p class="user-steps-text">steps</p>
+      <p class="user-steps-text">{{"Steps" | translate}}</p>
       <p class="user-steps-number">{{mySteps || 0}}</p>
     </div>
 
-    <p class="user-goal">goal: {{(workoutsC$| async)?.sumOfWeekRepetitions || 0}} finishes</p>
+    <p class="user-goal">{{"Goal"| translate}}: {{(workoutsC$| async)?.sumOfWeekRepetitions || 0}} {{"finishes" | translate}}</p>
 
   </div>
 
@@ -38,7 +49,8 @@
 
 <ion-content>
 
-  <p class="workout-section-title">Start a Workout:</p>
+  <!-- <p class="workout-section-title">{{"Start a Workout:" | translate}}</p> -->
+  <p class="workout-section-title">{{"Start a workout" | translate}}:</p>
   <ion-slides class="workout-section-slides" spaceBetween="0" slidesPerView="2.57">
     <ion-slide class="workout-section-slides-slide" *ngFor="let workout of  (workoutsC$| async)?.workouts " [navPush]="workoutPage"
       [navParams]="workout">
@@ -49,18 +61,18 @@
           <p class="workout-exercice">tone muscles</p>
         </ion-col> -->
         <ion-col no-padding col-6>
-          <p class="workout-time">{{workout.NumberOfDays}} days</p>
+          <p class="workout-time">{{workout.NumberOfDays}} {{"Days" | translate}}</p>
         </ion-col>
       </ion-row>
 
-      <p class="workout-wk">{{workout.WeekRepetition}}/week</p>
+      <p class="workout-wk">{{workout.WeekRepetition}}/{{"Week" | translate}}</p>
       <p class="workout-state">{{workout.CreationDate | moment}}</p>
 
     </ion-slide>
   </ion-slides>
 
 
-  <p class="bookings-section-title">Upcoming Bookings:</p>
+  <p class="bookings-section-title">{{"Upcoming Bookings"| translate }}:</p>
   <ion-slides class="bookings-section-slides" spaceBetween="0" slidesPerView="3">
     <ion-slide class="bookings-section-slides-slide">
       <button clear ion-button (click)="bookClass()">
