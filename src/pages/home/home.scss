@@ -249,6 +249,7 @@ page-home {
           // margin-left: 3.32vw !important;
           @include margin(null, 3.32vw !important, null, null);
         }
+        background: green;
 
         .workout-title {
           position: absolute;
@@ -260,11 +261,12 @@ page-home {
 
           color: #575c69;
 
-          // background: red;
+          background: red;
           @include position(1.72vh, 2.04vw, auto, auto);
 
           // left: 2.04vw;
           // top: 1.72vh;
+
         }
         .workout-row {
           position: absolute;
@@ -398,7 +400,7 @@ page-home {
     }
   }
 
-  .distance{
+  .distance {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -408,8 +410,6 @@ page-home {
     // top: 25.06vh;
     // left: 14.19vw;
     @include position(25.06vh !important, 14.19vw !important, null, null);
-
-
   }
 
   .steps {
@@ -421,6 +421,6 @@ page-home {
     position: absolute;
     // top: 25.06vh;
     // left: 14.19vw;
-    @include position(25.06vh !important, null, null,14.19vw !important);
+    @include position(25.06vh !important, null, null, 14.19vw !important);
   }
 }

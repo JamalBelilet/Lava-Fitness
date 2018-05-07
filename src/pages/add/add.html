@@ -23,6 +23,11 @@
         <!-- <button ion-button clear [navPush]="survayPage">Tell us what you think?</button> -->
         <!-- <button ion-button clear>Special offers</button> -->
         <button ion-button clear (click)="sendInvitation()">{{"Invite your friends"|translate}}</button>
+
+        <ion-select #langS (ionChange)="langSelected(langS.value)" [(ngModel)]="authProvider.config.lang">
+          <ion-option value="ltr">English</ion-option>
+          <ion-option value="rtl">عربية</ion-option>
+        </ion-select>
       </ion-list>
     </ion-card-content>
   </ion-card>
@@ -50,8 +55,14 @@
       </ion-select>
     </ion-item>
 
-    <ion-row><ion-icon name="call" item-left></ion-icon><p>{{selectedBranch?.Phone}}</p></ion-row>
-    <ion-row><ion-icon name="map" item-left></ion-icon><p>{{selectedBranch?.Address}}</p></ion-row>
+    <ion-row>
+      <ion-icon name="call" item-left></ion-icon>
+      <p>{{selectedBranch?.Phone}}</p>
+    </ion-row>
+    <ion-row>
+      <ion-icon name="map" item-left></ion-icon>
+      <p>{{selectedBranch?.Address}}</p>
+    </ion-row>
     <!-- <ion-row><ion-icon name="ios-navigate" item-left (click)="navigateTo(selectedBranch?.Address)"></ion-icon><button ion-button clear (click)="navigateTo(selectedBranch?.Address)">Get directions</button></ion-row> -->
   </ion-list>
 

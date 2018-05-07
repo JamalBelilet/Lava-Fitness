@@ -22,6 +22,7 @@ import { LaunchNavigator } from "@ionic-native/launch-navigator";
 import { MyBookingPage } from "../my-booking/my-booking";
 import { TranslateService } from "@ngx-translate/core";
 import { AuthenticationProvider } from "../../providers/authentication/authentication";
+import { TabsPage } from "../tabs/tabs";
 
 /**
  * Generated class for the AddPage page.
@@ -57,10 +58,9 @@ export class AddPage {
     public navParams: NavParams,
     private profileProvider: ProfileProvider,
     private translate: TranslateService,
-    private authProvider: AuthenticationProvider
+    public authProvider: AuthenticationProvider
   ) {
     this.lang = this.authProvider.config.lang;
-
   }
 
   ionViewDidLoad() {
@@ -72,6 +72,22 @@ export class AddPage {
       this.selectedBranch = (branch as any).data[3];
       console.log(this.selectedBranch);
     });
+  }
+
+  langSelected(langS) {
+    if (langS == "rtl") {
+      this.translate.use("ar");
+      this.navCtrl.popToRoot();
+
+      this.app.getRootNav().setRoot(TabsPage);
+      this.app.getRootNav().getActiveChildNav().select(4);
+    } else {
+      this.translate.use("en");
+      this.navCtrl.popToRoot();
+      this.app.getRootNav().setRoot(TabsPage);
+      this.app.getRootNav().getActiveChildNav().select(4);
+
+    }
   }
 
   signout() {

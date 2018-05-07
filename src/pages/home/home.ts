@@ -113,7 +113,7 @@ export class HomePage {
       map(res => {
         console.log("upcommigExercices", res);
         (res as any).data = (res as any).data.filter(data => {
-          return new Date(data.Date) > new Date();
+          return new Date(data.Date) > new Date("2017-01-01 15:30:00");
         });
         return res;
       })
