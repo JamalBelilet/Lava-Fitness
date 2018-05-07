@@ -247,9 +247,8 @@ page-home {
 
         &:first-of-type {
           // margin-left: 3.32vw !important;
-          @include margin(null, 3.32vw !important, null, null);
+          @include margin(null, 3.32vw !important, null, 3.32vw !important);
         }
-        background: green;
 
         .workout-title {
           position: absolute;
@@ -261,7 +260,6 @@ page-home {
 
           color: #575c69;
 
-          background: red;
           @include position(1.72vh, 2.04vw, auto, auto);
 
           // left: 2.04vw;

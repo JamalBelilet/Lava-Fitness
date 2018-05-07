@@ -30,10 +30,9 @@
 
     </div>
 
-    <div class="floors">
-      <p>{{myDistance || 0}}</p>
-      <p>{{"Distance" | translate}}</p>
-    </div>
+    <p class="floors">{{myDistance || 0}}
+      <br> {{"Distance" | translate}}</p>
+
 
 
   </ion-card>
@@ -58,10 +57,9 @@
     </div>
 
 
-    <div class="floors">
-      <p>{{myWeekDistance || 0}}</p>
-      <p>{{"Distance" | translate}}</p>
-    </div>
+    <p class="floors">{{myWeekDistance || 0}}
+      <br> {{"Distance" | translate}}</p>
+
 
 
   </ion-card>
@@ -113,14 +111,14 @@
         <img src="assets/imgs/_expand@2x.png">
       </button>
       <chart [type]="workoutChart.type" *ngIf="selectedOption == 'weeks'" [data]="workoutChart.weeksData" [options]="workoutChart.options"></chart>
-      <chart [type]="workoutChart.type" *ngIf="selectedOption == 'months'"  [data]="workoutChart.monthsData" [options]="workoutChart.options"></chart>
+      <chart [type]="workoutChart.type" *ngIf="selectedOption == 'months'" [data]="workoutChart.monthsData" [options]="workoutChart.options"></chart>
     </div>
-    <div class="history-chart" *ngSwitchCase="'steps'" >
+    <div class="history-chart" *ngSwitchCase="'steps'">
       <button ion-button clear>
         <img src="assets/imgs/_expand@2x.png">
       </button>
       <chart [type]="stepsChart.type" *ngIf="selectedOption == 'weeks'" [data]="stepsChart.weeksData" [options]="stepsChart.options"></chart>
-      <chart [type]="stepsChart.type" *ngIf="selectedOption == 'months'"  [data]="stepsChart.monthsData" [options]="stepsChart.options"></chart>
+      <chart [type]="stepsChart.type" *ngIf="selectedOption == 'months'" [data]="stepsChart.monthsData" [options]="stepsChart.options"></chart>
     </div>
   </div>
 

@@ -64,7 +64,7 @@ page-body-weight-log-history {
     color: #575c69;
 
     // margin-left: 3.8 / $scw * 100vh !important;
-    @include margin(null, 3.8 / $scw * 100vh !important, null, null);
+    @include margin(null, 3.8 / $scw * 100vh !important);
   }
 
   ion-segment {

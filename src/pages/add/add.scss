@@ -76,7 +76,10 @@ page-add {
         justify-content: flex-start !important;
         align-items: flex-start !important;
 
-        text-align: left !important;
+        // text-align: left !important;
+        // @include rtl() {
+        //   text-align: right!important
+        // }
 
         font-size: 3.3 / $scw * 100vw !important;
         color: #9b9b9b !important;
@@ -84,8 +87,10 @@ page-add {
         border-bottom: 0.1 / $scw * 100vw solid #e4eaef;
 
         // padding-right: 25 / $scw * 100vw !important;
-        @include padding(null, null, null, 25 / $scw * 100vw !important);
 
+          @include padding(null, 2 / $scw * 100vw !important);
+        // p {
+        // }
         border-radius: 0 !important;
 
         &:first-of-type {
@@ -133,7 +138,6 @@ page-add {
   }
 
   .guides {
-
     justify-content: center;
     align-items: center;
 
@@ -197,7 +201,7 @@ page-add {
         font-size: 7 / $scw * 100vw !important;
         // padding-left: 6.5 / $scw * 100vw;
         // padding-right: 1.5 / $scw * 100vw;
-        @include padding(null,  6.5 / $scw * 100vw, null, 1.5 / $scw * 100vw);
+        @include padding(null, 3.5 / $scw * 100vw);
       }
       p {
         font-size: 3.3 / $scw * 100vw !important;

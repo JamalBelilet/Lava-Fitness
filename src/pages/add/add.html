@@ -15,14 +15,14 @@
       </ion-row>
     </ion-card-header>
 
-    <ion-card-content>
-      <ion-list no-lines>
-        <button ion-button clear [navPush]="membershipPage">{{"Membership" | translate}}</button>
-        <button ion-button clear [navPush]="myBooking">{{"My booking" |translate}}</button>
+    <ion-card-content [dir]="lang">
+      <ion-list no-lines [dir]="lang">
+        <button [dir]="lang" ion-button clear [navPush]="membershipPage">{{"Membership" | translate}}</button>
+        <button [dir]="lang" ion-button clear [navPush]="myBooking">{{"My booking" |translate}}</button>
 
         <!-- <button ion-button clear [navPush]="survayPage">Tell us what you think?</button> -->
         <!-- <button ion-button clear>Special offers</button> -->
-        <button ion-button clear (click)="sendInvitation()">{{"Invite your friends"|translate}}</button>
+        <button [dir]="lang" ion-button clear (click)="sendInvitation()">{{"Invite your friends"|translate}}</button>
 
         <ion-select #langS (ionChange)="langSelected(langS.value)" [(ngModel)]="authProvider.config.lang">
           <ion-option value="ltr">English</ion-option>
@@ -46,7 +46,7 @@
   </ion-row> -->
 
 
-  <ion-list no-lines>
+  <ion-list no-lines [dir]="lang">
     <ion-item class="contact-header">
       <ion-label>{{"Contact us at" | translate}}: </ion-label>
       <ion-select [(ngModel)]="selectedBranch" multiple="false">
