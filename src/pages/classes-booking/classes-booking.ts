@@ -1,9 +1,15 @@
 import { Component } from "@angular/core";
-import { NavController, NavParams, AlertController, LoadingController } from "ionic-angular";
+import {
+  NavController,
+  NavParams,
+  AlertController,
+  LoadingController
+} from "ionic-angular";
 import { LavaProvider } from "../../providers/lava/lava";
 import { Observable } from "rxjs/Observable";
 import moment from "moment";
 import { map } from "rxjs/operators";
+import { AuthenticationProvider } from "../../providers/authentication/authentication";
 
 /**
  * Generated class for the ClassesBookingPage page.
@@ -17,6 +23,7 @@ import { map } from "rxjs/operators";
   templateUrl: "classes-booking.html"
 })
 export class ClassesBookingPage {
+  lang: any;
   classes$: Observable<Object>;
   loading = this.loadingCtrl.create({
     spinner: "ios"
@@ -26,8 +33,10 @@ export class ClassesBookingPage {
     private lavaProvider: LavaProvider,
     public navCtrl: NavController,
     public navParams: NavParams,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    private authProvider: AuthenticationProvider
   ) {
+    this.lang = this.authProvider.config.lang;
     console.log(navParams.data);
   }
 
@@ -39,29 +48,31 @@ export class ClassesBookingPage {
         .toISOString()
     ).getDate();
     console.log(date);
-    this.classes$ = this.lavaProvider.getExerciseSchedules(
-      this.navParams.data.Branch.ID,
-      date,
-      new Date(
-        moment(this.navParams.data.Date)
-          .locale("en")
-          .toISOString()
-      ).getMonth() + 1,
-      new Date(
-        moment(this.navParams.data.Date)
-          .locale("en")
-          .toISOString()
-      ).getFullYear()
-    ).pipe(
-      map(res => {
-        if (this.loading) {
-          this.loading.dismiss();
-          this.loading = null;
-        }
+    this.classes$ = this.lavaProvider
+      .getExerciseSchedules(
+        this.navParams.data.Branch.ID,
+        date,
+        new Date(
+          moment(this.navParams.data.Date)
+            .locale("en")
+            .toISOString()
+        ).getMonth() + 1,
+        new Date(
+          moment(this.navParams.data.Date)
+            .locale("en")
+            .toISOString()
+        ).getFullYear()
+      )
+      .pipe(
+        map(res => {
+          if (this.loading) {
+            this.loading.dismiss();
+            this.loading = null;
+          }
 
-        return res;
-      })
-    );
+          return res;
+        })
+      );
   }
 
   book(ExerciseScheduleIDC) {

@@ -5,8 +5,9 @@ import { BookPage } from "../book/book";
 import { LavaProvider } from "../../providers/lava/lava";
 import { Observable } from "rxjs/Observable";
 import { ProfileProvider } from "../../providers/profile/profile";
-import { PhotoViewer } from '@ionic-native/photo-viewer';
+import { PhotoViewer } from "@ionic-native/photo-viewer";
 import { ClassesBookingPage } from "../classes-booking/classes-booking";
+import { AuthenticationProvider } from "../../providers/authentication/authentication";
 
 /**
  * Generated class for the StarPage page.
@@ -20,6 +21,7 @@ import { ClassesBookingPage } from "../classes-booking/classes-booking";
   templateUrl: "star.html"
 })
 export class StarPage {
+  lang: string;
   bookings$: Observable<Object>;
   // bookings$ = [
   //   {
@@ -43,8 +45,11 @@ export class StarPage {
     public navParams: NavParams,
     private modalCtrl: ModalController,
     private lavaProvider: LavaProvider,
-    private profileProvider: ProfileProvider
-  ) {}
+    private profileProvider: ProfileProvider,
+    private authProvider: AuthenticationProvider
+  ) {
+    this.lang = this.authProvider.config.lang;
+  }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad StarPage");
@@ -54,18 +59,20 @@ export class StarPage {
   }
 
   previewSchedule(imgURL) {
-    this.photoViewer.show('http://via.placeholder.com/350x150', 'Schedule', {share: true});
+    this.photoViewer.show("http://via.placeholder.com/350x150", "Schedule", {
+      share: true
+    });
   }
 
   bookClass() {
-    let BookingModal = this.modalCtrl.create(BookPage, {book: 'class'});
+    let BookingModal = this.modalCtrl.create(BookPage, { book: "class" });
 
     BookingModal.present();
     // this.navCtrl.push(ClassesBookingPage);
   }
 
   bookSession() {
-    let BookingModal = this.modalCtrl.create(BookPage, {book: 'session'});
+    let BookingModal = this.modalCtrl.create(BookPage, { book: "session" });
     BookingModal.present();
   }
 }

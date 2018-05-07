@@ -89,8 +89,10 @@ page-person {
 
     .measuerments-svg {
       position: absolute;
-      top: 3.8 / $sch * 100vh;
-      left: 3 / $scw * 100vw;
+      // top: 3.8 / $sch * 100vh;
+      // left: 3 / $scw * 100vw;
+
+      @include position(3.8 / $sch * 100vh, 3 / $scw * 100vw, null, null);
 
       height: 10 / $sch * 100vh;
 
@@ -118,8 +120,9 @@ page-person {
 
     .measuerments-gray {
       position: absolute;
-      top: 5 / $sch * 100vh;
-      left: 14 / $scw * 100vw;
+      // top: 5 / $sch * 100vh;
+      // left: 14 / $scw * 100vw;
+      @include position(5 / $sch * 100vh, 14 / $scw * 100vw, null, null);
 
       p.gray {
         color: #bababa;
@@ -135,8 +138,9 @@ page-person {
 
     .measuerments-chart {
       position: absolute;
-      top: 2.5 / $sch * 100vh;
-      right: 0 / $scw * 100vw;
+      // top: 2.5 / $sch * 100vh;
+      // right: 0 / $scw * 100vw;
+      @include position(2.5 / $sch * 100vh, null, null, 0);
       width: 40.3 / $scw * 100vw;
       height: (5.5 + 4.3 + 2) / $sch * 100vh;
     }
@@ -186,6 +190,7 @@ page-person {
       }
 
       p {
+        padding: 0 1.5vw!important;
         color: #575c69;
         font-size: 4.3 / $scw * 100vw;
         &.gray {

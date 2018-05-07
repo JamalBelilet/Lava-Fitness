@@ -88,8 +88,9 @@ page-heart {
 
     .today {
       position: absolute;
-      top: 0;
-      left: 5 / $scw * 100vw;
+      // top: 0;
+      // left: 5 / $scw * 100vw;
+      @include position(0, 5 / $scw * 100vw, null, null);
       height: 100%;
 
       display: flex;
@@ -105,24 +106,29 @@ page-heart {
       position: absolute;
       width: 18 / $scw * 100vw;
 
-      left: 37.3 / $scw * 100vw;
+      // left: 37.3 / $scw * 100vw;
+      @include position(null, 37.3 / $scw * 100vw, null, null);
 
       &.one {
-        left: 18 / $scw * 100vw;
+        // left: 18 / $scw * 100vw;
+        @include position(null, 18 / $scw * 100vw, null, null);
       }
       &.two {
-        left: 37 / $scw * 100vw;
+        // left: 37 / $scw * 100vw;
+        @include position(null, 37 / $scw * 100vw, null, null);
       }
       &.three {
-        left: 55.8 / $scw * 100vw;
+        // left: 55.8 / $scw * 100vw;
+        @include position(null, 55.8 / $scw * 100vw, null, null);
       }
 
       img {
         width: auto;
         height: 18 / $scw * 100vw;
         position: absolute;
-        top: 1.3 / $sch * 100vh;
-        left: 0;
+        // top: 1.3 / $sch * 100vh;
+        // left: 0;
+        @include position(1.3 / $sch * 100vh, 0, null, null);
       }
 
       .steps-num {
@@ -156,7 +162,8 @@ page-heart {
     .workouts {
       position: absolute;
       width: 12.5 / $scw * 100vw;
-      left: 20.8 / $scw * 100vw;
+      // left: 20.8 / $scw * 100vw;
+      @include position(null, 20.8 / $scw * 100vw, null, null);
 
       button {
         position: absolute;
@@ -229,8 +236,10 @@ page-heart {
 
     .floors {
       position: absolute;
-      top: 8.5 / $sch * 100vh;
-      right: 11 / $scw * 100vw;
+      // top: 8.5 / $sch * 100vh;
+      // right: 11 / $scw * 100vw;
+      @include position(8.5 / $sch * 100vh, null, null,  11 / $scw * 100vw);
+
 
       p {
         margin: 0;
@@ -273,16 +282,16 @@ page-heart {
     border-radius: 1 / $scw * 100vw !important;
 
     padding: 2 / $scw * 100vw !important;
-    margin: 0 !important;
-    margin-left: 100vw - ((17.3 + 7.8) / $scw * 100vw) !important;
-    margin-top: 9 / $sch * 100vh !important;
+    // margin: 0 !important;
+    // margin-left: 100vw - ((17.3 + 7.8) / $scw * 100vw) !important;
+    // margin-top: 9 / $sch * 100vh !important;
     color: white;
 
     display: flex !important;
     justify-content: center;
     align-items: center;
 
-
+    @include margin(9 / $sch * 100vh !important, 100vw - ((17.3 + 7.8) / $scw * 100vw) !important, null, null);
 
     * {
       color: white !important;

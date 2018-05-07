@@ -9,5 +9,161 @@
   "Upcoming Bookings": "Upcoming Bookings",
   "Steps": "Steps",
   "Distance": "Distance",
-  "Days": "Days"
+  "Days": "Days",
+
+  "Finish workout": "Finish workout",
+  "Done": "Done",
+  "Mins": "Mins",
+  "Level": "Level",
+  "Repetitions": "Repetitions",
+  "How many minutes": "How many minutes",
+  "Calories burned": "Calories burned",
+  "Speed": "Speed",
+
+  "Dismiss": "Dismiss",
+
+  "GetGoogleFit": {
+    "message": "For all Lava Fitness features, you must install Google Fit from Playstore",
+    "buttons": {
+      "Cancel": "Cancel",
+      "GetGoogleFit": "Get Google Fit"
+    }
+  },
+
+  "Measurements": "Measurements",
+  "Weight composition": "Weight composition",
+
+  "Analysis": "Analysis",
+  "SMM": "SMM",
+  "PBF": "PBF",
+  "Weight": "Weight",
+
+  "Body Segments": "Body Segments",
+  "Arm": "Arm",
+  "Waist": "Waist",
+  "Legs": "Legs",
+  "Chest": "Chest",
+  "Hips": "Hips",
+  "SEE FULL HISTORY": "SEE FULL HISTORY",
+  "last measured": "last measured",
+
+  "doughnut": ["fats", "water"],
+  "Last weight": "Last weight",
+
+  "weight log history": "weight log history",
+  "6 Months": "6 Months",
+  "All": "All",
+  "history": "history",
+  "Date": "Date",
+
+  "Schedule": "Schedule",
+  "Fitness Class Schedule": "Fitness Class Schedule",
+  "Swiming Class Schedule": "Swiming Class Schedule",
+  "Book a fittness class": "Book a fittness class",
+  "Zamba, Yoga, Dancing, Cycle, ...etc": "Zamba, Yoga, Dancing, Cycle, ...etc",
+  "Book a session": "Book a session",
+  "Massage, Facial treatment, ...etc": "Massage, Facial treatment, ...etc",
+
+  "Search now": "Search now",
+  "Book a Session": "Book a Session",
+  "Book a Class": "Book a Class",
+  "Choose a Branch": "Choose a Branch",
+  "Choose a Massager": "Choose a Massager",
+
+  "Sign out": "Sign out",
+  "Membership": "Membership",
+  "My booking": "My booking",
+  "Invite your friends": "Invite your friends",
+  "Contact us at": "Contact us at",
+
+  "Member since": "Member since",
+  "Suspend": "Suspend",
+  "Current subscription": "Current subscription",
+  "year membership": "year membership",
+  "Included": "Included",
+
+  "sendInvitation": {
+    "Invite your friends": "Invite your friends",
+    "share Lava on Facebook": "share Lava on Facebook",
+    "share Lava on Twitter": "share Lava on Twitter",
+    "Invite ...": "Invite ...",
+    "Cancel": "Cancel"
+  },
+
+  "signout": {
+    "Sign out": "Sign out",
+    "Do you want to sign out?": "Do you want to sign out?",
+    "Cancel": "Cancel"
+  },
+
+  "Classes": "Classes",
+  "Sessions": "Sessions",
+
+  "Class": "Class",
+  "Coach": "Coach",
+  "Duration": "Duration",
+  "No items available for now": "No items available for now",
+  "You have to reserve a classe first": "You have to reserve a classe first",
+  "service": "service",
+  "Message": "Message",
+  "Branch": "Branch",
+  "Cancel": "Cancel",
+  "Massager": "Massager",
+  "Info": "Info",
+  "You have to reserve a service first": "You have to reserve a service first",
+
+  "cancelReservation": {
+    "confirm the reservation of this service?": "confirm the reservation of this service?",
+    "Cancel": "Cancel",
+    "Confirm": "Confirm",
+    "confirm the reservation of this class?": "confirm the reservation of this class?"
+  },
+
+  "Classe booking": "Classe booking",
+  "Please try to change the date, or the branch": "Please try to change the date, or the branch",
+
+  "Services booking": "Services booking",
+  "book": "book",
+  "Please try to change the date, or the massager": "Please try to change the date, or the massager",
+
+  "Workout Completed!": "Workout Completed!",
+  "out of": "out of",
+  "How easy was it?": "How easy was it?",
+  "Easy": "Easy",
+  "Good": "Good",
+  "Hard": "Hard",
+  "Good job! You have 1 more workout for this week": "Good job! You have 1 more workout for this week",
+
+  "Performance": "Performance",
+  "Today": "Today",
+  "workout": "workout",
+  "steps": "steps",
+  "This": "This",
+  "week": "week",
+  "workouts": "workouts",
+  "days": "days",
+  "month": "month",
+  "Workout": "Workout",
+  "per week": "per week",
+  "Workouts": "Workouts",
+  "Month": "Month",
+
+  "week-days" : {
+    "weeksData": {
+      "Saturday": "Saturday",
+      "Sunday": "Sunday",
+      "Monday": "Monday",
+      "Tuesday": "Tuesday",
+      "Wednesday": "Wednesday",
+      "Thursday": "Thursday",
+      "Friday": "Friday"
+    },
+
+    "monthsData": {
+      "1wk": "1wk",
+      "2wk": "2wk",
+      "3wk": "3wk",
+      "4wk": "4wk"
+    }
+  }
 }

@@ -53,8 +53,9 @@ page-membership {
 
       .membership-card-header-main {
         position: absolute;
-        top: 3.8 / $sch * 100vh;
-        left: 3.8 / $scw * 100vw;
+        // top: 3.8 / $sch * 100vh;
+        // left: 3.8 / $scw * 100vw;
+        @include position(3.8 / $sch * 100vh, 3.8 / $scw * 100vw, null, null);
         width: 33.5 / $scw * 100vw;
         height: (2.8 + 12.3 - 3.8) / $scw * 100vw;
 
@@ -70,8 +71,10 @@ page-membership {
       }
       .membership-card-header-action {
         position: absolute;
-        top: 3.8 / $sch * 100vh;
-        right: 3.8 / $scw * 100vw;
+        // top: 3.8 / $sch * 100vh;
+        // right: 3.8 / $scw * 100vw;
+        @include position(3.8 / $sch * 100vh, null, null, 3.8 / $scw * 100vw);
+
         width: 17.8 / $scw * 100vw;
         height: 8 / $scw * 100vw;
 
@@ -90,8 +93,9 @@ page-membership {
       }
       .membership-card-header-sub {
         position: absolute;
-        top: 20 / $sch * 100vh;
-        right: 3.8 / $scw * 100vw;
+        // top: 20 / $sch * 100vh;
+        // right: 3.8 / $scw * 100vw;
+        @include position( 20 / $sch * 100vh, null, null, 3.8 / $scw * 100vw);
         width: 31.5 / $scw * 100vw;
         height: (2.5 + 19.5 - 11) / $scw * 100vw;
         h2 {
@@ -106,9 +110,13 @@ page-membership {
       }
       .membership-card-header-footer {
         position: absolute;
-        bottom: 3.8 / $sch * 100vh;
-        right: 3.8 / $scw * 100vw;
-        width: 19.5 / $scw * 100vw;
+        // bottom: 3.8 / $sch * 100vh;
+        // right: 3.8 / $scw * 100vw;
+        @include position(null, null, 3.8 / $sch * 100vh, 3.8 / $scw * 100vw);
+
+        // width: 19.5 / $scw * 100vw;
+        width: 31.5 / $scw * 100vw;
+
         height: 2.5 / $scw * 100vw;
 
         p {
@@ -164,21 +172,23 @@ page-membership {
     .membership-card-checks {
       * {
         padding: 0;
-        margin: 0;
-        margin-left: 3.8 / $scw * 100vw;
+        // margin: 0;
+        // margin-left: 3.8 / $scw * 100vw;
+        @include margin(0, 3.8 / $scw * 100vw, 0, 0);
+
       }
 
       h2 {
-        font-size: 4 / $scw * 100vw;
-        color: #575c69;
+        font-size: 4.5 / $scw * 100vw;
+        color: #575c69!important;
 
-        margin-top: 1 / $sch * 100vh;
-        margin-bottom: 2 / $sch * 100vh;
+        margin-top: 2 / $sch * 100vh!important;
+        margin-bottom: 2 / $sch * 100vh!important;
       }
       p {
         font-size: 3.3 / $scw * 100vw;
         color: #9b9b9b;
-        margin-top: 2.3 / $sch * 100vh;
+        margin-top: 2.3 / $sch * 100vh!important;
       }
 
       ion-icon {
@@ -186,7 +196,8 @@ page-membership {
         font-size: 5.5 / $scw * 100vw;
         margin: (0.5 / $sch * 100vh) (1 / $scw * 100vw);
         &:first-of-type {
-          margin-left: 0;
+          // margin-left: 0;
+          @include margin(null, 0, null, null);
         }
       }
     }

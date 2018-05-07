@@ -8,6 +8,7 @@ import { Chart } from "chart.js";
  * Ionic pages and navigation.
  */
 import moment from "moment";
+import { AuthenticationProvider } from '../../providers/authentication/authentication';
 
 @Component({
   selector: 'page-body-weight-log-history',
@@ -15,13 +16,15 @@ import moment from "moment";
 })
 export class BodyWeightLogHistoryPage {
 
+  lang: string;
   @ViewChild("lineCanvas") lineCanvas;
   lineChart: any;
 
   selectedHistory = 'Chest';
 
   memberMeasurements = []
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private authProvider: AuthenticationProvider) {
+    this.lang = this.authProvider.config.lang;
     this.memberMeasurements = navParams.data;
     console.log('hello fof', this.memberMeasurements);
 

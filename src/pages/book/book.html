@@ -6,8 +6,8 @@
         <ion-icon name="close"></ion-icon> close</button>
     </ion-row>
     <ion-row>
-      <h2 *ngIf="_book == 'session'">Book a Session</h2>
-      <h2 *ngIf="_book == 'class'">Book a Class</h2>
+      <h2 *ngIf="_book == 'session'">{{"Book a Session" | translate}}</h2>
+      <h2 *ngIf="_book == 'class'">{{"Book a Class" | translate}}</h2>
     </ion-row>
 
     <form *ngIf="_book == 'class'" [formGroup]="reserveExerciseForm" (ngSubmit)="book()">
@@ -16,9 +16,9 @@
           <ion-select #branch [compareWith]="compareFn" formControlName="Branch" text-center
             style="width: 100%; margin: 0; max-width: 100%; color: #999!important;">
 
-            <ion-option style="width: 100%; margin: 0; " [value]="null">Choose a Branch</ion-option>
+            <ion-option style="width: 100%; margin: 0; " [value]="null">{{"Choose a Branch" | translate}}</ion-option>
             <ion-option *ngFor="let branch of (branches$ | async)?.data" [value]="branch" style="width: 100%; margin: 0; max-width: 100%; color: #999!important; background-color: red">
-              {{branch.NameEN}}
+              {{branch.NameAR}}
             </ion-option>
           </ion-select>
         </ion-col>
@@ -47,7 +47,7 @@
 
 
       <ion-row justify-content-center>
-        <button [disabled]="!reserveExerciseForm?.valid" ion-button class="book-button">Search Now</button>
+        <button [disabled]="!reserveExerciseForm?.valid" ion-button class="book-button">{{"Search now" | translate}}</button>
       </ion-row>
 
     </form>
@@ -78,9 +78,9 @@
           <ion-select #branch (ionChange)="selectChanges(branch.value)" [compareWith]="compareFn" formControlName="Branch" text-center
             style="width: 100%; margin: 0; max-width: 100%; color: #999!important;">
 
-            <ion-option style="width: 100%; margin: 0; " [value]="null">Choose a Branch</ion-option>
+            <ion-option style="width: 100%; margin: 0; " [value]="null">{{"Choose a Branch" | translate}}</ion-option>
             <ion-option *ngFor="let branch of (branches$ | async)?.data" [value]="branch" style="width: 100%; margin: 0; max-width: 100%; color: #999!important; background-color: red">
-              {{branch.NameEN}}
+              {{branch.NameAR}}
             </ion-option>
           </ion-select>
         </ion-col>
@@ -91,9 +91,9 @@
             <ion-select #massager [compareWith]="compareFn" formControlName="Massager" text-center
               style="width: 100%; margin: 0; max-width: 100%; color: #999!important;">
 
-              <ion-option style="width: 100%; margin: 0; " [value]="null">Choose a Massager</ion-option>
+              <ion-option style="width: 100%; margin: 0; " [value]="null">{{"Choose a Massager" | translate}}</ion-option>
               <ion-option *ngFor="let massager of (massagers$ | async)?.data" [value]="massager" style="width: 100%; margin: 0; max-width: 100%; color: #999!important; background-color: red">
-                {{massager.FullNameEN}}
+                {{massager.FullNameAR}}
               </ion-option>
             </ion-select>
           </ion-col>
@@ -123,16 +123,16 @@
 
 
       <ion-row justify-content-center>
-        <button [disabled]="!reserveSessionForm?.valid" ion-button class="book-button">Search now</button>
+        <button [disabled]="!reserveSessionForm?.valid" ion-button class="book-button">{{"Search now" | translate}}</button>
       </ion-row>
 
     </form>
   </div>
-
+<!--
   <div *ngIf="done" class="done">
     <img src="assets/imgs/_confirmed@2x.png">
     <h2>Thank you!</h2>
     <p>your booking has been booked.</p>
-  </div>
+  </div> -->
 
 </ion-content>

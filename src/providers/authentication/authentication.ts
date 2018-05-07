@@ -13,8 +13,9 @@ import { of } from "rxjs/observable/of";
 export class AuthenticationProvider {
   // baseUrl: "http://lava.sa/api",
   public config = {
+    lang : "rtl",
 
-    baseUrl: "/api",
+    baseUrl: "http://lava.sa/api",
 
     AuthorizationKey: "as@dL8]Rn3$2S!anR",
     headers: new HttpHeaders({

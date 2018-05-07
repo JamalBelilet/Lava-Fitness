@@ -1,21 +1,21 @@
-<ion-header>
+<ion-header [dir]="lang">
 
   <ion-navbar>
-    <ion-title>Performance</ion-title>
+    <ion-title>{{"Performance" | translate}}</ion-title>
 
   </ion-navbar>
 
 
 </ion-header>
-<ion-content>
+<ion-content [dir]="lang">
   <ion-card class="today-container">
-    <p class="today">Today</p>
+    <p class="today">{{"Today" | translate}}</p>
 
     <div class="workouts">
       <button ion-button clear>
         <ion-icon name="ios-checkmark-circle"></ion-icon>
       </button>
-      <p class="workout-number">.. workout</p>
+      <p class="workout-number">.. {{"workout" | translate}}</p>
       <ion-row class="workout-row">
         <img src="assets/icon/workout.svg" />
         <p>..</p>
@@ -25,34 +25,34 @@
     <div class="circle">
       <img src="assets/imgs/circle.svg">
       <p class="steps-num">{{mySteps || 0}}</p>
-      <p class="steps-text">steps</p>
+      <p class="steps-text">{{"steps" | translate}}</p>
       <p class="steps-goal"></p>
 
     </div>
 
     <div class="floors">
       <p>{{myDistance || 0}}</p>
-      <p>Distance</p>
+      <p>{{"Distance" | translate}}</p>
     </div>
 
 
   </ion-card>
 
   <ion-card class="today-container">
-    <p class="today">This
-      <br>week</p>
+    <p class="today">{{"This" | translate}}
+      <br>{{"week" | translate}}</p>
 
     <div class="circle one">
       <img src="assets/imgs/circle.svg">
       <p class="steps-num">..</p>
-      <p class="steps-text">workouts</p>
-      <p class="steps-goal">.. days</p>
+      <p class="steps-text">{{"workouts" | translate}}</p>
+      <p class="steps-goal">.. {{"days" | translate}}</p>
 
     </div>
     <div class="circle two">
       <img src="assets/imgs/circle.svg">
       <p class="steps-num">{{myWeekSteps || 0}}</p>
-      <p class="steps-text">steps</p>
+      <p class="steps-text">{{"steps" | translate}}</p>
       <p class="steps-goal"></p>
 
     </div>
@@ -60,34 +60,34 @@
 
     <div class="floors">
       <p>{{myWeekDistance || 0}}</p>
-      <p>Distance</p>
+      <p>{{"Distance" | translate}}</p>
     </div>
 
 
   </ion-card>
 
   <ion-card class="today-container">
-    <p class="today">This
-      <br>month</p>
+    <p class="today">{{"This" | translate}}
+      <br>{{"month" | translate}}</p>
 
     <div class="workouts">
       <p class="avg">Avg.
         <br>..</p>
-      <p class="workout-number gray">Workout
-        <br>per week</p>
+      <p class="workout-number gray">{{"Workout" | translate}}
+        <br>{{"per week" | translate}}</p>
     </div>
 
     <div class="circle two">
       <img src="assets/imgs/circle.svg">
       <p class="steps-num">..</p>
-      <p class="steps-text">workouts</p>
-      <p class="steps-goal">.. days</p>
+      <p class="steps-text">{{"workouts" | translate}}</p>
+      <p class="steps-goal">.. {{"days" | translate}}</p>
 
     </div>
     <div class="circle three">
       <img src="assets/imgs/circle.svg">
       <p class="steps-num">{{myMonthSteps || 0}}</p>
-      <p class="steps-text">steps</p>
+      <p class="steps-text">{{"steps" | translate}}</p>
       <p class="steps-goal"></p>
 
     </div>
@@ -96,16 +96,16 @@
 
   <ion-segment [(ngModel)]="selectedSegment" color="lava">
     <ion-segment-button value="workouts">
-      Workouts
+      {{"Workouts" | translate}}
     </ion-segment-button>
     <ion-segment-button value="steps">
-      steps
+      {{"steps" | translate}}
     </ion-segment-button>
   </ion-segment>
 
   <ion-select [(ngModel)]="selectedOption">
-    <ion-option value="weeks">Week</ion-option>
-    <ion-option value="months">Month</ion-option>
+    <ion-option value="weeks">{{"Week" | translate}}</ion-option>
+    <ion-option value="months">{{"Month" | translate}}</ion-option>
   </ion-select>
   <div [ngSwitch]="selectedSegment">
     <div class="history-chart" *ngSwitchCase="'workouts'">

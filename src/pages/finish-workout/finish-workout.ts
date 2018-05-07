@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { NavController, NavParams } from "ionic-angular";
 import { ProfileProvider } from "../../providers/profile/profile";
+import { TabsPage } from "../tabs/tabs";
 
 /**
  * Generated class for the FinishWorkoutPage page.
@@ -32,6 +33,7 @@ export class FinishWorkoutPage {
       .evaluateProgram(this.workoutID, level)
       .subscribe(res => {
         this.navCtrl.pop();
+        this.navCtrl.setRoot(TabsPage);
       });
   }
 

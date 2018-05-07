@@ -1,25 +1,17 @@
-<ion-header>
-
-
-
-</ion-header>
-
-<ion-header>
+<ion-header  [dir]="lang">
   <ion-navbar>
-    <ion-title>weight log history</ion-title>
+    <ion-title>{{"weight log history" | translate}}</ion-title>
   </ion-navbar>
 
   <ion-toolbar>
     <ion-segment [(ngModel)]="selectedHistory" color="lava">
       <ion-segment-button value="sixmounths">
-        6 Months
+        {{"6 Months" | translate}}
       </ion-segment-button>
       <ion-segment-button value="all">
-        All
+        {{"All"| translate}}
       </ion-segment-button>
     </ion-segment>
-
-
 
   </ion-toolbar>
 
@@ -33,10 +25,10 @@
 
 
 
-<ion-content>
+<ion-content [dir]="lang">
 
 
-  <h2 class="history-title">history</h2>
+  <h2 class="history-title">{{"history" | translate}}</h2>
 
   <ion-list no-lines>
     <ion-item *ngFor="let memberInbodyResult of memberInbodyResults">

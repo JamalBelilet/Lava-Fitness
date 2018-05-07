@@ -63,14 +63,13 @@ page-body-weight-log-history {
     font-size: 4.3 / $scw * 100vw;
     color: #575c69;
 
-    margin-left: 3.8 / $scw * 100vh !important;
+    // margin-left: 3.8 / $scw * 100vh !important;
+    @include margin(null, 3.8 / $scw * 100vh !important, null, null);
   }
 
   ion-segment {
     padding: 0 (6.5 / $scw * 100vw) !important;
     font-size: 3 / $scw * 100vw !important;
-
-
   }
   ion-list {
     padding: 0 (4.6 / $scw * 100vw) !important;
@@ -78,7 +77,8 @@ page-body-weight-log-history {
 
     .list-headers {
       h2 {
-        color: #bababa !important;}
+        color: #bababa !important;
+      }
     }
 
     p {
@@ -89,7 +89,7 @@ page-body-weight-log-history {
     h2 {
       font-size: 3 / $scw * 100vw !important;
       color: #575c69 !important;
-      padding: (1.5 / $scw * 100vw) (1 / $scw * 100vw)  !important;
+      padding: (1.5 / $scw * 100vw) (1 / $scw * 100vw) !important;
     }
   }
 }

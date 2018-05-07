@@ -47,7 +47,7 @@
 
 </ion-header>
 
-<ion-content>
+<ion-content [dir]="lang">
 
   <!-- <p class="workout-section-title">{{"Start a Workout:" | translate}}</p> -->
   <p class="workout-section-title">{{"Start a workout" | translate}}:</p>
@@ -60,7 +60,7 @@
         <!-- <ion-col no-padding col-6>
           <p class="workout-exercice">tone muscles</p>
         </ion-col> -->
-        <ion-col no-padding col-6>
+        <ion-col no-padding col-2>
           <p class="workout-time">{{workout.NumberOfDays}} {{"Days" | translate}}</p>
         </ion-col>
       </ion-row>

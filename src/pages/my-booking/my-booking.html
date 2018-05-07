@@ -4,19 +4,19 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-header [dir]="lang">
 
   <ion-navbar>
-    <ion-title>My booking</ion-title>
+    <ion-title>{{"My booking" | translate}}</ion-title>
   </ion-navbar>
 
   <ion-toolbar>
     <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="selectedType" color="light">
       <ion-segment-button value="classes">
-        Classes
+        {{"Classes"| translate}}
       </ion-segment-button>
       <ion-segment-button value="sessions">
-        Sessions
+        {{"Sessions" | translate}}
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
@@ -24,7 +24,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding [dir]="lang">
 
   <div [ngSwitch]="selectedType">
     <div *ngSwitchCase="'classes'">
@@ -36,9 +36,9 @@
             <ion-col col-9>
               <div>
                 <p>
-                  <span>Class:</span> {{class.ExerciseTitle}}</p>
+                  <span>{{"Class" | translate}}:</span> {{class.ExerciseTitle}}</p>
                 <p>
-                  <span>Branch:</span> {{class.BranchName}}</p>
+                  <span>{{"Branch" | translate}}:</span> {{class.BranchName}}</p>
               </div>
             </ion-col>
 
@@ -47,7 +47,7 @@
 
 
                 <p>
-                  <span *ngIf="class.Date | isNew">Cancel</span>
+                  <span *ngIf="class.Date | isNew">{{"Cancel" | translate}}</span>
                 </p>
               </button>
             </ion-col>
@@ -56,11 +56,11 @@
         </ion-card-header>
         <ion-card-content padding>
           <p>
-            <span>Coach:</span> {{class.CoachName}}</p>
+            <span>{{"Coach" | translate}}:</span> {{class.CoachName}}</p>
           <p>
-            <span>Duration:</span> {{class.Duration}}</p>
+            <span>{{"Duration" | translate}}:</span> {{class.Duration}}</p>
           <p>
-            <span>Date:</span> {{class.Date}}</p>
+            <span>{{"Date" | translate}}:</span> {{class.Date}}</p>
         </ion-card-content>
       </ion-card>
 
@@ -68,11 +68,11 @@
 
         <ion-card-header class="info">
           <p>
-            <span>Info:</span> No items available for now</p>
+            <span>{{"Info" | translate}}:</span> {{"No items available for now" | translate}}</p>
         </ion-card-header>
         <ion-card-content padding>
           <p>
-            You have to reserve a classe first</p>
+            {{"You have to reserve a classe first" | translate}}</p>
         </ion-card-content>
       </ion-card>
     </div>
@@ -84,16 +84,16 @@
             <ion-col col-9>
               <div>
                 <p>
-                  <span>service:</span> Message</p>
+                  <span>{{"service" | translate}}:</span> {{"Message" | translate}}</p>
                 <p>
-                  <span>Branch:</span> {{service.BranchName}}</p>
+                  <span>{{"Branch" | translate}}:</span> {{service.BranchName}}</p>
               </div>
             </ion-col>
 
             <ion-col col-3>
               <button (click)="cancelService(service.ID)" ion-button clear>
                 <p>
-                  <span *ngIf="service.Date | isNew">Cancel</span>
+                  <span *ngIf="service.Date | isNew">{{"Cancel" | translate}}</span>
                 </p>
               </button>
             </ion-col>
@@ -104,9 +104,9 @@
         </ion-card-header>
         <ion-card-content padding>
           <p>
-            <span>Massager:</span> {{service.MassagerName}}</p>
+            <span>{{"Massager" | translate}}:</span> {{service.MassagerName}}</p>
           <p>
-            <span>Date:</span> {{service.Date}}</p>
+            <span>{{"Date" | translate}}:</span> {{service.Date}}</p>
         </ion-card-content>
       </ion-card>
 
@@ -114,11 +114,11 @@
 
         <ion-card-header class="info">
           <p>
-            <span>Info:</span> No items available for now</p>
+            <span>{{"Info" | translate}}:</span> {{"No items available for now" | translate}}</p>
         </ion-card-header>
         <ion-card-content padding>
           <p>
-            You have to reserve a service first</p>
+            {{"You have to reserve a service first" | translate}}</p>
         </ion-card-content>
       </ion-card>
     </div>

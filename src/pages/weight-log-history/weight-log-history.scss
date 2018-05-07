@@ -62,7 +62,8 @@ page-weight-log-history {
     font-size: 4.3 / $scw * 100vw;
     color: #575c69;
 
-    margin-left: 3.8 / $scw * 100vh !important;
+    // margin-left: 3.8 / $scw * 100vh !important;
+    @include margin(null,  3.8 / $scw * 100vh !important, null, null);
   }
 
   ion-list {

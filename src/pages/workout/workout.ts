@@ -15,7 +15,8 @@ import { map, switchMap } from "rxjs/operators";
 import { of } from "rxjs/observable/of";
 import { Observable } from "rxjs/Observable";
 import { DomSanitizer } from "@angular/platform-browser";
-
+import { AuthenticationProvider } from "../../providers/authentication/authentication";
+import moment from "moment";
 /**
  * Generated class for the WorkoutPage page.
  *
@@ -30,8 +31,7 @@ import { DomSanitizer } from "@angular/platform-browser";
 export class WorkoutPage {
   workout$: Observable<any>;
   workout;
-
-
+  lang;
 
   // @Output() finish = new EventEmitter();
   constructor(
@@ -41,8 +41,11 @@ export class WorkoutPage {
     private modalCtrl: ModalController,
     private lavaProvider: LavaProvider,
     private sanitizer: DomSanitizer,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    private authProvider: AuthenticationProvider
   ) {
+    this.lang = authProvider.config.lang;
+
     this.workout = navParams.data;
 
     // this.workoutsC$.subscribe(workoutsC=> {
@@ -78,19 +81,30 @@ export class WorkoutPage {
         this.workout.BodybuildingProgrameDetail = this.workout.BodybuildingProgrameDetail.map(
           bodybuildingExerciseExercise => {
             (res as any).data.Bodybuilding.forEach(bodybuilding => {
+              // console.log(moment("moment", bodybuilding.CreationDate));
+              // console.log("new date", new Date(bodybuilding.CreationDate));
+              // console.log("asl", bodybuilding.CreationDate);
               if (
                 bodybuildingExerciseExercise.Equipment.ID ==
                 bodybuilding.Equipment.ID
               ) {
-                bodybuildingExerciseExercise.state = "done";
+                if (
+                  new Date(bodybuilding.CreationDate).getFullYear() ===
+                    new Date().getFullYear() &&
+                  new Date(bodybuilding.CreationDate).getMonth() ===
+                    new Date().getMonth() &&
+                  new Date(bodybuilding.CreationDate).getDate() ===
+                    new Date().getDate()
+                ) {
+                  bodybuildingExerciseExercise.state = "done";
+                }
               }
             });
             return bodybuildingExerciseExercise;
           }
         );
 
-
-        if(loading) {
+        if (loading) {
           loading.dismiss();
           loading = null;
         }
@@ -98,8 +112,6 @@ export class WorkoutPage {
         return of(this.workout);
       })
     );
-
-
   }
 
   decreaseDuration($event, slidingItem, item, exersice) {

@@ -1,9 +1,15 @@
 import { Component } from "@angular/core";
-import { NavController, NavParams, AlertController, LoadingController } from "ionic-angular";
+import {
+  NavController,
+  NavParams,
+  AlertController,
+  LoadingController
+} from "ionic-angular";
 import { LavaProvider } from "../../providers/lava/lava";
 import { Observable } from "rxjs/Observable";
 import moment from "moment";
 import { map } from "rxjs/operators";
+import { AuthenticationProvider } from "../../providers/authentication/authentication";
 
 /**
  * Generated class for the ServicesBookingPage page.
@@ -13,11 +19,11 @@ import { map } from "rxjs/operators";
  */
 
 @Component({
-
-  selector: 'page-services-booking',
-  templateUrl: 'services-booking.html',
+  selector: "page-services-booking",
+  templateUrl: "services-booking.html"
 })
 export class ServicesBookingPage {
+  lang: string;
   services$: Observable<Object>;
   loading = this.loadingCtrl.create({
     spinner: "ios"
@@ -27,8 +33,10 @@ export class ServicesBookingPage {
     private lavaProvider: LavaProvider,
     public navCtrl: NavController,
     public navParams: NavParams,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    private authProvider: AuthenticationProvider
   ) {
+    this.lang = this.authProvider.config.lang;
     console.log(navParams.data);
   }
 
@@ -41,30 +49,32 @@ export class ServicesBookingPage {
         .toISOString()
     ).getDate();
     console.log(date);
-    this.services$ = this.lavaProvider.getAllMassageReservations(
-      this.navParams.data.Branch.ID,
-      this.navParams.data.Massager.ID,
-      date,
-      new Date(
-        moment(this.navParams.data.Date)
-          .locale("en")
-          .toISOString()
-      ).getMonth() + 1,
-      new Date(
-        moment(this.navParams.data.Date)
-          .locale("en")
-          .toISOString()
-      ).getFullYear()
-    ).pipe(
-      map(res => {
-        if (this.loading) {
-          this.loading.dismiss();
-          this.loading = null;
-        }
+    this.services$ = this.lavaProvider
+      .getAllMassageReservations(
+        this.navParams.data.Branch.ID,
+        this.navParams.data.Massager.ID,
+        date,
+        new Date(
+          moment(this.navParams.data.Date)
+            .locale("en")
+            .toISOString()
+        ).getMonth() + 1,
+        new Date(
+          moment(this.navParams.data.Date)
+            .locale("en")
+            .toISOString()
+        ).getFullYear()
+      )
+      .pipe(
+        map(res => {
+          if (this.loading) {
+            this.loading.dismiss();
+            this.loading = null;
+          }
 
-        return res;
-      })
-    );
+          return res;
+        })
+      );
   }
 
   book(serviceC) {

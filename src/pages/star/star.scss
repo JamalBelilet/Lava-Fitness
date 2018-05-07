@@ -38,9 +38,10 @@ page-star {
 
     .schedules {
       position: absolute;
-      top: 18.22vh;
-      left: 7.16vw;
-      right: 7.16vw;
+      // top: 18.22vh;
+      // left: 7.16vw;
+      @include position(18.22vh, 7.16vw, null, 7.16vw);
+      // right: 7.16vw;
       height: 14.1vh;
 
       padding: 0;
@@ -111,14 +112,14 @@ page-star {
     }
   }
 
-    .scroll-content {
-      position: relative;
+  .scroll-content {
+    position: relative;
 
-      padding: 0 !important;
-      margin: 0 !important;
-      padding-top: 21.8 / $sch * 100vh !important;
-      margin-top: 112.3 / $sch * 100vh !important;
-      z-index: 999;
+    padding: 0 !important;
+    margin: 0 !important;
+    padding-top: 21.8 / $sch * 100vh !important;
+    margin-top: 112.3 / $sch * 100vh !important;
+    z-index: 999;
 
     height: 100vh - 112.3 / $sch * 100vh - 7.9vh;
     width: 100%;
@@ -133,6 +134,7 @@ page-star {
       color: #575c69;
       margin: 0;
       padding: 0 0 (15.5 / $sch * 100vh) (10.8 / $scw * 100vw) !important;
+      @include padding(null, null, 15.5 / $sch * 100vh, (10.8 / $scw * 100vw));
     }
 
     .services-for-booking-container {
@@ -175,7 +177,7 @@ page-star {
           padding: 0;
           margin: 0;
           font-size: 0.8em;
-          text-align: left;
+          // text-align: left;
           border-radius: 0.2em;
           background: transparent;
           h2 {
@@ -184,26 +186,21 @@ page-star {
 
             margin-bottom: 3.5 / $sch * 100vh !important;
           }
+
           p {
             color: #bababa;
             font-size: 5.3 / $scw * 100vw;
           }
 
 
-
-
           ion-thumbnail {
-
             width: 19.8 / $scw * 100vw !important;
             min-width: 19.8 / $scw * 100vw !important;
             height: 17.5 / $sch * 100vh !important;
             min-height: 17.5 / $sch * 100vh !important;
 
-
             margin: (7.5 / $sch * 100vh) (15 / $scw * 100vw) !important;
             padding: 0 !important;
-
-
           }
           img {
             width: auto;

@@ -1,5 +1,5 @@
 {
-  "Active member": "نشط",
+  "Active member": "عضو نشط",
   "This week": "هذا الاسبوع",
   "Start a workout": "ابدا التدريب",
   "finishes": "تم",
@@ -18,5 +18,156 @@
   "Repetitions": "تكرارات",
   "How many minutes": "كم عدد الدقائق",
   "Calories burned": "السعرات المحروقة",
-  "Speed": "السرعة"
+  "Speed": "السرعة",
+
+  "Dismiss": "اغلق",
+
+  "GetGoogleFit": {
+    "message":
+      " Playstore من Google Fit يجب عليك تثبيت Google Fit للحصول على جميع ميزات",
+    "buttons": {
+      "Cancel": "إلغاء",
+      "GetGoogleFit": " Google Fit احصل على"
+    }
+  },
+
+  "Measurements": "قياسات",
+  "Weight composition": "تكوين الوزن",
+
+  "Analysis": "تحليل",
+  "SMM": "SMM",
+  "PBF": "PBF",
+  "Weight": "وزن",
+
+  "Body Segments": "قطاعات الجسم",
+  "Arm": "ذراع",
+  "Waist": "وسط",
+  "Legs": "الساقين",
+  "Chest": "صدر",
+  "Hips": "الفخذين",
+  "SEE FULL HISTORY": "انظر التاريخ الكامل",
+  "last measured": "قياس الماضي",
+
+  "doughnut": ["الدهون", "ماء"],
+  "Last weight": "الوزن الأخير",
+
+  "weight log history": "تاريخ سجل الوزن",
+  "6 Months": "6 اشهر",
+  "All": "الكل",
+  "history": "التاريخ",
+  "Date": "تاريخ",
+
+  "Schedule": "الجدول",
+  "Fitness Class Schedule": "جدول اللياقة البدنية",
+  "Swiming Class Schedule": "جدول دروس السباحة",
+  "Book a fittness class": "حجز فئة اللياقة البدنية",
+  "Zamba, Yoga, Dancing, Cycle, ...etc": "زامبا ، يوجا ، رقص ، دورة ، ... إلخ",
+  "Book a session": "احجز جلسة",
+  "Massage, Facial treatment, ...etc": "التدليك وعلاج الوجه ، ... الخ",
+
+  "Search now": "ابحث الآن",
+  "Book a Session": "احجز جلسة",
+  "Book a Class": "حجز الفصل",
+  "Choose a Branch": "اختر الفرع",
+  "Choose a Massager": "اختيار مدلك",
+
+  "Sign out": "تسجيل الخروج",
+  "Membership": "عضوية",
+  "My booking": "حجوزاتي",
+  "Invite your friends": "اعزم أصحابك",
+  "Contact us at": "تواصل معنا على",
+
+  "Member since": "عضو منذ",
+  "Suspend": "أوقف",
+  "Current subscription": "الاشتراك الحالي",
+  "year membership": "عضوية سنة",
+  "Included": "شمل",
+
+  "sendInvitation": {
+    "Invite your friends": "اعزم أصحابك",
+    "share Lava on Facebook": "Facebook على Lava مشاركة",
+    "share Lava on Twitter": "Twitter على Lava مشاركة",
+    "Invite ...": "... دعوة",
+    "Cancel": "إلغاء"
+  },
+
+  "signout": {
+    "Sign out": "تسجيل الخروج",
+    "Do you want to sign out?": "هل تريد تسجيل الخروج؟",
+    "Cancel": "إلغاء"
+  },
+
+  "Classes": "فصول",
+  "Sessions": "جلسات",
+
+  "Class": "صف دراسي",
+  "Coach": "مدرب حافلة ركاب",
+  "Duration": "المدة الزمنية",
+  "No items available for now": "لا توجد عناصر متاحة الآن",
+  "You have to reserve a classe first": "عليك أن تحجز فصلا أولاً",
+  "service": "الخدمات",
+  "Message": "رسالة",
+  "Branch": "فرع شجرة",
+  "Cancel": "إلغاء",
+  "Massager": "مدلك",
+  "Info": "معلومات",
+  "You have to reserve a service first": "يجب عليك حجز الخدمة أولاً",
+
+  "cancelReservation": {
+    "confirm the reservation of this service?": "تأكيد حجز هذه الخدمة؟",
+    "Cancel": "إلغاء",
+    "Confirm": "تؤكد",
+    "confirm the reservation of this class?": "تأكيد حجز هذا الفصل؟"
+  },
+
+  "Classe booking": "حجز كلاس",
+  "Please try to change the date, or the branch":
+    "يرجى محاولة تغيير التاريخ ، أو الفرع",
+
+  "Services booking": "حجز الخدمات",
+  "book": "كتاب",
+  "Please try to change the date, or the massager":
+    "يرجى محاولة تغيير التاريخ ، أو مدلك",
+
+  "Workout Completed!": "اكتمل تمرين!",
+  "out of": "بعيدا عن المكان",
+  "How easy was it?": "ما مدى سهولة ذلك؟",
+  "Easy": "سهل",
+  "Good": "جيد",
+  "Hard": "الصعب",
+  "Good job! You have 1 more workout for this week":
+    "عمل جيد! لديك 1 تجريب أكثر لهذا الأسبوع",
+
+  "Performance": "أداء",
+  "Today": "اليوم",
+  "workout": "تدريب",
+  "steps": "خطوات",
+  "This": "هذه",
+  "week": "أسبوع",
+  "workouts": "التدريبات",
+  "days": "أيام",
+  "month": "شهر",
+  "Workout": "تدريب",
+  "per week": "في الاسبوع",
+  "Workouts": "التدريبات",
+  "Month": "شهر",
+
+  "week-days" : {
+    "weeksData": {
+      "Saturday": "السبت",
+      "Sunday": "الأحد",
+      "Monday": "الإثنين",
+      "Tuesday": "الثلاثاء",
+      "Wednesday": "الأربعاء",
+      "Thursday": "الخميس",
+      "Friday": "الجمعة"
+    },
+
+    "monthsData": {
+      "1wk": "1wk",
+      "2wk": "2wk",
+      "3wk": "3wk",
+      "4wk": "4wk"
+    }
+  }
 }

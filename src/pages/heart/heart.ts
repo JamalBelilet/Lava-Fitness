@@ -4,6 +4,8 @@ import { NavController, NavParams } from "ionic-angular";
 import { Chart } from "chart.js";
 import { LavaHealthProvider } from "../../providers/lava-health/lava-health";
 import { Health } from "@ionic-native/health";
+import { TranslateService } from "@ngx-translate/core";
+import { AuthenticationProvider } from "../../providers/authentication/authentication";
 /**
  * Generated class for the HeartPage page.
  *
@@ -16,6 +18,7 @@ import { Health } from "@ionic-native/health";
   templateUrl: "heart.html"
 })
 export class HeartPage {
+  lang
   stepsPerWeek = [];
 
   myMonthSteps: any;
@@ -28,98 +31,116 @@ export class HeartPage {
   selectedSegment = "workouts";
   selectedOption = "weeks";
 
-  workoutChart = {
-    type: "bar",
-    weeksData: {
-      labels: [
-        "Saturday",
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ],
-      datasets: [
-        {
-          // label: "My First dataset",
-          backgroundColor: [
-            "#18b7c5",
-            "#18b7c5",
-            "#18b7c5",
-            "#18b7c5",
-            "#18b7c5",
-            "#18b7c5",
-            "#18b7c5"
-          ],
-          borderColor: ["#22c3cc"],
-          data: [65, 59, 80, 81, 56, 55, 40]
-        }
-      ]
-    },
-    monthsData: {
-      labels: ["1wk", "2wk", "3wk", "4wk"],
-      datasets: [
-        {
-          // label: "My First dataset",
-          backgroundColor: ["#18b7c5", "#18b7c5", "#18b7c5", "#18b7c5"],
-          borderColor: ["#22c3cc"],
-          data: [65, 59, 80, 81]
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      legend: { display: false }
-    }
-  };
-
-  stepsChart = {
-    type: "line",
-    weeksData: {
-      labels: [
-        "Saturday",
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ],
-      datasets: [
-        {
-          // label: "My First dataset",
-          backgroundColor: ["rgba(34, 195, 204, 0.125)"],
-          borderColor: ["#22c3cc"],
-          data: [65, 59, 80, 81, 56, 55, 40]
-        }
-      ]
-    },
-    monthsData: {
-      labels: ["1wk", "2wk", "3wk", "4wk"],
-      datasets: [
-        {
-          // label: "My First dataset",
-          backgroundColor: ["rgba(34, 195, 204, 0.125)"],
-          borderColor: ["#22c3cc"],
-          data: [65, 59, 80, 81]
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      legend: { display: false }
-    }
-  };
+  workoutChart;
+  stepsChart;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private LavaHealth: LavaHealthProvider,
-    private health: Health
-  ) {}
+    private health: Health,
+    private translate: TranslateService,
+    private authProfider: AuthenticationProvider
+  ) {
+    this.lang = this.authProfider.config.lang;
+    translate.get("week-days").subscribe((translated: string) => {
+      this.workoutChart = {
+        type: "bar",
+        weeksData: {
+          labels: [
+            translated["weeksData"]["Saturday"],
+            translated["weeksData"]["Sunday"],
+            translated["weeksData"]["Monday"],
+            translated["weeksData"]["Tuesday"],
+            translated["weeksData"]["Wednesday"],
+            translated["weeksData"]["Thursday"],
+            translated["weeksData"]["Friday"]
+          ],
+          datasets: [
+            {
+              // label: "My First dataset",
+              backgroundColor: [
+                "#18b7c5",
+                "#18b7c5",
+                "#18b7c5",
+                "#18b7c5",
+                "#18b7c5",
+                "#18b7c5",
+                "#18b7c5"
+              ],
+              borderColor: ["#22c3cc"],
+              data: [65, 59, 80, 81, 56, 55, 40]
+            }
+          ]
+        },
+        monthsData: {
+          labels: [
+            translated["monthsData"]["1wk"],
+            translated["monthsData"]["2wk"],
+            translated["monthsData"]["3wk"],
+            translated["monthsData"]["4wk"]
+          ],
+          datasets: [
+            {
+              // label: "My First dataset",
+              backgroundColor: ["#18b7c5", "#18b7c5", "#18b7c5", "#18b7c5"],
+              borderColor: ["#22c3cc"],
+              data: [65, 59, 80, 81]
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          legend: { display: false }
+        }
+      };
+
+      this.stepsChart = {
+        type: "line",
+        weeksData: {
+          labels: [
+            translated["weeksData"]["Saturday"],
+            translated["weeksData"]["Sunday"],
+            translated["weeksData"]["Monday"],
+            translated["weeksData"]["Tuesday"],
+            translated["weeksData"]["Wednesday"],
+            translated["weeksData"]["Thursday"],
+            translated["weeksData"]["Friday"]
+          ],
+          datasets: [
+            {
+              // label: "My First dataset",
+              backgroundColor: ["rgba(34, 195, 204, 0.125)"],
+              borderColor: ["#22c3cc"],
+              data: [65, 59, 80, 81, 56, 55, 40]
+            }
+          ]
+        },
+        monthsData: {
+          labels: [
+            translated["monthsData"]["1wk"],
+            translated["monthsData"]["2wk"],
+            translated["monthsData"]["3wk"],
+            translated["monthsData"]["4wk"]
+          ],
+          datasets: [
+            {
+              // label: "My First dataset",
+              backgroundColor: ["rgba(34, 195, 204, 0.125)"],
+              borderColor: ["#22c3cc"],
+              data: [65, 59, 80, 81]
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          legend: { display: false }
+        }
+      };
+    });
+  }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad HeartPage");
@@ -232,32 +253,44 @@ export class HeartPage {
     this.stepsChart.weeksData.datasets = [];
     [
       {
-        label: new Date(new Date().getTime() - 6 * 24 * 60 * 60 * 1000).getDay(),
+        label: new Date(
+          new Date().getTime() - 6 * 24 * 60 * 60 * 1000
+        ).getDay(),
         startDate: new Date(new Date().getTime() - 7 * 24 * 60 * 60 * 1000),
         endDate: new Date(new Date().getTime() - 6 * 24 * 60 * 60 * 1000)
       },
       {
-        label: new Date(new Date().getTime() - 5 * 24 * 60 * 60 * 1000).getDay(),
+        label: new Date(
+          new Date().getTime() - 5 * 24 * 60 * 60 * 1000
+        ).getDay(),
         startDate: new Date(new Date().getTime() - 6 * 24 * 60 * 60 * 1000),
         endDate: new Date(new Date().getTime() - 5 * 24 * 60 * 60 * 1000)
       },
       {
-        label: new Date(new Date().getTime() - 4 * 24 * 60 * 60 * 1000).getDay(),
+        label: new Date(
+          new Date().getTime() - 4 * 24 * 60 * 60 * 1000
+        ).getDay(),
         startDate: new Date(new Date().getTime() - 5 * 24 * 60 * 60 * 1000),
         endDate: new Date(new Date().getTime() - 4 * 24 * 60 * 60 * 1000)
       },
       {
-        label: new Date(new Date().getTime() - 3 * 24 * 60 * 60 * 1000).getDay(),
+        label: new Date(
+          new Date().getTime() - 3 * 24 * 60 * 60 * 1000
+        ).getDay(),
         startDate: new Date(new Date().getTime() - 4 * 24 * 60 * 60 * 1000),
         endDate: new Date(new Date().getTime() - 3 * 24 * 60 * 60 * 1000)
       },
       {
-        label: new Date(new Date().getTime() - 2 * 24 * 60 * 60 * 1000).getDay(),
+        label: new Date(
+          new Date().getTime() - 2 * 24 * 60 * 60 * 1000
+        ).getDay(),
         startDate: new Date(new Date().getTime() - 3 * 24 * 60 * 60 * 1000),
         endDate: new Date(new Date().getTime() - 2 * 24 * 60 * 60 * 1000)
       },
       {
-        label: new Date(new Date().getTime() - 1 * 24 * 60 * 60 * 1000).getDay(),
+        label: new Date(
+          new Date().getTime() - 1 * 24 * 60 * 60 * 1000
+        ).getDay(),
         startDate: new Date(new Date().getTime() - 2 * 24 * 60 * 60 * 1000),
         endDate: new Date(new Date().getTime() - 1 * 24 * 60 * 60 * 1000)
       },

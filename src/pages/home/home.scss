@@ -4,9 +4,7 @@ page-home {
   }
 
   .ion-page.show-page {
-
   }
-
 
   .header.header-md,
   .header.header-ios {
@@ -21,7 +19,6 @@ page-home {
 
     // background-color: #0193a0;
 
-
     width: 100%;
     box-shadow: 0 !important;
 
@@ -30,12 +27,11 @@ page-home {
     .in-header {
       width: 100%;
       height: 100%;
-    background-image: url(../assets/imgs/wave.png);
+      background-image: url(../assets/imgs/wave.png);
 
-    background-size: auto 120%;
-    background-position: center 27vh;
-    background-repeat: no-repeat;
-
+      background-size: auto 120%;
+      background-position: center 27vh;
+      background-repeat: no-repeat;
     }
 
     * {
@@ -191,7 +187,9 @@ page-home {
 
     padding: 0 !important;
     margin: 0 !important;
-    margin-top: calc(47vh) !important;
+    // margin-top: calc(47vh) !important;
+    @include margin(calc(47vh) !important, null, null, null);
+
     z-index: 999;
 
     height: 100%;
@@ -204,10 +202,12 @@ page-home {
 
     .workout-section-title {
       position: absolute;
+      width: 90%;
 
       font-size: 4.55vw;
       font-weight: 500;
       color: #575c69;
+
       top: 3.16vh;
       left: 3.58vw;
     }
@@ -215,9 +215,10 @@ page-home {
     .workout-section-slides {
       position: absolute;
 
-      top: 4.96vh;
+      // top: 4.96vh;
       width: 100%;
       height: 20.41vh;
+      @include margin(4.96vh !important, null, null, null);
 
       .workout-section-slides-slide {
         position: relative;
@@ -225,13 +226,28 @@ page-home {
         background: white;
         height: 14.16vh;
         // width: 39.25vw !important;
-        margin: 2.73vh 0 3.52vh 0 !important;
-        margin-left: 1.66vw !important;
+        // margin:  0 0 0 !important;
+        // margin-left: 1.66vw !important;
+        @include margin(
+          2.73vh!important,
+          1.66vw !important,
+          3.52vh !important,
+          null
+        );
+
+        // @include margin(
+        //   2.73vh !important,
+        //   1.66vw !important,
+        //   3.52vh !important,
+        //   1.5vh !important
+        // );
+
         box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
         border-radius: 1vw;
 
         &:first-of-type {
-          margin-left: 3.32vw !important;
+          // margin-left: 3.32vw !important;
+          @include margin(null, 3.32vw !important, null, null);
         }
 
         .workout-title {
@@ -245,8 +261,10 @@ page-home {
           color: #575c69;
 
           // background: red;
-          left: 2.04vw;
-          top: 1.72vh;
+          @include position(1.72vh, 2.04vw, auto, auto);
+
+          // left: 2.04vw;
+          // top: 1.72vh;
         }
         .workout-row {
           position: absolute;
@@ -255,8 +273,10 @@ page-home {
           font-weight: 500;
           width: 100%;
           // background: red;
-          left: 2.04vw;
-          top: 3.81vh;
+          // left: 2.04vw;
+          // top: 3.81vh;
+          @include position(3.81vh, 2.04vw, auto, auto);
+
           color: #9b9b9b;
           ion-col {
             &:first-of-type {
@@ -280,9 +300,11 @@ page-home {
           font-size: 2.2vw;
           font-weight: 500;
           // background: red;
-          left: 2.42vw;
-          top: 9.48vh;
+          // left: 2.42vw;
+          // top: 9.48vh;
           color: #575c69;
+
+          @include position(9.48vh, 2.42vw, auto, auto);
         }
         .workout-state {
           position: absolute;
@@ -290,33 +312,36 @@ page-home {
           font-size: 2.2vw;
           font-weight: 500;
           // background: red;
-          left: 2.81vw;
-          top: 11.35vh;
+          // left: 2.81vw;
+          // top: 11.35vh;
           color: #575c69;
+          @include position(11.35vh, 2.81vw, auto, auto);
         }
       }
     }
 
     .bookings-section-title {
       @extend .workout-section-title;
-      top: 27.67vh;
+      // top: 27.67vh;
+      @include position(27.67vh !important, null, null, null);
     }
     .bookings-section-slides {
       @extend .workout-section-slides;
-      top: 30.69vh;
-
+      // top: 30.69vh;
+      @include position(23.69vh !important, null, null, null);
       height: 14.45vh;
 
       .bookings-section-slides-slide {
         @extend .workout-section-slides-slide;
         box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
-        width: (30.64 - 2vw)!important;
+        width: (30.64 - 2vw) !important;
         height: 8.19vh;
 
-        margin-left: 2 + 2vw !important;
+        // margin-left: 2 + 2vw !important;
+        @include margin(null, 2 + 2vw !important, null, null);
 
         &:first-of-type {
-          width:8.19vh !important;
+          width: 8.19vh !important;
           background: transparent;
           box-shadow: none;
           border: 1px solid #9b9b9b;
@@ -331,8 +356,9 @@ page-home {
           @extend .workout-title;
           position: absolute;
 
-          top: 1.72vh;
-          left: 5.37vw;
+          // top: 1.72vh;
+          // left: 5.37vw;
+          @include position(1.72vh, 5.37vw, null, null);
 
           color: #575c69;
 
@@ -351,6 +377,7 @@ page-home {
 
           top: 3.8vh;
           left: 5.37vw;
+          @include position(3.8vh, 5.37vw, null, null);
 
           color: #9b9b9b;
         }
@@ -361,15 +388,30 @@ page-home {
           font-weight: 500;
           width: 100%;
           // background: red;
-          left: 5.37vw;
-          top: 5.46vh;
+          // left: 5.37vw;
+          // top: 5.46vh;
+          @include position(5.46vh, 5.37vw, null, null);
+
           color: #9b9b9b;
         }
       }
     }
   }
 
-  .distance,
+  .distance{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: nowrap column;
+
+    position: absolute;
+    // top: 25.06vh;
+    // left: 14.19vw;
+    @include position(25.06vh !important, 14.19vw !important, null, null);
+
+
+  }
+
   .steps {
     display: flex;
     justify-content: center;
@@ -377,12 +419,8 @@ page-home {
     flex-flow: nowrap column;
 
     position: absolute;
-    top: 25.06vh;
-    left: 14.19vw;
-
-    &.steps {
-      left: auto;
-      right: 14.19vw;
-    }
+    // top: 25.06vh;
+    // left: 14.19vw;
+    @include position(25.06vh !important, null, null,14.19vw !important);
   }
 }

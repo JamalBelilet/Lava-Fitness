@@ -3,27 +3,27 @@
   <button class="close-button" ion-button clear (click)="close()">
     <ion-icon name="close"> </ion-icon>  close</button>
 
-  <h2>Workout Completed!</h2>
+  <h2>{{"Workout Completed!" | translate}}</h2>
 
-  <p class="meta">3 out of 7</p>
+  <p class="meta" style="color: transparent!important">3 {{"out of" | translate}} 7</p>
 
-  <h3>How easy was it?</h3>
+  <h3>{{"How easy was it?" | translate}}</h3>
 
   <ion-row class="status">
     <button (click)="evaluate(1)">
       <img src="assets/imgs/_easy.png">
-      <p>Easy</p>
+      <p>{{"Easy" | translate}}</p>
     </button>
     <button (click)="evaluate(2)">
       <img src="assets/imgs/_good.png">
-      <p>Good</p>
+      <p>{{"Good" | translate}}</p>
     </button>
     <button (click)="evaluate(3)">
       <img src="assets/imgs/_hard.png">
-      <p>Hard</p>
+      <p>{{"Hard" | translate}}</p>
     </button>
   </ion-row>
 
-  <p class="footer">Good job! You have 1 more workout for this week</p>
+  <p class="footer" style="color: transparent!important">{{"Good job! You have 1 more workout for this week" | translate}}</p>
 
 </ion-content>

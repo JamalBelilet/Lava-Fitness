@@ -7,6 +7,8 @@ import { BodyWeightLogHistoryPage } from "../body-weight-log-history/body-weight
 import { ProfileProvider } from "../../providers/profile/profile";
 import { Observable } from "rxjs/Observable";
 import { map } from "rxjs/operators";
+import { TranslateService } from "@ngx-translate/core";
+import { AuthenticationProvider } from "../../providers/authentication/authentication";
 
 /**
  * Generated class for the PersonPage page.
@@ -20,6 +22,7 @@ import { map } from "rxjs/operators";
   templateUrl: "person.html"
 })
 export class PersonPage {
+  lang: string;
   @ViewChild("lineCanvasWeight") lineCanvasWeight;
 
   @ViewChild("lineCanvasWeightSub") lineCanvasWeightSub;
@@ -52,8 +55,12 @@ export class PersonPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private profileProvider: ProfileProvider,
-    private loadingCtrl: LoadingController
-  ) {}
+    private loadingCtrl: LoadingController,
+    private translate: TranslateService,
+    private authProvider: AuthenticationProvider
+  ) {
+    this.lang = this.authProvider.config.lang;
+  }
 
   ionViewDidLoad() {
     this.loading.present();
@@ -80,24 +87,26 @@ export class PersonPage {
           console.log(dataC);
           console.log(1);
           console.log(dataC);
-          this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
-            type: "doughnut",
-            data: {
-              labels: ["Fats", "Water"],
-              datasets: [
-                {
-                  data: [
-                    dataC.BodyFatMass / dataC.Weight * 100,
-                    dataC.TotalBodyWater / dataC.Weight * 100,
-                    100 -
-                      (dataC.BodyFatMass / dataC.Weight * 100 +
-                        dataC.TotalBodyWater / dataC.Weight * 100)
-                  ],
-                  backgroundColor: ["#22c3cc", "#65a4ed", "#aaaaaa"],
-                  hoverBackgroundColor: ["#22c3cc", "#65a4ed", "#aaaaaa"]
-                }
-              ]
-            }
+          this.translate.get("doughnut").subscribe((translated: string) => {
+            this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
+              type: "doughnut",
+              data: {
+                labels: translated,
+                datasets: [
+                  {
+                    data: [
+                      dataC.BodyFatMass / dataC.Weight * 100,
+                      dataC.TotalBodyWater / dataC.Weight * 100,
+                      100 -
+                        (dataC.BodyFatMass / dataC.Weight * 100 +
+                          dataC.TotalBodyWater / dataC.Weight * 100)
+                    ],
+                    backgroundColor: ["#22c3cc", "#65a4ed", "#aaaaaa"],
+                    hoverBackgroundColor: ["#22c3cc", "#65a4ed", "#aaaaaa"]
+                  }
+                ]
+              }
+            });
           });
 
           this.lineChartSMM = new Chart(this.lineCanvasSMM.nativeElement, {
@@ -169,6 +178,7 @@ export class PersonPage {
               }
             }
           });
+          return res;
         })
       )
       .subscribe(re => {
@@ -198,46 +208,48 @@ export class PersonPage {
     this.memberMeasurements$
       .pipe(
         map(res => {
-          this.lineChartWeight = new Chart(
-            this.lineCanvasWeight.nativeElement,
-            {
-              type: "line",
-              data: {
-                datasets: [
-                  {
-                    backgroundColor: ["rgba(34, 195, 204, 0.125)"],
-                    borderColor: ["#22c3cc"],
-                    borderWidth: 1,
-                    data: (res as any).data.map(d => d.Weight).reverse()
-                  }
-                ]
-              },
-              options: {
-                layout: {
-                  padding: {
-                    left: 0,
-                    right: 0,
-                    top: 0,
-                    bottom: 0
-                  }
-                },
-                legend: { display: false },
-                title: {
-                  display: true,
-                  text: `last weight: ${(res as any).data[0].CreationDate}`,
-                  fontSize: 8,
-                  color: "#bababa"
-                },
-                scales: {
-                  yAxes: [
+          this.translate.get("Last weight").subscribe((translated: string) => {
+            this.lineChartWeight = new Chart(
+              this.lineCanvasWeight.nativeElement,
+              {
+                type: "line",
+                data: {
+                  datasets: [
                     {
-                      display: true
+                      backgroundColor: ["rgba(34, 195, 204, 0.125)"],
+                      borderColor: ["#22c3cc"],
+                      borderWidth: 1,
+                      data: (res as any).data.map(d => d.Weight).reverse()
                     }
                   ]
+                },
+                options: {
+                  layout: {
+                    padding: {
+                      left: 0,
+                      right: 0,
+                      top: 0,
+                      bottom: 0
+                    }
+                  },
+                  legend: { display: false },
+                  title: {
+                    display: true,
+                    text: `${translated}: ${(res as any).data[0].CreationDate}`,
+                    fontSize: 8,
+                    color: "#bababa"
+                  },
+                  scales: {
+                    yAxes: [
+                      {
+                        display: true
+                      }
+                    ]
+                  }
                 }
               }
-            }
-          );
+            );
+          });
 
           this.lineChartWeightSub = new Chart(
             this.lineCanvasWeightSub.nativeElement,

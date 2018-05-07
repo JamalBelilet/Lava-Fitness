@@ -62,7 +62,8 @@ page-workout {
       font-weight: normal;
       color: #ffffff;
       top: 9.77vh;
-      left: 10.32vw;
+      // left: 10.32vw;
+      @include position(null, 10.32vw, null, null);
     }
     .workout-exercice {
       position: absolute;
@@ -71,7 +72,8 @@ page-workout {
       font-weight: normal;
       color: #ffffff;
       top: 13.58vh;
-      left: 10.32vw;
+      // left: 10.32vw;
+      @include position(null, 10.32vw, null, null);
     }
 
     .workout-time-container {
@@ -93,7 +95,8 @@ page-workout {
       height: 2.01vh;
 
       top: 10.73vh;
-      right: 7.41vw;
+      // right: 7.41vw;
+      @include position(null, null, null, 7.41vw);
 
       .workout-notifications-button-img {
         position: absolute;
@@ -124,15 +127,23 @@ page-workout {
       font-size: 3.19vw;
       font-weight: 500;
       color: #ffffff;
-      top: 17.32vh;
-      left: 10.73vw;
-      right: 10.73vw;
+      // top: 17.32vh;
+      // left: 10.73vw;
+      // right: 10.73vw;
+
+      @include position(17.32vh, 10.73vw, null, 10.73vw);
 
       ion-row:last-of-type {
-        margin-left: 6.77vw !important;
+        // margin-left: 6.77vw !important;
+        @include margin(null, 6.77vw, null, null);
       }
       p {
-        margin-left: 1.53vw !important;
+        // margin-left: 1.53vw !important;
+        @include margin(null, null, null);
+        padding: 0 2vw!important;
+
+      }
+      ion-icon {
       }
     }
     .workout-states {
@@ -142,15 +153,17 @@ page-workout {
       font-weight: 500;
       color: #ffffff;
 
-      top: 21.99vh;
+      // top: 21.99vh;
+      // left: 27.73vw;
+      // right: 27.73vw;
+      @include position(21.99vh, 27.73vw, null, 27.73vw);
 
       width: 45.26;
-      left: 27.73vw;
-      right: 27.73vw;
 
       ion-icon {
         font-size: 4.21vw;
-        margin-right: 2.55vw !important;
+        // margin-right: 2.55vw !important;
+        @include margin(null, null, null, 2.55vw !important);
       }
     }
   }
@@ -161,8 +174,10 @@ page-workout {
     width: 72.8 / $scw * 100vw;
     height: 22.3 / $sch * 100vh;
 
-    left: 58.3 / $scw * 100vw;
-    bottom: 7.9vh !important;
+    // left: 58.3 / $scw * 100vw;
+    // bottom: 7.9vh !important;
+    @include position( null, 58.3 / $scw * 100vw, 7.5vh !important, null);
+
     font-size: 8.9 / 1.25 / $scw * 100vw;
     font-weight: 500;
     color: #ffffff !important;
@@ -175,9 +190,11 @@ page-workout {
   }
 
   .scroll-content {
-    padding-top: 20 / $sch * 100vh !important;
+    // padding-top: 20 / $sch * 100vh !important;
+    @include padding(20 / $sch * 100vh !important, null, null, null);
+    // margin-top: 0 / $sch * 100vh !important;
+    @include margin(0 / $sch * 100vh !important, null, null, null);
 
-    margin-top: 0 / $sch * 100vh !important;
 
     background: url(../assets/imgs/Lava-app-YSF_06-Workout.png);
     background-size: contain;
@@ -198,7 +215,8 @@ page-workout {
       height: 42.8 / $sch * 100vh;
       width: 175.8 / $scw * 100vw;
       margin: 0 auto !important;
-      margin-bottom: 10.8 / $sch * 100vh !important;
+      // margin-bottom: 10.8 / $sch * 100vh !important;
+      @include margin(null, null,  10.8 / $sch * 100vh !important, null);
 
       position: relative;
 
@@ -227,7 +245,8 @@ page-workout {
         margin: 0 !important;
         padding: 0 !important;
         margin-top: 0 / $sch * 100vh !important;
-        margin-left: 13.5 / $scw * 100vw !important;
+        // margin-left: 13.5 / $scw * 100vw !important;
+        @include margin(null, 13.5 / $scw * 100vw !important, null, null);
 
         z-index: 1 !important;
 
@@ -240,8 +259,9 @@ page-workout {
 
       .counter {
         position: absolute;
-        top: 7 / $sch * 100vh !important;
-        left: 12.3 / $scw * 100vw !important;
+        // top: 7 / $sch * 100vh !important;
+        // left: 12.3 / $scw * 100vw !important;
+        @include position(7 / $sch * 100vh !important, 12.3 / $scw * 100vw !important, null, null);
 
         font-size: 22.3 / 1.25 / $scw * 100vw !important;
 
@@ -255,10 +275,11 @@ page-workout {
       }
 
       p.workout-p {
-        margin-left: 14.5 / $scw * 100vw !important;
+        // margin-left: 14.5 / $scw * 100vw !important;
         font-size: 6.8 / $scw * 100vw;
         color: #575c69;
-        margin-bottom: 4.5 / $sch * 100vh !important;
+        // margin-bottom: 4.5 / $sch * 100vh !important;
+        @include margin(null, 14.5 / $scw * 100vw !important, 4.5 / $sch * 100vh !important, null);
 
         &:last-of-type {
           margin-bottom: 0 !important;
@@ -283,7 +304,9 @@ page-workout {
         height: 15.3 / $sch * 100vh;
         width: 15.3 / $scw * 100vw;
 
-        margin-right: 8.3 / $scw * 100vw !important;
+        // margin-right: 8.3 / $scw * 100vw !important;
+
+        @include margin(null, null,null, 8.3 / $scw * 100vw !important);
 
         ion-icon {
           padding: 0 !important;
@@ -396,35 +419,28 @@ page-workout {
   }
 
   .lava-divider {
-    margin: 2vh 0!important;
-    border-top: 1px solid #eee!important;
+    margin: 2vh 0 !important;
+    border-top: 1px solid #eee !important;
     position: relative;
     width: 100%;
     height: 2vh;
     display: flex;
     justify-content: center;
 
-
     p {
       z-index: 10;
       position: absolute;
       top: -1.5vh;
       font-size: 4vw;
-    background: white;
-    color: #aaa;
-    border-radius: 1vw;
+      background: white;
+      color: #aaa;
+      border-radius: 1vw;
 
-      padding: 0 1vw!important;
-
+      padding: 0 1vw !important;
     }
   }
 
   .transform-slide-3d {
-
     transform: translate3d(90.04%, 0px, 0px);
   }
-
-
-
-
 }

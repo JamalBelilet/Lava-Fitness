@@ -8,6 +8,8 @@ import {
 import { LavaProvider } from "../../providers/lava/lava";
 import { Observable } from "rxjs/Observable";
 import { map } from "rxjs/operators";
+import { TranslateService } from "@ngx-translate/core";
+import { AuthenticationProvider } from "../../providers/authentication/authentication";
 
 /**
  * Generated class for the MyBookingPage page.
@@ -21,6 +23,7 @@ import { map } from "rxjs/operators";
   templateUrl: "my-booking.html"
 })
 export class MyBookingPage {
+  lang: string;
   classeReservations$: Observable<Object>;
   serviceReservations$: Observable<Object>;
   classeReservations;
@@ -36,36 +39,46 @@ export class MyBookingPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public alertCtrl: AlertController,
-    private loadingCtrl: LoadingController
-  ) {}
+    private loadingCtrl: LoadingController,
+    private translate: TranslateService,
+    private authProvider: AuthenticationProvider
+  ) {
+    this.lang = this.authProvider.config.lang;
+  }
 
   ionViewDidLoad() {
     this.loading.present();
 
-    this.lavaProvider.getExerciseReservations().pipe(
-      map(res => {
-        if (this.loading) {
-          this.loading.dismiss();
-          this.loading = null;
-        }
+    this.lavaProvider
+      .getExerciseReservations()
+      .pipe(
+        map(res => {
+          if (this.loading) {
+            this.loading.dismiss();
+            this.loading = null;
+          }
 
-        return res;
-      })
-    ).subscribe(res => {
-      this.classeReservations = res;
-    })
-   this.lavaProvider.getMassageReservations().pipe(
-      map(res => {
-        if (this.loading) {
-          this.loading.dismiss();
-          this.loading = null;
-        }
+          return res;
+        })
+      )
+      .subscribe(res => {
+        this.classeReservations = res;
+      });
+    this.lavaProvider
+      .getMassageReservations()
+      .pipe(
+        map(res => {
+          if (this.loading) {
+            this.loading.dismiss();
+            this.loading = null;
+          }
 
-        return res;
-      })
-    ).subscribe(res => {
-      this.serviceReservations = res;
-    })
+          return res;
+        })
+      )
+      .subscribe(res => {
+        this.serviceReservations = res;
+      });
     console.log("ionViewDidLoad MyBookingPage");
   }
 
@@ -76,68 +89,72 @@ export class MyBookingPage {
   }
 
   cancelService(serviceID) {
-    let alert = this.alertCtrl.create({
-      title: "",
-      message: "confirm the reservation of this class?",
-      buttons: [
-        {
-          text: "Cancel",
-          role: "cancel",
-          handler: () => {
-            console.log("Cancel clicked");
+    this.translate.get("cancelReservation").subscribe((translated: string) => {
+      let alert = this.alertCtrl.create({
+        title: "",
+        message: translated["confirm the reservation of this service?"],
+        buttons: [
+          {
+            text: translated["Cancel"],
+            role: "cancel",
+            handler: () => {
+              console.log("Cancel clicked");
+            }
+          },
+          {
+            text: translated["Confirm"],
+            handler: () => {
+              this.lavaProvider.updateServiceReservation(serviceID).subscribe(
+                res => {
+                  this.serviceReservations$ = this.lavaProvider.getMassageReservations();
+                },
+                error => {
+                  this.alertCtrl
+                    .create()
+                    .setMessage(error.error.errors)
+                    .present();
+                }
+              );
+            }
           }
-        },
-        {
-          text: "Confirm",
-          handler: () => {
-            this.lavaProvider.updateServiceReservation(serviceID).subscribe(
-              res => {
-                this.serviceReservations$ = this.lavaProvider.getMassageReservations();
-              },
-              error => {
-                this.alertCtrl
-                  .create()
-                  .setMessage(error.error.errors)
-                  .present();
-              }
-            );
-          }
-        }
-      ]
+        ]
+      });
+      alert.present();
     });
-    alert.present();
   }
 
   cancelExercice(exerciseID) {
-    let alert = this.alertCtrl.create({
-      title: "",
-      message: "confirm the reservation of this class?",
-      buttons: [
-        {
-          text: "Cancel",
-          role: "cancel",
-          handler: () => {
-            console.log("Cancel clicked");
+    this.translate.get("cancelReservation").subscribe((translated: string) => {
+      let alert = this.alertCtrl.create({
+        title: "",
+        message: translated["confirm the reservation of this class?"],
+        buttons: [
+          {
+            text: translated["Cancel"],
+            role: "cancel",
+            handler: () => {
+              console.log("Cancel clicked");
+            }
+          },
+          {
+            text: translated["Confirm"],
+            handler: () => {
+              this.lavaProvider.updateExerciseReservation(exerciseID).subscribe(
+                res => {
+                  this.classeReservations$ = this.lavaProvider.getExerciseReservations();
+                },
+                error => {
+                  this.alertCtrl
+                    .create()
+                    .setMessage(error.error.errors)
+                    .present();
+                }
+              );
+            }
           }
-        },
-        {
-          text: "Confirm",
-          handler: () => {
-            this.lavaProvider.updateExerciseReservation(exerciseID).subscribe(
-              res => {
-                this.classeReservations$ = this.lavaProvider.getExerciseReservations();
-              },
-              error => {
-                this.alertCtrl
-                  .create()
-                  .setMessage(error.error.errors)
-                  .present();
-              }
-            );
-          }
-        }
-      ]
+        ]
+      });
+      alert.present();
     });
-    alert.present();
   }
 }

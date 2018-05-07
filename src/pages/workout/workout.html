@@ -7,7 +7,7 @@
 <ion-header padding>
 
   <ion-navbar>
-    <ion-title>Workout</ion-title>
+    <ion-title>{{"Workout" | translate}}</ion-title>
   </ion-navbar>
 
 
@@ -15,7 +15,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding [dir]="lang">
   <div class="workout-header">
     <p class="workout-title">{{workout.ProgramName}}</p>
 
@@ -98,7 +98,7 @@
             <ion-col class="sliding-col">
               <p class="option-title">{{"Speed" | translate}}?</p>
               <ion-row justify-content-center>
-                <ion-col (click)="encreaseSpeed($event, slidingItem, item, exercice)" col-3>
+                <ion-col (click)="decreaseSpeed($event, slidingItem, item, exercice)" col-3>
                   <button ion-button clear>-</button>
                 </ion-col>
                 <ion-col col-5>

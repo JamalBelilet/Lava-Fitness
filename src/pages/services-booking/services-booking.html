@@ -4,16 +4,16 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-header [dir]="lang">
 
   <ion-navbar>
-    <ion-title>Services booking</ion-title>
+    <ion-title>{{"Services booking" | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding [dir]="lang">
   <!-- ID": "189",
       "Date": "2018-02-18 19:40:00",
       "BranchID": "1",
@@ -27,26 +27,24 @@
         <ion-col col-9>
           <div>
             <p>
-              <span>service:</span> Message</p>
+              <span>{{"service" | translate}}:</span> Message</p>
             <p>
-              <span>Branch:</span> {{service.BranchName}}</p>
+              <span>{{"Branch" | translate}}:</span> {{service.BranchName}}</p>
           </div>
         </ion-col>
         <ion-col col-3>
           <button (click)="book(service)" ion-button clear>
-            <p>book</p>
+            <p>{{"book" | translate}}</p>
           </button>
         </ion-col>
       </ion-row>
 
-
-
     </ion-card-header>
     <ion-card-content padding>
       <p>
-        <span>Massager:</span> {{service.MassagerName}}</p>
+        <span>{{"Massager" | translate}}:</span> {{service.MassagerName}}</p>
       <p>
-        <span>Date:</span> {{service.Date}}</p>
+        <span>{{"Date" | translate}}:</span> {{service.Date}}</p>
     </ion-card-content>
   </ion-card>
 
@@ -54,11 +52,11 @@
 
     <ion-card-header class="info">
       <p>
-        <span>Info:</span> No items available for now</p>
+        <span>{{"Info" | translate}}:</span> {{"No items available for now" | translate}}</p>
     </ion-card-header>
     <ion-card-content padding>
       <p>
-        Please try to change the date, or the massager</p>
+        {{"Please try to change the date, or the massager" | translate}}</p>
     </ion-card-content>
   </ion-card>
 </ion-content>

@@ -1,17 +1,16 @@
 
-<ion-header>
+<ion-header dir="rtl">
   <ion-navbar padding>
-    <ion-title>weight log history</ion-title>
+    <ion-title>{{"weight log history" | translate}}</ion-title>
   </ion-navbar>
 
   <ion-toolbar>
     <ion-segment [(ngModel)]="selectedHistory" (ionChange)="onSegmentChange()" color="lava">
-      <ion-segment-button value="Arm">Arm</ion-segment-button>
-      <ion-segment-button value="Chest">Chest</ion-segment-button>
-      <ion-segment-button value="Waist">Waist</ion-segment-button>
-      <ion-segment-button value="Hips">Hips</ion-segment-button>
-      <ion-segment-button value="Thinght">Thinght</ion-segment-button>
-      <ion-segment-button value="Legs">Legs</ion-segment-button>
+      <ion-segment-button value="Arm">{{"Arm" | translate}}</ion-segment-button>
+      <ion-segment-button value="Chest">{{"Chest" | translate}}</ion-segment-button>
+      <ion-segment-button value="Waist">{{"Waist" | translate}}</ion-segment-button>
+      <ion-segment-button value="Hips">{{"Hips" | translate}}</ion-segment-button>
+      <ion-segment-button value="Legs">{{"Legs" | translate}}</ion-segment-button>
     </ion-segment>
 
 
@@ -28,36 +27,34 @@
 
 
 
-<ion-content>
+<ion-content [dir]="lang">
 
 
-  <h2 class="history-title">history</h2>
+  <h2 class="history-title">{{"history" | translate}}</h2>
 
   <ion-list no-lines>
     <ion-row class="list-headers">
       <ion-col col-3>
-        <h2>Date</h2>
+        <h2>{{"Date" | translate}}</h2>
       </ion-col>
       <ion-col col-9>
         <ion-row>
           <ion-col>
-            <h2>Arm</h2>
+            <h2>{{"Arm" | translate}}</h2>
           </ion-col>
           <ion-col>
-            <h2>Chest</h2>
+            <h2>{{"Chest" | translate}}</h2>
           </ion-col>
           <ion-col>
-            <h2>Waist</h2>
+            <h2>{{"Waist" | translate}}</h2>
           </ion-col>
 
           <ion-col>
-            <h2>Hips</h2>
+            <h2>{{"Hips" | translate}}</h2>
           </ion-col>
+
           <ion-col>
-            <h2>Thights</h2>
-          </ion-col>
-          <ion-col>
-            <h2>Legs</h2>
+            <h2>{{"Legs" | translate}}</h2>
           </ion-col>
         </ion-row>
       </ion-col>
@@ -81,9 +78,6 @@
 
           <ion-col>
             <h2>{{measur.Hips}}</h2>
-          </ion-col>
-          <ion-col>
-            <h2>{{measur.Thights}}</h2>
           </ion-col>
           <ion-col>
             <h2>{{measur.Legs}}</h2>

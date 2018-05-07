@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { Chart } from "chart.js";
 import moment from "moment";
+import { AuthenticationProvider } from '../../providers/authentication/authentication';
 
 /**
  * Generated class for the WeightLogHistoryPage page.
@@ -16,7 +17,7 @@ import moment from "moment";
   templateUrl: 'weight-log-history.html',
 })
 export class WeightLogHistoryPage {
-
+  lang;
   @ViewChild("lineCanvas") lineCanvas;
   lineChart: any;
 
@@ -24,7 +25,9 @@ export class WeightLogHistoryPage {
   memberInbodyResults = [];
   selectedC;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private authProvider: AuthenticationProvider) {
+    this.lang = this.authProvider.config.lang;
+
     this.memberInbodyResults = navParams.data.dataC;
     this.selectedC = navParams.data.selectedC;
 

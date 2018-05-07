@@ -5,7 +5,8 @@ import {
   ModalController,
   Tabs,
   AlertController,
-  LoadingController
+  LoadingController,
+  Config
 } from "ionic-angular";
 import { WorkoutPage } from "../workout/workout";
 import { LavaProvider } from "../../providers/lava/lava";
@@ -23,12 +24,16 @@ import moment from "moment";
 
 import { InAppBrowser } from "@ionic-native/in-app-browser";
 import { switchMap } from "rxjs/operators";
+import { TranslateService } from "@ngx-translate/core";
+import { AuthenticationProvider } from "../../providers/authentication/authentication";
+
 
 @Component({
   selector: "page-home",
   templateUrl: "home.html"
 })
 export class HomePage {
+  lang;
   workoutsSums$: Observable<void>;
   mySteps: any;
   myDistance: any;
@@ -84,9 +89,11 @@ export class HomePage {
     private health: Health,
     private LavaHealth: LavaHealthProvider,
     private iab: InAppBrowser,
-    private loadingCtrl: LoadingController
-
+    private loadingCtrl: LoadingController,
+    private translate: TranslateService,
+    private authProvider: AuthenticationProvider,
   ) {
+    this.lang = this.authProvider.config.lang;
     moment.locale("en");
   }
 
@@ -96,20 +103,21 @@ export class HomePage {
     });
     loading.present();
 
-
     this.ExerciseReservations$ = this.lavaProvider.getExerciseReservations();
     this.profile$ = this.profileProvider.getProfile();
     this.profile$.subscribe(profile => {
       this.profileProvider.localProfile = (profile as any).data;
     });
 
-    this.upcommingExercises = this.lavaProvider.getExerciseReservations().pipe(map(res => {
-      console.log('upcommigExercices', res);
-      (res as any).data = (res as any).data.filter(data => {
-        return new Date(data.Date) > new Date("2017-02-30 15:30:00");
+    this.upcommingExercises = this.lavaProvider.getExerciseReservations().pipe(
+      map(res => {
+        console.log("upcommigExercices", res);
+        (res as any).data = (res as any).data.filter(data => {
+          return new Date(data.Date) > new Date();
+        });
+        return res;
       })
-      return res;
-    }))
+    );
 
     this.workoutsC$ = this.profileProvider
       .getMemberPrograms()
@@ -161,29 +169,24 @@ export class HomePage {
             }
           });
 
-          if(loading) {
+          if (loading) {
             loading.dismiss();
             loading = null;
           }
 
           return wokroutsC;
         })
-      )
+      );
 
-      // this.workoutsC$.subscribe(workoutsC=> {
-      //   let workoutsCC = this.workoutsC$;
-      //   (workoutsC as any).workouts.forEach(workout => {
-      //     workoutsCC = this.pipeWorkoutsFilter(workoutsCC, workout.ID)
-      //   });
-      //   this.workoutsC$=workoutsCC;
-      // })
+    // this.workoutsC$.subscribe(workoutsC=> {
+    //   let workoutsCC = this.workoutsC$;
+    //   (workoutsC as any).workouts.forEach(workout => {
+    //     workoutsCC = this.pipeWorkoutsFilter(workoutsCC, workout.ID)
+    //   });
+    //   this.workoutsC$=workoutsCC;
+    // })
 
-
-
-
-
-
-      // this.workoutsC$.subscribe(res => {})
+    // this.workoutsC$.subscribe(res => {})
     // this.workoutsSums$ = this.workouts$.pipe(
     //   map(value => {
 
@@ -200,7 +203,7 @@ export class HomePage {
         this.health
           .requestAuthorization([
             {
-              read: ["steps", "distance"], //read only permission
+              read: ["steps", "distance"] //read only permission
             }
           ])
           .then(res => {
@@ -210,30 +213,31 @@ export class HomePage {
           .catch(e => this.presentAlert(JSON.stringify(e)));
       })
       .catch(e => {
-        let alert = this.alertCtrl.create({
-          title: "",
-          message:
-            "To get all the features of Lava Fitness, you have to install Google fit from Playstore",
-          buttons: [
-            {
-              text: "Cancel",
-              role: "cancel",
-              handler: () => {
-                console.log("Cancel clicked");
+        this.translate.get("GetGoogleFit").subscribe((res: string) => {
+          let alert = this.alertCtrl.create({
+            title: "",
+            message: res['message'],
+            buttons: [
+              {
+                text: res['buttons']['Cancel'],
+                role: "cancel",
+                handler: () => {
+                  console.log("Cancel clicked");
+                }
+              },
+              {
+                text: res['buttons']['GetGoogleFit'],
+                handler: () => {
+                  this.iab.create(
+                    "https://play.google.com/store/apps/details?id=com.google.android.apps.fitness",
+                    "_system"
+                  );
+                }
               }
-            },
-            {
-              text: "Get Google Fit",
-              handler: () => {
-                this.iab.create(
-                  "https://play.google.com/store/apps/details?id=com.google.android.apps.fitness",
-                  "_system"
-                );
-              }
-            }
-          ]
+            ]
+          });
+          alert.present();
         });
-        alert.present();
       });
     // }).catch(error => {});
 
@@ -375,12 +379,14 @@ export class HomePage {
   }
 
   presentAlert(msg) {
-    let alert = this.alertCtrl.create({
-      title: "LavaHealth extension",
-      subTitle: msg,
-      buttons: ["Dismiss"]
+    this.translate.get("Dismiss").subscribe((res: string) => {
+      let alert = this.alertCtrl.create({
+        title: "LavaHealth extension",
+        subTitle: msg,
+        buttons: [res]
+      });
+      alert.present();
     });
-    alert.present();
   }
 
   goToProfile() {
@@ -388,19 +394,20 @@ export class HomePage {
   }
 
   showUpcomingBookingsDetails(booking) {
-    let alert = this.alertCtrl.create({
-      title: booking.ExerciseTitle,
-      subTitle: booking.BranchName,
-      message:
-        "مع " +
-        booking.CoachName +
-        "، يوم " +
-        moment(booking.Date).format("DD-MM-YYYY"),
-      buttons: ["Dismiss"]
+    this.translate.get("Dismiss").subscribe((res: string) => {
+      let alert = this.alertCtrl.create({
+        title: booking.ExerciseTitle,
+        subTitle: booking.BranchName,
+        message:
+          "مع " +
+          booking.CoachName +
+          "، يوم " +
+          moment(booking.Date).format("DD-MM-YYYY"),
+        buttons: [res]
+      });
+      alert.present();
     });
-    alert.present();
   }
-
 
   pipeWorkoutsFilter(workoutsC, workoutID) {
     return workoutsC.pipe(

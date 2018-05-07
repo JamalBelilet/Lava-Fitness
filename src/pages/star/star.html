@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Schedule</ion-title>
+    <ion-title>{{"Schedule" | translate}}</ion-title>
 
 
 
@@ -21,7 +21,7 @@
         <button ion-button clear>
           <img src="assets/imgs/_expand@2x.png">
         </button>
-        <p>Fitness Class Schedule</p>
+        <p>{{"Fitness Class Schedule"| translate}}</p>
       </div>
     </div>
     <div class="schedule" (click)="previewSchedule('http://via.placeholder.com/350x150')">
@@ -29,7 +29,7 @@
         <button ion-button clear>
           <img src="assets/imgs/_expand@2x.png">
         </button>
-        <p>Swiming Class Schedule</p>
+        <p>{{"Swiming Class Schedule" | translate}}</p>
       </div>
 
     </div>
@@ -44,7 +44,7 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content [dir]="lang">
   <!-- <h2 class="sessions-title">Sessions: </h2>
   <ion-row class="services-for-booking-container">
     <ion-col col-auto *ngFor="let booking of (bookings$ | async)?.data ">
@@ -59,8 +59,8 @@
         <ion-thumbnail item-left>
           <img src="assets/imgs/cycle-dark.png">
         </ion-thumbnail>
-        <h2>Book a fittness class</h2>
-        <p>Zamba, Yoga, Dancing, Cycle, ...etc</p>
+        <h2 [dir]="lang">{{"Book a fittness class" | translate}}</h2>
+        <p [dir]="lang">{{"Zamba, Yoga, Dancing, Cycle, ...etc" | translate}}</p>
       </ion-item>
     </div>
     <div class="session" (click)="bookSession()">
@@ -68,8 +68,8 @@
         <ion-thumbnail item-left>
           <img src="assets/imgs/relax-dark.png">
         </ion-thumbnail>
-        <h2>Book a session</h2>
-        <p>Massage, Facial treatment, ...etc</p>
+        <h2 [dir]="lang">{{"Book a session" | translate}}</h2>
+        <p [dir]="lang">{{"Massage, Facial treatment, ...etc" | translate}}</p>
       </ion-item>
     </div>
   </div>

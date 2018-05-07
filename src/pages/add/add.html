@@ -1,4 +1,5 @@
-<ion-content>
+<ion-content [dir]="lang">
+
 
   <ion-card class="main-nav-card">
     <ion-card-header>
@@ -8,20 +9,20 @@
           <p>#{{profileProvider?.localProfile?.IdentityID}}</p>
         </ion-col>
         <ion-col>
-          <p>Active member</p>
-          <button ion-button clear (click)="signout()">Sign out</button>
+          <p>{{"Active member" | translate}}</p>
+          <button ion-button clear (click)="signout()">{{"Sign out" | translate}}</button>
         </ion-col>
       </ion-row>
     </ion-card-header>
 
     <ion-card-content>
       <ion-list no-lines>
-        <button ion-button clear [navPush]="membershipPage">Membership</button>
-        <button ion-button clear [navPush]="myBooking">My booking</button>
+        <button ion-button clear [navPush]="membershipPage">{{"Membership" | translate}}</button>
+        <button ion-button clear [navPush]="myBooking">{{"My booking" |translate}}</button>
 
         <!-- <button ion-button clear [navPush]="survayPage">Tell us what you think?</button> -->
         <!-- <button ion-button clear>Special offers</button> -->
-        <button ion-button clear (click)="sendInvitation()">Invite your friends</button>
+        <button ion-button clear (click)="sendInvitation()">{{"Invite your friends"|translate}}</button>
       </ion-list>
     </ion-card-content>
   </ion-card>
@@ -42,7 +43,7 @@
 
   <ion-list no-lines>
     <ion-item class="contact-header">
-      <ion-label>Contact us at: </ion-label>
+      <ion-label>{{"Contact us at" | translate}}: </ion-label>
       <ion-select [(ngModel)]="selectedBranch" multiple="false">
         <ion-option [value]="selectedBranch">{{selectedBranch?.NameEN}}</ion-option>
         <ion-option *ngFor="let branch of (branches$ | async)?.data" [value]="branch">{{branch.NameEN}}</ion-option>
@@ -51,7 +52,7 @@
 
     <ion-row><ion-icon name="call" item-left></ion-icon><p>{{selectedBranch?.Phone}}</p></ion-row>
     <ion-row><ion-icon name="map" item-left></ion-icon><p>{{selectedBranch?.Address}}</p></ion-row>
-    <ion-row><ion-icon name="ios-navigate" item-left (click)="navigateTo(selectedBranch?.Address)"></ion-icon><button ion-button clear (click)="navigateTo(selectedBranch?.Address)">Get directions</button></ion-row>
+    <!-- <ion-row><ion-icon name="ios-navigate" item-left (click)="navigateTo(selectedBranch?.Address)"></ion-icon><button ion-button clear (click)="navigateTo(selectedBranch?.Address)">Get directions</button></ion-row> -->
   </ion-list>
 
 
