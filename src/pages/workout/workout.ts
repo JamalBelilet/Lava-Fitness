@@ -71,7 +71,16 @@ export class WorkoutPage {
           cardioExercise => {
             (res as any).data.Cardio.forEach(cardio => {
               if (cardioExercise.Equipment.ID == cardio.Equipment.ID) {
-                cardioExercise.state = "done";
+                if (
+                  new Date(cardio.CreationDate).getFullYear() ==
+                    new Date().getFullYear() &&
+                  new Date(cardio.CreationDate).getMonth() ==
+                    new Date().getMonth() &&
+                  new Date(cardio.CreationDate).getDate() ==
+                    new Date().getDate()
+                ) {
+                  cardioExercise.state = "done";
+                }
               }
             });
             return cardioExercise;
@@ -89,11 +98,11 @@ export class WorkoutPage {
                 bodybuilding.Equipment.ID
               ) {
                 if (
-                  new Date(bodybuilding.CreationDate).getFullYear() ===
+                  new Date(bodybuilding.CreationDate).getFullYear() ==
                     new Date().getFullYear() &&
-                  new Date(bodybuilding.CreationDate).getMonth() ===
+                  new Date(bodybuilding.CreationDate).getMonth() ==
                     new Date().getMonth() &&
-                  new Date(bodybuilding.CreationDate).getDate() ===
+                  new Date(bodybuilding.CreationDate).getDate() ==
                     new Date().getDate()
                 ) {
                   bodybuildingExerciseExercise.state = "done";
