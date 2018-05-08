@@ -246,7 +246,7 @@ page-workout {
         padding: 0 !important;
         margin-top: 0 / $sch * 100vh !important;
         // margin-left: 13.5 / $scw * 100vw !important;
-        @include margin(null, 13.5 / $scw * 100vw !important, null, null);
+        @include margin(null, 13.5 / $scw * 100vw !important, null, 13.5 / $scw * 100vw !important);
 
         z-index: 1 !important;
 
@@ -261,7 +261,7 @@ page-workout {
         position: absolute;
         // top: 7 / $sch * 100vh !important;
         // left: 12.3 / $scw * 100vw !important;
-        @include position(7 / $sch * 100vh !important, 12.3 / $scw * 100vw !important, null, null);
+        @include position(7 / $sch * 100vh !important, 12.3 / $scw * 100vw !important, null, 12.3 / $scw * 100vw !important);
 
         font-size: 22.3 / 1.25 / $scw * 100vw !important;
 
@@ -306,7 +306,7 @@ page-workout {
 
         // margin-right: 8.3 / $scw * 100vw !important;
 
-        @include margin(null, null,null, 8.3 / $scw * 100vw !important);
+        @include margin(null, 8.3 / $scw * 100vw !important,null, 8.3 / $scw * 100vw !important);
 
         ion-icon {
           padding: 0 !important;
