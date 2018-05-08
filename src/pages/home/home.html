@@ -51,29 +51,22 @@
 
   <!-- <p class="workout-section-title">{{"Start a Workout:" | translate}}</p> -->
   <p class="workout-section-title">{{"Start a workout" | translate}}:</p>
-  <ion-slides class="workout-section-slides" spaceBetween="0" slidesPerView="2.57">
+  <ion-slides class="workout-section-slides" spaceBetween="0" slidesPerView="2.57" [dir]="lang">
     <ion-slide class="workout-section-slides-slide" *ngFor="let workout of  (workoutsC$| async)?.workouts " [navPush]="workoutPage"
       [navParams]="workout">
-      <p class="workout-title">{{workout.ProgramName}}</p>
+        <p [dir]="lang" clear class="workout-title">{{workout.ProgramName}}</p>
 
-      <ion-row no-padding class="workout-row">
-        <!-- <ion-col no-padding col-6>
-          <p class="workout-exercice">tone muscles</p>
-        </ion-col> -->
-        <ion-col no-padding col-2>
-          <p class="workout-time">{{workout.NumberOfDays}} {{"Days" | translate}}</p>
-        </ion-col>
-      </ion-row>
+        <p [dir]="lang" clear class="workout-time">{{workout.NumberOfDays}} {{"Days" | translate}}</p>
 
-      <p class="workout-wk">{{workout.WeekRepetition}}/{{"Week" | translate}}</p>
-      <p class="workout-state">{{workout.CreationDate | moment}}</p>
+        <p [dir]="lang" clear class="workout-wk">{{workout.WeekRepetition}}/{{"Week" | translate}}</p>
+        <p [dir]="lang" clear class="workout-state">{{workout.CreationDate | moment}}</p>
 
     </ion-slide>
   </ion-slides>
 
 
   <p class="bookings-section-title">{{"Upcoming Bookings"| translate }}:</p>
-  <ion-slides class="bookings-section-slides" spaceBetween="0" slidesPerView="3">
+  <ion-slides class="bookings-section-slides" spaceBetween="0" slidesPerView="3" [dir]="lang">
     <ion-slide class="bookings-section-slides-slide">
       <button clear ion-button (click)="bookClass()">
         <ion-icon name="add"></ion-icon>
@@ -82,17 +75,7 @@
     <ion-slide class="bookings-section-slides-slide" *ngFor="let booking of (upcommingExercises | async)?.data" (click)="showUpcomingBookingsDetails(booking)">
       <p class="bookings-title">{{booking?.ExerciseTitle}}</p>
       <p class="bookings-wk">{{booking?.Duration}}</p>
-      <ion-row no-padding class="bookings-row">
-        <ion-col no-padding col-auto>
-          <p>{{booking?.Date | moment}}</p>
-        </ion-col>
-        <!-- <ion-col no-padding col-auto>
-          <p>{{booking?.Date | moment : 'day'}}</p>
-        </ion-col> -->
-        <!-- <ion-col no-padding col-auto>
-          <p>{{booking?.Date | moment : 'time'}}</p>
-        </ion-col> -->
-      </ion-row>
+      <p class="bookings-row">{{booking?.Date | moment}}</p>
     </ion-slide>
   </ion-slides>
 

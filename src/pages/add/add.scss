@@ -63,7 +63,7 @@ page-add {
       @include padding(0, 5 / $scw * 100vw, 0, 0);
     }
     ion-list {
-      button {
+      button, ion-item {
         background: transparent;
 
         margin: 0 !important;

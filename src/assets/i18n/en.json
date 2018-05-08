@@ -23,7 +23,8 @@
   "Dismiss": "Dismiss",
 
   "GetGoogleFit": {
-    "message": "For all Lava Fitness features, you must install Google Fit from Playstore",
+    "message":
+      "For all Lava Fitness features, you must install Google Fit from Playstore",
     "buttons": {
       "Cancel": "Cancel",
       "GetGoogleFit": "Get Google Fit"
@@ -113,18 +114,22 @@
   "You have to reserve a service first": "You have to reserve a service first",
 
   "cancelReservation": {
-    "confirm the reservation of this service?": "confirm the reservation of this service?",
+    "confirm the reservation of this service?":
+      "confirm the reservation of this service?",
     "Cancel": "Cancel",
     "Confirm": "Confirm",
-    "confirm the reservation of this class?": "confirm the reservation of this class?"
+    "confirm the reservation of this class?":
+      "confirm the reservation of this class?"
   },
 
   "Classe booking": "Classe booking",
-  "Please try to change the date, or the branch": "Please try to change the date, or the branch",
+  "Please try to change the date, or the branch":
+    "Please try to change the date, or the branch",
 
   "Services booking": "Services booking",
   "book": "book",
-  "Please try to change the date, or the massager": "Please try to change the date, or the massager",
+  "Please try to change the date, or the massager":
+    "Please try to change the date, or the massager",
 
   "Workout Completed!": "Workout Completed!",
   "out of": "out of",
@@ -132,7 +137,8 @@
   "Easy": "Easy",
   "Good": "Good",
   "Hard": "Hard",
-  "Good job! You have 1 more workout for this week": "Good job! You have 1 more workout for this week",
+  "Good job! You have 1 more workout for this week":
+    "Good job! You have 1 more workout for this week",
 
   "Performance": "Performance",
   "Today": "Today",
@@ -148,7 +154,7 @@
   "Workouts": "Workouts",
   "Month": "Month",
 
-  "week-days" : {
+  "week-days": {
     "weeksData": {
       "Saturday": "Saturday",
       "Sunday": "Sunday",
@@ -165,5 +171,6 @@
       "3wk": "3wk",
       "4wk": "4wk"
     }
-  }
+  },
+  "Language": "Language"
 }

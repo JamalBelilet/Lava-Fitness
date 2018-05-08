@@ -221,19 +221,42 @@ page-home {
       @include margin(4.96vh !important, null, null, null);
 
       .workout-section-slides-slide {
-        position: relative;
-
-        background: white;
         height: 14.16vh;
-        // width: 39.25vw !important;
-        // margin:  0 0 0 !important;
-        // margin-left: 1.66vw !important;
-        @include margin(
-          2.73vh!important,
-          1.66vw !important,
-          3.52vh !important,
-          null
-        );
+        @include margin(2.73vh!important, null, 3.52vh !important, null);
+        & {
+          position: relative;
+
+          // background: white;
+          // height: 14.16vh;
+          // background: red;
+          // width: 39.25vw !important;
+          // margin:  0 0 0 !important;
+          // margin-left: 1.66vw !important;
+          @include margin(
+            2.73vh!important,
+            1.66vw !important,
+            3.52vh !important,
+            null
+          );
+
+          // p {
+          //   font-size: $font-size;
+          //   $sch: 167.3;
+          //   $scw: 93.8;
+
+          //   background: transparent;
+
+          //   margin: 0 !important;
+          //   padding: 0 !important;
+
+          //   // height: 9.5 / $sch * 100vh !important;
+          //   width: auto;
+
+          //   display: flex !important;
+          //   justify-content: flex-start !important;
+          //   align-items: flex-start !important;
+          // }
+        }
 
         // @include margin(
         //   2.73vh !important,
@@ -260,39 +283,38 @@ page-home {
 
           color: #575c69;
 
-          @include position(1.72vh, 2.04vw, auto, auto);
+          @include position(
+            1.72vh!important,
+            2.04vw!important,
+            auto!important,
+            2.04vw!important
+          );
+
+          width: auto;
+
+          display: flex !important;
+          justify-content: flex-start !important;
+          align-items: flex-start !important;
 
           // left: 2.04vw;
           // top: 1.72vh;
-
         }
-        .workout-row {
+        .workout-time {
           position: absolute;
 
           font-size: 2vw;
           font-weight: 500;
-          width: 100%;
-          // background: red;
-          // left: 2.04vw;
-          // top: 3.81vh;
-          @include position(3.81vh, 2.04vw, auto, auto);
+          @include position(3.81vh, 2.04vw, auto, 2.04vw);
 
           color: #9b9b9b;
-          ion-col {
-            &:first-of-type {
-              // border-right: 1px solid #9b9b9b;;
 
-              p {
-                width: 100%;
-                text-align: left;
-              }
-            }
 
-            p {
-              width: 100%;
-              text-align: center;
-            }
-          }
+          width: auto;
+
+          display: flex !important;
+          justify-content: flex-start !important;
+          align-items: flex-start !important;
+
         }
         .workout-wk {
           position: absolute;
@@ -304,7 +326,14 @@ page-home {
           // top: 9.48vh;
           color: #575c69;
 
-          @include position(9.48vh, 2.42vw, auto, auto);
+          @include position(9.48vh, 2.42vw, auto, 2.42vw);
+
+
+          width: auto;
+
+          display: flex !important;
+          justify-content: flex-start !important;
+          align-items: flex-start !important;
         }
         .workout-state {
           position: absolute;
@@ -315,7 +344,13 @@ page-home {
           // left: 2.81vw;
           // top: 11.35vh;
           color: #575c69;
-          @include position(11.35vh, 2.81vw, auto, auto);
+          @include position(11.35vh, 2.81vw, auto, 2.81vw);
+
+          width: auto;
+
+          display: flex !important;
+          justify-content: flex-start !important;
+          align-items: flex-start !important;
         }
       }
     }
@@ -327,7 +362,7 @@ page-home {
     }
     .bookings-section-slides {
       @extend .workout-section-slides;
-      // top: 30.69vh;
+      top: 30.69vh;
       @include position(23.69vh !important, null, null, null);
       height: 14.45vh;
 
@@ -358,7 +393,7 @@ page-home {
 
           // top: 1.72vh;
           // left: 5.37vw;
-          @include position(1.72vh, 5.37vw, null, null);
+          @include position(1.72vh, 5.37vw!important, null, 5.37vw!important);
 
           color: #575c69;
 
@@ -366,10 +401,16 @@ page-home {
             position: absolute;
             content: "•";
             display: block;
-            left: -3.5vw;
+            // left: -3.5vw;
+            @include position(null, -3.5vw, null, -3.5vw);
 
             font-size: 4vw;
             color: yellow;
+            width: auto;
+
+            display: flex !important;
+            justify-content: flex-start !important;
+            align-items: flex-start !important;
           }
         }
         .bookings-wk {
@@ -377,7 +418,7 @@ page-home {
 
           top: 3.8vh;
           left: 5.37vw;
-          @include position(3.8vh, 5.37vw, null, null);
+          @include position(3.8vh, 5.37vw, null, 5.37vw);
 
           color: #9b9b9b;
         }
@@ -386,13 +427,18 @@ page-home {
 
           font-size: 2vw;
           font-weight: 500;
-          width: 100%;
+          // width: 100%;
           // background: red;
           // left: 5.37vw;
           // top: 5.46vh;
-          @include position(5.46vh, 5.37vw, null, null);
+          @include position(5.46vh!important, 5.37vw, null, 5.37vw);
 
           color: #9b9b9b;
+          width: auto;
+
+          display: flex !important;
+          justify-content: flex-start !important;
+          align-items: flex-start !important;
         }
       }
     }
