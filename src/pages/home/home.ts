@@ -83,25 +83,12 @@ export class HomePage {
 
 
 
-  single: any[] = [
-    {
-      "name": "Germany",
-      "value": 200
-    },
-    {
-      "name": "USA",
-      "value": 700
-    },
-    {
-      "name": "France",
-      "value": 1200
-    }
-  ];
+  single: any[] = [{"name": "finishes","value": 0 }];
 
-  view: any[] = [700, 400];
+    view: any[] = [175, 175];
 
   colorScheme = {
-    domain: ['#999999']
+    domain: ['#f8cb4f']
   };
 
 
@@ -203,6 +190,11 @@ export class HomePage {
             loading.dismiss();
             loading = null;
           }
+
+
+
+          this.single= [{"name": "finiches","value": wokroutsC.sumOfNumberOfWorkoutFinishers }];
+
 
           return wokroutsC;
         })

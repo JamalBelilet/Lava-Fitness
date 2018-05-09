@@ -60,6 +60,9 @@ import { IsNewPipe } from "../pipes/is-new/is-new";
 
 import { TranslateModule } from "@ngx-translate/core";
 
+import { ChartsModule } from 'ng2-charts';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 const FIREBASE_CREDENTIALS = {
   apiKey: "AIzaSyAggtWMxyL84Eq8ZV8X6Hce9Atpu2W-wi8",
   authDomain: "lava-fitness.firebaseapp.com",
@@ -133,6 +136,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         deps: [HttpClient]
       }
     }),
+    ChartsModule,
+
     NgxChartsModule
   ],
 

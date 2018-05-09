@@ -32,14 +32,17 @@
         [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="0">
       </round-progress> -->
 
-      <!-- <ngx-charts-pie-grid
-        [view]="view"
-        [scheme]="colorScheme"
-        [results]="single"
-        [designatedTotal]="1000"
-        (select)="onSelect($event)">
-      </ngx-charts-pie-grid> -->
+      <div class="c-container">
+        <ngx-charts-pie-grid [scheme]="colorScheme" [results]="single" [designatedTotal]="(workoutsC$| async)?.sumOfWeekRepetitions"
+          (select)="onSelect($event)">
+        </ngx-charts-pie-grid>
 
+
+
+
+
+
+      </div>
       <p class="user-circle-number">{{(workoutsC$| async)?.sumOfNumberOfWorkoutFinishers}}</p>
       <p class="user-circle-days">{{"finish" | translate}}</p>
     </div>
@@ -63,12 +66,12 @@
   <ion-slides class="workout-section-slides" spaceBetween="0" slidesPerView="2.57" [dir]="lang">
     <ion-slide class="workout-section-slides-slide" *ngFor="let workout of  (workoutsC$| async)?.workouts " [navPush]="workoutPage"
       [navParams]="workout">
-        <p [dir]="lang" clear class="workout-title">{{workout.ProgramName}}</p>
+      <p [dir]="lang" clear class="workout-title">{{workout.ProgramName}}</p>
 
-        <p [dir]="lang" clear class="workout-time">{{workout.NumberOfDays}} {{"Days" | translate}}</p>
+      <p [dir]="lang" clear class="workout-time">{{workout.NumberOfDays}} {{"Days" | translate}}</p>
 
-        <p [dir]="lang" clear class="workout-wk">{{workout.WeekRepetition}}/{{"Week" | translate}}</p>
-        <p [dir]="lang" clear class="workout-state">{{workout.CreationDate | moment}}</p>
+      <p [dir]="lang" clear class="workout-wk">{{workout.WeekRepetition}}/{{"Week" | translate}}</p>
+      <p [dir]="lang" clear class="workout-state">{{workout.CreationDate | moment}}</p>
 
     </ion-slide>
   </ion-slides>

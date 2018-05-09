@@ -126,7 +126,11 @@ page-home {
       height: 18.83vh;
       top: 20.7vh;
       left: 33.24vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       // overflow: hidden;
+      // background: yellow;
 
       .user-circle-progress {
         max-width: 90% !important;
@@ -308,13 +312,11 @@ page-home {
 
           color: #9b9b9b;
 
-
           width: auto;
 
           display: flex !important;
           justify-content: flex-start !important;
           align-items: flex-start !important;
-
         }
         .workout-wk {
           position: absolute;
@@ -327,7 +329,6 @@ page-home {
           color: #575c69;
 
           @include position(9.48vh, 2.42vw, auto, 2.42vw);
-
 
           width: auto;
 
@@ -466,5 +467,43 @@ page-home {
     // top: 25.06vh;
     // left: 14.19vw;
     @include position(25.06vh !important, null, null, 14.19vw !important);
+  }
+
+  .c-container {
+    // width: 33.5vw;
+      height: 28.83vh!important;
+    width: 28.83vh!important;
+    // height: 55vw!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: -4.2vh;
+    top: -4vh;
+  }
+
+  ngx-charts-pie-grid {
+    .label {
+      display: none !important;
+    }
+    .label.percent-label {
+      // color: transparent!important;
+      display: none !important;
+    }
+
+    // svg {
+    //   position: absolute;
+
+    //   display: flex !important;
+    //   justify-content: center !important;
+    //   align-items: center !important;
+
+    //   .pie-grid.chart {
+    //     display: flex !important;
+    //     justify-content: center !important;
+    //     align-items: center !important;
+    //     margin: 0 auto !important;
+    //   }
+    // }
   }
 }

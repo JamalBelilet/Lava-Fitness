@@ -15,7 +15,7 @@ export class AuthenticationProvider {
   public config = {
     lang : "rtl",
 
-    baseUrl: "http://lava.sa/api",
+    baseUrl: "/api",
 
     AuthorizationKey: "as@dL8]Rn3$2S!anR",
     headers: new HttpHeaders({
