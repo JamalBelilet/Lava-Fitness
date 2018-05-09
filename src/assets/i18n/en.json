@@ -31,6 +31,15 @@
     }
   },
 
+  "HealthKit": {
+    "message":
+      "For all Lava Fitness features, you must install HealthKit",
+    "buttons": {
+      "Cancel": "Cancel",
+      "HealthKit": "Get HealthKit"
+    }
+  },
+
   "Measurements": "Measurements",
   "Weight composition": "Weight composition",
 

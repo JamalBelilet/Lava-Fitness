@@ -24,10 +24,19 @@
 
   "GetGoogleFit": {
     "message":
-      " Playstore من Google Fit يجب عليك تثبيت Google Fit للحصول على جميع ميزات",
+      " Playstore من Google Fit يجب عليك تثبيت Lava Fitness للحصول على جميع ميزات",
     "buttons": {
       "Cancel": "إلغاء",
       "GetGoogleFit": " Google Fit احصل على"
+    }
+  },
+
+  "HealthKit": {
+    "message":
+      " HealthKit يجب عليك تثبيت Lava Fitness للحصول على جميع ميزات",
+    "buttons": {
+      "Cancel": "إلغاء",
+      "HealthKit": " HealthKit احصل على"
     }
   },
 

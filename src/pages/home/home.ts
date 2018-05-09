@@ -6,7 +6,8 @@ import {
   Tabs,
   AlertController,
   LoadingController,
-  Config
+  Config,
+  Platform
 } from "ionic-angular";
 import { WorkoutPage } from "../workout/workout";
 import { LavaProvider } from "../../providers/lava/lava";
@@ -26,8 +27,7 @@ import { InAppBrowser } from "@ionic-native/in-app-browser";
 import { switchMap } from "rxjs/operators";
 import { TranslateService } from "@ngx-translate/core";
 import { AuthenticationProvider } from "../../providers/authentication/authentication";
-import {NgxChartsModule} from '@swimlane/ngx-charts';
-
+import { NgxChartsModule } from "@swimlane/ngx-charts";
 
 @Component({
   selector: "page-home",
@@ -81,21 +81,17 @@ export class HomePage {
     sourceBundleId: "io.ionic.starter"
   };
 
+  single: any[] = [{ name: "finishes", value: 0 }];
 
-
-  single: any[] = [{"name": "finishes","value": 0 }];
-
-    view: any[] = [175, 175];
+  view: any[] = [175, 175];
 
   colorScheme = {
-    domain: ['#f8cb4f']
+    domain: ["#f8cb4f"]
   };
-
 
   onSelect(event) {
     console.log(event);
   }
-
 
   constructor(
     public modalCtrl: ModalController,
@@ -109,6 +105,7 @@ export class HomePage {
     private loadingCtrl: LoadingController,
     private translate: TranslateService,
     private authProvider: AuthenticationProvider,
+    private platform: Platform
   ) {
     this.lang = this.authProvider.config.lang;
     moment.locale("en");
@@ -191,10 +188,9 @@ export class HomePage {
             loading = null;
           }
 
-
-
-          this.single= [{"name": "finiches","value": wokroutsC.sumOfNumberOfWorkoutFinishers }];
-
+          this.single = [
+            { name: "finiches", value: wokroutsC.sumOfNumberOfWorkoutFinishers }
+          ];
 
           return wokroutsC;
         })
@@ -224,8 +220,9 @@ export class HomePage {
         console.log(available);
         this.health
           .requestAuthorization([
+            'distance',
             {
-              read: ["steps", "distance"] //read only permission
+              read: ["steps"] //read only permission
             }
           ])
           .then(res => {
@@ -235,31 +232,63 @@ export class HomePage {
           .catch(e => this.presentAlert(JSON.stringify(e)));
       })
       .catch(e => {
-        this.translate.get("GetGoogleFit").subscribe((res: string) => {
-          let alert = this.alertCtrl.create({
-            title: "",
-            message: res['message'],
-            buttons: [
-              {
-                text: res['buttons']['Cancel'],
-                role: "cancel",
-                handler: () => {
-                  console.log("Cancel clicked");
-                }
-              },
-              {
-                text: res['buttons']['GetGoogleFit'],
-                handler: () => {
-                  this.iab.create(
-                    "https://play.google.com/store/apps/details?id=com.google.android.apps.fitness",
-                    "_system"
-                  );
-                }
-              }
-            ]
-          });
-          alert.present();
+        this.platform.ready().then(() => {
+          if (this.platform.is("android")) {
+            this.translate.get("GetGoogleFit").subscribe((res: string) => {
+              let alert = this.alertCtrl.create({
+                title: "",
+                message: res["message"],
+                buttons: [
+                  {
+                    text: res["buttons"]["Cancel"],
+                    role: "cancel",
+                    handler: () => {
+                      console.log("Cancel clicked");
+                    }
+                  },
+                  {
+                    text: res["buttons"]["GetGoogleFit"],
+                    handler: () => {
+                      this.iab.create(
+                        "https://play.google.com/store/apps/details?id=com.google.android.apps.fitness",
+                        "_system"
+                      );
+                    }
+                  }
+                ]
+              });
+              alert.present();
+            });
+          }
+          if (this.platform.is("ios")) {
+            this.translate.get("HealthKit").subscribe((res: string) => {
+              let alert = this.alertCtrl.create({
+                title: "",
+                message: res["message"],
+                buttons: [
+                  {
+                    text: res["buttons"]["Cancel"],
+                    role: "cancel",
+                    handler: () => {
+                      console.log("Cancel clicked");
+                    }
+                  },
+                  {
+                    text: res["buttons"]["HealthKit"],
+                    handler: () => {
+                      this.iab.create(
+                        "https://www.apple.com/lae/ios/health/",
+                        "_system"
+                      );
+                    }
+                  }
+                ]
+              });
+              alert.present();
+            });
+          }
         });
+
       });
     // }).catch(error => {});
 
