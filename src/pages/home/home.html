@@ -27,10 +27,19 @@
     </div>
 
     <div class="user-circle">
-      <round-progress class="user-circle-progress" [current]="(workoutsC$| async)?.sumOfNumberOfWorkoutFinishers" [max]="(workoutsC$| async)?.sumOfWeekRepetitions"
+      <!-- <round-progress class="user-circle-progress" [current]="(workoutsC$| async)?.sumOfNumberOfWorkoutFinishers" [max]="(workoutsC$| async)?.sumOfWeekRepetitions"
         [color]="'#f8cb4f'" [background]="'#ffffff'" [radius]="55.5" [stroke]="8" [semicircle]="false" [rounded]="true" [clockwise]="true"
         [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="0">
-      </round-progress>
+      </round-progress> -->
+
+      <!-- <ngx-charts-pie-grid
+        [view]="view"
+        [scheme]="colorScheme"
+        [results]="single"
+        [designatedTotal]="1000"
+        (select)="onSelect($event)">
+      </ngx-charts-pie-grid> -->
+
       <p class="user-circle-number">{{(workoutsC$| async)?.sumOfNumberOfWorkoutFinishers}}</p>
       <p class="user-circle-days">{{"finish" | translate}}</p>
     </div>

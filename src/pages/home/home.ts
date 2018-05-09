@@ -26,6 +26,7 @@ import { InAppBrowser } from "@ionic-native/in-app-browser";
 import { switchMap } from "rxjs/operators";
 import { TranslateService } from "@ngx-translate/core";
 import { AuthenticationProvider } from "../../providers/authentication/authentication";
+import {NgxChartsModule} from '@swimlane/ngx-charts';
 
 
 @Component({
@@ -79,6 +80,35 @@ export class HomePage {
     sourceName: "lava",
     sourceBundleId: "io.ionic.starter"
   };
+
+
+
+  single: any[] = [
+    {
+      "name": "Germany",
+      "value": 200
+    },
+    {
+      "name": "USA",
+      "value": 700
+    },
+    {
+      "name": "France",
+      "value": 1200
+    }
+  ];
+
+  view: any[] = [700, 400];
+
+  colorScheme = {
+    domain: ['#999999']
+  };
+
+
+  onSelect(event) {
+    console.log(event);
+  }
+
 
   constructor(
     public modalCtrl: ModalController,

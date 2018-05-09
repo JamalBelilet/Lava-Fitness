@@ -46,7 +46,7 @@ import { ChartModule } from "angular2-chartjs";
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
 
-import { RoundProgressModule } from "angular-svg-round-progressbar";
+// import { RoundProgressModule } from "angular-svg-round-progressbar";
 
 import { SocialSharing } from "@ionic-native/social-sharing";
 import { LaunchNavigator } from "@ionic-native/launch-navigator";
@@ -76,6 +76,8 @@ export function setTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
 
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     MyApp,
@@ -106,6 +108,7 @@ export function setTranslateLoader(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     IonicModule.forRoot(MyApp, {
       mode: "ios",
       backButtonText: "",
@@ -118,7 +121,7 @@ export function setTranslateLoader(http: HttpClient) {
     }),
     IonicStorageModule.forRoot(),
     HttpClientModule,
-    RoundProgressModule,
+    // RoundProgressModule,
     ChartModule,
     AngularFireModule.initializeApp(FIREBASE_CREDENTIALS),
     AngularFireAuthModule,
@@ -129,7 +132,8 @@ export function setTranslateLoader(http: HttpClient) {
         useFactory: (setTranslateLoader),
         deps: [HttpClient]
       }
-    })
+    }),
+    NgxChartsModule
   ],
 
   bootstrap: [IonicApp],
