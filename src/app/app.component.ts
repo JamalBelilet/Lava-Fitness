@@ -37,7 +37,7 @@ export class MyApp {
     private storage: Storage
   ) {
     // this language will be used as a fallback when a translation isn't found in the current language
-    translate.setDefaultLang("en");
+    translate.setDefaultLang("ar");
 
 
     // the lang to use, if the lang isn't available, it will use the current loader to get them

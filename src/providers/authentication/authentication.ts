@@ -13,7 +13,7 @@ import { of } from "rxjs/observable/of";
 export class AuthenticationProvider {
   // baseUrl: "http://lava.sa/api",
   public config = {
-    lang : "ltr",
+    lang : "rtl",
 
     baseUrl: "http://lava.sa/api",
 
