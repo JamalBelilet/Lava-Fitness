@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { NavController, NavParams, AlertController } from "ionic-angular";
+import { NavController, NavParams } from "ionic-angular";
 import { LavaProvider } from "../../providers/lava/lava";
 import { Observable } from "rxjs/Observable";
 import { ProfileProvider } from "../../providers/profile/profile";
@@ -49,7 +49,7 @@ export class BookPage {
     public navParams: NavParams,
     private assetsProvider: ProfileProvider,
     private lavaProvider: LavaProvider,
-    private alertCtrl: AlertController
+    // private alertCtrl: AlertController
   ) {
 
     let monthC = new Date().getMonth()+1;
@@ -124,7 +124,7 @@ export class BookPage {
         });
 
         var obj = {};
-        var ret_arr = [];
+        // var ret_arr = [];
         for (var i = 0; i < (res as any).data.length; i++) {
           obj[(res as any).data[i].ExerciseTitle] = true;
         }
@@ -155,7 +155,7 @@ export class BookPage {
         });
 
         var obj = {};
-        var ret_arr = [];
+        // var ret_arr = [];
         for (var i = 0; i < (res as any).data.length; i++) {
           obj[(res as any).data[i].ServiceName] = true;
         }

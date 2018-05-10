@@ -2,7 +2,7 @@ import { NgModule, ErrorHandler } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { IonicApp, IonicModule, IonicErrorHandler } from "ionic-angular";
 import { HttpClientModule } from "@angular/common/http";
-import { HTTP_INTERCEPTORS } from "@angular/common/http";
+// import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { MyApp } from "./app.component";
 
 import { HomePage } from "../pages/home/home";

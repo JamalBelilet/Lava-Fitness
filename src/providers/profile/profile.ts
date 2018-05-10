@@ -6,22 +6,22 @@ import { of } from "rxjs/observable/of";
 @Injectable()
 export class ProfileProvider {
   localProfile: any;
-  private profile = {
-    status: 1,
-    data: {
-      FullName: "asdfad",
-      IdentityID: 123456789,
-      SocialStatus: 1,
-      Address: "",
-      BirthDate: "1993-04-22",
-      CityName: "الریاض",
-      RegionName: "الجزیرة",
-      MobileNumber: "966*********",
-      Language: "AR",
-      Email: "aaaaa@gmail.com",
-      NationalityID: 1
-    }
-  };
+  // private profile = {
+  //   status: 1,
+  //   data: {
+  //     FullName: "asdfad",
+  //     IdentityID: 123456789,
+  //     SocialStatus: 1,
+  //     Address: "",
+  //     BirthDate: "1993-04-22",
+  //     CityName: "الریاض",
+  //     RegionName: "الجزیرة",
+  //     MobileNumber: "966*********",
+  //     Language: "AR",
+  //     Email: "aaaaa@gmail.com",
+  //     NationalityID: 1
+  //   }
+  // };
 
   private headers;
 

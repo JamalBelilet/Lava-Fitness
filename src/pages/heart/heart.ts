@@ -1,7 +1,7 @@
-import { Component, ViewChild } from "@angular/core";
+import { Component } from "@angular/core";
 import { NavController, NavParams } from "ionic-angular";
 
-import { Chart } from "chart.js";
+// import { Chart } from "chart.js";
 import { LavaHealthProvider } from "../../providers/lava-health/lava-health";
 import { Health } from "@ionic-native/health";
 import { TranslateService } from "@ngx-translate/core";
@@ -39,7 +39,7 @@ export class HeartPage {
     public navParams: NavParams,
     private LavaHealth: LavaHealthProvider,
     private health: Health,
-    private translate: TranslateService,
+    translate: TranslateService,
     private authProfider: AuthenticationProvider
   ) {
     this.lang = this.authProfider.config.lang;

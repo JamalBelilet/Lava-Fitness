@@ -2,11 +2,11 @@ import { Component } from "@angular/core";
 import { NavController, NavParams, ModalController } from "ionic-angular";
 import { ClassShedulePage } from "../class-shedule/class-shedule";
 import { BookPage } from "../book/book";
-import { LavaProvider } from "../../providers/lava/lava";
+// import { LavaProvider } from "../../providers/lava/lava";
 import { Observable } from "rxjs/Observable";
 import { ProfileProvider } from "../../providers/profile/profile";
 import { PhotoViewer } from "@ionic-native/photo-viewer";
-import { ClassesBookingPage } from "../classes-booking/classes-booking";
+// import { ClassesBookingPage } from "../classes-booking/classes-booking";
 import { AuthenticationProvider } from "../../providers/authentication/authentication";
 
 /**
@@ -44,7 +44,7 @@ export class StarPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private modalCtrl: ModalController,
-    private lavaProvider: LavaProvider,
+    // private lavaProvider: LavaProvider,
     private profileProvider: ProfileProvider,
     private authProvider: AuthenticationProvider
   ) {

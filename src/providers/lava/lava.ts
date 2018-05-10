@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { AuthenticationProvider } from "../authentication/authentication";
-import { of } from "rxjs/observable/of";
+// import { of } from "rxjs/observable/of";
 import moment from "moment";
 
 /*

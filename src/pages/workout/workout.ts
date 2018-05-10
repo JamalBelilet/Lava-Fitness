@@ -1,22 +1,22 @@
-import { Component, Output, EventEmitter } from "@angular/core";
+import { Component } from "@angular/core";
 import {
   NavController,
   NavParams,
   ItemSliding,
   Item,
-  AlertController,
+  // AlertController,
   ModalController,
   LoadingController
 } from "ionic-angular";
 import { FinishWorkoutPage } from "../finish-workout/finish-workout";
 import { ProfileProvider } from "../../providers/profile/profile";
 import { LavaProvider } from "../../providers/lava/lava";
-import { map, switchMap } from "rxjs/operators";
+import { switchMap } from "rxjs/operators";
 import { of } from "rxjs/observable/of";
 import { Observable } from "rxjs/Observable";
-import { DomSanitizer } from "@angular/platform-browser";
+// import { DomSanitizer } from "@angular/platform-browser";
 import { AuthenticationProvider } from "../../providers/authentication/authentication";
-import moment from "moment";
+// import moment from "moment";
 /**
  * Generated class for the WorkoutPage page.
  *
@@ -40,9 +40,9 @@ export class WorkoutPage {
     public navParams: NavParams,
     private modalCtrl: ModalController,
     private lavaProvider: LavaProvider,
-    private sanitizer: DomSanitizer,
+    // private sanitizer: DomSanitizer,
     private loadingCtrl: LoadingController,
-    private authProvider: AuthenticationProvider
+    authProvider: AuthenticationProvider
   ) {
     this.lang = authProvider.config.lang;
 
@@ -291,7 +291,7 @@ export class WorkoutPage {
     this.profileProvider.finishProgram(this.workout.ID).subscribe(res => {
       // this.finish.emit(this.workout);
     });
-    let modal = this.modalCtrl
+    this.modalCtrl
       .create(FinishWorkoutPage, { workoutID: this.workout.ID })
       .present();
   }

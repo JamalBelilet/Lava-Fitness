@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { Platform, AlertController } from "ionic-angular";
+import { Platform } from "ionic-angular";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 
@@ -8,10 +8,10 @@ import { TabsPage } from "../pages/tabs/tabs";
 import { LoginPage } from "../pages/login/login";
 
 import moment from "moment";
-import { WeightLogHistoryPage } from "../pages/weight-log-history/weight-log-history";
-import { SurvayPage } from "../pages/survay/survay";
-import { GuidebookMachinesPage } from "../pages/guidebook-machines/guidebook-machines";
-import { GuidebookMusclesPage } from "../pages/guidebook-muscles/guidebook-muscles";
+// import { WeightLogHistoryPage } from "../pages/weight-log-history/weight-log-history";
+// import { SurvayPage } from "../pages/survay/survay";
+// import { GuidebookMachinesPage } from "../pages/guidebook-machines/guidebook-machines";
+// import { GuidebookMusclesPage } from "../pages/guidebook-muscles/guidebook-muscles";
 import { Storage } from "@ionic/storage";
 import { AuthenticationProvider } from "../providers/authentication/authentication";
 
@@ -28,8 +28,8 @@ export class MyApp {
 
   constructor(
     translate: TranslateService,
-    private afAuth: AngularFireAuth,
-    private alertCtrl: AlertController,
+    afAuth: AngularFireAuth,
+    // private alertCtrl: AlertController,
     private auth: AuthenticationProvider,
     platform: Platform,
     statusBar: StatusBar,

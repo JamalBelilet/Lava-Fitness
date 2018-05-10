@@ -1,22 +1,22 @@
-import { Component, ViewChild } from "@angular/core";
+import { Component } from "@angular/core";
 
 import {
   NavController,
   ModalController,
-  Tabs,
+  // Tabs,
   AlertController,
   LoadingController,
-  Config,
+  // Config,
   Platform
 } from "ionic-angular";
 import { WorkoutPage } from "../workout/workout";
 import { LavaProvider } from "../../providers/lava/lava";
 import { Observable } from "rxjs/Observable";
 import { ProfileProvider } from "../../providers/profile/profile";
-import { BookPage } from "../book/book";
+// import { BookPage } from "../book/book";
 
 import { map } from "rxjs/operators/map";
-import { fromPromise } from "rxjs/observable/fromPromise";
+// import { fromPromise } from "rxjs/observable/fromPromise";
 
 import { Health } from "@ionic-native/health";
 import { LavaHealthProvider } from "../../providers/lava-health/lava-health";
@@ -163,7 +163,7 @@ export class HomePage {
           });
 
           const wokroutsC = {
-            workouts: arr,
+            workouts: arr_f,
             sumOfNumberOfWorkoutFinishers: 0,
             sumOfWeekRepetitions: 0
           };
@@ -306,7 +306,7 @@ export class HomePage {
 
     // });
 
-    let BookingModal = this.modalCtrl.create(BookPage, { book: "class" });
+    // let BookingModal = this.modalCtrl.create(BookPage, { book: "class" });
 
     // BookingModal.present();
   }

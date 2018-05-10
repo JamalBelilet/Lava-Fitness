@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 // import { TabsPage } from '../../pages/tabs/tabs';
-import { of } from "rxjs/observable/of";
+// import { of } from "rxjs/observable/of";
 
 /*
   Generated class for the AuthenticationProvider provider.
@@ -15,7 +15,7 @@ export class AuthenticationProvider {
   public config = {
     lang : "rtl",
 
-    baseUrl: "http://lava.sa/api",
+    baseUrl: "/api",
 
     AuthorizationKey: "as@dL8]Rn3$2S!anR",
     headers: new HttpHeaders({
