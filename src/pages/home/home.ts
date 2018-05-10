@@ -27,7 +27,7 @@ import { InAppBrowser } from "@ionic-native/in-app-browser";
 import { switchMap } from "rxjs/operators";
 import { TranslateService } from "@ngx-translate/core";
 import { AuthenticationProvider } from "../../providers/authentication/authentication";
-import { NgxChartsModule } from "@swimlane/ngx-charts";
+// import { NgxChartsModule } from "@swimlane/ngx-charts";
 
 @Component({
   selector: "page-home",
