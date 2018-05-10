@@ -40,7 +40,6 @@
         "chart.js": "^2.7.2",
         "com-sarriaroman-photoviewer": "^1.1.16",
         "compass-mixins": "^0.12.10",
-        "cordova-android": "7.0.0",
         "cordova-android-play-services-gradle-release": "^1.4.1",
         "cordova-plugin-device": "^2.0.1",
         "cordova-plugin-health": "^1.0.5",
@@ -66,7 +65,7 @@
         "zone.js": "0.8.18"
     },
     "devDependencies": {
-        "@ionic/app-scripts": "3.1.8",
+        "@ionic/app-scripts": "3.1.9",
         "typescript": "2.4.2"
     },
     "description": "An Ionic project",
@@ -86,8 +85,6 @@
                 "PLAY_SERVICES_VERSION": "15.+"
             }
         },
-        "platforms": [
-            "android"
-        ]
+        "platforms": []
     }
 }
