@@ -82,16 +82,9 @@ export class HomePage {
   };
 
   single: any[] = [{ name: "finishes", value: 0 }];
-
-  view: any[] = [175, 175];
-
   colorScheme = {
     domain: ["#f8cb4f"]
   };
-
-  onSelect(event) {
-    console.log(event);
-  }
 
   constructor(
     public modalCtrl: ModalController,
@@ -125,7 +118,6 @@ export class HomePage {
 
     this.upcommingExercises = this.lavaProvider.getExerciseReservations().pipe(
       map(res => {
-        console.log("upcommigExercices", res);
         (res as any).data = (res as any).data.filter(data => {
           return new Date(data.Date) > new Date("2017-01-01 15:30:00");
         });
@@ -217,7 +209,6 @@ export class HomePage {
     this.health
       .isAvailable()
       .then((available: boolean) => {
-        console.log(available);
         this.health
           .requestAuthorization([
             'distance',
@@ -243,7 +234,6 @@ export class HomePage {
                     text: res["buttons"]["Cancel"],
                     role: "cancel",
                     handler: () => {
-                      console.log("Cancel clicked");
                     }
                   },
                   {
@@ -270,7 +260,6 @@ export class HomePage {
                     text: res["buttons"]["Cancel"],
                     role: "cancel",
                     handler: () => {
-                      console.log("Cancel clicked");
                     }
                   },
                   {
@@ -290,32 +279,10 @@ export class HomePage {
         });
 
       });
-    // }).catch(error => {});
 
-    // map(this.workouts$ => {
-    //   let array = (value as any).data;
-
-    //   function* values(obj) {
-    //     for (let prop of Object.keys(obj))
-    //       yield obj[prop]
-    //   }
-
-    //   let arr = Array.from(values(array));
-
-    //   console.log(arr);
-
-    // });
-
-    // let BookingModal = this.modalCtrl.create(BookPage, { book: "class" });
-
-    // BookingModal.present();
   }
 
   bookClass() {
-    // let BookingModal = this.modalCtrl.create(BookPage, {book: 'class'});
-
-    // BookingModal.present();
-
     this.navCtrl.parent.select(0);
   }
 
@@ -474,7 +441,6 @@ export class HomePage {
                 });
               });
             });
-            console.log("resC", resC);
 
             return resC;
           })

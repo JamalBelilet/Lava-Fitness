@@ -24,10 +24,6 @@ export class FinishWorkoutPage {
     this.workoutID = navParams.data.workoutID;
   }
 
-  ionViewDidLoad() {
-    console.log("ionViewDidLoad FinishWorkoutPage");
-  }
-
   evaluate(level) {
     this.profileProvider
       .evaluateProgram(this.workoutID, level)

@@ -52,10 +52,7 @@ export class StarPage {
   }
 
   ionViewDidLoad() {
-    console.log("ionViewDidLoad StarPage");
-
     this.bookings$ = this.profileProvider.getServices();
-    // this.bookings$ = this.lavaProvider.getExerciseReservations();
   }
 
   previewSchedule(imgURL) {

@@ -1,27 +1,10 @@
 import { HttpClient, HttpParams, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { AuthenticationProvider } from "../authentication/authentication";
-import { of } from "rxjs/observable/of";
 
 @Injectable()
 export class ProfileProvider {
   localProfile: any;
-  // private profile = {
-  //   status: 1,
-  //   data: {
-  //     FullName: "asdfad",
-  //     IdentityID: 123456789,
-  //     SocialStatus: 1,
-  //     Address: "",
-  //     BirthDate: "1993-04-22",
-  //     CityName: "الریاض",
-  //     RegionName: "الجزیرة",
-  //     MobileNumber: "966*********",
-  //     Language: "AR",
-  //     Email: "aaaaa@gmail.com",
-  //     NationalityID: 1
-  //   }
-  // };
 
   private headers;
 
@@ -29,8 +12,6 @@ export class ProfileProvider {
     public http: HttpClient,
     private authProvider: AuthenticationProvider
   ) {
-    console.log("Hello ProfileProvider Provider");
-
 
     this.headers = new HttpHeaders({
       "Content-Type": "application/x-www-form-urlencoded",
@@ -49,19 +30,6 @@ export class ProfileProvider {
   }
 
   getCities() {
-    console.log("getCities" + this.authProvider.config.debug);
-    if (this.authProvider.config.debug) {
-      return of({
-        status: 1,
-        data: [
-          {
-            ID: 1,
-            NameAR: "\u0627\u0644\u0631\u064a\u0627\u0636",
-            NameEN: "Riyadh"
-          }
-        ]
-      });
-    }
     return this.http.get(
       `${this.authProvider.config.baseUrl}/web/city/index?AccessToken=${
         this.authProvider.config.AccessToken
@@ -71,25 +39,6 @@ export class ProfileProvider {
   }
 
   getRegions() {
-    if (this.authProvider.config.debug) {
-      return of({
-        status: 1,
-        data: [
-          {
-            ID: 1,
-            NameAR: "العلیا",
-            NameEN: "Al Olya",
-            CityID: 1
-          },
-          {
-            ID: 2,
-            NameAR: "السلیمانیة",
-            NameEN: "Al Solimania",
-            CityID: 1
-          }
-        ]
-      });
-    }
     return this.http.get(
       `${this.authProvider.config.baseUrl}/web/region/index?AccessToken=${
         this.authProvider.config.AccessToken
@@ -99,8 +48,6 @@ export class ProfileProvider {
   }
 
   getBranches() {
-
-
     return this.http.get(
       `${this.authProvider.config.baseUrl}/web/branch/index?AccessToken=${
         this.authProvider.config.AccessToken
@@ -110,23 +57,6 @@ export class ProfileProvider {
   }
 
   getJobTitles() {
-    if (this.authProvider.config.debug) {
-      return of({
-        status: 1,
-        data: [
-          {
-            ID: 1,
-            TitleAR: "بدون عمل",
-            TitleEN: "Jobless"
-          },
-          {
-            ID: 2,
-            TitleAR: "طبیبة",
-            TitleEN: "Doctor"
-          }
-        ]
-      });
-    }
     return this.http.get(
       `${this.authProvider.config.baseUrl}/web/job-title/index?AccessToken=${
         this.authProvider.config.AccessToken
@@ -136,23 +66,6 @@ export class ProfileProvider {
   }
 
   getNationalities() {
-    if (this.authProvider.config.debug) {
-      return of({
-        status: 1,
-        data: [
-          {
-            ID: 1,
-            NameAR: "السعودیة",
-            NameEN: "Saudi Arabia"
-          },
-          {
-            ID: 2,
-            NameAR: "الاردن",
-            NameEN: "Jordan"
-          }
-        ]
-      });
-    }
     return this.http.get(
       `${this.authProvider.config.baseUrl}/web/nationality/index?AccessToken=${
         this.authProvider.config.AccessToken
@@ -182,8 +95,6 @@ export class ProfileProvider {
   }
 
   getMemberInbodyResults() {
-
-
     return this.http.get(
       `${
         this.authProvider.config.baseUrl
@@ -213,14 +124,6 @@ export class ProfileProvider {
   }
 
   updateUser(updatedUser) {
-    if (this.authProvider.config.debug) {
-      return of({
-        status: 1,
-        data: {
-          AccessToken: "accb45021c8be4550dd1e826aad388f0"
-        }
-      });
-    }
     const headers = this.authProvider.config.headers;
     const params = new HttpParams();
     const options = {
@@ -247,23 +150,6 @@ export class ProfileProvider {
   }
 
   getTrainers() {
-    if (this.authProvider.config.debug) {
-      return of({
-        status: 1,
-        data: [
-          {
-            ID: 22,
-            FullName: "عالیة فاطمة",
-            FullNameEN: "Alia Fatima"
-          },
-          {
-            ID: 40,
-            FullName: "نعمت الصباغ",
-            FullNameEN: "Neimat Alsabbagh"
-          }
-        ]
-      });
-    }
     return this.http.get(
       `${this.authProvider.config.baseUrl}/web/traner/index?AccessToken=${
         this.authProvider.config.AccessToken

@@ -21,7 +21,6 @@ export class SurvayPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SurvayPage');
     this.survay = [
       {
         question: 'Non sunt fugiat ut labore ipsum reprehenderit eiusmod ?',

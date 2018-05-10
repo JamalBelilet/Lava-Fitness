@@ -21,11 +21,6 @@ export class ClassShedulePage {
     public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ClassShedulePage');
-  }
-
-
   bookClass() {
     let BookingModal = this.modalCtrl.create(BookPage, {book: 'class'});
 

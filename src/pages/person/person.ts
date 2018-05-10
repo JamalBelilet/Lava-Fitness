@@ -65,7 +65,6 @@ export class PersonPage {
   ionViewDidLoad() {
     this.loading.present();
 
-    console.log("ionViewDidLoad PersonPage");
     this.memberInbodyResults$ = this.profileProvider.getMemberInbodyResults();
 
     this.memberMeasurements$ = this.profileProvider.getMemberMeasurements();
@@ -84,9 +83,6 @@ export class PersonPage {
           });
 
           let dataC = (res as any).data[0];
-          console.log(dataC);
-          console.log(1);
-          console.log(dataC);
           this.translate.get("doughnut").subscribe((translated: string) => {
             this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
               type: "doughnut",

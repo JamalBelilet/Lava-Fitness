@@ -26,7 +26,6 @@ export class BodyWeightLogHistoryPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private authProvider: AuthenticationProvider) {
     this.lang = this.authProvider.config.lang;
     this.memberMeasurements = navParams.data;
-    console.log('hello fof', this.memberMeasurements);
 
     this.memberMeasurements = this.memberMeasurements.map(meus => {
       meus.CreationDate = moment(meus.CreationDate).format("MM/DD/YYYY");
@@ -35,7 +34,6 @@ export class BodyWeightLogHistoryPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad WeightLogHistoryPage');
 
     this.lineChart = new Chart(this.lineCanvas.nativeElement, {
       type: "line",

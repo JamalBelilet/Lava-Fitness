@@ -64,13 +64,11 @@ export class AddPage {
   }
 
   ionViewDidLoad() {
-    console.log("ionViewDidLoad AddPage");
 
     this.branches$ = this.profileProvider.getBranches();
 
     this.branches$.subscribe(branch => {
       this.selectedBranch = (branch as any).data[3];
-      console.log(this.selectedBranch);
     });
   }
 
@@ -115,11 +113,6 @@ export class AddPage {
       alert.present();
     });
   }
-
-  // myBooking() {
-  //   console.log(this.navCtrl.parent.select(2));
-  // }
-
   sendInvitation() {
     this.translate.get("sendInvitation").subscribe((translated: string) => {
       let sharePortionActionSheet = this.actionSheetController.create({

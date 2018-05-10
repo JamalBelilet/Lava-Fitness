@@ -72,7 +72,6 @@ export class BookPage {
         Date: [this.nowDate, Validators.required]
       });
 
-      console.log(this.reserveExerciseForm.controls.Exercise);
     } else if (this._book == "session") {
       this.reserveSessionForm = formBuilder.group({
         Branch: [
@@ -86,7 +85,6 @@ export class BookPage {
         Date: [this.nowDate, Validators.required]
       });
 
-      console.log(this.reserveSessionForm.controls.Exercise);
     }
   }
 
@@ -95,21 +93,14 @@ export class BookPage {
     if (this._book == "session") {
       console.warn(branch.ID)
       this.massagers$ = this.assetsProvider.getMassagers(branch.ID);
-      this.massagers$.subscribe(res=>console.log('hei', res));
     }
   }
 
   compareFn(e1, e2): boolean {
-    // console.log(11111111, e1)
-    // console.log(2222222, e2)
-    // console.log(e1.key === e2.key)
     return e1.ID === e2.ID;
   }
 
   ionViewDidLoad() {
-    console.log("ionViewDidLoad BookPage");
-
-    console.log(this._book);
 
     this.branches$ = this.assetsProvider.getBranches();
     this.massagers$ = this.assetsProvider.getMassagers(1);
@@ -139,8 +130,6 @@ export class BookPage {
           });
         }
 
-        console.log(finalObj);
-
         (res as any).data = finalObj;
         return res;
       })
@@ -169,8 +158,6 @@ export class BookPage {
             key: key
           });
         }
-
-        console.log(finalObj);
 
         (res as any).data = finalObj;
         return res;

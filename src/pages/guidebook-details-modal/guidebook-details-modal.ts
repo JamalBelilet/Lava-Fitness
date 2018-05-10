@@ -18,8 +18,5 @@ export class GuidebookDetailsModalPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad GuidebookDetailsModalPage');
-  }
 
 }

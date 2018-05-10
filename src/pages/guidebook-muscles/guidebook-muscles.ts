@@ -51,10 +51,6 @@ export class GuidebookMusclesPage {
 
     constructor(private alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams) {}
 
-  ionViewDidLoad() {
-    console.log("ionViewDidLoad GuidebookMusclesPage");
-  }
-
   showDetail(exerciceID) {
 
     let alert = this.alertCtrl.create({

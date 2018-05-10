@@ -27,10 +27,6 @@ export class GuidebookMachinesPage {
     ];
   }
 
-  ionViewDidLoad() {
-    console.log("ionViewDidLoad GuidebookMachinesPage");
-  }
-
   expandItem(item) {
     this.items.map(listItem => {
       if (item == listItem) {

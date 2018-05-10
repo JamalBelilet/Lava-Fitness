@@ -58,7 +58,6 @@ export class WorkoutPage {
   }
 
   ionViewDidLoad() {
-    console.log("ionViewDidLoad WorkoutPage");
 
     let loading = this.loadingCtrl.create({
       spinner: "ios"
@@ -90,9 +89,6 @@ export class WorkoutPage {
         this.workout.BodybuildingProgrameDetail = this.workout.BodybuildingProgrameDetail.map(
           bodybuildingExerciseExercise => {
             (res as any).data.Bodybuilding.forEach(bodybuilding => {
-              // console.log(moment("moment", bodybuilding.CreationDate));
-              // console.log("new date", new Date(bodybuilding.CreationDate));
-              // console.log("asl", bodybuilding.CreationDate);
               if (
                 bodybuildingExerciseExercise.Equipment.ID ==
                 bodybuilding.Equipment.ID

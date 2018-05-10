@@ -11,7 +11,6 @@ import { Health } from "@ionic-native/health";
 @Injectable()
 export class LavaHealthProvider {
   constructor(public http: HttpClient, private health: Health) {
-    console.log("Hello LavaHealthProvider Provider");
   }
 
   getActivity() {

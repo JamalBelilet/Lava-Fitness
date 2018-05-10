@@ -17,7 +17,6 @@ export class LavaProvider {
     public http: HttpClient,
     private authProvider: AuthenticationProvider
   ) {
-    console.log("Hello LavaProvider Provider");
     this.headers = new HttpHeaders({
       "Content-Type": "application/x-www-form-urlencoded",
       AuthorizationKey: this.authProvider.config.AuthorizationKey,
@@ -28,12 +27,6 @@ export class LavaProvider {
   getExerciseSchedules(branchID, dateC, monthC, year) {
     const date = dateC > 9 ? dateC : "0" + dateC;
     const month = monthC > 9 ? monthC : "0" + monthC;
-
-    console.log(
-      `${this.authProvider.config.baseUrl}/web/exercise/index?AccessToken=${
-        this.authProvider.config.AccessToken
-      }&BranchID=${branchID}&Year=${year}&Month=${month}&Day=${date}&Type=0`
-    );
 
     return this.http.get(
       `${this.authProvider.config.baseUrl}/web/exercise/index?AccessToken=${
@@ -100,13 +93,6 @@ export class LavaProvider {
       withCredentials: true
     };
 
-    console.log(
-      JSON.stringify({
-        AccessToken: this.authProvider.config.AccessToken,
-        ExerciseScheduleID: ExerciseScheduleIDC
-      })
-    );
-
     return this.http.post(
       `${this.authProvider.config.baseUrl}/web/exercise/reserve`,
       JSON.stringify({
@@ -117,19 +103,6 @@ export class LavaProvider {
     );
   }
 
-  // const date = dateC > 9 ? dateC : "0" + dateC;
-  //   const month = monthC > 9 ? monthC : "0" + monthC;
-
-  //   console.log(`${this.authProvider.config.baseUrl}/web/exercise/index?AccessToken=${
-  //     this.authProvider.config.AccessToken
-  //   }&BranchID=1&Year=${year}&Month=${month}&Day=${date}&Type=0`)
-
-  //   return this.http.get(
-  //     `${this.authProvider.config.baseUrl}/web/exercise/index?AccessToken=${
-  //       this.authProvider.config.AccessToken
-  //     }&BranchID=1&Year=${year}&Month=${month}&Day=${date}&Type=0`,
-  //     { headers: this.authProvider.config.headers }
-  //   );
   getAllMassageReservations(BranchID, MassagerID, dateC, monthC, year) {
     const date = dateC > 9 ? dateC : "0" + dateC;
     const month = monthC > 9 ? monthC : "0" + monthC;
@@ -159,15 +132,6 @@ export class LavaProvider {
       withCredentials: true
     };
 
-    console.log(
-      JSON.stringify({
-        AccessToken: this.authProvider.config.AccessToken,
-        ServiceID: ServiceC.ServiceID,
-        BranchID: ServiceC.BranchID,
-        MassagerID: ServiceC.MassagerID,
-        Date: moment(ServiceC.Date).locale("en")
-      })
-    );
     return this.http.post(
       `${this.authProvider.config.baseUrl}/web/massage/reserve`,
       JSON.stringify({

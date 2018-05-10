@@ -38,7 +38,6 @@ export class WeightLogHistoryPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad WeightLogHistoryPage');
 
     this.lineChart = new Chart(this.lineCanvas.nativeElement, {
       type: "line",

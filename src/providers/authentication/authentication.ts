@@ -28,7 +28,6 @@ export class AuthenticationProvider {
   };
 
   constructor(public http: HttpClient) {
-    console.log("Hello AuthenticationProvider Provider");
   }
 
   login(user) {
@@ -97,7 +96,6 @@ export class AuthenticationProvider {
         user.MobileNumber = "966" + user.MobileNumber.toString().substr(1,);
       }
     }
-    console.log('verify user', user);
     return this.http
       .post(
         `${this.config.baseUrl}/web/user/verify-token`,

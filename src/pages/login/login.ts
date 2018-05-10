@@ -106,24 +106,11 @@ export class LoginPage {
           )
         ])
       ]
-
-      // NationalityID: ['', Validators.compose([Validators.required, Validators.maxLength(30),
-      //   Validators.pattern(/[a-zA-Z0-9_]+/)]),
-      // ],
-      // Language: ['', Validators.compose([Validators.required, Validators.maxLength(30),
-      //   Validators.pattern(/[a-zA-Z0-9_]+/)]),
-      // ],
-      // BirthDate: ['', Validators.compose([Validators.required, Validators.maxLength(30),
-      //   Validators.pattern(/[a-zA-Z0-9_]+/)]),
-      // ],
     });
   }
 
   ionViewDidLoad() {
-    console.log("ionViewDidLoad LoginPage");
-
     this.cities$ = this.profileProvider.getCities();
-    this.cities$.subscribe(res => console.log(JSON.stringify(res)));
   }
 
   onSignIn() {
@@ -151,7 +138,6 @@ export class LoginPage {
               text: "cancel",
               role: "cancel",
               handler: () => {
-                console.log("Cancel clicked");
               }
             }
           ]
@@ -186,7 +172,6 @@ export class LoginPage {
               text: "cancel",
               role: "cancel",
               handler: () => {
-                console.log("Cancel clicked");
               }
             }
           ]
@@ -212,48 +197,18 @@ export class LoginPage {
           this.signupForm.value.MobileNumber
         );
 
-        // this.navCtrl.setRoot(TabsPage);
         this.auth.config.AccessToken = (res as any).data.AccessToken;
         return;
-        // let alert = this.alertCtrl.create({
-        //   title: "Enter verification code",
-        //   message: "The code we sent to " + this.signupForm.value.MobileNumber,
-        //   inputs: [
-        //     {
-        //       name: "code",
-        //       placeholder: "code",
-        //       type: "number"
-        //     }
-        //   ],
-        //   buttons: [
-        //     {
-        //       text: "cancel",
-        //       role: "cancel",
-        //       handler: () => {
-        //         console.log("Cancel clicked");
-        //       }
-        //     },
-        //     {
-        //       text: "Log in",
-        //       handler: () => {
-        //         this.navCtrl.setRoot(TabsPage);
-        //       }
-        //     }
-        //   ]
-        // });
-        // alert.present();
       },
       error => {
         loading.dismiss();
         let alert = this.alertCtrl.create({
-          // message: error.error.errors,
           message: error.error.errors || JSON.stringify(error),
           buttons: [
             {
               text: "cancel",
               role: "cancel",
               handler: () => {
-                console.log("Cancel clicked");
               }
             }
           ]

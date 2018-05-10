@@ -143,12 +143,10 @@ export class HeartPage {
   }
 
   ionViewDidLoad() {
-    console.log("ionViewDidLoad HeartPage");
 
     this.health
       .isAvailable()
       .then((available: boolean) => {
-        console.log(available);
         this.health
           .requestAuthorization([
             {

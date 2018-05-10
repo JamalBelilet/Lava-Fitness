@@ -79,7 +79,6 @@ export class MyBookingPage {
       .subscribe(res => {
         this.serviceReservations = res;
       });
-    console.log("ionViewDidLoad MyBookingPage");
   }
 
   segmentChanged(event) {
@@ -98,7 +97,6 @@ export class MyBookingPage {
             text: translated["Cancel"],
             role: "cancel",
             handler: () => {
-              console.log("Cancel clicked");
             }
           },
           {
@@ -133,7 +131,6 @@ export class MyBookingPage {
             text: translated["Cancel"],
             role: "cancel",
             handler: () => {
-              console.log("Cancel clicked");
             }
           },
           {

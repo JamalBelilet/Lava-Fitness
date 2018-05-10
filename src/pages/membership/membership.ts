@@ -30,7 +30,6 @@ export class MembershipPage {
   }
 
   ionViewDidLoad() {
-    console.log("ionViewDidLoad MembershipPage");
 
     this.membership$ = this.profileProvider.getMembership();
 
@@ -50,7 +49,6 @@ export class MembershipPage {
           );
         });
 
-        console.log("arr_f", membership);
         return membership;
       })
     );

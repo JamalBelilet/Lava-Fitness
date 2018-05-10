@@ -37,7 +37,6 @@ export class ServicesBookingPage {
     private authProvider: AuthenticationProvider
   ) {
     this.lang = this.authProvider.config.lang;
-    console.log(navParams.data);
   }
 
   ionViewDidLoad() {
@@ -48,7 +47,6 @@ export class ServicesBookingPage {
         .locale("en")
         .toISOString()
     ).getDate();
-    console.log(date);
     this.services$ = this.lavaProvider
       .getAllMassageReservations(
         this.navParams.data.Branch.ID,
@@ -86,7 +84,6 @@ export class ServicesBookingPage {
           text: "Cancel",
           role: "cancel",
           handler: () => {
-            console.log("Cancel clicked");
           }
         },
         {
@@ -97,7 +94,6 @@ export class ServicesBookingPage {
                 setTimeout(() => {
                   // this.navCtrl.pop();
                 }, 3800);
-                console.log("reserveExercise", JSON.stringify(res));
               },
               error =>
                 this.alertCtrl
