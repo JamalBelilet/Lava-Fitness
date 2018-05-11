@@ -1,7 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import moment from "moment";
-
 
 /**
  * Generated class for the IsNewPipe pipe.
@@ -16,6 +14,6 @@ export class IsNewPipe implements PipeTransform {
    * Takes a value and makes it lowercase.
    */
   transform(value: string, ...args) {
-    return moment(value) > moment();
+    return new Date(value) > new Date();
   }
 }
