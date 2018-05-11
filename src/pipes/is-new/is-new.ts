@@ -16,8 +16,6 @@ export class IsNewPipe implements PipeTransform {
    * Takes a value and makes it lowercase.
    */
   transform(value: string, ...args) {
-    return moment(value) > moment("2018-01-30 15:15:00");
-
-
+    return moment(value) > moment();
   }
 }

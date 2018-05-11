@@ -32,8 +32,7 @@
   },
 
   "HealthKit": {
-    "message":
-      "For all Lava Fitness features, you must install HealthKit",
+    "message": "For all Lava Fitness features, you must install HealthKit",
     "buttons": {
       "Cancel": "Cancel",
       "HealthKit": "Get HealthKit"
@@ -162,6 +161,19 @@
   "per week": "per week",
   "Workouts": "Workouts",
   "Month": "Month",
+
+  "d0": "Saturday",
+  "d1": "Sunday",
+  "d2": "Monday",
+  "d3": "Tuesday",
+  "d4": "Wednesday",
+  "d5": "Thursday",
+  "d6": "Friday",
+
+  "1wk": "1wk",
+  "2wk": "2wk",
+  "3wk": "3wk",
+  "4wk": "4wk",
 
   "week-days": {
     "weeksData": {

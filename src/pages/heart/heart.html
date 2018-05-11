@@ -15,10 +15,11 @@
       <button ion-button clear>
         <ion-icon name="ios-checkmark-circle"></ion-icon>
       </button>
-      <p class="workout-number">.. {{"workout" | translate}}</p>
+      <p class="workout-number">{{todayReadouts.length || '0'}} {{"workout" | translate}}</p>
+
       <ion-row class="workout-row">
         <img src="assets/icon/workout.svg" />
-        <p>..</p>
+        <p>{{todayReadoutsExos.length || '0'}}</p>
       </ion-row>
     </div>
 
@@ -43,9 +44,9 @@
 
     <div class="circle one">
       <img src="assets/imgs/circle.svg">
-      <p class="steps-num">..</p>
+      <p class="steps-num">{{thisWeekReadoutsCounts || '0'}}</p>
       <p class="steps-text">{{"workouts" | translate}}</p>
-      <p class="steps-goal">.. {{"days" | translate}}</p>
+      <!-- <p class="steps-goal">.. {{"days" | translate}}</p> -->
 
     </div>
     <div class="circle two">
@@ -70,16 +71,16 @@
 
     <div class="workouts">
       <p class="avg">Avg.
-        <br>..</p>
+        <br>{{avg || 0}}</p>
       <p class="workout-number gray">{{"Workout" | translate}}
         <br>{{"per week" | translate}}</p>
     </div>
 
     <div class="circle two">
       <img src="assets/imgs/circle.svg">
-      <p class="steps-num">..</p>
+      <p class="steps-num">{{thisMonthReadoutsCounts || '0'}} </p>
       <p class="steps-text">{{"workouts" | translate}}</p>
-      <p class="steps-goal">.. {{"days" | translate}}</p>
+      <!-- <p class="steps-goal">.. {{"days" | translate}}</p> -->
 
     </div>
     <div class="circle three">
@@ -110,8 +111,8 @@
       <button ion-button clear>
         <img src="assets/imgs/_expand@2x.png">
       </button>
-      <chart [type]="workoutChart.type" *ngIf="selectedOption == 'weeks'" [data]="workoutChart.weeksData" [options]="workoutChart.options"></chart>
-      <chart [type]="workoutChart.type" *ngIf="selectedOption == 'months'" [data]="workoutChart.monthsData" [options]="workoutChart.options"></chart>
+      <chart #workoutChartDays [type]="workoutChart.type" *ngIf="selectedOption == 'weeks'" [data]="workoutChart.weeksData" [options]="workoutChart.options"></chart>
+      <chart #workoutChartWeeks [type]="workoutChart.type" *ngIf="selectedOption == 'months'" [data]="workoutChart.monthsData" [options]="workoutChart.options"></chart>
     </div>
     <div class="history-chart" *ngSwitchCase="'steps'">
       <button ion-button clear>

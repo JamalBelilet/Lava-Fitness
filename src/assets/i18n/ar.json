@@ -32,8 +32,7 @@
   },
 
   "HealthKit": {
-    "message":
-      " HealthKit يجب عليك تثبيت Lava Fitness للحصول على جميع ميزات",
+    "message": " HealthKit يجب عليك تثبيت Lava Fitness للحصول على جميع ميزات",
     "buttons": {
       "Cancel": "إلغاء",
       "HealthKit": " HealthKit احصل على"
@@ -161,7 +160,20 @@
   "Workouts": "التدريبات",
   "Month": "شهر",
 
-  "week-days" : {
+  "d0": "السبت",
+  "d1": "الأحد",
+  "d2": "الإثنين",
+  "d3": "الثلاثاء",
+  "d4": "الأربعاء",
+  "d5": "الخميس",
+  "d6": "الجمعة",
+
+   "1wk": "1wk",
+      "2wk": "2wk",
+      "3wk": "3wk",
+      "4wk": "4wk",
+
+  "week-days": {
     "weeksData": {
       "Saturday": "السبت",
       "Sunday": "الأحد",

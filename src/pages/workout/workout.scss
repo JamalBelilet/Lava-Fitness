@@ -296,6 +296,19 @@ page-workout {
         }
       }
 
+      @include rtl() {
+        ion-buttons {
+          button {
+            ion-icon {
+
+            color: red!important;
+            transform: rotate(180deg)
+            }
+
+          }
+        }
+      }
+
       button {
         display: flex;
         justify-content: center;

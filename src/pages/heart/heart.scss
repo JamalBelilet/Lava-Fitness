@@ -188,6 +188,8 @@ page-heart {
         top: 12.8 / $sch * 100vh;
 
         color: #575c69;
+        width: 100%;
+        text-align: center;
 
         &.gray {
           font-size: 2 / $scw * 100vw;
@@ -218,7 +220,7 @@ page-heart {
 
         display: flex;
         justify-content: space-around;
-        align-items: flex-end;
+        align-items: center;
 
         width: 100%;
         p {

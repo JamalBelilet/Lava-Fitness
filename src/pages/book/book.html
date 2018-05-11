@@ -93,7 +93,7 @@
 
               <ion-option style="width: 100%; margin: 0; " [value]="null">{{"Choose a Massager" | translate}}</ion-option>
               <ion-option *ngFor="let massager of (massagers$ | async)?.data" [value]="massager" style="width: 100%; margin: 0; max-width: 100%; color: #999!important; background-color: red">
-                {{massager.FullNameAR}}
+                {{massager.FullName}}
               </ion-option>
             </ion-select>
           </ion-col>

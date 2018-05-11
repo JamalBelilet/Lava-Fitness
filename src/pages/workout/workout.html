@@ -60,7 +60,7 @@
   <ion-list class="exercices" no-lines>
     <ng-container *ngFor="let exercice of (workout$ | async)?.CardioProgrameDetail; let i = index">
 
-      <ion-item-sliding (ionDrag)="slidingDrag($event, slidingItem)" *ngIf="exercice.state != 'done'" #slidingItem>
+      <ion-item-sliding  (ionDrag)="slidingDrag($event, slidingItem)" *ngIf="exercice.state != 'done'" #slidingItem>
         <ion-item #item (click)="open($event, slidingItem, item)">
 
           <p class="counter">{{i + 1}}</p>
@@ -75,7 +75,7 @@
 
           <ion-buttons item-right>
             <button ion-button clear>
-              <ion-icon name="arrow-forward"></ion-icon>
+              <ion-icon [ngStyle]="{'transform': lang == 'rtl' ? 'rotate(180deg)' : 'none'}"  name="arrow-forward"></ion-icon>
             </button>
           </ion-buttons>
         </ion-item>
@@ -121,7 +121,7 @@
     </ng-container>
 
     <ng-container *ngFor="let exercice of (workout$ | async)?.BodybuildingProgrameDetail; let i = index">
-      <ion-item-sliding (ionDrag)="slidingDrag($event, slidingItem)" #slidingItem *ngIf="exercice.state != 'done'">
+      <ion-item-sliding  (ionDrag)="slidingDrag($event, slidingItem)" #slidingItem *ngIf="exercice.state != 'done'">
         <ion-item #item (click)="open($event, slidingItem, item)">
 
           <p class="counter">{{i + 1}}</p>
@@ -137,7 +137,7 @@
 
           <ion-buttons item-right>
             <button ion-button clear>
-              <ion-icon name="arrow-forward"></ion-icon>
+              <ion-icon [ngStyle]="{'transform': lang == 'rtl' ? 'rotate(180deg)' : 'none'}"  name="arrow-forward"></ion-icon>
             </button>
           </ion-buttons>
         </ion-item>
@@ -191,7 +191,7 @@
 
     <ng-container *ngFor="let exercice of (workout$ | async)?.CardioProgrameDetail; let i = index">
 
-      <ion-item-sliding (ionDrag)="slidingDrag($event, slidingItem)" *ngIf="exercice.state == 'done'" #slidingItem>
+      <ion-item-sliding  (ionDrag)="slidingDrag($event, slidingItem)" *ngIf="exercice.state == 'done'" #slidingItem>
         <ion-item #item (click)="open($event, slidingItem, item)">
 
           <p class="counter">{{i + 1}}</p>
@@ -206,7 +206,7 @@
 
           <ion-buttons item-right>
             <button ion-button clear>
-              <ion-icon name="arrow-forward"></ion-icon>
+              <ion-icon [ngStyle]="{'transform': lang == 'rtl' ? 'rotate(180deg)' : 'none'}"  name="arrow-forward"></ion-icon>
             </button>
           </ion-buttons>
         </ion-item>
@@ -252,7 +252,7 @@
     </ng-container>
 
     <ng-container *ngFor="let exercice of (workout$ | async)?.BodybuildingProgrameDetail; let i = index">
-      <ion-item-sliding (ionDrag)="slidingDrag($event, slidingItem)" #slidingItem *ngIf="exercice.state == 'done'">
+      <ion-item-sliding  (ionDrag)="slidingDrag($event, slidingItem)" #slidingItem *ngIf="exercice.state == 'done'">
         <ion-item #item (click)="open($event, slidingItem, item)">
 
           <p class="counter">{{i + 1}}</p>
@@ -268,7 +268,7 @@
 
           <ion-buttons item-right>
             <button ion-button clear>
-              <ion-icon name="arrow-forward"></ion-icon>
+              <ion-icon [ngStyle]="{'transform': lang == 'rtl' ? 'rotate(180deg)' : 'none'}"  name="arrow-forward"></ion-icon>
             </button>
           </ion-buttons>
         </ion-item>
