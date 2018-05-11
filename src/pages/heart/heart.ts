@@ -8,8 +8,8 @@ import { TranslateService } from "@ngx-translate/core";
 import { AuthenticationProvider } from "../../providers/authentication/authentication";
 import { LavaProvider } from "../../providers/lava/lava";
 import { ProfileProvider } from "../../providers/profile/profile";
-import { switchMap, map } from "rxjs/operators";
-import { Observable } from "rxjs/Observable";
+import { map } from "rxjs/operators";
+// import { Observable } from "rxjs/Observable";
 
 import moment from "moment";
 import { ChartComponent } from "angular2-chartjs";
@@ -282,13 +282,6 @@ export class HeartPage {
       )
       .subscribe(() => {});
   }
-
-  // getWorkouts(date: Date) {
-  //   this.workouts$.pipe(map(observable => {
-  //     console.log((observable as any).subscribe(res => {}));
-  //   })).subscribe(re => {});
-  // }
-
   getDistance() {
     this.LavaHealth.getDistance()
       .then(data => {
@@ -468,8 +461,6 @@ export class HeartPage {
       }
     ].forEach(day => {
       let count = 0;
-      console.log(readouts);
-
 
       readouts.forEach(readout => {
         readout = JSON.parse(readout);
@@ -525,24 +516,6 @@ export class HeartPage {
       }
     ].forEach(day => {
       let count = 0;
-      console.log(readouts);
-
-
-      // readouts.forEach(readout => {
-      //   readout = JSON.parse(readout);
-      //   readout.Bodybuilding =
-      //     (!readout.Bodybuilding && []) ||
-      //     readout.Bodybuilding.filter(
-      //       exo => new Date(exo.CreationDate) >= day.startDate && new Date(exo.CreationDate) <= day.endDate
-      //     );
-      //   readout.Cardio =
-      //     (!readout.Cardio && []) ||
-      //     readout.Cardio.filter(
-      //       exo => new Date(exo.CreationDate) >= day.startDate && new Date(exo.CreationDate) <= day.endDate
-      //     );
-
-      //     count += readout.Bodybuilding.length>0 || readout.Cardio.length>0 ?  1 : 0;
-      // });
 
       this.getWorkoutsPerDayOverAWeek(readouts, day.endDate).forEach(_count => count += _count);
 
