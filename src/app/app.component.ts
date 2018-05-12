@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
 import { Platform } from "ionic-angular";
 import { StatusBar } from "@ionic-native/status-bar";
-import { SplashScreen } from "@ionic-native/splash-screen";
 
 import { TabsPage } from "../pages/tabs/tabs";
 
@@ -33,7 +32,6 @@ export class MyApp {
     private auth: AuthenticationProvider,
     platform: Platform,
     statusBar: StatusBar,
-    splashScreen: SplashScreen,
     private storage: Storage
   ) {
     translate.setDefaultLang("ar");
@@ -74,7 +72,6 @@ export class MyApp {
       // statusBar.styleDefault();
       // statusBar.backgroundColorByHexString("fefefe");
       statusBar.overlaysWebView(true);
-      splashScreen.hide();
 
       moment.locale("en");
 

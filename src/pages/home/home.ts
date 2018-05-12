@@ -27,6 +27,7 @@ import { InAppBrowser } from "@ionic-native/in-app-browser";
 import { switchMap } from "rxjs/operators";
 import { TranslateService } from "@ngx-translate/core";
 import { AuthenticationProvider } from "../../providers/authentication/authentication";
+import { SplashScreen } from "@ionic-native/splash-screen";
 // import { NgxChartsModule } from "@swimlane/ngx-charts";
 
 @Component({
@@ -98,17 +99,28 @@ export class HomePage {
     private loadingCtrl: LoadingController,
     private translate: TranslateService,
     private authProvider: AuthenticationProvider,
-    private platform: Platform
+    private platform: Platform,
+    splashScreen: SplashScreen,
+
   ) {
     this.lang = this.authProvider.config.lang;
     moment.locale("en");
   }
 
   ionViewDidLoad() {
+    splashScreen.hide();
+
     let loading = this.loadingCtrl.create({
       spinner: "ios"
     });
     loading.present();
+
+    setTimeout(() => {
+      if (loading) {
+        loading.dismiss();
+        loading = null;
+      }
+    }, 2000);
 
     this.ExerciseReservations$ = this.lavaProvider.getExerciseReservations();
     this.profile$ = this.profileProvider.getProfile();
@@ -119,7 +131,7 @@ export class HomePage {
     this.upcommingExercises = this.lavaProvider.getExerciseReservations().pipe(
       map(res => {
         (res as any).data = (res as any).data.filter(data => {
-          return new Date(data.Date) > new Date("2017-01-01 15:30:00");
+          return new Date(data.Date) > new Date();
         });
         return res;
       })
@@ -211,7 +223,7 @@ export class HomePage {
       .then((available: boolean) => {
         this.health
           .requestAuthorization([
-            'distance',
+            "distance",
             {
               read: ["steps"] //read only permission
             }
@@ -233,8 +245,7 @@ export class HomePage {
                   {
                     text: res["buttons"]["Cancel"],
                     role: "cancel",
-                    handler: () => {
-                    }
+                    handler: () => {}
                   },
                   {
                     text: res["buttons"]["GetGoogleFit"],
@@ -259,8 +270,7 @@ export class HomePage {
                   {
                     text: res["buttons"]["Cancel"],
                     role: "cancel",
-                    handler: () => {
-                    }
+                    handler: () => {}
                   },
                   {
                     text: res["buttons"]["HealthKit"],
@@ -277,9 +287,7 @@ export class HomePage {
             });
           }
         });
-
       });
-
   }
 
   bookClass() {
