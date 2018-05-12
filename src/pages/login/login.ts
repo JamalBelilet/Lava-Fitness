@@ -16,6 +16,7 @@ import { ViewChild } from "@angular/core";
 import { Slides } from "ionic-angular";
 
 import { Storage } from '@ionic/storage';
+import { SplashScreen } from "@ionic-native/splash-screen";
 
 /**
  * Generated class for the LoginPage page.
@@ -48,7 +49,8 @@ export class LoginPage {
     private alertCtrl: AlertController,
     private profileProvider: ProfileProvider,
     public loadingCtrl: LoadingController,
-    private storage: Storage
+    private storage: Storage,
+    private splashScreen: SplashScreen,
   ) {
     this.signinForm = formBuilder.group({
       MobileNumber: ["", Validators.required]
@@ -110,6 +112,7 @@ export class LoginPage {
   }
 
   ionViewDidLoad() {
+    this.splashScreen.hide();
     this.cities$ = this.profileProvider.getCities();
   }
 
