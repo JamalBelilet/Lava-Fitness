@@ -1,8 +1,8 @@
 {
-    "name": "Lara",
-    "version": "0.0.1",
-    "author": "Ionic Framework",
-    "homepage": "http://ionicframework.com/",
+    "name": "lara_fitness",
+    "version": "0.1.2",
+    "author": "Imkan",
+    "homepage": "http://lava.sa/",
     "private": true,
     "scripts": {
         "clean": "ionic-app-scripts clean",

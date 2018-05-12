@@ -64,12 +64,12 @@ import { ChartsModule } from 'ng2-charts';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const FIREBASE_CREDENTIALS = {
-  apiKey: "AIzaSyAggtWMxyL84Eq8ZV8X6Hce9Atpu2W-wi8",
-  authDomain: "lava-fitness.firebaseapp.com",
-  databaseURL: "https://lava-fitness.firebaseio.com",
-  projectId: "lava-fitness",
-  storageBucket: "lava-fitness.appspot.com",
-  messagingSenderId: "478955498356"
+  apiKey: "AIzaSyCrwASK2N-lzMH5_HQS4OGMv2FwXpyx2Ew",
+  authDomain: "lava-3971c.firebaseapp.com",
+  databaseURL: "https://lava-3971c.firebaseio.com",
+  projectId: "lava-3971c",
+  storageBucket: "lava-3971c.appspot.com",
+  messagingSenderId: "648074965960"
 };
 
 import { TranslateLoader } from "@ngx-translate/core";
