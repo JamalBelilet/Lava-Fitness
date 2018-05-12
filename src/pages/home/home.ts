@@ -100,7 +100,7 @@ export class HomePage {
     private translate: TranslateService,
     private authProvider: AuthenticationProvider,
     private platform: Platform,
-    splashScreen: SplashScreen,
+    private splashScreen: SplashScreen,
 
   ) {
     this.lang = this.authProvider.config.lang;
@@ -108,7 +108,7 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    splashScreen.hide();
+    this.splashScreen.hide();
 
     let loading = this.loadingCtrl.create({
       spinner: "ios"
