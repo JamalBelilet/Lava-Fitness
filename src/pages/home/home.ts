@@ -371,7 +371,7 @@ export class HomePage {
   getSteps() {
     this.LavaHealth.getSteps()
       .then(data => {
-        this.mySteps = data[(data as any).length - 1];
+        this.mySteps = data[(data as any).length - 1].value;
         // this.alertCtrl.create().setMessage("getSteps()" + JSON.stringify(data[(data as any).length - 1])).present();
       })
       .catch(error => this.presentAlert(JSON.stringify(error)));
@@ -379,7 +379,7 @@ export class HomePage {
   getDistance() {
     this.LavaHealth.getDistance()
       .then(data => {
-        this.myDistance = data[(data as any).length - 1];
+        this.myDistance = data[(data as any).length - 1].value;
       })
       .catch(error => this.presentAlert(JSON.stringify(error)));
   }
