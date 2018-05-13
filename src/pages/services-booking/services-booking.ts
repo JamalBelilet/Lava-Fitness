@@ -73,6 +73,16 @@ export class ServicesBookingPage {
           return res;
         })
       );
+
+      this.services$.subscribe(
+        () => {},
+        error => {
+          if (this.loading) {
+            this.loading.dismiss();
+            this.loading = null;
+          }
+        }
+      );
   }
 
   book(serviceC) {

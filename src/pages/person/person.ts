@@ -294,6 +294,11 @@ export class PersonPage {
           this.loading.dismiss();
           this.loading = null;
         }
+      }, error => {
+        if (this.loading) {
+          this.loading.dismiss();
+          this.loading = null;
+        }
       });
   }
 }

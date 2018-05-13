@@ -61,9 +61,17 @@ export class MyBookingPage {
           return res;
         })
       )
-      .subscribe(res => {
-        this.classeReservations = res;
-      });
+      .subscribe(
+        res => {
+          this.classeReservations = res;
+        },
+        error => {
+          if (this.loading) {
+            this.loading.dismiss();
+            this.loading = null;
+          }
+        }
+      );
     this.lavaProvider
       .getMassageReservations()
       .pipe(
@@ -76,9 +84,17 @@ export class MyBookingPage {
           return res;
         })
       )
-      .subscribe(res => {
-        this.serviceReservations = res;
-      });
+      .subscribe(
+        res => {
+          this.serviceReservations = res;
+        },
+        error => {
+          if (this.loading) {
+            this.loading.dismiss();
+            this.loading = null;
+          }
+        }
+      );
   }
 
   segmentChanged(event) {
@@ -96,8 +112,7 @@ export class MyBookingPage {
           {
             text: translated["Cancel"],
             role: "cancel",
-            handler: () => {
-            }
+            handler: () => {}
           },
           {
             text: translated["Confirm"],
@@ -130,8 +145,7 @@ export class MyBookingPage {
           {
             text: translated["Cancel"],
             role: "cancel",
-            handler: () => {
-            }
+            handler: () => {}
           },
           {
             text: translated["Confirm"],

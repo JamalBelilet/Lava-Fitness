@@ -33,8 +33,9 @@
       </round-progress> -->
 
       <div class="c-container">
-        <ngx-charts-pie-grid [scheme]="colorScheme" [results]="single" [designatedTotal]="(workoutsC$| async)?.sumOfWeekRepetitions">
+        <ngx-charts-pie-grid [view]="view" [scheme]="colorScheme" [results]="single" [designatedTotal]="(workoutsC$| async)?.sumOfWeekRepetitions || 1">
         </ngx-charts-pie-grid>
+
 
 
 

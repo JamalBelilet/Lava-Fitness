@@ -24,10 +24,12 @@ import { LavaHealthProvider } from "../../providers/lava-health/lava-health";
 import moment from "moment";
 
 import { InAppBrowser } from "@ionic-native/in-app-browser";
-import { switchMap } from "rxjs/operators";
+import { switchMap, catchError } from "rxjs/operators";
 import { TranslateService } from "@ngx-translate/core";
 import { AuthenticationProvider } from "../../providers/authentication/authentication";
 import { SplashScreen } from "@ionic-native/splash-screen";
+import { of } from "rxjs/observable/of";
+import { Subject } from "rxjs/Subject";
 // import { NgxChartsModule } from "@swimlane/ngx-charts";
 
 @Component({
@@ -35,6 +37,7 @@ import { SplashScreen } from "@ionic-native/splash-screen";
   templateUrl: "home.html"
 })
 export class HomePage {
+  view: number[];
   lang;
   workoutsSums$: Observable<void>;
   mySteps: any;
@@ -86,6 +89,7 @@ export class HomePage {
   colorScheme = {
     domain: ["#f8cb4f"]
   };
+
 
   constructor(
     public modalCtrl: ModalController,
@@ -197,7 +201,29 @@ export class HomePage {
 
           return wokroutsC;
         })
+      ).pipe(
+        catchError((error) => {
+          // it's important that we log an error here.
+          // Otherwise you won't see an error in the console.
+          console.error('error loading the list of users', error);
+          if (loading) {
+            loading.dismiss();
+            loading = null;
+          }
+          new Subject<boolean>().next(true);
+          return of();
+        })
       );
+
+    // this.workoutsC$.subscribe(
+    //   () => {},
+    //   error => {
+    //     if (loading) {
+    //       loading.dismiss();
+    //       loading = null;
+    //     }
+    //   }
+    // );
 
     // this.workoutsC$.subscribe(workoutsC=> {
     //   let workoutsCC = this.workoutsC$;
@@ -321,27 +347,27 @@ export class HomePage {
         });
       });
 
-  //   this.health
-  //     .query({
-  //       startDate: new Date(new Date().getTime() - 3 * 24 * 60 * 60 * 1000), // three days ago
-  //       endDate: new Date(), //now
-  //       dataType: "steps"
-  //     })
-  //     .then((value: HealthData) => {
-  //       console.info("Before Convertion");
-  //       console.info("Before For loop");
-  //       for (let val in value) {
-  //         console.info("HealthData data  " + JSON.stringify(value[val].value));
-  //         console.info("HealthData data  " + JSON.stringify(value[val]));
-  //       }
+    //   this.health
+    //     .query({
+    //       startDate: new Date(new Date().getTime() - 3 * 24 * 60 * 60 * 1000), // three days ago
+    //       endDate: new Date(), //now
+    //       dataType: "steps"
+    //     })
+    //     .then((value: HealthData) => {
+    //       console.info("Before Convertion");
+    //       console.info("Before For loop");
+    //       for (let val in value) {
+    //         console.info("HealthData data  " + JSON.stringify(value[val].value));
+    //         console.info("HealthData data  " + JSON.stringify(value[val]));
+    //       }
 
-  //       this.alertCtrl
-  //         .create()
-  //         .setMessage("query steps " + JSON.stringify(value)).present();
-  //     })
-  //     .catch((e: any) => {
-  //       console.error("HealthData ERROR:---" + e);
-  //     });
+    //       this.alertCtrl
+    //         .create()
+    //         .setMessage("query steps " + JSON.stringify(value)).present();
+    //     })
+    //     .catch((e: any) => {
+    //       console.error("HealthData ERROR:---" + e);
+    //     });
   }
 
   bookClass() {
@@ -371,15 +397,20 @@ export class HomePage {
   getSteps() {
     this.LavaHealth.getSteps()
       .then(data => {
-        this.mySteps = data[(data as any).length - 1].value;
-        this.alertCtrl.create().setMessage("getSteps()" + JSON.stringify(data[(data as any).length - 1])).present();
+        this.mySteps = Math.floor(data[(data as any).length - 1].value);
+        this.alertCtrl
+          .create()
+          .setMessage(
+            "getSteps()" + JSON.stringify(data[(data as any).length - 1])
+          )
+          .present();
       })
       .catch(error => this.presentAlert(JSON.stringify(error)));
   }
   getDistance() {
     this.LavaHealth.getDistance()
       .then(data => {
-        this.myDistance = data[(data as any).length - 1].value;
+        this.myDistance = Math.floor(data[(data as any).length - 1].value);
       })
       .catch(error => this.presentAlert(JSON.stringify(error)));
   }
@@ -387,6 +418,7 @@ export class HomePage {
   setSteps(steps: any = 200) {
     this.event.value = steps;
     this.LavaHealth.storeSteps(this.event)
+
       .then(response => {
         this.presentAlert(JSON.stringify(response));
       })
@@ -510,5 +542,9 @@ export class HomePage {
         );
       })
     );
+  }
+
+  onResize(event) {
+    this.view = [event.target.innerWidth / 2.5, event.target.innerWidth / 3];
   }
 }

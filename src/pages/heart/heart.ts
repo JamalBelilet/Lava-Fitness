@@ -285,7 +285,7 @@ export class HeartPage {
   getDistance() {
     this.LavaHealth.getDistance()
       .then(data => {
-        this.myDistance = (data as any).value;
+        this.myDistance = Math.floor(data[(data as any).length - 1].value);
       })
       .catch(error => {});
   }
@@ -293,7 +293,7 @@ export class HeartPage {
   getWeekDistance() {
     this.LavaHealth.getWeekDistance()
       .then(data => {
-        this.myWeekDistance = (data as any).value;
+        this.myWeekDistance = Math.floor(data[(data as any).length - 1].value);
       })
       .catch(error => {});
   }
@@ -301,7 +301,7 @@ export class HeartPage {
   getSteps() {
     this.LavaHealth.getSteps()
       .then(data => {
-        this.mySteps = (data as any).value;
+        this.mySteps = Math.floor(data[(data as any).length - 1].value);
       })
       .catch(error => {});
   }
@@ -309,7 +309,7 @@ export class HeartPage {
   getStepsWeek() {
     this.LavaHealth.getStepsParams()
       .then(data => {
-        this.myWeekSteps = (data as any).value;
+        this.myWeekSteps = Math.floor(data[(data as any).length - 1].value);
       })
       .catch(error => {});
   }
@@ -317,7 +317,7 @@ export class HeartPage {
   getStepsMonth() {
     this.LavaHealth.getStepsParams("month")
       .then(data => {
-        this.myMonthSteps = (data as any).value;
+        this.myMonthSteps = Math.floor(data[(data as any).length - 1].value);
       })
       .catch(error => {});
   }
@@ -358,7 +358,7 @@ export class HeartPage {
 
           this.translate.get((week as any).label).subscribe((translated: string) => {
             this.stepsChart.monthsData.labels.push(week.label);
-          this.stepsChart.monthsData.datasets[0].data.push((data as any).value);
+          this.stepsChart.monthsData.datasets[0].data.push(Math.floor(data[(data as any).length - 1].value));
           });
         })
         .catch(error => {});
@@ -425,7 +425,7 @@ export class HeartPage {
         .then(data => {
           this.translate.get("d"+(day as any).label.getDay()).subscribe((translated: string) => {
             this.stepsChart.weeksData.labels.push((day as any).label);
-          this.stepsChart.weeksData.datasets[0].data.push((data as any).value);
+          this.stepsChart.weeksData.datasets[0].data.push(Math.floor(data[(data as any).length - 1].value));
           });
 
         })

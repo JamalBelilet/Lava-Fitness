@@ -71,6 +71,16 @@ export class ClassesBookingPage {
           return res;
         })
       );
+
+    this.classes$.subscribe(
+      () => {},
+      error => {
+        if (this.loading) {
+          this.loading.dismiss();
+          this.loading = null;
+        }
+      }
+    );
   }
 
   book(ExerciseScheduleIDC) {
@@ -81,8 +91,7 @@ export class ClassesBookingPage {
         {
           text: "Cancel",
           role: "cancel",
-          handler: () => {
-          }
+          handler: () => {}
         },
         {
           text: "Confirm",
