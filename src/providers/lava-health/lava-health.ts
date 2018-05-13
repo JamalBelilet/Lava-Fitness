@@ -52,11 +52,10 @@ export class LavaHealthProvider {
   getWeekDistance() {
     return new Promise((resolve, reject) => {
       this.health
-        .queryAggregated({
+        .query({
           startDate: new Date(new Date().getTime() - 6 * 24 * 60 * 60 * 1000), // 6 days ago
           endDate: new Date(), // now
           dataType: "distance",
-          bucket: "day"
         })
         .then(successResponse => {
           resolve(successResponse);
