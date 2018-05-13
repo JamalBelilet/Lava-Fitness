@@ -229,6 +229,7 @@ export class HomePage {
             }
           ])
           .then(res => {
+            this.alertCtrl.create().setMessage(JSON.stringify(res)).present();
             this.getSteps();
             this.getDistance();
           })
@@ -318,6 +319,7 @@ export class HomePage {
     this.LavaHealth.getSteps()
       .then(data => {
         this.mySteps = (data as any).value;
+        this.alertCtrl.create().setMessage('getSteps()' + JSON.stringify(data));
       })
       .catch(error => this.presentAlert(JSON.stringify(error)));
   }
