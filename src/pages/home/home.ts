@@ -230,8 +230,37 @@ export class HomePage {
           .then(res => {
             this.alertCtrl
               .create()
-              .setMessage(JSON.stringify(res))
+              .setMessage("is available \n" + JSON.stringify(res))
               .present();
+
+            this.health
+              .query({
+                startDate: new Date(
+                  new Date().getTime() - 3 * 24 * 60 * 60 * 1000
+                ), // three days ago
+                endDate: new Date(), //now
+                dataType: "steps"
+              })
+              .then((value: HealthData) => {
+                console.info("Before Convertion");
+                console.info("Before For loop");
+                for (let val in value) {
+                  console.info(
+                    "HealthData data  " + JSON.stringify(value[val].value)
+                  );
+                  console.info(
+                    "HealthData data  " + JSON.stringify(value[val])
+                  );
+                }
+
+                this.alertCtrl
+                  .create()
+                  .setMessage("query steps " + JSON.stringify(value)).present();
+              })
+              .catch((e: any) => {
+                console.error("HealthData ERROR:---" + e);
+              });
+
             this.getSteps();
             this.getDistance();
           })
@@ -306,7 +335,9 @@ export class HomePage {
           console.info("HealthData data  " + JSON.stringify(value[val]));
         }
 
-        this.alertCtrl.create().setMessage('query steps '+JSON.stringify(value));
+        this.alertCtrl
+          .create()
+          .setMessage("query steps " + JSON.stringify(value)).present();
       })
       .catch((e: any) => {
         console.error("HealthData ERROR:---" + e);
@@ -341,7 +372,7 @@ export class HomePage {
     this.LavaHealth.getSteps()
       .then(data => {
         this.mySteps = (data as any).value;
-        this.alertCtrl.create().setMessage("getSteps()" + JSON.stringify(data));
+        this.alertCtrl.create().setMessage("getSteps()" + JSON.stringify(data)).present();
       })
       .catch(error => this.presentAlert(JSON.stringify(error)));
   }
