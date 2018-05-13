@@ -18,7 +18,7 @@ import { ProfileProvider } from "../../providers/profile/profile";
 import { map } from "rxjs/operators/map";
 // import { fromPromise } from "rxjs/observable/fromPromise";
 
-import { Health } from "@ionic-native/health";
+import { Health, HealthData } from "@ionic-native/health";
 import { LavaHealthProvider } from "../../providers/lava-health/lava-health";
 
 import moment from "moment";
@@ -100,8 +100,7 @@ export class HomePage {
     private translate: TranslateService,
     private authProvider: AuthenticationProvider,
     private platform: Platform,
-    private splashScreen: SplashScreen,
-
+    private splashScreen: SplashScreen
   ) {
     this.lang = this.authProvider.config.lang;
     moment.locale("en");
@@ -229,7 +228,10 @@ export class HomePage {
             }
           ])
           .then(res => {
-            this.alertCtrl.create().setMessage(JSON.stringify(res)).present();
+            this.alertCtrl
+              .create()
+              .setMessage(JSON.stringify(res))
+              .present();
             this.getSteps();
             this.getDistance();
           })
@@ -289,6 +291,26 @@ export class HomePage {
           }
         });
       });
+
+    this.health
+      .query({
+        startDate: new Date(new Date().getTime() - 3 * 24 * 60 * 60 * 1000), // three days ago
+        endDate: new Date(), //now
+        dataType: "steps"
+      })
+      .then((value: HealthData) => {
+        console.info("Before Convertion");
+        console.info("Before For loop");
+        for (let val in value) {
+          console.info("HealthData data  " + JSON.stringify(value[val].value));
+          console.info("HealthData data  " + JSON.stringify(value[val]));
+        }
+
+        this.alertCtrl.create().setMessage('query steps '+JSON.stringify(value));
+      })
+      .catch((e: any) => {
+        console.error("HealthData ERROR:---" + e);
+      });
   }
 
   bookClass() {
@@ -319,7 +341,7 @@ export class HomePage {
     this.LavaHealth.getSteps()
       .then(data => {
         this.mySteps = (data as any).value;
-        this.alertCtrl.create().setMessage('getSteps()' + JSON.stringify(data));
+        this.alertCtrl.create().setMessage("getSteps()" + JSON.stringify(data));
       })
       .catch(error => this.presentAlert(JSON.stringify(error)));
   }
