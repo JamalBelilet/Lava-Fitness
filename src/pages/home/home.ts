@@ -372,7 +372,7 @@ export class HomePage {
     this.LavaHealth.getSteps()
       .then(data => {
         this.mySteps = data[(data as any).length - 1].value;
-        // this.alertCtrl.create().setMessage("getSteps()" + JSON.stringify(data[(data as any).length - 1])).present();
+        this.alertCtrl.create().setMessage("getSteps()" + JSON.stringify(data[(data as any).length - 1])).present();
       })
       .catch(error => this.presentAlert(JSON.stringify(error)));
   }
