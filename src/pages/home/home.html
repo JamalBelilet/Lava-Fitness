@@ -33,17 +33,13 @@
       </round-progress> -->
 
       <div class="c-container">
-        <ngx-charts-pie-grid [view]="view" [scheme]="colorScheme" [results]="single" [designatedTotal]="(workoutsC$| async)?.sumOfWeekRepetitions || 1">
+
+        <ngx-charts-pie-grid [scheme]="colorScheme" [results]="single" [designatedTotal]="(workoutsC$| async)?.sumOfWeekRepetitions || 1">
         </ngx-charts-pie-grid>
-
-
-
-
-
-
 
       </div>
       <p class="user-circle-number">{{(workoutsC$| async)?.sumOfNumberOfWorkoutFinishers}}</p>
+
       <p class="user-circle-days">{{"finish" | translate}}</p>
     </div>
 
@@ -52,6 +48,12 @@
       <p class="user-steps-text">{{"Steps" | translate}}</p>
       <p class="user-steps-number">{{mySteps || 0}}</p>
     </div>
+
+
+
+
+
+
 
     <p class="user-goal">{{"Goal"| translate}}: {{(workoutsC$| async)?.sumOfWeekRepetitions || 0}} {{"finishes" | translate}}</p>
 

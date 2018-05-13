@@ -129,6 +129,10 @@ page-home {
       display: flex;
       justify-content: center;
       align-items: center;
+      // overflow: hidden;
+      // background: yellow;
+
+
       .user-circle-number {
         position: absolute;
 
@@ -461,60 +465,29 @@ page-home {
     @include position(25.06vh !important, null, null, 14.19vw !important);
   }
 
-  ngx-charts-chart,
-  .ngx-charts-outer.ng-trigger.ng-trigger-animationState {
-    height: 100%!important;
-    width: 100%!important;
-    position: absolute;
-    max-width: 100% !important;
-    max-height: 100%!important;
-    margin: 0 auto;
-    left: 0;
-    bottom: 0;
-
-  }
-
   .c-container {
     // width: 33.5vw;
-      height: 100%!important;
-    width: 100%!important;
-    min-width: 150% !important;
-    min-height: 150%!important;
-    margin: 0 auto;
-    // background: red!important;
+      height: 25.83vh!important;
+
+    // width: auto!important;
     // height: 55vw!important;
+    min-width: 165%!important;
+position: relative;
+left: 5%;
+top: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    // left: -4.2vh;
+
+    // right: 0vh;
+
     // top: -4vh;
-    max-width: 100% !important;
-    max-height: 100%!important;
-    // margin: 0 auto;
+    margin: 0 auto!important;
 
-    // font-size: 5vw!important;
 
-    .ngx-charts {
-      max-width: 100% !important;
-    max-height: 100%!important;
-    min-width: 100% !important;
-    min-height: 100%!important;
-    }
-  }
-
-  .pie-grid.chart {
-
-    transform: translate(15% , 15%)!important;
   }
 
   ngx-charts-pie-grid {
-    // max-width: 100% !important;
-    // max-height: 100%!important;
-    // height: 100%!important;
-    // width: 100%!important;
-    // background: greenyellow!important;
-    // margin: 0 auto;
     .label {
       display: none !important;
     }

@@ -24,6 +24,8 @@ import { TranslateService } from "@ngx-translate/core";
 })
 export class MyApp {
   rootPage: any;
+  this.rootPage = LoginPage;
+
 
   constructor(
     translate: TranslateService,
