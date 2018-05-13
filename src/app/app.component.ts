@@ -23,8 +23,7 @@ import { TranslateService } from "@ngx-translate/core";
   templateUrl: "app.html"
 })
 export class MyApp {
-  rootPage: any;
-  this.rootPage = LoginPage;
+  rootPage: any= LoginPage;
 
 
   constructor(
