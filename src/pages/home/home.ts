@@ -233,33 +233,33 @@ export class HomePage {
               .setMessage("is available \n" + JSON.stringify(res))
               .present();
 
-            this.health
-              .query({
-                startDate: new Date(
-                  new Date().getTime() - 3 * 24 * 60 * 60 * 1000
-                ), // three days ago
-                endDate: new Date(), //now
-                dataType: "steps"
-              })
-              .then((value: HealthData) => {
-                console.info("Before Convertion");
-                console.info("Before For loop");
-                for (let val in value) {
-                  console.info(
-                    "HealthData data  " + JSON.stringify(value[val].value)
-                  );
-                  console.info(
-                    "HealthData data  " + JSON.stringify(value[val])
-                  );
-                }
+            // this.health
+            //   .query({
+            //     startDate: new Date(
+            //       new Date().getTime() - 3 * 24 * 60 * 60 * 1000
+            //     ), // three days ago
+            //     endDate: new Date(), //now
+            //     dataType: "steps"
+            //   })
+            //   .then((value: HealthData) => {
+            //     console.info("Before Convertion");
+            //     console.info("Before For loop");
+            //     for (let val in value) {
+            //       console.info(
+            //         "HealthData data  " + JSON.stringify(value[val].value)
+            //       );
+            //       console.info(
+            //         "HealthData data  " + JSON.stringify(value[val])
+            //       );
+            //     }
 
-                this.alertCtrl
-                  .create()
-                  .setMessage("query steps " + JSON.stringify(value)).present();
-              })
-              .catch((e: any) => {
-                console.error("HealthData ERROR:---" + e);
-              });
+            //     this.alertCtrl
+            //       .create()
+            //       .setMessage("query steps " + JSON.stringify(value)).present();
+            //   })
+            //   .catch((e: any) => {
+            //     console.error("HealthData ERROR:---" + e);
+            //   });
 
             this.getSteps();
             this.getDistance();
@@ -321,27 +321,27 @@ export class HomePage {
         });
       });
 
-    this.health
-      .query({
-        startDate: new Date(new Date().getTime() - 3 * 24 * 60 * 60 * 1000), // three days ago
-        endDate: new Date(), //now
-        dataType: "steps"
-      })
-      .then((value: HealthData) => {
-        console.info("Before Convertion");
-        console.info("Before For loop");
-        for (let val in value) {
-          console.info("HealthData data  " + JSON.stringify(value[val].value));
-          console.info("HealthData data  " + JSON.stringify(value[val]));
-        }
+  //   this.health
+  //     .query({
+  //       startDate: new Date(new Date().getTime() - 3 * 24 * 60 * 60 * 1000), // three days ago
+  //       endDate: new Date(), //now
+  //       dataType: "steps"
+  //     })
+  //     .then((value: HealthData) => {
+  //       console.info("Before Convertion");
+  //       console.info("Before For loop");
+  //       for (let val in value) {
+  //         console.info("HealthData data  " + JSON.stringify(value[val].value));
+  //         console.info("HealthData data  " + JSON.stringify(value[val]));
+  //       }
 
-        this.alertCtrl
-          .create()
-          .setMessage("query steps " + JSON.stringify(value)).present();
-      })
-      .catch((e: any) => {
-        console.error("HealthData ERROR:---" + e);
-      });
+  //       this.alertCtrl
+  //         .create()
+  //         .setMessage("query steps " + JSON.stringify(value)).present();
+  //     })
+  //     .catch((e: any) => {
+  //       console.error("HealthData ERROR:---" + e);
+  //     });
   }
 
   bookClass() {
@@ -372,7 +372,7 @@ export class HomePage {
     this.LavaHealth.getSteps()
       .then(data => {
         this.mySteps = data[(data as any).length - 1];
-        this.alertCtrl.create().setMessage("getSteps()" + JSON.stringify(data[(data as any).length - 1])).present();
+        // this.alertCtrl.create().setMessage("getSteps()" + JSON.stringify(data[(data as any).length - 1])).present();
       })
       .catch(error => this.presentAlert(JSON.stringify(error)));
   }
