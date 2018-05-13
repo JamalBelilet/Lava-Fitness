@@ -371,15 +371,15 @@ export class HomePage {
   getSteps() {
     this.LavaHealth.getSteps()
       .then(data => {
-        this.mySteps = (data as any).value;
-        this.alertCtrl.create().setMessage("getSteps()" + JSON.stringify(data)).present();
+        this.mySteps = data[(data as any).length - 1];
+        this.alertCtrl.create().setMessage("getSteps()" + JSON.stringify(data[(data as any).length - 1])).present();
       })
       .catch(error => this.presentAlert(JSON.stringify(error)));
   }
   getDistance() {
     this.LavaHealth.getDistance()
       .then(data => {
-        this.myDistance = (data as any).value;
+        this.myDistance = data[(data as any).length - 1];
       })
       .catch(error => this.presentAlert(JSON.stringify(error)));
   }
