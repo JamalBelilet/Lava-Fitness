@@ -1,5 +1,5 @@
 import { Component, ViewChild } from "@angular/core";
-import { NavController, NavParams } from "ionic-angular";
+import { NavController, NavParams, AlertController } from "ionic-angular";
 
 // import { Chart } from "chart.js";
 import { LavaHealthProvider } from "../../providers/lava-health/lava-health";
@@ -64,7 +64,8 @@ export class HeartPage {
     private translate: TranslateService,
     private authProfider: AuthenticationProvider,
     private lavaProvider: LavaProvider,
-    private profileProvider: ProfileProvider
+    private profileProvider: ProfileProvider,
+    private alertCtrl: AlertController
   ) {
     this.lang = this.authProfider.config.lang;
     translate.get("week-days").subscribe((translated: string) => {
@@ -295,7 +296,8 @@ export class HeartPage {
         (data as any).forEach(cDistance => {
           _distance += cDistance.value;
         });
-        this.myDistance = Math.floor(data[(data as any).length - 1]);
+        this.myDistance = Math.floor(data[(data as any).length - 1] + data[(data as any).length - 2]);
+        this.alertCtrl.create().setMessage('getDistance\n' + JSON.stringify(data));
       })
       .catch(error => {});
   }
@@ -319,7 +321,8 @@ export class HeartPage {
         // (data as any).forEach(cSteps => {
         //   _steps += cSteps.value;
         // });
-        this.mySteps = Math.floor(data[(data as any).length - 1]);
+        this.mySteps = Math.floor(data[(data as any).length - 1] + data[(data as any).length - 2]);
+        this.alertCtrl.create().setMessage('getSteps\n' + JSON.stringify(data));
       })
       .catch(error => {});
   }
