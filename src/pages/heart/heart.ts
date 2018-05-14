@@ -459,7 +459,7 @@ export class HeartPage {
             _steps += cSteps.value;
           });
           this.translate
-            .get("d" + (day as any).label.getDay())
+            .get("d" + (day as any).label)
             .subscribe((translated: string) => {
               this.stepsChart.weeksData.labels.push(translated);
               this.stepsChart.weeksData.datasets[0].data.push(

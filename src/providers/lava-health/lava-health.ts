@@ -111,8 +111,8 @@ export class LavaHealthProvider {
     return new Promise((resolve, reject) => {
       this.health
         .queryAggregated({
-          startDate: new Date(new Date().setHours(0, 0, 0, 0)),
-          endDate: new Date(),
+          startDate: startDate,
+          endDate: endDate,
           bucket: bucket,
           dataType: "steps"
         })
