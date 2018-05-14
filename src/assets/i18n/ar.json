@@ -23,8 +23,7 @@
   "Dismiss": "اغلق",
 
   "GetGoogleFit": {
-    "message":
-      " Playstore من Google Fit يجب عليك تثبيت Lava Fitness للحصول على جميع ميزات",
+    "message": " Playstore من Google Fit يجب عليك تثبيت Lava Fitness للحصول على جميع ميزات",
     "buttons": {
       "Cancel": "إلغاء",
       "GetGoogleFit": " Google Fit احصل على"
@@ -129,13 +128,11 @@
   },
 
   "Classe booking": "حجز كلاس",
-  "Please try to change the date, or the branch":
-    "يرجى محاولة تغيير التاريخ ، أو الفرع",
+  "Please try to change the date, or the branch": "يرجى محاولة تغيير التاريخ ، أو الفرع",
 
   "Services booking": "حجز الخدمات",
   "book": "كتاب",
-  "Please try to change the date, or the massager":
-    "يرجى محاولة تغيير التاريخ ، أو مدلك",
+  "Please try to change the date, or the massager": "يرجى محاولة تغيير التاريخ ، أو مدلك",
 
   "Workout Completed!": "اكتمل تمرين!",
   "out of": "بعيدا عن المكان",
@@ -143,8 +140,7 @@
   "Easy": "سهل",
   "Good": "جيد",
   "Hard": "الصعب",
-  "Good job! You have 1 more workout for this week":
-    "عمل جيد! لديك 1 تجريب أكثر لهذا الأسبوع",
+  "Good job! You have 1 more workout for this week": "عمل جيد! لديك 1 تجريب أكثر لهذا الأسبوع",
 
   "Performance": "أداء",
   "Today": "اليوم",
@@ -160,18 +156,18 @@
   "Workouts": "التدريبات",
   "Month": "شهر",
 
-  "d0": "السبت",
-  "d1": "الأحد",
-  "d2": "الإثنين",
-  "d3": "الثلاثاء",
-  "d4": "الأربعاء",
-  "d5": "الخميس",
-  "d6": "الجمعة",
+  "d0": "الأحد",
+  "d1": "الإثنين",
+  "d2": "الثلاثاء",
+  "d3": "الأربعاء",
+  "d4": "الخميس",
+  "d5": "الجمعة",
+  "d6": "السبت",
 
-   "1wk": "1wk",
-      "2wk": "2wk",
-      "3wk": "3wk",
-      "4wk": "4wk",
+  "1wk": "1wk",
+  "2wk": "2wk",
+  "3wk": "3wk",
+  "4wk": "4wk",
 
   "week-days": {
     "weeksData": {
