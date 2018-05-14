@@ -378,7 +378,7 @@ export class HeartPage {
       this.LavaHealth.getStepsPerParams(
         week.startDate,
         week.endDate,
-        "days",
+        "day",
         "steps"
       )
         .then(data => {
