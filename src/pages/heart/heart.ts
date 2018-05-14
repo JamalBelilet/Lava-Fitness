@@ -289,6 +289,7 @@ export class HeartPage {
       )
       .subscribe(() => {});
   }
+
   getDistance() {
     this.LavaHealth.getDistance()
       .then(data => {
@@ -296,12 +297,10 @@ export class HeartPage {
         (data as any).forEach(cDistance => {
           _distance += cDistance.value;
         });
-        this.myDistance = Math.floor(data[(data as any).length - 1] + data[(data as any).length - 2]);
-        this.alertCtrl.create().setMessage('getDistance\n' + JSON.stringify(data));
+        this.myDistance = Math.floor(_distance);
       })
       .catch(error => {});
   }
-
   getWeekDistance() {
     this.LavaHealth.getWeekDistance()
       .then(data => {
@@ -317,18 +316,17 @@ export class HeartPage {
   getSteps() {
     this.LavaHealth.getSteps()
       .then(data => {
-        // let _steps = 0;
-        // (data as any).forEach(cSteps => {
-        //   _steps += cSteps.value;
-        // });
-        this.mySteps = Math.floor(data[(data as any).length - 1] + data[(data as any).length - 2]);
-        this.alertCtrl.create().setMessage('getSteps\n' + JSON.stringify(data));
+        let _steps = 0;
+        (data as any).forEach(cSteps => {
+          _steps += cSteps.value;
+        });
+        this.mySteps = _steps;
       })
       .catch(error => {});
   }
 
   getStepsWeek() {
-    this.LavaHealth.getStepsParams()
+    this.LavaHealth.getStepsParams(6)
       .then(data => {
         let _steps = 0;
         (data as any).forEach(cSteps => {
@@ -340,7 +338,7 @@ export class HeartPage {
   }
 
   getStepsMonth() {
-    this.LavaHealth.getStepsParams("month")
+    this.LavaHealth.getStepsParams(30)
       .then(data => {
         let _steps = 0;
         (data as any).forEach(cSteps => {
@@ -380,7 +378,7 @@ export class HeartPage {
       this.LavaHealth.getStepsPerParams(
         week.startDate,
         week.endDate,
-        "week",
+        "days",
         "steps"
       )
         .then(data => {

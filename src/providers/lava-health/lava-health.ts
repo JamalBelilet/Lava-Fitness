@@ -12,32 +12,18 @@ import { Health } from "@ionic-native/health";
 export class LavaHealthProvider {
   constructor(public http: HttpClient, private health: Health) {}
 
-  getActivity() {
+  getDistance(
+    startDate: Date = new Date(new Date().setHours(0, 0, 0, 0)),
+    endDate: Date = new Date(),
+    bucket: string = "day"
+  ) {
     return new Promise((resolve, reject) => {
       this.health
         .queryAggregated({
-          startDate: new Date(new Date().getTime() - 3 * 24 * 60 * 60 * 1000), // three days ago
-          endDate: new Date(), // now
-          dataType: "activity",
-          bucket: "day"
-        })
-        .then(successResponse => {
-          resolve(successResponse);
-        })
-        .catch(error => {
-          reject(error);
-        });
-    });
-  }
-
-  getDistance() {
-    return new Promise((resolve, reject) => {
-      this.health
-        .queryAggregated({
-          startDate: new Date(), // 6 days ago
-          endDate: new Date(), // now
+          startDate: startDate, // 6 days ago
+          endDate: endDate, // now
           dataType: "distance",
-          bucket: "day"
+          bucket: bucket
         })
         .then(successResponse => {
           resolve(successResponse);
@@ -48,14 +34,18 @@ export class LavaHealthProvider {
     });
   }
 
-  getWeekDistance() {
+  getWeekDistance(
+    startDate: Date = new Date(new Date().getTime() - 6 * 24 * 60 * 60 * 1000),
+    endDate: Date = new Date(),
+    bucket: string = "day"
+  ) {
     return new Promise((resolve, reject) => {
       this.health
         .queryAggregated({
-          startDate: new Date(new Date().getTime() - 6 * 24 * 60 * 60 * 1000), // 6 days ago
-          endDate: new Date(), // now
+          startDate: startDate,
+          endDate: endDate,
           dataType: "distance",
-          bucket: "day"
+          bucket: bucket
         })
         .then(successResponse => {
           resolve(successResponse);
@@ -65,24 +55,6 @@ export class LavaHealthProvider {
         });
     });
   }
-
-  // getSteps() {
-  //   return new Promise((resolve, reject) => {
-  //     this.health
-  //       .queryAggregated({
-  //         startDate: new Date(), // 6 days ago
-  //         endDate: new Date(), // now
-  //         dataType: "steps",
-  //         bucket: "day"
-  //       })
-  //       .then(successResponse => {
-  //         resolve(successResponse);
-  //       })
-  //       .catch(error => {
-  //         reject(error);
-  //       });
-  //   });
-  // }
 
   getSteps(
     startDate: Date = new Date(new Date().setHours(0, 0, 0, 0)),
@@ -106,13 +78,13 @@ export class LavaHealthProvider {
     });
   }
 
-  getStepsParams(bucket: string = "week") {
+  getStepsParams(days: number) {
     return new Promise((resolve, reject) => {
       this.health
         .queryAggregated({
-          startDate: new Date(new Date().setHours(0, 0, 0, 0)),
+          startDate: new Date(new Date().getTime() - days * 24 * 60 * 60 * 1000),
           endDate: new Date(),
-          bucket: bucket,
+          bucket: "day",
           dataType: "steps"
         })
         .then(successResponse => {
@@ -126,7 +98,7 @@ export class LavaHealthProvider {
   getStepsPerParams(
     startDate = new Date(new Date().setHours(0, 0, 0, 0)),
     endDate = new Date(),
-    bucket: string = "week",
+    bucket: string = "day",
     dataType = "steps"
   ) {
     return new Promise((resolve, reject) => {
@@ -146,96 +118,4 @@ export class LavaHealthProvider {
     });
   }
 
-  storeSteps(stepsData: any) {
-    return new Promise((resolve, reject) => {
-      this.health
-        .store(stepsData)
-        .then(successResponse => {
-          resolve(successResponse);
-        })
-        .catch(error => {
-          reject(error);
-        });
-    });
-  }
-
-  getCalories(
-    startDate: Date = new Date(new Date().getTime() - 1000 * 60 * 60 * 24),
-    endDate: Date = new Date(),
-    bucket: string = "day"
-  ) {
-    return new Promise((resolve, reject) => {
-      this.health
-        .queryAggregated({
-          startDate: startDate,
-          endDate: endDate,
-          bucket: bucket,
-          // filtered: true,
-          dataType: "calories"
-        })
-        .then(successResponse => {
-          resolve(successResponse);
-        })
-        .catch(error => {
-          reject(error);
-        });
-    });
-  }
-
-  setCalories(caloriesData: any) {
-    return new Promise((resolve, reject) => {
-      this.health
-        .store(caloriesData)
-        .then(successResponse => {
-          resolve(successResponse);
-        })
-        .catch(error => {
-          reject(error);
-        });
-    });
-  }
-
-  getCaloriesActive(
-    startDate: Date = new Date(new Date().getTime() - 1000 * 60 * 60 * 24),
-    endDate: Date = new Date(),
-    bucket: string = "day"
-  ) {
-    return new Promise((resolve, reject) => {
-      this.health
-        .queryAggregated({
-          startDate: startDate,
-          endDate: endDate,
-          bucket: bucket,
-          dataType: "calories.active"
-        })
-        .then(successResponse => {
-          resolve(successResponse);
-        })
-        .catch(error => {
-          reject(error);
-        });
-    });
-  }
-
-  getCaloriesBasal(
-    startDate: Date = new Date(new Date().getTime() - 1000 * 60 * 60 * 24),
-    endDate: Date = new Date(),
-    bucket: string = "day"
-  ) {
-    return new Promise((resolve, reject) => {
-      this.health
-        .queryAggregated({
-          startDate: startDate,
-          endDate: endDate,
-          bucket: bucket,
-          dataType: "calories.basal"
-        })
-        .then(successResponse => {
-          resolve(successResponse);
-        })
-        .catch(error => {
-          reject(error);
-        });
-    });
-  }
 }
