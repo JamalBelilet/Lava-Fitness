@@ -295,7 +295,7 @@ export class HeartPage {
         (data as any).forEach(cDistance => {
           _distance += cDistance.value;
         });
-        this.myDistance = Math.floor(_distance);
+        this.myDistance = Math.floor(data[(data as any).length - 1]);
       })
       .catch(error => {});
   }
@@ -315,11 +315,11 @@ export class HeartPage {
   getSteps() {
     this.LavaHealth.getSteps()
       .then(data => {
-        let _steps = 0;
-        (data as any).forEach(cSteps => {
-          _steps += cSteps.value;
-        });
-        this.mySteps = Math.floor(_steps);
+        // let _steps = 0;
+        // (data as any).forEach(cSteps => {
+        //   _steps += cSteps.value;
+        // });
+        this.mySteps = Math.floor(data[(data as any).length - 1]);
       })
       .catch(error => {});
   }

@@ -381,7 +381,7 @@ export class HomePage {
         (data as any).forEach(cSteps => {
           _steps += cSteps.value;
         });
-        this.mySteps = Math.floor(_steps);
+        this.mySteps = Math.floor(data[(data as any).length - 1]);
       })
       .catch(error => this.presentAlert(JSON.stringify(error)));
   }
@@ -393,7 +393,7 @@ export class HomePage {
         (data as any).forEach(cDistance => {
           _distance += cDistance.value;
         });
-        this.myDistance = Math.floor(_distance);
+        this.myDistance = Math.floor(data[(data as any).length - 1]);
       })
       .catch(error => this.presentAlert(JSON.stringify(error)));
   }
