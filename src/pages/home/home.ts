@@ -381,7 +381,8 @@ export class HomePage {
         (data as any).forEach(cSteps => {
           _steps += cSteps.value;
         });
-        this.mySteps = Math.floor(data[(data as any).length - 1]);
+        this.mySteps = data;
+        this.alertCtrl.create().setTitle('getSteps').setMessage(JSON.stringify(data)).present();
       })
       .catch(error => this.presentAlert(JSON.stringify(error)));
   }

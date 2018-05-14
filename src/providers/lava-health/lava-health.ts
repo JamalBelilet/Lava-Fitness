@@ -10,8 +10,7 @@ import { Health } from "@ionic-native/health";
 */
 @Injectable()
 export class LavaHealthProvider {
-  constructor(public http: HttpClient, private health: Health) {
-  }
+  constructor(public http: HttpClient, private health: Health) {}
 
   getActivity() {
     return new Promise((resolve, reject) => {
@@ -67,14 +66,36 @@ export class LavaHealthProvider {
     });
   }
 
-  getSteps() {
+  // getSteps() {
+  //   return new Promise((resolve, reject) => {
+  //     this.health
+  //       .queryAggregated({
+  //         startDate: new Date(), // 6 days ago
+  //         endDate: new Date(), // now
+  //         dataType: "steps",
+  //         bucket: "day"
+  //       })
+  //       .then(successResponse => {
+  //         resolve(successResponse);
+  //       })
+  //       .catch(error => {
+  //         reject(error);
+  //       });
+  //   });
+  // }
+
+  getSteps(
+    startDate: Date = new Date(new Date().setHours(0, 0, 0, 0)),
+    endDate: Date = new Date(),
+    bucket: string = "week"
+  ) {
     return new Promise((resolve, reject) => {
       this.health
         .queryAggregated({
-          startDate: new Date(), // 6 days ago
-          endDate: new Date(), // now
-          dataType: "steps",
-          bucket: "day"
+          startDate: startDate,
+          endDate: endDate,
+          bucket: bucket,
+          dataType: "steps"
         })
         .then(successResponse => {
           resolve(successResponse);
