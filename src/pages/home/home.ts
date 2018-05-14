@@ -374,122 +374,34 @@ export class HomePage {
     this.navCtrl.parent.select(0);
   }
 
-  // this.paymentTabs.select(1);
-
-  getActivity() {
-    this.LavaHealth.getActivity()
-      .then(data => {
-        (this.myActivity as any) = data;
-        if (this.myActivity && (this.myActivity as any).length) {
-          this.myActivity = this.myActivity[0];
-
-          (this.myActivity as any).startDate = moment(
-            this.myActivity.startDate
-          ).fromNow();
-          (this.myActivity as any).endDate = moment(
-            this.myActivity.endDate
-          ).fromNow();
-        }
-      })
-      .catch(error => this.presentAlert(JSON.stringify(error)));
-  }
-
   getSteps() {
     this.LavaHealth.getSteps()
       .then(data => {
-        this.mySteps = Math.floor(data[(data as any).length - 1].value);
-        // this.alertCtrl
-        //   .create()
-        //   .setMessage(
-        //     "getSteps()" + JSON.stringify(data[(data as any).length - 1])
-        //   )
-        //   .present();
+        let _steps = 0;
+        (data as any).forEach(cSteps => {
+          _steps += cSteps;
+        });
+        this.mySteps = Math.floor(_steps);
       })
       .catch(error => this.presentAlert(JSON.stringify(error)));
   }
+
   getDistance() {
     this.LavaHealth.getDistance()
       .then(data => {
+        let _distance = 0;
+        (data as any).forEach(cDistance => {
+          _distance += cDistance;
+        });
         this.myDistance = Math.floor(data[(data as any).length - 1].value);
       })
       .catch(error => this.presentAlert(JSON.stringify(error)));
-  }
-
-  setSteps(steps: any = 200) {
-    this.event.value = steps;
-    this.LavaHealth.storeSteps(this.event)
-
-      .then(response => {
-        this.presentAlert(JSON.stringify(response));
-      })
-      .catch(error => {
-        this.presentAlert(JSON.stringify(error));
-      });
-  }
-
-  getCalories() {
-    this.LavaHealth.getCalories(
-      new Date(new Date().getTime() - 3 * 24 * 60 * 60 * 1000)
-    )
-      .then(data => {
-        // this.myCalories = Object.keys(data);
-        for (var p in data) {
-          this.myCalories.push({
-            name: data[p].startDate.getDate(),
-            value: Math.floor(data[p].value)
-          });
-        }
-      })
-      .catch(error => {
-        this.presentAlert(JSON.stringify(error));
-      });
   }
 
   isArray(array) {
     return Array.isArray(array);
   }
 
-  getCaloriesActive() {
-    this.LavaHealth.getCaloriesActive(
-      new Date(new Date().getTime() - 3 * 24 * 60 * 60 * 1000)
-    )
-      .then(data => {
-        this.myCaloriesActive = data;
-      })
-      .catch(error => {
-        this.presentAlert(JSON.stringify(error));
-      });
-  }
-
-  getCaloriesBasal() {
-    this.LavaHealth.getCaloriesBasal(
-      new Date(new Date().getTime() - 3 * 24 * 60 * 60 * 1000)
-    )
-      .then(data => {
-        this.myCaloriesBasal = data;
-      })
-      .catch(error => {
-        this.presentAlert(JSON.stringify(error));
-      });
-  }
-
-  setCalories() {
-    let nutritionData = {
-      startDate: new Date(new Date().getTime() - 9 * 60 * 60 * 1000), // three hours ago
-      endDate: new Date(new Date().getTime() - 4 * 60 * 60 * 1000),
-      dataType: "calories",
-      value: 8000,
-      sourceName: "lava",
-      sourceBundleId: "io.ionic.starter"
-    };
-    this.LavaHealth.setCalories(nutritionData)
-      .then(response => {
-        this.presentAlert(JSON.stringify(response));
-      })
-      .catch(error => {
-        this.presentAlert(JSON.stringify(error));
-      });
-  }
 
   presentAlert(msg) {
     this.translate.get("Dismiss").subscribe((res: string) => {
@@ -544,7 +456,4 @@ export class HomePage {
     );
   }
 
-  onResize(event) {
-    this.view = [event.target.innerWidth / 2.5, event.target.innerWidth / 3];
-  }
 }

@@ -22,14 +22,13 @@ import { ChartComponent } from "angular2-chartjs";
  */
 
 @Component({
-
   selector: "page-heart",
   templateUrl: "heart.html"
 })
 export class HeartPage {
   avg: number;
-  thisMonthReadoutsCounts: any= 0;
-  thisWeekReadoutsCounts: any= 0;
+  thisMonthReadoutsCounts: any = 0;
+  thisWeekReadoutsCounts: any = 0;
   memberReadouts;
 
   todayReadouts = [];
@@ -55,7 +54,7 @@ export class HeartPage {
 
   _readouts = [];
 
-  @ViewChild('workoutChartDays') workoutChartDays: ChartComponent;
+  @ViewChild("workoutChartDays") workoutChartDays: ChartComponent;
 
   constructor(
     public navCtrl: NavController,
@@ -173,6 +172,7 @@ export class HeartPage {
       .then((available: boolean) => {
         this.health
           .requestAuthorization([
+            "distance",
             {
               read: ["steps"] //read only permission
             }
@@ -269,13 +269,19 @@ export class HeartPage {
                 // )
                 //   this.thisMonthReadouts.push(thisMonthReadouts);
 
-                  this._readouts.push(JSON.stringify(readouts));
-                  this.thisWeekReadoutsCounts = 0;
-                  this.thisMonthReadoutsCounts = 0;
-                  this.getWorkoutsPerDay(this._readouts).forEach(count => this.thisWeekReadoutsCounts += count);
-                  let weeksCounts = this.getWorkoutsPerWeek(this._readouts);
-                  weeksCounts.forEach(count => this.thisMonthReadoutsCounts += count);
-                  this.avg = weeksCounts.length?  (this.thisMonthReadoutsCounts / weeksCounts.length) : 0;
+                this._readouts.push(JSON.stringify(readouts));
+                this.thisWeekReadoutsCounts = 0;
+                this.thisMonthReadoutsCounts = 0;
+                this.getWorkoutsPerDay(this._readouts).forEach(
+                  count => (this.thisWeekReadoutsCounts += count)
+                );
+                let weeksCounts = this.getWorkoutsPerWeek(this._readouts);
+                weeksCounts.forEach(
+                  count => (this.thisMonthReadoutsCounts += count)
+                );
+                this.avg = weeksCounts.length
+                  ? this.thisMonthReadoutsCounts / weeksCounts.length
+                  : 0;
               });
           });
         })
@@ -285,7 +291,11 @@ export class HeartPage {
   getDistance() {
     this.LavaHealth.getDistance()
       .then(data => {
-        this.myDistance = Math.floor(data[(data as any).length - 1].value);
+        let _distance = 0;
+        (data as any).forEach(cDistance => {
+          _distance += cDistance;
+        });
+        this.myDistance = Math.floor(_distance);
       })
       .catch(error => {});
   }
@@ -293,7 +303,11 @@ export class HeartPage {
   getWeekDistance() {
     this.LavaHealth.getWeekDistance()
       .then(data => {
-        this.myWeekDistance = Math.floor(data[(data as any).length - 1].value);
+        let _distance = 0;
+        (data as any).forEach(cDistance => {
+          _distance += cDistance;
+        });
+        this.myWeekDistance = Math.floor(_distance);
       })
       .catch(error => {});
   }
@@ -301,7 +315,11 @@ export class HeartPage {
   getSteps() {
     this.LavaHealth.getSteps()
       .then(data => {
-        this.mySteps = Math.floor(data[(data as any).length - 1].value);
+        let _steps = 0;
+        (data as any).forEach(cSteps => {
+          _steps += cSteps;
+        });
+        this.mySteps = Math.floor(_steps);
       })
       .catch(error => {});
   }
@@ -309,7 +327,11 @@ export class HeartPage {
   getStepsWeek() {
     this.LavaHealth.getStepsParams()
       .then(data => {
-        this.myWeekSteps = Math.floor(data[(data as any).length - 1].value);
+        let _steps = 0;
+        (data as any).forEach(cSteps => {
+          _steps += cSteps;
+        });
+        this.myWeekSteps = Math.floor(_steps);
       })
       .catch(error => {});
   }
@@ -317,7 +339,11 @@ export class HeartPage {
   getStepsMonth() {
     this.LavaHealth.getStepsParams("month")
       .then(data => {
-        this.myMonthSteps = Math.floor(data[(data as any).length - 1].value);
+        let _steps = 0;
+        (data as any).forEach(cSteps => {
+          _steps += cSteps;
+        });
+        this.myMonthSteps = Math.floor(_steps);
       })
       .catch(error => {});
   }
@@ -355,11 +381,16 @@ export class HeartPage {
         "steps"
       )
         .then(data => {
-
-          this.translate.get((week as any).label).subscribe((translated: string) => {
-            this.stepsChart.monthsData.labels.push(week.label);
-          this.stepsChart.monthsData.datasets[0].data.push(Math.floor(data[(data as any).length - 1].value));
+          let _steps = 0;
+          (data as any).forEach(cSteps => {
+            _steps += cSteps;
           });
+          this.translate
+            .get((week as any).label)
+            .subscribe((translated: string) => {
+              this.stepsChart.monthsData.labels.push(week.label);
+              this.stepsChart.monthsData.datasets[0].data.push(_steps);
+            });
         })
         .catch(error => {});
     });
@@ -423,11 +454,18 @@ export class HeartPage {
         "steps"
       )
         .then(data => {
-          this.translate.get("d"+(day as any).label.getDay()).subscribe((translated: string) => {
-            this.stepsChart.weeksData.labels.push((day as any).label);
-          this.stepsChart.weeksData.datasets[0].data.push(Math.floor(data[(data as any).length - 1].value));
+          let _steps = 0;
+          (data as any).forEach(cSteps => {
+            _steps += cSteps;
           });
-
+          this.translate
+            .get("d" + (day as any).label.getDay())
+            .subscribe((translated: string) => {
+              this.stepsChart.weeksData.labels.push(translated);
+              this.stepsChart.weeksData.datasets[0].data.push(
+                Math.floor(_steps)
+              );
+            });
         })
         .catch(error => {});
     });
@@ -467,27 +505,35 @@ export class HeartPage {
         readout.Bodybuilding =
           (!readout.Bodybuilding && []) ||
           readout.Bodybuilding.filter(
-            exo => moment(exo.CreationDate).year() == day.label.getFullYear() && moment(exo.CreationDate).month() == day.label.getMonth()  && moment(exo.CreationDate).date() == day.label.getDate()
+            exo =>
+              moment(exo.CreationDate).year() == day.label.getFullYear() &&
+              moment(exo.CreationDate).month() == day.label.getMonth() &&
+              moment(exo.CreationDate).date() == day.label.getDate()
           );
         readout.Cardio =
           (!readout.Cardio && []) ||
           readout.Cardio.filter(
-            exo => moment(exo.CreationDate).year() == day.label.getFullYear() && moment(exo.CreationDate).month() == day.label.getMonth()  && moment(exo.CreationDate).date() == day.label.getDate()
+            exo =>
+              moment(exo.CreationDate).year() == day.label.getFullYear() &&
+              moment(exo.CreationDate).month() == day.label.getMonth() &&
+              moment(exo.CreationDate).date() == day.label.getDate()
           );
 
-          count += readout.Bodybuilding.length>0 || readout.Cardio.length>0 ?  1 : 0;
+        count +=
+          readout.Bodybuilding.length > 0 || readout.Cardio.length > 0 ? 1 : 0;
       });
       counts.push(count);
 
-      this.translate.get("d"+(day as any).label.getDay()).subscribe((translated: string) => {
-        this.workoutChart.weeksData.labels.push(translated);
-        this.workoutChart.weeksData.datasets[0].data.push(count);
-      });
+      this.translate
+        .get("d" + (day as any).label.getDay())
+        .subscribe((translated: string) => {
+          this.workoutChart.weeksData.labels.push(translated);
+          this.workoutChart.weeksData.datasets[0].data.push(count);
+        });
     });
 
-    this.workoutChartDays.chart.update()
+    this.workoutChartDays.chart.update();
     return counts;
-
   }
   getWorkoutsPerWeek(readouts) {
     this.workoutChart.monthsData.labels = [];
@@ -517,36 +563,19 @@ export class HeartPage {
     ].forEach(day => {
       let count = 0;
 
-      this.getWorkoutsPerDayOverAWeek(readouts, day.endDate).forEach(_count => count += _count);
+      this.getWorkoutsPerDayOverAWeek(readouts, day.endDate).forEach(
+        _count => (count += _count)
+      );
 
       this.translate.get((day as any).label).subscribe((translated: string) => {
         this.workoutChart.monthsData.labels.push(translated);
         this.workoutChart.monthsData.datasets[0].data.push(count);
       });
       counts.push(count);
-
     });
 
     return counts;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   //---------------------------------------------
   getWorkoutsPerDayOverAWeek(readouts, endDate: Date) {
@@ -580,30 +609,27 @@ export class HeartPage {
         readout.Bodybuilding =
           (!readout.Bodybuilding && []) ||
           readout.Bodybuilding.filter(
-            exo => moment(exo.CreationDate).year() == day.label.getFullYear() && moment(exo.CreationDate).month() == day.label.getMonth()  && moment(exo.CreationDate).date() == day.label.getDate()
+            exo =>
+              moment(exo.CreationDate).year() == day.label.getFullYear() &&
+              moment(exo.CreationDate).month() == day.label.getMonth() &&
+              moment(exo.CreationDate).date() == day.label.getDate()
           );
         readout.Cardio =
           (!readout.Cardio && []) ||
           readout.Cardio.filter(
-            exo => moment(exo.CreationDate).year() == day.label.getFullYear() && moment(exo.CreationDate).month() == day.label.getMonth()  && moment(exo.CreationDate).date() == day.label.getDate()
+            exo =>
+              moment(exo.CreationDate).year() == day.label.getFullYear() &&
+              moment(exo.CreationDate).month() == day.label.getMonth() &&
+              moment(exo.CreationDate).date() == day.label.getDate()
           );
 
-          count += readout.Bodybuilding.length>0 || readout.Cardio.length>0 ?  1 : 0;
+        count +=
+          readout.Bodybuilding.length > 0 || readout.Cardio.length > 0 ? 1 : 0;
       });
       counts.push(count);
     });
     return counts;
-
   }
-
-
-
-
-
-
-
-
-
 
   //-------------------------------------
 }
