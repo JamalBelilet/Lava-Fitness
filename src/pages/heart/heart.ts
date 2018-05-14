@@ -293,7 +293,7 @@ export class HeartPage {
       .then(data => {
         let _distance = 0;
         (data as any).forEach(cDistance => {
-          _distance += cDistance;
+          _distance += cDistance.value;
         });
         this.myDistance = Math.floor(_distance);
       })
@@ -305,7 +305,7 @@ export class HeartPage {
       .then(data => {
         let _distance = 0;
         (data as any).forEach(cDistance => {
-          _distance += cDistance;
+          _distance += cDistance.value;
         });
         this.myWeekDistance = Math.floor(_distance);
       })
@@ -317,7 +317,7 @@ export class HeartPage {
       .then(data => {
         let _steps = 0;
         (data as any).forEach(cSteps => {
-          _steps += cSteps;
+          _steps += cSteps.value;
         });
         this.mySteps = Math.floor(_steps);
       })
@@ -329,7 +329,7 @@ export class HeartPage {
       .then(data => {
         let _steps = 0;
         (data as any).forEach(cSteps => {
-          _steps += cSteps;
+          _steps += cSteps.value;
         });
         this.myWeekSteps = Math.floor(_steps);
       })
@@ -341,7 +341,7 @@ export class HeartPage {
       .then(data => {
         let _steps = 0;
         (data as any).forEach(cSteps => {
-          _steps += cSteps;
+          _steps += cSteps.value;
         });
         this.myMonthSteps = Math.floor(_steps);
       })
@@ -383,7 +383,7 @@ export class HeartPage {
         .then(data => {
           let _steps = 0;
           (data as any).forEach(cSteps => {
-            _steps += cSteps;
+            _steps += cSteps.value;
           });
           this.translate
             .get((week as any).label)
@@ -456,7 +456,7 @@ export class HeartPage {
         .then(data => {
           let _steps = 0;
           (data as any).forEach(cSteps => {
-            _steps += cSteps;
+            _steps += cSteps.value;
           });
           this.translate
             .get("d" + (day as any).label.getDay())
