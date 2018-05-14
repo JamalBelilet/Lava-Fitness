@@ -87,7 +87,7 @@ export class LavaHealthProvider {
   getSteps(
     startDate: Date = new Date(new Date().setHours(0, 0, 0, 0)),
     endDate: Date = new Date(),
-    bucket: string = "week"
+    bucket: string = "day"
   ) {
     return new Promise((resolve, reject) => {
       this.health
